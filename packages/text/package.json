@@ -1,6 +1,6 @@
 {
   "name": "@quran/text",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "files": [
+    "fonts/**/*",
+    "text/*.json"
+  ],
+  "devDependencies": {
     "mammoth": "^1.7.1"
   }
 }
