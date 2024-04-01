@@ -7,12 +7,15 @@
     ],
     "module": "esnext",
     "moduleResolution": "Bundler",
-    "paths": {},
+    "paths": {
+      "@ghoran/text": ["./packages/text"]
+    },
     "resolveJsonModule": true,
     "types": [
       "node",
       "vite/client",
-      "vitest/importMeta"
+      "vitest/importMeta",
+      "vitest/globals"
     ],
     "strict": true,
     "strictNullChecks": true,
