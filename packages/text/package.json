@@ -1,17 +1,21 @@
 {
   "name": "@ghoran/text",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "private": false,
+  "description": "Quran text",
+  "main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
   "scripts": {
-    "extract-text": "esno ./scripts/extract-text"
+    "extract-text": "esno ./scripts/extract-text",
+    "build": "unbuild"
   },
   "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "files": [
+    "dist/**/*",
     "fonts/**/*",
     "text/*.json"
   ],
