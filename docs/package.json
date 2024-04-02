@@ -8,6 +8,7 @@
     "docs:preview": "vitepress preview"
   },
   "devDependencies": {
+    "postcss-rtlcss": "^5.1.0",
     "vitepress": "^1.0.2",
     "vue": "^3.4.21"
   }

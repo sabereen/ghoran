@@ -3,23 +3,22 @@
 layout: home
 
 hero:
-  name: "Ghoran"
-  text: "Ghoran resources for developers"
-  tagline: My great project tagline
+  name: 'قرآن (Ghoran)'
+  text: 'قرآن برای برنامه‌نویسان'
+  tagline: منابع قرآن با هدف بهبود تجربه‌ی برنامه‌نویسی (DX) برای کسانی که می‌خواهند وب‌اپلیکیشن‌های قرآنی تولید کنند.
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: شروع
+      link: /getting-start
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Github
+      link: https://github.com/sabereen/quran
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: تجربه
+    details: این پروژه توسط برخی برنامه‌نویسانی که زیراپلیکیشن قرآن نسیم رضوان (https://app.nasimrezvan.com/quran) تولید شده است.
+  - title: پرفرمنس
+    details: یکی از اصول اساسی در نظر گرفته شده در این پروژه حفظ پرفرمنس و سرعت بالای برنامه است.
+  - title: تمرکز بر کلاینت
+    details: این پروژه به جای سرور، روی کلاینت تمرکز می‌کند و این طور در نظر گرفته است که قرار است برنامه‌نویس یک اپ سمت کلاینت قرآنی تولید کند.
 ---
-

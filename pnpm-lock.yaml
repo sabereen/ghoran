@@ -29,6 +29,9 @@ importers:
 
   docs:
     devDependencies:
+      postcss-rtlcss:
+        specifier: ^5.1.0
+        version: 5.1.0(postcss@8.4.38)
       vitepress:
         specifier: ^1.0.2
         version: 1.0.2(@algolia/client-search@4.23.2)(@types/node@20.12.2)(postcss@8.4.38)(search-insights@2.13.0)(typescript@5.4.3)
@@ -2742,6 +2745,16 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
+  /postcss-rtlcss@5.1.0(postcss@8.4.38):
+    resolution: {integrity: sha512-FjZ8HPwr6dWR1Jzzz+TZqkEhkfLiR7sKgsHTDqrYGd51KtZdaDpdJ5aqHmqWoXZsSyJgBIkwZPt5JoEPvkX3Nw==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      postcss: ^8.4.21
+    dependencies:
+      postcss: 8.4.38
+      rtlcss: 4.1.1
+    dev: true
+
   /postcss-selector-parser@6.0.16:
     resolution: {integrity: sha512-A0RVJrX+IUkVZbW3ClroRWurercFhieevHB38sr2+l9eUClMqome3LmEmnhlNy+5Mr2EYN6B2Kaw9wYdd+VHiw==}
     engines: {node: '>=4'}
@@ -2901,6 +2914,17 @@ packages:
       fsevents: 2.3.3
     dev: true
 
+  /rtlcss@4.1.1:
+    resolution: {integrity: sha512-/oVHgBtnPNcggP2aVXQjSy6N1mMAfHg4GSag0QtZBlD5bdDgAHwr4pydqJGd+SUCu9260+Pjqbjwtvu7EMH1KQ==}
+    engines: {node: '>=12.0.0'}
+    hasBin: true
+    dependencies:
+      escalade: 3.1.2
+      picocolors: 1.0.0
+      postcss: 8.4.38
+      strip-json-comments: 3.1.1
+    dev: true
+
   /run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
     dependencies:
@@ -2991,6 +3015,11 @@ packages:
   /strip-final-newline@3.0.0:
     resolution: {integrity: sha512-dOESqjYr96iWYylGObzd39EuNTa5VJxyvVAEm5Jnh7KGo75V43Hk1odPQkNDyXNmUR6k+gEiDVXnjB8HJ3crXw==}
     engines: {node: '>=12'}
+    dev: true
+
+  /strip-json-comments@3.1.1:
+    resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
+    engines: {node: '>=8'}
     dev: true
 
   /strip-literal@2.1.0:

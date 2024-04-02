@@ -42,8 +42,7 @@
  * - `danger`: Used to show error, or dangerous message to the users. Used
  *   in custom container, badges, etc.
  * -------------------------------------------------------------------------- */
-
- :root {
+:root {
   --vp-c-default-1: var(--vp-c-gray-1);
   --vp-c-default-2: var(--vp-c-gray-2);
   --vp-c-default-3: var(--vp-c-gray-3);
@@ -70,11 +69,18 @@
   --vp-c-danger-soft: var(--vp-c-red-soft);
 }
 
+@font-face {
+  font-family: estedad;
+  src: url(./estedad-v7.3.woff2);
+  font-weight: 100 900;
+}
+
 /**
  * Component: Button
  * -------------------------------------------------------------------------- */
 
 :root {
+  --vp-font-family-base: estedad;
   --vp-button-brand-border: transparent;
   --vp-button-brand-text: var(--vp-c-white);
   --vp-button-brand-bg: var(--vp-c-brand-3);
@@ -137,3 +143,8 @@
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
 
+/* @media (min-width: 960px) {
+  .VPSidebar {
+    transform: none !important;
+  }
+} */

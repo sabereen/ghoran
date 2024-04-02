@@ -2,27 +2,30 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Ghoran",
-  description: "Ghoran resources for developers",
+  title: 'قرآن - Ghoran',
+  description: 'قرآن برای برنامه‌نویسان',
+  dir: 'rtl',
+  lang: 'fa-IR',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'خانه', link: '/' },
+      // { text: 'Examples', link: '/markdown-examples' },
     ],
 
     sidebar: [
       {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
+        text: 'فونت و رسم الخط',
+        link: '/fonts',
+      },
+      {
+        text: 'منابع',
+        items: [{ text: 'رسم الخط و فونت', link: '/fonts' }],
+      },
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
-  }
+      { icon: 'github', link: 'https://github.com/sabereen/quran' },
+    ],
+  },
 })
