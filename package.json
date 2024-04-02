@@ -6,6 +6,7 @@
   "private": false,
   "scripts": {
     "build": "pnpm -r --filter=./packages/* run build",
+    "format": "prettier --write .",
     "test": "vitest"
   },
   "keywords": [],
