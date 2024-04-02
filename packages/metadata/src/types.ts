@@ -3,21 +3,21 @@ export type SurahAyah = [surahNumber: number, ayahNumber: number]
 
 /** مشخصات یک سوره در قالب یک آرایه‌ی چندتایی */
 export type SurahTuple = [
-	/** ایندکس اوّلین آیه */
+  /** ایندکس اوّلین آیه */
   start: number,
-	/**‌ تعداد آیات سوره */
+  /**‌ تعداد آیات سوره */
   ayaCount: number,
-	/** ترتیب نزول */
+  /** ترتیب نزول */
   order: number,
-	/** تعداد رکوع سوره */
+  /** تعداد رکوع سوره */
   rukuCount: number,
-	/** نام عربی سوره */
+  /** نام عربی سوره */
   name: string,
-	/** نام سوره به لاتین */
+  /** نام سوره به لاتین */
   enName: string,
-	/** ترجمه انگلیسی نام سوره */
+  /** ترجمه انگلیسی نام سوره */
   enMeaning: string,
-	/** آیا سوره مدنی است؟ */
+  /** آیا سوره مدنی است؟ */
   isMedinan: boolean,
 ]
 
@@ -28,5 +28,5 @@ export type SajdahTuple = [
   /** شماره آیه */
   ayahNumber: number,
   /** آیا سجده واجب است؟ */
-  isObligatory: boolean
+  isObligatory: boolean,
 ]

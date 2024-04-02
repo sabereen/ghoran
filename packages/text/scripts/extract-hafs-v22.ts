@@ -10,7 +10,9 @@ const suraNameRegex = /سُورَةُ (.*?)\n\n/gm
 const removableBasmalahRegex = /بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ\n\n/gm
 
 export async function extractHafsV22() {
-  const content = readFileSync(resolve(dirname, '../raw-text/uthmanic-hafs-v22.docx'))
+  const content = readFileSync(
+    resolve(dirname, '../raw-text/uthmanic-hafs-v22.docx'),
+  )
 
   const result = await extractRawText({
     buffer: content,
@@ -21,16 +23,18 @@ export async function extractHafsV22() {
   assert.equal([...text.matchAll(suraNameRegex)].length, 114)
   // assert.equal([...text.matchAll(removableBasmalahRegex)].length, 114 - 2)
 
-  text = text
-    .replace(removableBasmalahRegex, '')
-    .replace(suraNameRegex, '')
+  text = text.replace(removableBasmalahRegex, '').replace(suraNameRegex, '')
 
-  const ayat = text.trim()
+  const ayat = text
+    .trim()
     .split(/[٠-٩]+/g)
-    .map(text => text.trim())
+    .map((text) => text.trim())
     .filter(Boolean)
 
   assert.equal(ayat.length, 6236)
 
-  writeFileSync(resolve(dirname, '../text/quran-text-hafs-v22.json'), JSON.stringify(ayat, null, 2))
+  writeFileSync(
+    resolve(dirname, '../text/quran-text-hafs-v22.json'),
+    JSON.stringify(ayat, null, 2),
+  )
 }

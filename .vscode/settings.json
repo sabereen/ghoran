@@ -1,5 +1,7 @@
 {
-    "editor.tabSize": 2,
-    "typescript.format.semicolons": "remove",
-    "typescript.preferences.quoteStyle": "single"
+  "editor.tabSize": 2,
+  "typescript.format.semicolons": "remove",
+  "typescript.preferences.quoteStyle": "single",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
 }

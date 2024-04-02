@@ -16,5 +16,5 @@ function importText(type: QuranTextType): Promise<{ default: string[] }> {
 }
 
 export function loadText(type: QuranTextType) {
-  return importText(type).then(module => module.default)
+  return importText(type).then((module) => module.default)
 }

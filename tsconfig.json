@@ -2,9 +2,7 @@
   "compilerOptions": {
     "target": "es2018",
     "jsx": "preserve",
-    "lib": [
-      "esnext"
-    ],
+    "lib": ["esnext"],
     "module": "esnext",
     "moduleResolution": "Bundler",
     "paths": {
@@ -12,20 +10,12 @@
       "@ghoran/metadata": ["./packages/metadata"]
     },
     "resolveJsonModule": true,
-    "types": [
-      "node",
-      "vite/client",
-      "vitest/importMeta",
-      "vitest/globals"
-    ],
+    "types": ["node", "vite/client", "vitest/importMeta", "vitest/globals"],
     "strict": true,
     "strictNullChecks": true,
     "esModuleInterop": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true
   },
-  "exclude": [
-    "**/dist/**",
-    "**/node_modules/**"
-  ]
+  "exclude": ["**/dist/**", "**/node_modules/**"]
 }
