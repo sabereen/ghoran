@@ -27,8 +27,6 @@ importers:
         specifier: ^1.4.0
         version: 1.4.0(@types/node@20.12.2)
 
-  packages/metadata: {}
-
   packages/docs:
     devDependencies:
       vitepress:
@@ -37,6 +35,8 @@ importers:
       vue:
         specifier: ^3.4.21
         version: 3.4.21(typescript@5.4.3)
+
+  packages/metadata: {}
 
   packages/text:
     devDependencies:
@@ -2782,6 +2782,16 @@ packages:
       nanoid: 3.3.7
       picocolors: 1.0.0
       source-map-js: 1.2.0
+    dev: true
+
+  /preact@10.20.1:
+    resolution: {integrity: sha512-JIFjgFg9B2qnOoGiYMVBtrcFxHqn+dNXbq76bVmcaHYJFYR4lW67AOcXgAYQQTDYXDOg/kTZrKPNCdRgJ2UJmw==}
+    dev: true
+
+  /prettier@3.2.5:
+    resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /pretty-bytes@6.1.1:
