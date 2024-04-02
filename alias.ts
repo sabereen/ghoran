@@ -6,4 +6,5 @@ function r(p: string) {
 
 export const alias: Record<string, string> = {
   '@ghoran/text': r('./packages/text/src/'),
+  '@ghoran/metadata': r('./packages/metadata/src/'),
 }

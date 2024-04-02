@@ -8,7 +8,8 @@
     "module": "esnext",
     "moduleResolution": "Bundler",
     "paths": {
-      "@ghoran/text": ["./packages/text"]
+      "@ghoran/text": ["./packages/text"],
+      "@ghoran/metadata": ["./packages/metadata"]
     },
     "resolveJsonModule": true,
     "types": [
