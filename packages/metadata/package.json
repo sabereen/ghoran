@@ -1,0 +1,19 @@
+{
+  "name": "@ghoran/metadata",
+  "version": "0.0.2",
+  "description": "Quran metadata",
+  "main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "unbuild"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "files": [
+    "dist/**/*"
+  ]
+}

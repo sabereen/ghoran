@@ -14,6 +14,9 @@ importers:
       esno:
         specifier: ^4.7.0
         version: 4.7.0
+      prettier:
+        specifier: 3.2.5
+        version: 3.2.5
       unbuild:
         specifier: ^2.0.0
         version: 2.0.0(typescript@5.4.3)
@@ -23,6 +26,8 @@ importers:
       vitest:
         specifier: ^1.4.0
         version: 1.4.0(@types/node@20.12.2)
+
+  packages/metadata: {}
 
   packages/docs:
     devDependencies:
@@ -2777,10 +2782,6 @@ packages:
       nanoid: 3.3.7
       picocolors: 1.0.0
       source-map-js: 1.2.0
-    dev: true
-
-  /preact@10.20.1:
-    resolution: {integrity: sha512-JIFjgFg9B2qnOoGiYMVBtrcFxHqn+dNXbq76bVmcaHYJFYR4lW67AOcXgAYQQTDYXDOg/kTZrKPNCdRgJ2UJmw==}
     dev: true
 
   /pretty-bytes@6.1.1:
