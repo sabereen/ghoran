@@ -20,10 +20,8 @@
     "text/*.json"
   ],
   "devDependencies": {
-    "mammoth": "^1.7.1"
-  },
-  "dependencies": {
     "@types/wawoff2": "^1.0.2",
+    "mammoth": "^1.7.1",
     "wawoff2": "^2.0.1"
   }
 }
