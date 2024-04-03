@@ -49,6 +49,10 @@ export default defineConfig({
         ],
       },
       {
+        text: 'نمونه کد',
+        items: [{ text: 'استفاده از فونت', link: '/demo/font/' }],
+      },
+      {
         text: 'مجوزها',
         link: '/appreciation',
       },

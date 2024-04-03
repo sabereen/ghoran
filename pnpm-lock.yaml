@@ -41,6 +41,9 @@ importers:
       '@ghoran/metadata':
         specifier: workspace:*
         version: link:../packages/metadata
+      '@ghoran/text':
+        specifier: workspace:*
+        version: link:../packages/text
       postcss-rtlcss:
         specifier: ^5.1.0
         version: 5.1.0(postcss@8.4.38)
