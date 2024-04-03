@@ -5,6 +5,13 @@
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
+    },
+    "./fonts/": "./dist/fonts/"
+  },
   "sideEffects": false,
   "scripts": {
     "extract-text": "esno ./scripts/extract-text",

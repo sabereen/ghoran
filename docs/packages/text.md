@@ -48,7 +48,7 @@ const quranText = await loadText('hafs')
 نمونه تعریف و استفاده از این فونت‌ها:
 
 ```js
-import '@ghoran/text/dist/fonts/uthmanic-hafs-v13/style.css'
+import '@ghoran/text/fonts/uthmanic-hafs-v13/style.css'
 ```
 
 ```html

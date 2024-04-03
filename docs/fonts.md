@@ -17,7 +17,7 @@
 
 ```js
 import { loadText } from '@ghoran/text'
-import '@ghoran/text/dist/fonts/uthmanic-hafs/style.css'
+import '@ghoran/text/fonts/uthmanic-hafs/style.css'
 
 const quranText = await loadText('hafs')
 ```
@@ -26,7 +26,7 @@ const quranText = await loadText('hafs')
 
 ```js
 import { loadText } from '@ghoran/text'
-import '@ghoran/text/dist/fonts/uthmanic-hafs-v13/style.css'
+import '@ghoran/text/fonts/uthmanic-hafs-v13/style.css'
 
 const quranText = await loadText('hafs-v13')
 ```
