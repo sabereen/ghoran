@@ -24,7 +24,7 @@
   "license": "ISC",
   "files": [
     "dist/**/*",
-    "text/*.json"
+    "json/*.json"
   ],
   "devDependencies": {
     "@types/wawoff2": "^1.0.2",

@@ -34,7 +34,7 @@ export async function extractHafsV13() {
   assert.equal(ayat.length, 6236)
 
   writeFileSync(
-    resolve(dirname, '../text/quran-text-hafs-v13.json'),
+    resolve(dirname, '../json/quran-text-hafs-v13.json'),
     JSON.stringify(ayat, null, 2),
   )
 }

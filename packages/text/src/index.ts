@@ -3,15 +3,15 @@ import { QuranTextType } from './types'
 function importText(type: QuranTextType): Promise<{ default: string[] }> {
   switch (type) {
     case 'clean':
-      return import('../text/quran-text-clean.json')
+      return import('../json/quran-text-clean.json')
     case 'simple-min':
-      return import('../text/quran-text-simple-min.json')
+      return import('../json/quran-text-simple-min.json')
     case 'imla':
-      return import('../text/quran-text-emla.json')
+      return import('../json/quran-text-emla.json')
     case 'hafs':
-      return import('../text/quran-text-hafs-v22.json')
+      return import('../json/quran-text-hafs-v22.json')
     case 'hafs-v13':
-      return import('../text/quran-text-hafs-v13.json')
+      return import('../json/quran-text-hafs-v13.json')
   }
 }
 
