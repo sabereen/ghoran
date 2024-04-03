@@ -12,7 +12,7 @@ hero:
       link: /getting-start
     - theme: alt
       text: Github
-      link: https://github.com/sabereen/quran
+      link: https://github.com/sabereen/ghoran
 
 features:
   - title: تجربه

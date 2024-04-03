@@ -25,7 +25,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/sabereen/quran' },
+      { icon: 'github', link: 'https://github.com/sabereen/ghoran' },
     ],
   },
 })
