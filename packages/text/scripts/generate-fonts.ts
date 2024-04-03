@@ -22,7 +22,7 @@ await copy(r('../fonts'), fontsDirectoryDist, { overwrite: true })
 // #endregion
 
 // #region convert ttf fonts to woff2
-await convertToWoff2('uthmanic-hafs-v22/uthmanic-hafs-v22.ttf')
+await convertToWoff2('uthmanic-hafs/uthmanic-hafs-v22.ttf')
 await convertToWoff2('uthmanic-hafs-v13/uthmanic-hafs-v13.ttf')
 await convertToWoff2('uthmanic-hafs-v13/uthmanic-hafs-v13-bold.ttf')
 // #endregion

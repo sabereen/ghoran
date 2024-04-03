@@ -1,3 +1,8 @@
+/**
+ * @packageDocumentation
+ * این اسکریپت فایل‌های ورد ارائه شده توسط مرکز ملک فهد را می‌خواند
+ * و فایل‌های جیسون برای استفاده در کتابخانه تولید می‌کند.
+ */
 import { extractRawText } from 'mammoth'
 import { writeFileSync, readFileSync } from 'node:fs'
 import assert from 'node:assert'
