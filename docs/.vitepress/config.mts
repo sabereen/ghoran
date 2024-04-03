@@ -35,6 +35,15 @@ export default defineConfig({
         items: [{ text: 'رسم الخط و فونت', link: '/fonts' }],
       },
       {
+        text: 'کتابخانه‌ها',
+        items: [
+          {
+            text: 'متن و فونت قرآن (text)',
+            link: '/packages/text',
+          },
+        ],
+      },
+      {
         text: 'قدردانی',
         link: '/appreciation',
       },
