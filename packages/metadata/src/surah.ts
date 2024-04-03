@@ -1,7 +1,7 @@
 import { SurahTuple } from './types'
 
 /** لیست سوره‌ها */
-export const suraList: SurahTuple[] = [
+export const surahList: SurahTuple[] = [
   [0, 7, 5, 1, 'الفاتحة', 'Al-Faatiha', 'The Opening', false],
   [7, 286, 87, 40, 'البقرة', 'Al-Baqara', 'The Cow', true],
   [293, 200, 89, 20, 'آل عمران', 'Aal-i-Imraan', 'The Family of Imraan', true],
