@@ -23,7 +23,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'خانه', link: '/' },
-      { text: 'قدردانی', link: '/appreciation' },
+      { text: 'مجوزها', link: '/appreciation' },
     ],
 
     sidebar: [
@@ -49,7 +49,7 @@ export default defineConfig({
         ],
       },
       {
-        text: 'قدردانی',
+        text: 'مجوزها',
         link: '/appreciation',
       },
     ],
