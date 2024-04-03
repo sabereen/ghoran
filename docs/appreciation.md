@@ -10,23 +10,24 @@
 
 استفاده از این متن‌ها در هر سایت و اپلیکیشنی مجاز است، به شرطی که در آن محصول صراحتاً ذکر شود که متن قرآن از سایت تنزیل تهیه شده است (به همراه لینک به [tanzil.net](https://tanzil.net)).
 
-متن کامل مجوّز این فونت از [سایت اصلی](https://tanzil.net/download/):
+::: details متن کامل مجوّز این فونت از [سایت اصلی](https://tanzil.net/download/)
 
 <div dir="ltr">
 
 > Permission is granted to copy and distribute verbatim copies of the Quran text provided here, but changing the text is not allowed. The text can be used in any website or application, provided that its source (Tanzil Project) is clearly indicated, and a link is made to tanzil.net to enable users to keep track of changes.
 
 </div>
+:::
 
 ## مرکز ملک فهد ([لینک](https://fonts.qurancomplex.gov.sa/))
 
 مرکز ملک فهد عربستان فونتی تخصصی با رعایت کامل قواعد تجویدی «حفص از عاصم» با رسم الخط عثمان طه به همراه متن دقیق قرآن مطابق آن علائم منتشر کرده است. ما برای فونت عثمان طه (حفص) و متن قرآن که منطبق بر این فونت است از کار آن استفاده کرده ایم.
 
-### مجوز متن و فونت عثمان طه
+### مجوز متن و فونت عثمان طه (حفص)
 
 به صورت خلاصه استفاده از این متن و فونت در پروژه‌ها مجاز است و هیچ اشکالی ندارد، و فقط کسی حق ندارد خود این فونت را تغییر بدهد یا به دیگران بفروشد.
 
-متن کامل مجوّز این فونت از [سایت اصلی](https://fonts.qurancomplex.gov.sa/wp02/en/%d8%ad%d9%81%d8%b5/):
+::: details متن کامل مجوّز این فونت از [سایت اصلی](https://fonts.qurancomplex.gov.sa/wp02/en/%d8%ad%d9%81%d8%b5/)
 
 <div dir="ltr">
 
@@ -39,3 +40,4 @@
 > The Complex reserves the full right to own the aforementioned font, and to reproduce its letters and components. No other individual or party has the right to reprogram or modify its structures or any part of its components in any way and for any purpose, or sell it for a fee, whatever the reason.
 
 </div>
+:::
