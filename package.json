@@ -16,8 +16,10 @@
   "license": "ISC",
   "packageManager": "pnpm@8.15.6",
   "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
     "@types/node": "^20.12.2",
     "esno": "^4.7.0",
+    "fs-extra": "^11.2.0",
     "pnpm": "^8.15.6",
     "prettier": "3.2.5",
     "unbuild": "^2.0.0",

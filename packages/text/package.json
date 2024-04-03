@@ -8,6 +8,7 @@
   "sideEffects": false,
   "scripts": {
     "extract-text": "esno ./scripts/extract-text",
+    "generate-fonts": "esno ./scripts/generate-fonts",
     "build": "unbuild"
   },
   "type": "module",
@@ -16,10 +17,13 @@
   "license": "ISC",
   "files": [
     "dist/**/*",
-    "fonts/**/*",
     "text/*.json"
   ],
   "devDependencies": {
     "mammoth": "^1.7.1"
+  },
+  "dependencies": {
+    "@types/wawoff2": "^1.0.2",
+    "wawoff2": "^2.0.1"
   }
 }
