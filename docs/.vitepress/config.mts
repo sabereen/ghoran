@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { alias } from '../../alias'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -27,8 +28,8 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'فونت و رسم الخط',
-        link: '/fonts',
+        text: 'مفاهیم پایه',
+        items: [{ text: 'اندیس آیه', link: '/concepts/ayah-index' }],
       },
       {
         text: 'منابع',
@@ -41,6 +42,10 @@ export default defineConfig({
             text: 'متن و فونت قرآن (text)',
             link: '/packages/text',
           },
+          {
+            text: 'متادیتای قرآن (metadata)',
+            link: '/packages/metadata',
+          },
         ],
       },
       {
@@ -52,5 +57,10 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/sabereen/ghoran' },
     ],
+  },
+  vite: {
+    resolve: {
+      alias,
+    },
   },
 })

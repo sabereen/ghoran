@@ -1,5 +1,6 @@
 import { SajdahTuple } from './types'
 
+// #region sajdahListBySurahNumber
 /** لیست آیات سجده دار */
 export const sajdahListBySurahNumber: SajdahTuple[] = [
   [7, 206, false],
@@ -18,8 +19,9 @@ export const sajdahListBySurahNumber: SajdahTuple[] = [
   [84, 21, false],
   [96, 19, true],
 ]
+// #endregion sajdahListBySurahNumber
 
-/** نگاشتی از ایندکس آیات سجده دار به اینکه آیا سجده واجب است یا نه */
+/** نگاشتی از اندیس آیات سجده دار به اینکه آیا سجده واجب است یا نه */
 export const sajdahMap = {
   '1159': false,
   '1721': false,

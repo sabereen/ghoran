@@ -3,7 +3,7 @@ export type SurahAyah = [surahNumber: number, ayahNumber: number]
 
 /** مشخصات یک سوره در قالب یک آرایه‌ی چندتایی */
 export type SurahTuple = [
-  /** ایندکس اوّلین آیه */
+  /** اندیس اوّلین آیه */
   start: number,
   /**‌ تعداد آیات سوره */
   ayaCount: number,
