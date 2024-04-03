@@ -22,7 +22,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'خانه', link: '/' },
-      // { text: 'Examples', link: '/markdown-examples' },
+      { text: 'قدردانی', link: '/appreciation' },
     ],
 
     sidebar: [
@@ -33,6 +33,10 @@ export default defineConfig({
       {
         text: 'منابع',
         items: [{ text: 'رسم الخط و فونت', link: '/fonts' }],
+      },
+      {
+        text: 'قدردانی',
+        link: '/appreciation',
       },
     ],
 
