@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'uthmanic-hafs';
+  src:
+    url('./uthmanic-hafs-v22.woff2') format('woff2'),
+    url('./uthmanic-hafs-v22.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'uthmanic-hafs-fallback';
+  src: local('Arial');
+  ascent-override: 117.19%;
+  descent-override: 58.59%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
+}
+
+.text-uthmanic-hafs {
+  font-family: 'uthmanic-hafs', 'uthmanic-hafs-fallback';
+}

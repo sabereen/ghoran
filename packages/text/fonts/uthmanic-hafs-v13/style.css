@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'uthmanic-hafs-v13';
+  font-weight: normal;
+  src:
+    url('./uthmanic-hafs-v13.ttf') format('truetype'),
+    url('./uthmanic-hafs-v13.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'uthmanic-hafs-v13';
+  font-weight: bold;
+  src:
+    url('./uthmanic-hafs-v13-bold.ttf') format('truetype'),
+    url('./uthmanic-hafs-v13-bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'uthmanic-hafs-v13-fallback';
+  font-weight: normal;
+  src: local('Arial');
+  ascent-override: 117.19%;
+  descent-override: 58.59%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
+}
+
+@font-face {
+  font-family: 'uthmanic-hafs-v13-fallback';
+  font-weight: bold;
+  src: local('Arial');
+  ascent-override: 118.41%;
+  descent-override: 58.59%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
+}
+
+.text-uthmanic-hafs-v13 {
+  font-family: 'uthmanic-hafs-v13', 'uthmanic-hafs-v13-fallback';
+}

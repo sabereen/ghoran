@@ -17,36 +17,18 @@
 
 ```js
 import { loadText } from '@ghoran/text'
+import '@ghoran/text/dist/fonts/uthmanic-hafs-v22/style.css'
 
 const quranText = await loadText('hafs')
-```
-
-```css
-@font-face {
-  font-family: quran-hafs;
-  src: url(@ghoran/text/fonts/uthmanic-hafs-v22/uthmanic-hafs-v22.ttf);
-}
 ```
 
 این فایل فونت فقط یک وزن دارد. البته نسخه‌های قدیمی‌تر آن وزن درشت نیز مستقلاً داشته است، که اگر این موضوع برایتان مهم است باید از نسخه ۱۳ این فونت استفاده کنید:
 
 ```js
 import { loadText } from '@ghoran/text'
+import '@ghoran/text/dist/fonts/uthmanic-hafs-v13/style.css'
 
 const quranText = await loadText('hafs-v13')
-```
-
-```css
-@font-face {
-  font-family: quran-hafs;
-  src: url(@ghoran/text/fonts/uthmanic-hafs-v13/uthmanic-hafs-v13.ttf);
-  font-weight: normal;
-}
-@font-face {
-  font-family: quran-hafs;
-  src: url(@ghoran/text/fonts/uthmanic-hafs-v13/uthmanic-hafs-v13-bold.ttf);
-  font-weight: bold;
-}
 ```
 
 ## رسم الاملاء
