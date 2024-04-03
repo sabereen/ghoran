@@ -5,7 +5,19 @@ export default defineConfig({
   title: 'قرآن - Ghoran',
   description: 'قرآن برای برنامه‌نویسان',
   dir: 'rtl',
-  lang: 'fa-IR',
+  lang: 'fa',
+  locales: {
+    root: {
+      label: 'فارسی',
+      lang: 'fa',
+      dir: 'rtl',
+    },
+    en: {
+      label: 'English',
+      lang: 'en',
+      dir: 'ltr',
+    },
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
