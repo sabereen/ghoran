@@ -143,6 +143,10 @@
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
 
+body {
+  overflow-y: scroll;
+}
+
 @media (min-width: 960px) {
   .VPSidebar {
     transform: none !important;
