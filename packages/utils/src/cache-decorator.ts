@@ -1,13 +1,14 @@
-export function simpleCache<T>(
-  originalMethod: () => T,
-  context: ClassGetterDecoratorContext,
-) {
+export function simpleCache() {
   const cache = new WeakMap<any, any>()
-  function replacementFunction(this: any) {
-    if (!cache.has(this)) {
-      cache.set(this, originalMethod.call(this))
+  return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
+    const originalMethod = descriptor.get
+    if (!originalMethod) throw new Error('this is getter decorator')
+
+    descriptor.get = function (this: any) {
+      if (!cache.has(this)) {
+        cache.set(this, originalMethod.call(this))
+      }
+      return cache.get(this)
     }
-    return cache.get(this)
   }
-  return replacementFunction
 }

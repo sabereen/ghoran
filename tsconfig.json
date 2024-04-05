@@ -17,6 +17,9 @@
     "strictNullChecks": true,
     "esModuleInterop": true,
     "skipDefaultLibCheck": true,
+    // esbuild does not support EcmaScript decorators yet
+    // so we use typescript experimentalDecorators temporary
+    "experimentalDecorators": true,
     "skipLibCheck": true
   },
   "exclude": ["**/dist/**", "**/node_modules/**"]
