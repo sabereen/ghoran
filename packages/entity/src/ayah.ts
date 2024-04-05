@@ -30,7 +30,7 @@ export class Ayah {
   /** آبجکت سوره‌ی مربوط به آیه */
   @simpleCache()
   get surah() {
-    return Surah.getByAyahIndex(this.index)!
+    return Surah.getByAyahIndex(this.index)
   }
 
   /** شماره سوره برای نمایش به کاربر */

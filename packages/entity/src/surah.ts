@@ -10,8 +10,7 @@ export class Surah {
     if (index < 0 || index >= 114) throw new Error('Surah index is not valid')
   }
 
-  static get(index: number): Surah | null {
-    if (index < 0 || index >= 114) return null
+  static get(index: number): Surah {
     let surah = cache.get(index)
     if (!surah) {
       surah = new Surah(index)
@@ -43,12 +42,14 @@ export class Surah {
   }
 
   /** آیه قبلی */
-  get prev() {
+  get prev(): Surah | null {
+    if (this.index <= 0) return null
     return Surah.get(this.index - 1)
   }
 
   /** آیه بعدی */
-  get next() {
+  get next(): Surah | null {
+    if (this.index >= 114 - 1) return null
     return Surah.get(this.index + 1)
   }
 
