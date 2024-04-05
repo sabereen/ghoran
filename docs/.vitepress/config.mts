@@ -44,6 +44,10 @@ export default defineConfig({
             link: '/packages/text',
           },
           {
+            text: 'موجودیت‌های داده‌ای قرآن (entity)',
+            link: '/packages/entity',
+          },
+          {
             text: 'متادیتای قرآن (metadata)',
             link: '/packages/metadata',
           },
