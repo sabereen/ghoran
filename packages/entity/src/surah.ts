@@ -116,6 +116,6 @@ export class Surah {
    * در سوره حمد آیه اول فقط بسم الله است
    */
   get hasBasmalah() {
-    return this.index !== 0 && this.index === 8
+    return this.index !== 0 && this.index !== 8
   }
 }
