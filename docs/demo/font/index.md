@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { defineAsyncComponent } from 'vue'
 import FontPreview from './FontPreview.vue'
 </script>
 
@@ -6,7 +7,9 @@ import FontPreview from './FontPreview.vue'
 
 در این صفحه نمونه‌ای از استفاده از فونت‌ها را می‌توانید مشاهده کنید.
 
-<FontPreview />
+<Suspense>
+  <FontPreview />
+</Suspense>
 
 ::: details کد مربوط به این قسمت
 
