@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@ghoran/metadata": "workspace:*",
+    "@ghoran/entity": "workspace:*",
     "@ghoran/text": "workspace:*",
     "postcss-rtlcss": "^5.1.0",
     "unocss": "0.59.0-beta.1",

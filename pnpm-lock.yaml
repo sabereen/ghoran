@@ -38,6 +38,9 @@ importers:
 
   docs:
     devDependencies:
+      '@ghoran/entity':
+        specifier: workspace:*
+        version: link:../packages/entity
       '@ghoran/metadata':
         specifier: workspace:*
         version: link:../packages/metadata

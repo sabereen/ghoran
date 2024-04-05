@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineAsyncComponent } from 'vue'
 import FontPreview from './FontPreview.vue'
 </script>
 

@@ -51,7 +51,10 @@ export default defineConfig({
       },
       {
         text: 'نمونه کد',
-        items: [{ text: 'استفاده از فونت', link: '/demo/font/' }],
+        items: [
+          { text: 'استفاده از فونت', link: '/demo/font/' },
+          { text: 'استفاده از سوره‌ها', link: '/demo/surah/' },
+        ],
       },
       {
         text: 'مجوزها',
