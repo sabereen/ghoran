@@ -1,14 +1,3 @@
-<script setup lang="ts">
-import { pageList } from '@ghoran/metadata'
-
-/** شماره صفحه مورد نظر */
-const page = 2
-/** اندیس اولین آیه صفحه مورد نظر */
-const pageFirstAyah = JSON.stringify(pageList[page])
-/** اندیس اولین آیه صفحه بعدی */
-const nextPageFirstAyah = JSON.stringify(pageList[2])
-</script>
-
 # کتابخانه متادیتای قرآن (metadata)
 
 هدف این پکیج ارائه داده‌هایی پیرامونی در مورد قرآن است.
@@ -34,12 +23,6 @@ import { surahList } from '@ghoran/metadata'
 console.log(surahList[1])
 ```
 
-خروجی:
-
-<pre dir="ltr">
-{{ bagharah }}
-</pre>
-
 مقدار `surahList` آرایه‌ای دو بعدی از مشخصات سوره است.
 مشخصات سوره در قالب یک آرایه‌ی چندتایی ارائه شده است که هر یک از اندیس‌های آن نشان‌دهنده‌ی چیز خاصی است.
 
@@ -56,8 +39,7 @@ console.log(surahList[1])
 
 <!-- TODO: add object style & remove following tip -->
 
-::: tip نکته
-شاید از خودتان بپرسید چرا مشخّصات سوره به جای آرایه آبجکت جاوااسکریپتی ساده نیست؟
+::: tip چرا مشخّصات سوره به جای آرایه، یک آبجکت جاوااسکریپتی ساده نیست؟
 
 هدف این بوده که حجم فایل و داده‌ها کاهش پیدا کند. چرا که مخصوصا در کلاینت وب هرچه حجم داده‌ها زیادتر باشد بارگذاری برنامه را کندتر می‌کند. به همین دلیل بهتر است با آرایه کار می‌کردیم به جای آبجکت.
 
@@ -76,9 +58,9 @@ import { pageList } from '@ghoran/metadata'
 /** شماره صفحه مورد نظر */
 const page = 2
 /** اندیس اولین آیه صفحه مورد نظر */
-const pageFirstAyah = JSON.stringify(pageList[page])
+const pageFirstAyah = JSON.stringify(pageList[page - 1])
 /** اندیس اولین آیه صفحه بعدی */
-const nextPageFirstAyah = JSON.stringify(pageList[2])
+const nextPageFirstAyah = JSON.stringify(pageList[page])
 /** لیست آیات صفحه مورد نظر */
 const ayatOfPage = quranText.slice(pageFirstAyah, nextPageFirstAyah)
 ```
@@ -119,9 +101,9 @@ const ayatOfPage = quranText.slice(pageFirstAyah, nextPageFirstAyah)
 1. شماره‌ی آیه در سوره
 2. آیا سجده واجب است؟
 
-این آرایه به این شکل است:
-
+::: details این آرایه به این شکل است
 <<< ../../packages/metadata/src/sajdah.ts#sajdahListBySurahNumber
+:::
 
 ### مشخصات سجده‌های قرآن در قالب آبجکت
 
