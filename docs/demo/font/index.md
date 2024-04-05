@@ -7,12 +7,12 @@ import FontPreview from './FontPreview.vue'
 
 در این صفحه نمونه‌ای از استفاده از فونت‌ها را می‌توانید مشاهده کنید.
 
-<Suspense>
-  <FontPreview />
-</Suspense>
-
 ::: details کد مربوط به این قسمت
 
 <<< ./FontPreview.vue
 
 :::
+
+<Suspense>
+  <FontPreview />
+</Suspense>

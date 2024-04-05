@@ -6,5 +6,7 @@ const ayat = await loadText('hafs')
 </script>
 
 <template>
-  <div class="text-uthmanic-hafs">{{ ayat[124] }}</div>
+  <div class="text-uthmanic-hafs text-3xl">
+    {{ ayat[8] }}
+  </div>
 </template>

@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import UnoCSS from 'unocss/vite'
 import { alias } from '../../alias'
 
 // https://vitepress.dev/reference/site-config
@@ -63,6 +64,7 @@ export default defineConfig({
     ],
   },
   vite: {
+    plugins: [UnoCSS({})],
     resolve: {
       alias,
     },
