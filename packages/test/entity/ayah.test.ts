@@ -14,5 +14,11 @@ describe('Ayah class', () => {
     expect(ayah.juzNumber).toBe(1)
     expect(ayah.sajdah).toBe(false)
     expect(ayah.obligatorySajdah).toBe(false)
+
+    expect(ayah.next?.surahNumber).toBe(2)
+    expect(ayah.next?.ayahNumber).toBe(2)
+
+    expect(ayah.prev?.surahNumber).toBe(1)
+    expect(ayah.prev?.surah.lastAyah).toBe(ayah.prev)
   })
 })

@@ -41,13 +41,13 @@ export class Surah {
     return this.index + 1
   }
 
-  /** آیه قبلی */
+  /** سوره قبلی */
   get prev(): Surah | null {
     if (this.index <= 0) return null
     return Surah.get(this.index - 1)
   }
 
-  /** آیه بعدی */
+  /** سوره بعدی */
   get next(): Surah | null {
     if (this.index >= 114 - 1) return null
     return Surah.get(this.index + 1)

@@ -27,6 +27,18 @@ export class Ayah {
     return Ayah.get(index)
   }
 
+  /** آیه‌ی قبلی */
+  get prev(): Ayah | null {
+    if (this.index <= 0) return null
+    return Ayah.get(this.index - 1)
+  }
+
+  /** آیه بعدی */
+  get next(): Ayah | null {
+    if (this.index >= 6236 - 1) return null
+    return Ayah.get(this.index + 1)
+  }
+
   /** آبجکت سوره‌ی مربوط به آیه */
   @simpleCache()
   get surah() {
