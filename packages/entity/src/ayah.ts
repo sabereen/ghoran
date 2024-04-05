@@ -1,25 +1,75 @@
-import { SurahTuple, surahList } from '@ghoran/metadata'
-import { searchBinaryForAyah } from '@ghoran/utils'
+import { juzList, pageList, sajdahMap, surahList } from '@ghoran/metadata'
+import { searchBinaryForAyah, simpleCache } from '@ghoran/utils'
+import { Surah } from './surah'
 
-function getIndexOfFirstAyah(surah: SurahTuple) {
-  return surah[0]
-}
-
+/**‌ آیه */
 export class Ayah {
-  private constructor(readonly index: number) {}
+  private constructor(readonly index: number) {
+    if (index < 0 || index >= 6236) throw new Error('Ayah index is not valid.')
+  }
 
   static get(index: number) {
     return new Ayah(index)
   }
 
-  static fromSurahNumber(surahNumber: number, ayahNumberInSurah: number) {
+  /** گرفتن آبجکت آیه بر اساس شماره سوره و شماره آیه در آن سوره */
+  static getBySurahNumber(surahNumber: number, ayahNumberInSurah: number) {
     const surah = surahList[surahNumber - 1]
     if (!surah) return null
     const index = surah[0] + ayahNumberInSurah
     return Ayah.get(index)
   }
 
-  surahIndex() {
-    return searchBinaryForAyah(surahList, this.index, getIndexOfFirstAyah)
+  /** آبجکت سوره‌ی مربوط به آیه */
+  @simpleCache()
+  get surah() {
+    return Surah.getByAyahIndex(this.index)!
+  }
+
+  /** شماره سوره برای نمایش به کاربر */
+  get surahNumber() {
+    return this.surah.index + 1
+  }
+
+  /** شماره آیه برای نمایش به کاربر */
+  get ayahNumber() {
+    return this.index - this.surah.firstAyahIndex + 1
+  }
+
+  /** اندیس جزء */
+  @simpleCache()
+  get juzIndex() {
+    return searchBinaryForAyah(juzList, this.index)
+  }
+
+  /** شماره جزء برای نمایش به کاربر */
+  get juzNumber() {
+    return this.juzIndex + 1
+  }
+
+  /** اندیس صفحه */
+  @simpleCache()
+  get pageIndex() {
+    return searchBinaryForAyah(pageList, this.index)
+  }
+
+  /** شماره صفحه برای نمایش به کاربر */
+  get pageNumber() {
+    return this.pageIndex + 1
+  }
+
+  /** آیا سجده دارد؟ */
+  get sajdah() {
+    return this.index in sajdahMap
+  }
+
+  /** آیا سجده واجب دارد */
+  get obligatorySajdah() {
+    return sajdahMap[this.index] === true
+  }
+
+  /** آیا این آیه اوّلین آیه‌ی سوره است؟ */
+  get isFirstOfSurah() {
+    return this.ayahNumber === 1
   }
 }

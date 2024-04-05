@@ -22,7 +22,7 @@ export const sajdahListBySurahNumber: SajdahTuple[] = [
 // #endregion sajdahListBySurahNumber
 
 /** نگاشتی از اندیس آیات سجده دار به اینکه آیا سجده واجب است یا نه */
-export const sajdahMap = {
+export const sajdahMap: Record<number, boolean> = {
   '1159': false,
   '1721': false,
   '1950': false,
