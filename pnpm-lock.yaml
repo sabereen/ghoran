@@ -77,6 +77,8 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1
 
+  packages/utils: {}
+
 packages:
 
   /@algolia/autocomplete-core@1.9.3(@algolia/client-search@4.23.2)(algoliasearch@4.23.2)(search-insights@2.13.0):

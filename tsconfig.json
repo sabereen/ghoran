@@ -8,7 +8,8 @@
     "paths": {
       "@ghoran/text": ["./packages/text"],
       "@ghoran/metadata": ["./packages/metadata"],
-      "@ghoran/entity": ["./packages/entity"]
+      "@ghoran/entity": ["./packages/entity"],
+      "@ghoran/utils": ["./packages/utils"]
     },
     "resolveJsonModule": true,
     "types": ["node", "vite/client", "vitest/importMeta", "vitest/globals"],

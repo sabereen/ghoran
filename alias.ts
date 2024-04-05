@@ -9,4 +9,5 @@ export const alias: Record<string, string> = {
   '@ghoran/text': r('./packages/text/src/'),
   '@ghoran/metadata': r('./packages/metadata/src/'),
   '@ghoran/entity': r('./packages/entity/src/'),
+  '@ghoran/utils': r('./packages/utils/src/'),
 }
