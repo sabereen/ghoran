@@ -1,6 +1,6 @@
 import { SurahTuple, surahList } from '@ghoran/metadata'
+import { searchBinaryForAyah } from '@ghoran/utils'
 import { Ayah } from '.'
-import { searchBinaryForAyah } from '../../utils/src'
 
 const cache = new Map<number, Surah>()
 
