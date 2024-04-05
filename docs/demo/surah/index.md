@@ -4,10 +4,8 @@ import SurahList from './SurahList.vue'
 
 # استفاده از اطلاعات سوره‌های قرآن
 
-::: details کد مربوط به این قسمت
+کد مربوط به این قسمت:
 
 <<< ./SurahList.vue
-
-:::
 
 <SurahList />

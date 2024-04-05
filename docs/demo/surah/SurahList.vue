@@ -16,7 +16,8 @@ for (let i = 0; i < 114; i++) {
       <div class="text-2xl font-bold">
         {{ surah.number }}.
         {{ surah.name }}
-        <span class="text-xs">{{ surah.isMedinan ? 'مدنی' : 'مکی' }}</span>
+        <span v-if="surah.isMedinan" class="text-xs">مدنی</span>
+        <span v-else class="text-xs">مکی</span>
       </div>
       تعداد آیات: {{ surah.ayahCount }} <br />
       جزء {{ surah.firstAyah.juzNumber }}، صفحه {{ surah.firstAyah.pageNumber }}

@@ -26,4 +26,16 @@ yarn add @ghoran/entity
 
 </div>
 
-// TODO: ادامه دارد
+## کلاس سوره (Surah)
+
+این کلاس برای کار با سوره‌ها استفاده می‌شود.
+
+[سند استفاده از کلاس Surah](/en/types/entity/src/classes/Surah)
+
+[نمونه کد استفاده از این کلاس](/demo/surah/)
+
+## کلاس آیه (Ayah)
+
+این کلاس برای کار با آیه‌ها استفاده می‌شود.
+
+[سند استفاده از کلاس Ayah](/en/types/entity/src/classes/Ayah)

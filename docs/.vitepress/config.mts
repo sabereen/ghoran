@@ -38,6 +38,10 @@ export default defineConfig({
 
     sidebar: [
       {
+        text: 'شروع',
+        link: '/getting-start',
+      },
+      {
         text: 'مفاهیم پایه',
         items: [{ text: 'اندیس آیه', link: '/concepts/ayah-index' }],
       },
