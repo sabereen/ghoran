@@ -68,6 +68,9 @@ importers:
       '@ghoran/text':
         specifier: workspace:*
         version: link:../text
+      '@ghoran/utils':
+        specifier: workspace:*
+        version: link:../utils
 
   packages/metadata: {}
 

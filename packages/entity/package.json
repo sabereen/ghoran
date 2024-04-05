@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "@ghoran/metadata": "workspace:*",
-    "@ghoran/text": "workspace:*"
+    "@ghoran/text": "workspace:*",
+    "@ghoran/utils": "workspace:*"
   }
 }

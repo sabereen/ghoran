@@ -5,4 +5,13 @@ export default defineBuildConfig({
 
   // Generates .d.ts declaration file
   declaration: true,
+  rollup: {
+    esbuild: {
+      tsconfigRaw: {
+        compilerOptions: {
+          experimentalDecorators: true,
+        },
+      },
+    },
+  },
 })
