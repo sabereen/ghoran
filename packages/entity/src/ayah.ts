@@ -2,6 +2,8 @@ import { juzList, pageList, sajdahMap, surahList } from '@ghoran/metadata'
 import { searchBinaryForAyah, simpleCache } from '@ghoran/utils'
 import { Surah } from './surah'
 
+const cache = new Map<number, Ayah>()
+
 /**‌ آیه */
 export class Ayah {
   private constructor(readonly index: number) {
@@ -9,7 +11,12 @@ export class Ayah {
   }
 
   static get(index: number) {
-    return new Ayah(index)
+    let ayah = cache.get(index)
+    if (!ayah) {
+      ayah = new Ayah(index)
+      cache.set(index, ayah)
+    }
+    return ayah
   }
 
   /** گرفتن آبجکت آیه بر اساس شماره سوره و شماره آیه در آن سوره */

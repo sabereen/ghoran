@@ -2,6 +2,8 @@ import { SurahTuple, surahList } from '@ghoran/metadata'
 import { Ayah } from '.'
 import { searchBinaryForAyah } from '../../utils/src'
 
+const cache = new Map<number, Surah>()
+
 /** سوره */
 export class Surah {
   private constructor(readonly index: number) {
@@ -10,7 +12,12 @@ export class Surah {
 
   static get(index: number): Surah | null {
     if (index < 0 || index >= 114) return null
-    return new Surah(index)
+    let surah = cache.get(index)
+    if (!surah) {
+      surah = new Surah(index)
+      cache.set(index, surah)
+    }
+    return surah
   }
 
   private static getIndexOfFirstAyah(surah: SurahTuple) {
