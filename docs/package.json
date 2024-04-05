@@ -3,15 +3,19 @@
   "version": "0.0.4",
   "description": "Quran site",
   "scripts": {
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
+    "docs:dev": "typedoc && vitepress dev",
+    "docs:build": "typedoc && vitepress build",
     "docs:preview": "vitepress preview"
   },
   "devDependencies": {
-    "@ghoran/metadata": "workspace:*",
     "@ghoran/entity": "workspace:*",
+    "@ghoran/metadata": "workspace:*",
     "@ghoran/text": "workspace:*",
+    "@terwer/typedoc-vitepress-theme": "1.0.0-next.0-terwer.1",
     "postcss-rtlcss": "^5.1.0",
+    "typedoc": "^0.25.12",
+    "typedoc-plugin-markdown": "4.0.0-next.55",
+    "typedoc-vitepress-theme": "1.0.0-next.10",
     "unocss": "0.59.0-beta.1",
     "vitepress": "^1.0.2",
     "vue": "^3.4.21"

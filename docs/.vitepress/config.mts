@@ -1,6 +1,15 @@
 import { defineConfig } from 'vitepress'
 import UnoCSS from 'unocss/vite'
+import assert from 'node:assert'
 import { alias } from '../../alias'
+import typedocMenu from '../en/types/typedoc-sidebar.json'
+
+typedocMenu.forEach((item) => {
+  item.text = `‎@ghoran/${item.text}`
+  assert(item.items.length === 1 && item.items[0].text === 'src')
+  // @ts-ignore
+  item.items = item.items[0].items
+})
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -59,6 +68,10 @@ export default defineConfig({
           { text: 'استفاده از فونت', link: '/demo/font/' },
           { text: 'استفاده از سوره‌ها', link: '/demo/surah/' },
         ],
+      },
+      {
+        text: 'API',
+        items: typedocMenu,
       },
       {
         text: 'مجوزها',

@@ -47,9 +47,21 @@ importers:
       '@ghoran/text':
         specifier: workspace:*
         version: link:../packages/text
+      '@terwer/typedoc-vitepress-theme':
+        specifier: 1.0.0-next.0-terwer.1
+        version: 1.0.0-next.0-terwer.1(@terwer/typedoc-plugin-markdown@4.0.0-next.11)
       postcss-rtlcss:
         specifier: ^5.1.0
         version: 5.1.0(postcss@8.4.38)
+      typedoc:
+        specifier: ^0.25.12
+        version: 0.25.12(typescript@5.4.3)
+      typedoc-plugin-markdown:
+        specifier: 4.0.0-next.55
+        version: 4.0.0-next.55(typedoc@0.25.12)
+      typedoc-vitepress-theme:
+        specifier: 1.0.0-next.10
+        version: 1.0.0-next.10(typedoc-plugin-markdown@4.0.0-next.55)
       unocss:
         specifier: 0.59.0-beta.1
         version: 0.59.0-beta.1(postcss@8.4.38)(rollup@3.29.4)(vite@5.2.7)
@@ -1341,6 +1353,24 @@ packages:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
 
+  /@terwer/typedoc-plugin-markdown@4.0.0-next.11(prettier@3.2.5)(typedoc@0.25.12):
+    resolution: {integrity: sha512-YX4VqVSIBHB21Wh5fALNhiErJf35Uvcbd8eMoB6fOpmLLZMnU63BKYssNfVtv8mm5oywC6gqPFBflFg4H9iuOg==}
+    peerDependencies:
+      prettier: '>=1.8.0'
+      typedoc: '>=0.24.0'
+    dependencies:
+      prettier: 3.2.5
+      typedoc: 0.25.12(typescript@5.4.3)
+    dev: true
+
+  /@terwer/typedoc-vitepress-theme@1.0.0-next.0-terwer.1(@terwer/typedoc-plugin-markdown@4.0.0-next.11):
+    resolution: {integrity: sha512-pmFGoFNPNLeaWMLK7jRbgZIMGQ8rx0Rh0EtZ0y9y5Ry1Wj7e+F4AYBe7Svs4O+e254jDdplurYLsFfBHYR83tg==}
+    peerDependencies:
+      '@terwer/typedoc-plugin-markdown': 4.0.0-next.11
+    dependencies:
+      '@terwer/typedoc-plugin-markdown': 4.0.0-next.11(prettier@3.2.5)(typedoc@0.25.12)
+    dev: true
+
   /@trysound/sax@0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
@@ -1871,6 +1901,10 @@ packages:
       '@algolia/requester-common': 4.23.2
       '@algolia/requester-node-http': 4.23.2
       '@algolia/transporter': 4.23.2
+    dev: true
+
+  /ansi-sequence-parser@1.1.1:
+    resolution: {integrity: sha512-vJXt3yiaUL4UU546s3rPXlsry/RnM730G1+HkpKE012AN0sx1eOrxSu95oKDIonskeLTijMgqWZ3uDEe3NFvyg==}
     dev: true
 
   /ansi-styles@3.2.1:
@@ -2782,6 +2816,10 @@ packages:
       yallist: 3.1.1
     dev: true
 
+  /lunr@2.3.9:
+    resolution: {integrity: sha512-zTU3DaZaF3Rt9rhN3uBMGQD3dD2/vFQqnvZCDv4dl5iOzq2IZQqTxu90r4E5J+nP70J3ilqVCrbho2eWaeW8Ow==}
+    dev: true
+
   /magic-string@0.30.8:
     resolution: {integrity: sha512-ISQTe55T2ao7XtlAStud6qwYPZjE4GK1S/BeVPus4jrq6JuOnQ00YKQC581RWhR122W7msZV263KzVeLoqidyQ==}
     engines: {node: '>=12'}
@@ -2808,6 +2846,12 @@ packages:
 
   /mark.js@8.11.1:
     resolution: {integrity: sha512-1I+1qpDt4idfgLQG+BNWmrqku+7/2bi5nLf4YwF8y8zXvmfiTBY3PV3ZibfrjBueCByROpuBjLLFCajqkgYoLQ==}
+    dev: true
+
+  /marked@4.3.0:
+    resolution: {integrity: sha512-PRsaiG84bK+AMvxziE/lCFss8juXjNaWzVbN5tXAm4XjeaS9NAHhop+PjQxz2A9h8Q4M/xGmzP8vqNwy6JeK0A==}
+    engines: {node: '>= 12'}
+    hasBin: true
     dev: true
 
   /mdn-data@2.0.28:
@@ -2848,6 +2892,13 @@ packages:
   /minimatch@5.1.6:
     resolution: {integrity: sha512-lKwV/1brpG6mBUFHtb7NUmtABCb2WZZmm2wNiOA5hAb8VdCS4B3dtMWyvcoViccwAW/COERjXLt0zP1zXUN26g==}
     engines: {node: '>=10'}
+    dependencies:
+      brace-expansion: 2.0.1
+    dev: true
+
+  /minimatch@9.0.4:
+    resolution: {integrity: sha512-KqWh+VchfxcMNRAJjj2tnsSJdNbHsVgnkBhTNrW7AjVo6OvLtxw8zfT9oLw1JSohlFzJ8jCoTgaoXvJ+kHt6fw==}
+    engines: {node: '>=16 || 14 >=14.17'}
     dependencies:
       brace-expansion: 2.0.1
     dev: true
@@ -3573,6 +3624,15 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /shiki@0.14.7:
+    resolution: {integrity: sha512-dNPAPrxSc87ua2sKJ3H5dQ/6ZaY8RNnaAqK+t0eG7p0Soi2ydiqbGOTaZCqaYvA/uZYfS1LJnemt3Q+mSfcPCg==}
+    dependencies:
+      ansi-sequence-parser: 1.1.1
+      jsonc-parser: 3.2.1
+      vscode-oniguruma: 1.7.0
+      vscode-textmate: 8.0.0
+    dev: true
+
   /shiki@1.2.3:
     resolution: {integrity: sha512-+v7lO5cJMeV2N2ySK4l+51YX3wTh5I49SLjAOs1ch1DbUfeEytU1Ac9KaZPoZJCVBGycDZ09OBQN5nbcPFc5FQ==}
     dependencies:
@@ -3742,6 +3802,36 @@ packages:
   /type-detect@4.0.8:
     resolution: {integrity: sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g==}
     engines: {node: '>=4'}
+    dev: true
+
+  /typedoc-plugin-markdown@4.0.0-next.55(typedoc@0.25.12):
+    resolution: {integrity: sha512-bwEEBkAP0kHnjE10QzPBXAri5yHYmgb+vZP+xn9GirBLCk3lt7SMUiUx0fj7lEtTmbgIH0rv20f3xP+JWxCPHg==}
+    peerDependencies:
+      typedoc: 0.25.x
+    dependencies:
+      typedoc: 0.25.12(typescript@5.4.3)
+    dev: true
+
+  /typedoc-vitepress-theme@1.0.0-next.10(typedoc-plugin-markdown@4.0.0-next.55):
+    resolution: {integrity: sha512-VtEoqO4VLG3NsyzsqAFLFeg4L18UotZughdJbW5pRhLaKKfpflr9zbJAnLcA6t1Z1JvkJZa8c26iCM3akOURdQ==}
+    peerDependencies:
+      typedoc-plugin-markdown: '>=4.0.0-next.51'
+    dependencies:
+      typedoc-plugin-markdown: 4.0.0-next.55(typedoc@0.25.12)
+    dev: true
+
+  /typedoc@0.25.12(typescript@5.4.3):
+    resolution: {integrity: sha512-F+qhkK2VoTweDXd1c42GS/By2DvI2uDF4/EpG424dTexSHdtCH52C6IcAvMA6jR3DzAWZjHpUOW+E02kyPNUNw==}
+    engines: {node: '>= 16'}
+    hasBin: true
+    peerDependencies:
+      typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x
+    dependencies:
+      lunr: 2.3.9
+      marked: 4.3.0
+      minimatch: 9.0.4
+      shiki: 0.14.7
+      typescript: 5.4.3
     dev: true
 
   /typescript@5.4.3:
@@ -4051,6 +4141,14 @@ packages:
       - sugarss
       - supports-color
       - terser
+    dev: true
+
+  /vscode-oniguruma@1.7.0:
+    resolution: {integrity: sha512-L9WMGRfrjOhgHSdOYgCt/yRMsXzLDJSL7BPrOZt73gU0iWO4mpqzqQzOz5srxqTvMBaR0XZTSrVWo4j55Rc6cA==}
+    dev: true
+
+  /vscode-textmate@8.0.0:
+    resolution: {integrity: sha512-AFbieoL7a5LMqcnOF04ji+rpXadgOXnZsxQr//r83kLPr7biP7am3g9zbaZIaBGwBRWeSvoMD4mgPdX3e4NWBg==}
     dev: true
 
   /vue-demi@0.14.7(vue@3.4.21):

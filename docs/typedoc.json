@@ -1,0 +1,10 @@
+{
+  "entryPoints": [
+    "../packages/entity/src/index.ts",
+    "../packages/utils/src/index.ts",
+    "../packages/metadata/src/index.ts",
+    "../packages/text/src/index.ts"
+  ],
+  "plugin": ["typedoc-plugin-markdown", "typedoc-vitepress-theme"],
+  "out": "en/types"
+}
