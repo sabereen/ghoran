@@ -6,8 +6,24 @@
 
 جهت نصب این کتابخانه از دستور زیر استفاده کنید:
 
-```bash
+<div dir="ltr">
+
+::: code-group
+
+```bash [npm]
 npm i @ghoran/entity
 ```
+
+```bash [pnpm]
+pnpm add @ghoran/entity
+```
+
+```bash [yarn]
+yarn add @ghoran/entity
+```
+
+:::
+
+</div>
 
 // TODO: ادامه دارد
