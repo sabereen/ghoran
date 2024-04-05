@@ -1,0 +1,23 @@
+{
+  "name": "@ghoran/entity",
+  "version": "0.0.4",
+  "description": "Quran entities",
+  "main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "unbuild"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "files": [
+    "dist/**/*"
+  ],
+  "dependencies": {
+    "@ghoran/metadata": "workspace:*",
+    "@ghoran/text": "workspace:*"
+  }
+}
