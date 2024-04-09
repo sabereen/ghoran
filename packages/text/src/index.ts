@@ -39,7 +39,7 @@ export function importText(
 export async function loadText(
   type: QuranTextType,
   { cacheName = '@ghoran', cachePrefix = '@ghoran' } = {},
-) {
+): Promise<string[]> {
   const cacheKey = `/${cachePrefix}/quran-text/${type}`
   try {
     const cache = await caches.open(cacheName)
