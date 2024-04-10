@@ -7,7 +7,7 @@ const autofix = ref(false)
 
 const [hafsText, imlaText] = await Promise.all([
   loadText('hafs'),
-  loadText('imla'),
+  loadText('simple-min'),
 ])
 
 const wordStrategy = {
@@ -29,10 +29,12 @@ const wordStrategy = {
     return errors
   },
   fixOneItem(index: number) {
+    if (index === 2570) debugger
     const nbsp = '\u00A0'
     const hafsToSplit = hafsText[index]
     const imlaToSplit = imlaText[index]
       .replace(/ ۩/g, nbsp + '۩')
+      .replace(/ ([ۖۛۗۜۚ])/g, nbsp + '$1')
       .replace(/۞ /g, '۞' + nbsp)
     const hafs = wordStrategy.splitHafs(hafsToSplit)
     const imla = wordStrategy.splitImla(imlaToSplit)
@@ -50,9 +52,9 @@ const wordStrategy = {
         // فقط ۵ مورد این شکلی داریم
         if (imlaLength > hafsLength) {
           // فقط دو مورد این شکلی داریم
-          if (imla[i].startsWith('اللّ')) {
-            continue
-          }
+          if (hafs[i].includes('ٱلّ')) continue
+          // یک مورد این شکلی در رسم الخط کم‌علامت داریم
+          if (hafs[i].includes('نُـۨجِي')) continue
           hafs[i] = hafs[i] + nbsp + hafs[i + 1]
           hafs.splice(i + 1, 1)
         }
@@ -94,11 +96,11 @@ const wordStrategy = {
 const alphabetStrategy = {
   splitHafs: (ayah: string): string[] =>
     Array.from((ayah || '').match(/\p{L}/gu) || []).filter(
-      (item) => !item.match(/[وـؤءإٱأائىیيۦ]/),
+      (item) => !item.match(/[وۛـۖؤءۗإآٱأائىۜیۚيۥۦ]/),
     ),
   splitImla: (ayah: string): string[] =>
     Array.from((ayah || '').match(/\p{L}/gu) || []).filter(
-      (item) => !item.match(/[وـؤءإٱأائىیيۦ]/),
+      (item) => !item.match(/[وۛـۖؤءۗإآٱأائىۜیۚيۥۦ]/),
     ),
   match(hafsItem: string, imlaItem: string) {
     return hafsItem === imlaItem
