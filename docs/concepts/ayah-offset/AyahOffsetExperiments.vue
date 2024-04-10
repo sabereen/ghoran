@@ -31,19 +31,30 @@ const wordStrategy = {
   fixOneItem(index: number) {
     const nbsp = '\u00A0'
     const hafsToSplit = hafsText[index]
-    const imlaToSplit = imlaText[index].replace(/ ۩/g, nbsp + '۩')
+    const imlaToSplit = imlaText[index]
+      .replace(/ ۩/g, nbsp + '۩')
+      .replace(/۞ /g, '۞' + nbsp)
     const hafs = wordStrategy.splitHafs(hafsToSplit)
     const imla = wordStrategy.splitImla(imlaToSplit)
     const length = Math.max(hafs.length, imla.length)
+
     for (let i = 0; i < length; i++) {
       if (!hafs[i] || !imla[i]) continue
       if (!wordStrategy.match(hafs[i], imla[i])) {
         const hafsLength = alphabetStrategy.splitHafs(hafs[i]).length
         const imlaLength = alphabetStrategy.splitImla(imla[i]).length
         if (imlaLength < hafsLength) {
-          // فاصله عادی را تبدیل به nbsp می‌کنیم
           imla[i] = imla[i] + nbsp + imla[i + 1]
           imla.splice(i + 1, 1)
+        }
+        // فقط ۵ مورد این شکلی داریم
+        if (imlaLength > hafsLength) {
+          // فقط دو مورد این شکلی داریم
+          if (imla[i].startsWith('اللّ')) {
+            continue
+          }
+          hafs[i] = hafs[i] + nbsp + hafs[i + 1]
+          hafs.splice(i + 1, 1)
         }
       }
     }
@@ -187,17 +198,19 @@ function previewAutofix(index: number) {
     <div>
       <table>
         <thead>
+          <th>ش</th>
           <th>عثمان‌طه</th>
           <th>رسم الاملاء</th>
         </thead>
         <tbody>
           <template v-for="index in affectiveCountTestResult">
             <tr @click="expand(index)">
+              <td>{{ index }}</td>
               <td>{{ texts.hafs[index] }}</td>
               <td>{{ texts.imla[index] }}</td>
             </tr>
             <tr v-if="expandCompare.index === index">
-              <td colspan="2" class="h-40 relative">
+              <td colspan="3" class="h-40 relative">
                 <table class="absolute inset-0">
                   <tr>
                     <td
@@ -218,8 +231,8 @@ function previewAutofix(index: number) {
                 </table>
               </td>
             </tr>
-            <tr v-if="autofixPreviewCompare.index === index">
-              <td colspan="2" class="h-40 relative">
+            <tr v-if="!autofix && autofixPreviewCompare.index === index">
+              <td colspan="3" class="h-40 relative">
                 <table class="absolute inset-0">
                   <tr>
                     <td
