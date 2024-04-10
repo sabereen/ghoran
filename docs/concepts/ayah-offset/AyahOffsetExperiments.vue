@@ -188,7 +188,7 @@ function previewAutofix(index: number) {
         تفکیک حروف الفبا
       </label>
     </div>
-    <div>
+    <div class="mb-4">
       <label>
         <input type="checkbox" v-model="autofix" />
         تلاش برای رفع اشکالات
@@ -196,7 +196,7 @@ function previewAutofix(index: number) {
     </div>
     <div>تعداد آیات متفاوت: {{ affectiveCountTestResult.length }}</div>
     <div>
-      <table>
+      <table v-if="affectiveCountTestResult.length">
         <thead>
           <th>ش</th>
           <th>عثمان‌طه</th>
@@ -256,6 +256,7 @@ function previewAutofix(index: number) {
           </template>
         </tbody>
       </table>
+      <div class="pt-1">موردی وجود ندارد.</div>
     </div>
   </div>
 </template>
