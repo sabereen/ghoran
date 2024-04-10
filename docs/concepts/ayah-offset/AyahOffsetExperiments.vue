@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { loadText } from '@ghoran/text'
-import { computed, ref, watch, watchSyncEffect } from 'vue'
+import { computed, ref } from 'vue'
 
 const mode = ref<'word' | 'alphabet'>('word')
 const autofix = ref(false)
