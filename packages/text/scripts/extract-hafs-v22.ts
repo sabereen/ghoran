@@ -12,7 +12,8 @@ import { resolve } from 'node:path'
 const dirname = fileURLToPath(new URL('./', import.meta.url))
 
 const suraNameRegex = /سُورَةُ (.*?)\n\n/gm
-const removableBasmalahRegex = /بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ\n\n/gm
+const removableBasmalahRegex =
+  /(?:بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ|بِّسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ)\n\n/gm
 
 export async function extractHafsV22() {
   const content = readFileSync(
@@ -26,7 +27,7 @@ export async function extractHafsV22() {
   let text = result.value
 
   assert.equal([...text.matchAll(suraNameRegex)].length, 114)
-  // assert.equal([...text.matchAll(removableBasmalahRegex)].length, 114 - 2)
+  assert.equal([...text.matchAll(removableBasmalahRegex)].length, 114 - 2)
 
   text = text.replace(removableBasmalahRegex, '').replace(suraNameRegex, '')
 
