@@ -29,8 +29,11 @@ const wordStrategy = {
     return errors
   },
   fixOneItem(index: number) {
-    const hafs = wordStrategy.splitHafs(texts.value.hafs[index])
-    const imla = wordStrategy.splitImla(texts.value.imla[index])
+    const nbsp = '\u00A0'
+    const hafsToSplit = hafsText[index]
+    const imlaToSplit = imlaText[index].replace(/ ۩/g, nbsp + '۩')
+    const hafs = wordStrategy.splitHafs(hafsToSplit)
+    const imla = wordStrategy.splitImla(imlaToSplit)
     const length = Math.max(hafs.length, imla.length)
     for (let i = 0; i < length; i++) {
       if (!hafs[i] || !imla[i]) continue
@@ -39,7 +42,7 @@ const wordStrategy = {
         const imlaLength = alphabetStrategy.splitImla(imla[i]).length
         if (imlaLength < hafsLength) {
           // فاصله عادی را تبدیل به nbsp می‌کنیم
-          imla[i] = imla[i] + '\u00A0' + imla[i + 1]
+          imla[i] = imla[i] + nbsp + imla[i + 1]
           imla.splice(i + 1, 1)
         }
       }
@@ -114,11 +117,7 @@ const alphabetStrategy = {
 const getStrategy = () =>
   mode.value === 'word' ? wordStrategy : alphabetStrategy
 
-const texts = ref(getStrategy().getText())
-
-watch(autofix, () => {
-  texts.value = getStrategy().getText()
-})
+const texts = computed(() => getStrategy().getText())
 
 const affectiveCountTestResult = computed(() => getStrategy().test(texts.value))
 
