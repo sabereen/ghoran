@@ -7,7 +7,7 @@ const autofix = ref(false)
 
 const [hafsText, imlaText] = await Promise.all([
   loadText('hafs'),
-  loadText('simple-min'),
+  loadText('tanzil-simple-min'),
 ])
 
 const wordStrategy = {
