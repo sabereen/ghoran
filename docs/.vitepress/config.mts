@@ -81,6 +81,10 @@ export default defineConfig({
         text: 'مجوزها',
         link: '/appreciation',
       },
+      {
+        text: 'کارهای مشابه',
+        link: '/others/',
+      },
     ],
 
     socialLinks: [
