@@ -83,7 +83,7 @@ export default defineConfig({
       },
       {
         text: 'کارهای مشابه',
-        link: '/others/',
+        items: [{ text: 'کارهای مشابه', link: '/others/' }],
       },
     ],
 
