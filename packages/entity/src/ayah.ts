@@ -1,5 +1,6 @@
 import { juzList, pageList, sajdahMap, surahList } from '@ghoran/metadata'
 import { searchBinaryForAyah, simpleCache } from '@ghoran/utils'
+import { COUNT_OF_AYAHS } from '@ghoran/metadata/constants'
 import { Surah } from './surah'
 
 const cache = new Map<number, Ayah>()
@@ -7,7 +8,8 @@ const cache = new Map<number, Ayah>()
 /**‌ آیه */
 export class Ayah {
   private constructor(readonly index: number) {
-    if (index < 0 || index >= 6236) throw new Error('Ayah index is not valid.')
+    if (index < 0 || index >= COUNT_OF_AYAHS)
+      throw new Error('Ayah index is not valid.')
   }
 
   static get(index: number) {
@@ -35,7 +37,7 @@ export class Ayah {
 
   /** آیه بعدی */
   get next(): Ayah | null {
-    if (this.index >= 6236 - 1) return null
+    if (this.index >= COUNT_OF_AYAHS - 1) return null
     return Ayah.get(this.index + 1)
   }
 

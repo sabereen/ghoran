@@ -1,10 +1,7 @@
 <script setup lang="ts">
 import { Surah } from '@ghoran/entity'
 
-const surahList: Surah[] = []
-for (let i = 0; i < 114; i++) {
-  surahList[i] = Surah.get(i)
-}
+const surahList = Surah.getAll()
 </script>
 
 <template>

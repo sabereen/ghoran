@@ -1,5 +1,6 @@
 import { SurahTuple, surahList } from '@ghoran/metadata'
 import { searchBinaryForAyah } from '@ghoran/utils'
+import { COUNT_OF_SURAHS } from '@ghoran/metadata/constants'
 import { Ayah } from '.'
 
 const cache = new Map<number, Surah>()
@@ -7,7 +8,8 @@ const cache = new Map<number, Surah>()
 /** سوره */
 export class Surah {
   private constructor(readonly index: number) {
-    if (index < 0 || index >= 114) throw new Error('Surah index is not valid')
+    if (index < 0 || index >= COUNT_OF_SURAHS)
+      throw new Error('Surah index is not valid')
   }
 
   static get(index: number): Surah {
@@ -32,6 +34,14 @@ export class Surah {
     return Surah.get(index)
   }
 
+  static getAll() {
+    const list = [] as Surah[]
+    for (let i = 0; i < COUNT_OF_SURAHS; i++) {
+      list[i] = Surah.get(i)
+    }
+    return list
+  }
+
   private get surahTuple() {
     return surahList[this.index]
   }
@@ -49,7 +59,7 @@ export class Surah {
 
   /** سوره بعدی */
   get next(): Surah | null {
-    if (this.index >= 114 - 1) return null
+    if (this.index >= COUNT_OF_SURAHS - 1) return null
     return Surah.get(this.index + 1)
   }
 
