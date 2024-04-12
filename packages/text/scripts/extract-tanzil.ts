@@ -17,6 +17,6 @@ export function extractTanzilText(name: string) {
   const path = r(`../raw-text/tanzil/${name}.txt`)
   const text = fs.readFileSync(path).toString()
   const textAsArray = text.split('\n').slice(0, 6236)
-  const finalPath = r(`../json/${name}-tanzil.json`)
+  const finalPath = r(`../json/tanzil-${name}.json`)
   fs.writeFileSync(finalPath, JSON.stringify(textAsArray, null, 2))
 }
