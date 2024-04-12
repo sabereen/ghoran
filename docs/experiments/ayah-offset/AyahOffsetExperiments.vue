@@ -5,9 +5,9 @@ import { computed, ref } from 'vue'
 const mode = ref<'word' | 'alphabet'>('word')
 const autofix = ref(false)
 
-const [hafsText, imlaText] = await Promise.all([
+const [hafsLikeText, imlaLikeText] = await Promise.all([
   loadText('hafs'),
-  loadText('tanzil-simple-min'),
+  loadText('imla'),
 ])
 
 const wordStrategy = {
@@ -31,8 +31,8 @@ const wordStrategy = {
   fixOneItem(index: number) {
     if (index === 2570) debugger
     const nbsp = '\u00A0'
-    const hafsToSplit = hafsText[index]
-    const imlaToSplit = imlaText[index]
+    const hafsToSplit = hafsLikeText[index]
+    const imlaToSplit = imlaLikeText[index]
       .replace(/ ۩/g, nbsp + '۩')
       .replace(/ ([ۖۛۗۜۚ])/g, nbsp + '$1')
       .replace(/۞ /g, '۞' + nbsp)
@@ -64,9 +64,9 @@ const wordStrategy = {
     return { hafs, imla }
   },
   fix() {
-    const fixedImlaText = [...imlaText]
-    const fixedHafsText = [...hafsText]
-    const errors = wordStrategy.test({ hafs: hafsText, imla: imlaText })
+    const fixedImlaText = [...imlaLikeText]
+    const fixedHafsText = [...hafsLikeText]
+    const errors = wordStrategy.test({ hafs: hafsLikeText, imla: imlaLikeText })
 
     errors.forEach((index) => {
       const fixResult = wordStrategy.fixOneItem(index)
@@ -87,8 +87,8 @@ const wordStrategy = {
       return wordStrategy.fix()
     }
     return {
-      hafs: hafsText,
-      imla: imlaText,
+      hafs: hafsLikeText,
+      imla: imlaLikeText,
     }
   },
 }
@@ -121,8 +121,8 @@ const alphabetStrategy = {
   },
   getText() {
     return {
-      hafs: hafsText,
-      imla: imlaText,
+      hafs: hafsLikeText,
+      imla: imlaLikeText,
     }
   },
 }
