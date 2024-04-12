@@ -18,10 +18,10 @@ export function importText(
   type: QuranTextType,
 ): Promise<{ default: string[] }> {
   switch (type) {
-    case 'clean':
-      return import('../json/quran-text-clean.json')
-    case 'simple-min':
-      return import('../json/quran-text-simple-min.json')
+    case 'tanzil-simple-clean':
+      return import('../json/quran-text-tanzil-simple-clean.json')
+    case 'tanzil-simple-min':
+      return import('../json/quran-text-tanzil-simple-min.json')
     case 'imla':
       return import('../json/quran-text-emla.json')
     case 'hafs':
