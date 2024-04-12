@@ -20,5 +20,3 @@ export function extractTanzilText(name: string) {
   const finalPath = r(`../json/${name}-tanzil.json`)
   fs.writeFileSync(finalPath, JSON.stringify(textAsArray, null, 2))
 }
-
-extractTanzilText('quran-simple')
