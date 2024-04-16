@@ -17,7 +17,7 @@
     "generate-texts": "esno ./scripts/generate-texts",
     "generate-fonts": "esno ./scripts/generate-fonts",
     "postbuild": "pnpm run generate-fonts",
-    "build": "pnpm run extract-text && unbuild && pnpm run postbuild",
+    "build": "pnpm run generate-texts && unbuild && pnpm run postbuild",
     "prepublish": "pnpm run build"
   },
   "type": "module",
