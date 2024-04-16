@@ -10,6 +10,8 @@ const dirname = fileURLToPath(new URL('./', import.meta.url))
 
 const r = (path: string) => resolve(dirname, path)
 
-export function copyQuranTexts() {
-  fs.copySync(r(`../raw-text/copy`), r(`../json`))
+export function copyQuranTexts(name: string) {
+  const path = r(`../raw-text/copy/${name}.json`)
+  const ayat = fs.readJSONSync(path) as string[]
+  return ayat
 }
