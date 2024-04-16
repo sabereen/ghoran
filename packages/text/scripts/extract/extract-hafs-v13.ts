@@ -1,19 +1,14 @@
 import { extractRawText } from 'mammoth'
-import { writeFileSync, readFileSync } from 'node:fs'
+import { readFileSync } from 'node:fs'
 import assert from 'node:assert'
-import { fileURLToPath } from 'node:url'
-import { resolve } from 'node:path'
-
-const dirname = fileURLToPath(new URL('./', import.meta.url))
+import { resolvePath } from './utils'
 
 const suraNameRegex = /سُورَةُ (.*?)\n\n/gm
 const removableBasmalahRegex =
   /(?:بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ|بِّسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ)\n\n/gm
 
 export async function extractHafsV13() {
-  const content = readFileSync(
-    resolve(dirname, '../raw-text/uthmanic-hafs-v13.docx'),
-  )
+  const content = readFileSync(resolvePath('raw-text/uthmanic-hafs-v13.docx'))
 
   const result = await extractRawText({
     buffer: content,
@@ -34,8 +29,5 @@ export async function extractHafsV13() {
 
   assert.equal(ayat.length, 6236)
 
-  writeFileSync(
-    resolve(dirname, '../json/quran-text-hafs-v13.json'),
-    JSON.stringify(ayat, null, 2),
-  )
+  return ayat
 }

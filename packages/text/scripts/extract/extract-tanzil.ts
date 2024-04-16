@@ -6,17 +6,11 @@
  * فلذا متن اصلی را درون ریپازیتوری قرار داده‌ایم و از طریق این اسکریپت اصلاحیه‌های لازم را اعمال می‌کنیم
  */
 import fs from 'node:fs'
-import { fileURLToPath } from 'node:url'
-import { resolve } from 'node:path'
-
-const dirname = fileURLToPath(new URL('./', import.meta.url))
-
-const r = (path: string) => resolve(dirname, path)
+import { resolvePath } from './utils'
 
 export function extractTanzilText(name: string) {
-  const path = r(`../raw-text/tanzil/${name}.txt`)
+  const path = resolvePath(`raw-text/tanzil/${name}.txt`)
   const text = fs.readFileSync(path).toString()
-  const textAsArray = text.split('\n').slice(0, 6236)
-  const finalPath = r(`../json/quran-text-tanzil-${name}.json`)
-  fs.writeFileSync(finalPath, JSON.stringify(textAsArray, null, 2))
+  const textAsArray = text.split(/\r?\n/g).slice(0, 6236)
+  return textAsArray
 }
