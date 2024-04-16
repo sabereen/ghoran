@@ -25,5 +25,8 @@
     "unbuild": "^2.0.0",
     "vite": "^5.2.7",
     "vitest": "^1.4.0"
-  }
+  },
+  "files": [
+    "package.json"
+  ]
 }
