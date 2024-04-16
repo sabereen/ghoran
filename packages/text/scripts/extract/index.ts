@@ -1,16 +1,10 @@
 import fs from 'fs-extra'
-import { fileURLToPath } from 'node:url'
-import { resolve } from 'node:path'
-
 import { copyQuranTexts as readQuranText } from './copy-text'
 import { extractHafsV13 } from './extract-hafs-v13'
 import { extractHafsV22 } from './extract-hafs-v22'
 import { extractTanzilText } from './extract-tanzil'
-import { QuranTextType } from '../src/types'
-
-const dirname = fileURLToPath(new URL('./', import.meta.url))
-
-const r = (path: string) => resolve(dirname, path)
+import { QuranTextType } from '../../src/types'
+import { resolvePath } from './utils'
 
 const texts: Record<QuranTextType, string[]> = {
   'hafs-v13': await extractHafsV13(),
@@ -21,7 +15,7 @@ const texts: Record<QuranTextType, string[]> = {
 }
 
 for (let key in texts) {
-  const finalPath = r(`../json/quran-text-${key}.json`)
+  const finalPath = resolvePath(`json/quran-text-${key}.json`)
   fs.writeJSONSync(finalPath, texts[key as QuranTextType], { spaces: 2 })
 }
 

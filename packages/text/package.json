@@ -14,7 +14,7 @@
   },
   "sideEffects": false,
   "scripts": {
-    "extract-text": "esno ./scripts/extract-text",
+    "extract": "esno ./scripts/extract/index",
     "generate-fonts": "esno ./scripts/generate-fonts",
     "postbuild": "pnpm run generate-fonts",
     "build": "pnpm run extract-text && unbuild && pnpm run postbuild",
