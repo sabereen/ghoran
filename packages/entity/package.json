@@ -1,6 +1,6 @@
 {
   "name": "@ghoran/entity",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Quran entities",
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",

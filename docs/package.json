@@ -1,12 +1,15 @@
 {
   "name": "@ghoran/docs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Quran site",
   "scripts": {
     "docs:dev": "typedoc && vitepress dev",
     "docs:build": "typedoc && vitepress build",
     "docs:preview": "vitepress preview"
   },
+  "files": [
+    "package.json"
+  ],
   "devDependencies": {
     "@ghoran/entity": "workspace:*",
     "@ghoran/metadata": "workspace:*",

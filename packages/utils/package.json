@@ -1,6 +1,6 @@
 {
   "name": "@ghoran/utils",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Quran utils",
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
