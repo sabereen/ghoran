@@ -23,9 +23,9 @@ export function importText(
     case 'tanzil-simple-min':
       return import('../json/quran-text-tanzil-simple-min.json')
     case 'imla':
-      return import('../json/quran-text-emla.json')
+      return import('../json/quran-text-imla.json')
     case 'hafs':
-      return import('../json/quran-text-hafs-v22.json')
+      return import('../json/quran-text-hafs.json')
     case 'hafs-v13':
       return import('../json/quran-text-hafs-v13.json')
   }
