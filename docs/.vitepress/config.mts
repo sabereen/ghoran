@@ -67,6 +67,10 @@ export default defineConfig({
         ],
       },
       {
+        text: 'ابزارها',
+        items: [{ text: 'انتخابگر آیه', link: '/tools/select-ayah/' }],
+      },
+      {
         text: 'نمونه کد',
         items: [
           { text: 'استفاده از فونت', link: '/demo/font/' },
