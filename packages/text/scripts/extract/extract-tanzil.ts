@@ -8,9 +8,22 @@
 import fs from 'node:fs'
 import { resolvePath } from './utils'
 
+const basmalah = {
+  'simple-min': 'بِسمِ اللَّهِ الرَّحمـٰنِ الرَّحيمِ',
+  'simple-clean': 'بسم الله الرحمن الرحيم',
+}
+
 export function extractTanzilText(name: string) {
+  const basmalahRegex = new RegExp(
+    // @ts-ignore
+    '^' + basmalah[name] + ' ',
+  )
   const path = resolvePath(`raw-text/tanzil/${name}.txt`)
   const text = fs.readFileSync(path).toString()
-  const textAsArray = text.split(/\r?\n/g).slice(0, 6236)
+  const textAsArray = text
+    .split(/\r?\n/g)
+    .slice(0, 6236)
+    .map((ayah) => ayah.replace(basmalahRegex, ''))
+
   return textAsArray
 }
