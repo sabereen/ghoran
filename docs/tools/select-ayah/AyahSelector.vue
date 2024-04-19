@@ -109,7 +109,7 @@ watch(rasmolkhat, async (rasmolkhat) => {
             >
               {{ word }}
               <span
-                class="absolute font-bold bg-white border group-hover:scale-200 border-gray-500 border-solid transition-transform text-10px w-4 h-4 leading-4 rounded-full flex items-center justify-center left-0 top-0 transform -translate-y-1/2 translate-x-1/2"
+                class="absolute font-bold bg-white dark:bg-black border group-hover:scale-200 border-gray-500 border-solid transition-transform text-10px w-4 h-4 leading-4 rounded-full flex items-center justify-center left-0 top-0 transform -translate-y-1/2 translate-x-1/2"
               >
                 {{ offset }}
               </span>
