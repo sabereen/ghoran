@@ -8,6 +8,13 @@ const pageNumber = ref(1)
 
 const rasmolkhat = ref<QuranTextType>('tanzil-simple-min')
 
+const range = ref({
+  fromAyah: 6,
+  fromOffset: 1,
+  toAyah: 6,
+  toOffset: 4,
+})
+
 const isValidPageNumber = computed(
   () =>
     typeof pageNumber.value === 'number' &&
@@ -38,6 +45,35 @@ function copy(text: string | number) {
 watch(rasmolkhat, async (rasmolkhat) => {
   text.value = await loadText(rasmolkhat)
 })
+
+function isInRange(ayahIndex: number, offset: number) {
+  if (ayahIndex < range.value.fromAyah) return false
+  if (ayahIndex > range.value.toAyah) return false
+  if (ayahIndex === range.value.fromAyah && offset < range.value.fromOffset) {
+    return false
+  }
+  if (ayahIndex === range.value.toAyah && offset >= range.value.toOffset) {
+    return false
+  }
+  return true
+}
+
+const mode = ref<'idle' | 'select-start' | 'select-end'>('idle')
+
+function select(ayahIndex: number, offset: number) {
+  if (mode.value === 'idle') {
+    mode.value = 'select-start'
+  }
+  if (mode.value === 'select-start') {
+    range.value.fromAyah = ayahIndex
+    range.value.fromOffset = offset
+    mode.value = 'select-end'
+  } else if (mode.value === 'select-end') {
+    range.value.toAyah = ayahIndex
+    range.value.toOffset = offset + 1
+    mode.value = 'idle'
+  }
+}
 </script>
 
 <template>
@@ -58,6 +94,15 @@ watch(rasmolkhat, async (rasmolkhat) => {
         </option>
       </select>
     </div>
+    <!-- بازه -->
+    <label class="mb-3 flex items-center">
+      <span>
+        <span class="block cursor-pointer">
+          از: اندیس {{ range.fromAyah }} و آفست {{ range.fromOffset }}
+        </span>
+        <span>تا: اندیس {{ range.toAyah }} و آفست {{ range.toOffset }}</span>
+      </span>
+    </label>
     <!-- انتخاب صفحه -->
     <div class="mb-6 text-lg flex items-center">
       <button
@@ -103,17 +148,33 @@ watch(rasmolkhat, async (rasmolkhat) => {
             </span>
           </div>
           <div>
-            <span
+            <button
               v-for="(word, offset) in ayah"
               class="group border-1 text-lg group border-gray-500 border-solid relative mx-1 rounded inline-block px-1.5 mb-1.5 py-0.5"
+              :class="{
+                'bg-lightblue-200':
+                  mode === 'select-end' &&
+                  pageAyat[i].index === range.fromAyah &&
+                  offset === range.fromOffset,
+                'border-lightblue-500 border-dashed hover:bg-lightblue-200':
+                  mode === 'select-start' ||
+                  (mode === 'select-end' &&
+                    (pageAyat[i].index > range.fromAyah ||
+                      (pageAyat[i].index === range.fromAyah &&
+                        offset > range.fromOffset))),
+                'bg-green-300 dark:bg-green-900':
+                  mode === 'idle' && isInRange(pageAyat[i].index, offset),
+              }"
+              @click="select(pageAyat[i].index, offset)"
             >
               {{ word }}
               <span
                 class="absolute font-bold bg-white dark:bg-black border group-hover:scale-200 border-gray-500 border-solid transition-transform text-10px w-4 h-4 leading-4 rounded-full flex items-center justify-center left-0 top-0 transform -translate-y-1/2 translate-x-1/2"
+                :class="{ 'scale-150': mode !== 'idle' }"
               >
                 {{ offset }}
               </span>
-            </span>
+            </button>
           </div>
         </div>
       </div>
