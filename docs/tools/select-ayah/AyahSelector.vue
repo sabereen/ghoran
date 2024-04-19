@@ -152,11 +152,11 @@ function select(ayahIndex: number, offset: number) {
               v-for="(word, offset) in ayah"
               class="group border-1 text-lg group border-gray-500 border-solid relative mx-1 rounded inline-block px-1.5 mb-1.5 py-0.5"
               :class="{
-                'bg-lightblue-200':
+                'bg-lightblue-200 dark:bg-lightblue-900':
                   mode === 'select-end' &&
                   pageAyat[i].index === range.fromAyah &&
                   offset === range.fromOffset,
-                'border-lightblue-500 border-dashed hover:bg-lightblue-200':
+                'border-lightblue-500 border-dashed dark:hover:bg-lightblue-900 hover:bg-lightblue-200':
                   mode === 'select-start' ||
                   (mode === 'select-end' &&
                     (pageAyat[i].index > range.fromAyah ||
