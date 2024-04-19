@@ -1,10 +1,12 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
-import { loadText } from '@ghoran/text'
+import { computed, ref, shallowRef, watch } from 'vue'
+import { loadText, textMetaData, QuranTextType } from '@ghoran/text'
 import { pageList } from '@ghoran/metadata'
 import { Ayah } from '@ghoran/entity'
 
 const pageNumber = ref(1)
+
+const rasmolkhat = ref<QuranTextType>('tanzil-simple-min')
 
 const isValidPageNumber = computed(
   () =>
@@ -13,12 +15,14 @@ const isValidPageNumber = computed(
     pageNumber.value <= 604,
 )
 
-const text = await loadText('tanzil-simple-min')
+const text = shallowRef(await loadText(rasmolkhat.value))
 const startIndex = computed(() => pageList[pageNumber.value - 1])
-const endIndex = computed(() => pageList[pageNumber.value] || text.length)
+const endIndex = computed(() => pageList[pageNumber.value] || text.value.length)
 
 const pageText = computed(() =>
-  text.slice(startIndex.value, endIndex.value).map((ayah) => ayah.split(' ')),
+  text.value
+    .slice(startIndex.value, endIndex.value)
+    .map((ayah) => ayah.split(' ')),
 )
 
 const pageAyat = computed(() =>
@@ -30,10 +34,31 @@ function copy(text: string | number) {
   window.navigator.clipboard.writeText(text)
   window.alert('کپی شد.')
 }
+
+watch(rasmolkhat, async (rasmolkhat) => {
+  text.value = await loadText(rasmolkhat)
+})
 </script>
 
 <template>
   <div>
+    <!-- انتخاب رسم الخط -->
+    <div class="mb-3">
+      <span>
+        <i class="i-solar:text-square-line-duotone w-5 h-5"></i>
+        رسم الخط:
+      </span>
+      <select
+        v-model="rasmolkhat"
+        dir="ltr"
+        class="border border-solid border-gray-500 rounded px-2"
+      >
+        <option v-for="rasmolkhat in textMetaData" :value="rasmolkhat.name">
+          {{ rasmolkhat.name }}
+        </option>
+      </select>
+    </div>
+    <!-- انتخاب صفحه -->
     <div class="mb-6 text-lg flex items-center">
       <button
         class="i-solar:alt-arrow-right-outline w-5 h-5 p-2"
