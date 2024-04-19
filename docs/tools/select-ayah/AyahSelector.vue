@@ -99,7 +99,7 @@ watch(rasmolkhat, async (rasmolkhat) => {
               </button>
             </span>
             <span class="text-xs">
-              ({{ pageAyat[i].ayahNumber }}&nbsp;{{ pageAyat[i].surah.name }})
+              {{ pageAyat[i].surah.name }}/{{ pageAyat[i].ayahNumber }}
             </span>
           </div>
           <div>
