@@ -153,6 +153,11 @@ body {
   }
 }
 
+i {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 /*rtl:ignore*/
 [dir='ltr'] .vp-doc p {
   unicode-bidi: plaintext;

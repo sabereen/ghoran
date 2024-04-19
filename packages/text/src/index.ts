@@ -1,6 +1,6 @@
 import { QuranTextType } from './types'
 
-export { textMetaData } from './metadata'
+export * from './metadata'
 
 /**
  * به علت اینکه از نظر تایپ اسکریپتی ممکن است این فایل

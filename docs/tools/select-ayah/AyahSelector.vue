@@ -24,6 +24,12 @@ const pageText = computed(() =>
 const pageAyat = computed(() =>
   pageText.value.map((ayah, i) => Ayah.get(startIndex.value + i)),
 )
+
+declare const window: any
+function copy(text: string | number) {
+  window.navigator.clipboard.writeText(text)
+  window.alert('کپی شد.')
+}
 </script>
 
 <template>
@@ -59,7 +65,13 @@ const pageAyat = computed(() =>
           <div class="mr-3 flex flex-col">
             <span class="flex flex-col">
               <span class="text-xs">اندیس:</span>
-              <span class="font-bold">{{ pageAyat[i].index }}</span>
+              <button
+                class="flex items-center hover:opacity-75"
+                @click="copy(pageAyat[i].index)"
+              >
+                <i class="i-solar:copy-line-duotone w-4 h-4"></i>
+                <span class="font-bold ml-1">{{ pageAyat[i].index }}</span>
+              </button>
             </span>
             <span class="text-xs">
               ({{ pageAyat[i].ayahNumber }}&nbsp;{{ pageAyat[i].surah.name }})
