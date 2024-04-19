@@ -1,5 +1,7 @@
 import { QuranTextType } from './types'
 
+export { textMetaData } from './metadata'
+
 /**
  * به علت اینکه از نظر تایپ اسکریپتی ممکن است این فایل
  * درون محیط نودجی‌اس اجرا شود به کش‌استوریج دسترسی نداریم.

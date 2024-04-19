@@ -13,3 +13,10 @@ export type QuranTextType =
   | 'imla'
   | 'hafs'
   | 'hafs-v13'
+
+/**
+ * مشخصات رسم الخط
+ */
+export type QuranTextMeta = {
+  name: QuranTextType
+}
