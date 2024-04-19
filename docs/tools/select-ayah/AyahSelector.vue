@@ -15,6 +15,21 @@ const range = ref({
   toOffset: 4,
 })
 
+function fixRange() {
+  const r = range.value
+  if (
+    r.toAyah < r.fromAyah ||
+    (r.toAyah === r.fromAyah && r.toOffset < r.fromOffset)
+  ) {
+    range.value = {
+      fromAyah: r.toAyah,
+      fromOffset: r.toOffset - 1,
+      toAyah: r.fromAyah,
+      toOffset: r.fromOffset + 1,
+    }
+  }
+}
+
 const isValidPageNumber = computed(
   () =>
     typeof pageNumber.value === 'number' &&
@@ -72,6 +87,7 @@ function select(ayahIndex: number, offset: number) {
     range.value.toAyah = ayahIndex
     range.value.toOffset = offset + 1
     mode.value = 'idle'
+    fixRange()
   }
 }
 </script>
@@ -157,11 +173,7 @@ function select(ayahIndex: number, offset: number) {
                   pageAyat[i].index === range.fromAyah &&
                   offset === range.fromOffset,
                 'border-lightblue-500 border-dashed dark:hover:bg-lightblue-900 hover:bg-lightblue-200':
-                  mode === 'select-start' ||
-                  (mode === 'select-end' &&
-                    (pageAyat[i].index > range.fromAyah ||
-                      (pageAyat[i].index === range.fromAyah &&
-                        offset > range.fromOffset))),
+                  mode === 'select-start' || mode === 'select-end',
                 'bg-green-300 dark:bg-green-900':
                   mode === 'idle' && isInRange(pageAyat[i].index, offset),
               }"
