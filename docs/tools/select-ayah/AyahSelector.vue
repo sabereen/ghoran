@@ -28,15 +28,25 @@ const pageAyat = computed(() =>
 
 <template>
   <div>
-    <div class="mb-3 text-lg">
-      صفحه‌ی
-      <input
-        type="number"
-        min="1"
-        max="604"
-        dir="ltr"
-        v-model.number="pageNumber"
-        class="border-gray-500 border-solid border-px px-1 rounded"
+    <div class="mb-6 text-lg flex items-center">
+      <button
+        class="i-solar:alt-arrow-right-outline w-5 h-5 p-2"
+        @click="pageNumber--"
+      />
+      <span class="mx-1">
+        صفحه‌ی
+        <input
+          type="number"
+          min="1"
+          max="604"
+          dir="ltr"
+          v-model.number="pageNumber"
+          class="border-gray-500 border-solid border-px px-1 rounded"
+        />
+      </span>
+      <button
+        class="i-solar:alt-arrow-left-outline w-5 h-5 p-2"
+        @click="pageNumber++"
       />
     </div>
     <div v-if="isValidPageNumber">

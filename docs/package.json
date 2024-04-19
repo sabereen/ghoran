@@ -14,6 +14,7 @@
     "@ghoran/entity": "workspace:*",
     "@ghoran/metadata": "workspace:*",
     "@ghoran/text": "workspace:*",
+    "@iconify-json/solar": "^1.1.9",
     "@terwer/typedoc-vitepress-theme": "1.0.0-next.0-terwer.1",
     "postcss-rtlcss": "^5.1.0",
     "typedoc": "^0.25.12",

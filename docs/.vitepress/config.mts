@@ -3,6 +3,7 @@ import UnoCSS from 'unocss/vite'
 import assert from 'node:assert'
 import { alias } from '../../alias'
 import typedocMenu from '../en/types/typedoc-sidebar.json'
+import unoConfig from '../uno.config'
 
 typedocMenu.forEach((item) => {
   item.text = `‎@ghoran/${item.text}`
@@ -96,7 +97,7 @@ export default defineConfig({
     ],
   },
   vite: {
-    plugins: [UnoCSS({})],
+    plugins: [UnoCSS(unoConfig)],
     resolve: {
       alias,
     },
