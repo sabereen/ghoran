@@ -94,17 +94,8 @@ function select(ayahIndex: number, offset: number) {
         </option>
       </select>
     </div>
-    <!-- بازه -->
-    <label class="mb-3 flex items-center">
-      <span>
-        <span class="block cursor-pointer">
-          از: اندیس {{ range.fromAyah }} و آفست {{ range.fromOffset }}
-        </span>
-        <span>تا: اندیس {{ range.toAyah }} و آفست {{ range.toOffset }}</span>
-      </span>
-    </label>
     <!-- انتخاب صفحه -->
-    <div class="mb-6 text-lg flex items-center">
+    <div class="mb-3 text-lg flex items-center">
       <button
         class="i-solar:alt-arrow-right-outline w-5 h-5 p-2"
         @click="pageNumber--"
@@ -125,10 +116,19 @@ function select(ayahIndex: number, offset: number) {
         @click="pageNumber++"
       />
     </div>
+    <!-- بازه -->
+    <div class="mb-6 border border-dashed border-gray-500 p-2">
+      <div>از: اندیس {{ range.fromAyah }} و آفست {{ range.fromOffset }}</div>
+      <div>تا: اندیس {{ range.toAyah }} و آفست {{ range.toOffset }}</div>
+    </div>
+
     <div v-if="isValidPageNumber">
       <div v-for="(ayah, i) in pageText" class="mb-6">
         <div v-if="pageAyat[i].isFirstOfSurah" class="mb-3">
           سوره {{ pageAyat[i].surah.name }}
+          <div v-if="pageAyat[i].surah.hasBasmalah" class="mt-2">
+            {{ text[0] }}
+          </div>
         </div>
 
         <div class="flex items-center">
