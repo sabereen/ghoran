@@ -41,3 +41,7 @@
 
 </div>
 :::
+
+## آیکن‌ها
+
+آیکن‌های استفاده شده در این سایت از [مجموعه آیکن‌های Solar](https://www.figma.com/community/file/1166831539721848736/solar-icons-set) است.
