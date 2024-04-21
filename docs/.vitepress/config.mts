@@ -88,7 +88,10 @@ export default defineConfig({
       },
       {
         text: 'کارهای مشابه',
-        items: [{ text: 'کارهای مشابه', link: '/others/' }],
+        items: [
+          { text: 'کارهای مشابه', link: '/others/' },
+          { text: 'ریسورس‌های قرآنی', link: '/others/resources' },
+        ],
       },
     ],
 
