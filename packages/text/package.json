@@ -23,7 +23,7 @@
   "type": "module",
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "files": [
     "dist/**/*",
     "json/*.json"
