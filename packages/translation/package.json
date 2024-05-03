@@ -1,0 +1,28 @@
+{
+  "name": "@ghoran/translation",
+  "version": "0.0.6",
+  "description": "Quran translations",
+  "main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "sideEffects": false,
+  "scripts": {
+    "generate-texts": "esno ./scripts/fetch-from-tanzil",
+    "build": "pnpm run generate-texts && unbuild",
+    "prepublish": "pnpm run build"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "files": [
+    "dist/**/*",
+    "json/*.json"
+  ]
+}

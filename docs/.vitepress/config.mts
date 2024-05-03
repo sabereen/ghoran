@@ -65,6 +65,10 @@ export default defineConfig({
             text: 'متادیتای قرآن (metadata)',
             link: '/packages/metadata',
           },
+          {
+            text: 'ترجمه‌ی قرآن (translation)',
+            link: '/packages/translation',
+          },
         ],
       },
       {
