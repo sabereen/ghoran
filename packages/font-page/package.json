@@ -1,0 +1,32 @@
+{
+  "name": "@ghoran/font-page",
+  "version": "0.0.7",
+  "description": "Quran page by page no-unicode fonts",
+  "main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
+    },
+    "./fonts/": "./fonts/"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "unbuild",
+    "prepublish": "pnpm run build"
+  },
+  "type": "module",
+  "keywords": [
+    "quran",
+    "font",
+    "ghoran"
+  ],
+  "author": "",
+  "license": "MIT",
+  "files": [
+    "dist/**/*",
+    "fonts/**/*"
+  ]
+}
