@@ -1,7 +1,7 @@
 import { juzList, pageList, sajdahMap, surahList } from '@ghoran/metadata'
 import { searchBinaryForAyah, simpleCache } from '@ghoran/utils'
 import { COUNT_OF_AYAHS } from '@ghoran/metadata/constants'
-import { Surah } from './surah'
+import { Surah, Page } from '.'
 
 const cache = new Map<number, Ayah>()
 
@@ -27,6 +27,11 @@ export class Ayah {
     if (!surah) return null
     const index = surah[0] + ayahNumberInSurah
     return Ayah.get(index)
+  }
+
+  /** کلید آیه که به صورت 2:1 مثلا برای آیه 1 از سوره 2 استفاده می‌شود */
+  get key() {
+    return `${this.surahNumber}:${this.ayahNumber}`
   }
 
   /** آیه‌ی قبلی */
@@ -72,6 +77,11 @@ export class Ayah {
   @simpleCache()
   get pageIndex() {
     return searchBinaryForAyah(pageList, this.index)
+  }
+
+  /** آبجکت صفحه */
+  get page() {
+    return Page.get(this.pageIndex)
   }
 
   /** شماره صفحه برای نمایش به کاربر */
