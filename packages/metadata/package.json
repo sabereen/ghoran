@@ -1,6 +1,6 @@
 {
   "name": "@ghoran/metadata",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Quran metadata",
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
