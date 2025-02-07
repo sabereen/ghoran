@@ -13,6 +13,8 @@ export type QuranTextType =
   | 'imla'
   | 'hafs'
   | 'hafs-v13'
+  | 'qpc-v1'
+  | 'qpc-v2'
 
 /**
  * مشخصات رسم الخط

@@ -28,6 +28,10 @@ export function importText(
       return import('../json/quran-text-hafs.json')
     case 'hafs-v13':
       return import('../json/quran-text-hafs-v13.json')
+    case 'qpc-v1':
+      return import('../json/quran-text-qpc-v1.json')
+    case 'qpc-v2':
+      return import('../json/quran-text-qpc-v2.json')
   }
 }
 
