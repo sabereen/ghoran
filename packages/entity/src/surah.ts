@@ -39,6 +39,10 @@ export class Surah {
     return surahList.map((_, i) => this.get(i))
   }
 
+  protected get class() {
+    return this.constructor as typeof Surah
+  }
+
   private get surahTuple() {
     return surahList[this.index]
   }
@@ -51,13 +55,13 @@ export class Surah {
   /** سوره قبلی */
   get prev(): Surah | null {
     if (this.index <= 0) return null
-    return Surah.get(this.index - 1)
+    return this.class.get(this.index - 1)
   }
 
   /** سوره بعدی */
   get next(): Surah | null {
     if (this.index >= COUNT_OF_SURAHS - 1) return null
-    return Surah.get(this.index + 1)
+    return this.class.get(this.index + 1)
   }
 
   /** اندیس اولین آیه */

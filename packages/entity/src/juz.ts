@@ -30,6 +30,10 @@ export class Juz {
     return juzList.map((_, index) => this.get(index))
   }
 
+  protected get class() {
+    return this.constructor as typeof Juz
+  }
+
   /** شماره جزء جهت نمایش به کاربر */
   get number() {
     return this.index + 1
@@ -58,13 +62,13 @@ export class Juz {
   /** جزء بعدی */
   get next(): Juz | null {
     if (this.index >= 29) return null
-    return Juz.get(this.index + 1)
+    return this.class.get(this.index + 1)
   }
 
   /** جزء قبلی */
   get prev(): Juz | null {
     if (this.index <= 0) return null
-    return Juz.get(this.index - 1)
+    return this.class.get(this.index - 1)
   }
 
   /** تعداد آیات جزء */

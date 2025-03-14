@@ -29,6 +29,10 @@ export class Ayah {
     return this.get(index)
   }
 
+  protected get class() {
+    return this.constructor as typeof Ayah
+  }
+
   /** کلید آیه که به صورت 2:1 مثلا برای آیه 1 از سوره 2 استفاده می‌شود */
   get key() {
     return `${this.surahNumber}:${this.ayahNumber}`
@@ -37,13 +41,13 @@ export class Ayah {
   /** آیه‌ی قبلی */
   get prev(): Ayah | null {
     if (this.index <= 0) return null
-    return Ayah.get(this.index - 1)
+    return this.class.get(this.index - 1)
   }
 
   /** آیه بعدی */
   get next(): Ayah | null {
     if (this.index >= COUNT_OF_AYAHS - 1) return null
-    return Ayah.get(this.index + 1)
+    return this.class.get(this.index + 1)
   }
 
   /** آبجکت سوره‌ی مربوط به آیه */

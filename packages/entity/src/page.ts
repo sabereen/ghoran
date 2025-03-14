@@ -32,6 +32,10 @@ export class Page {
     return pageList.map((_, i) => this.get(i))
   }
 
+  protected get class() {
+    return this.constructor as typeof Page
+  }
+
   /**
    * شماره صفحه جهت نمایش به کاربر
    * @deprecated use `number` instead
@@ -48,13 +52,13 @@ export class Page {
   /** صفحه‌ی قبلی */
   get prev(): Page | null {
     if (this.index <= 0) return null
-    return Page.get(this.index - 1)
+    return this.class.get(this.index - 1)
   }
 
   /** صفحه‌ی بعدی */
   get next(): Page | null {
     if (this.index >= COUNT_OF_PAGES - 1) return null
-    return Page.get(this.index + 1)
+    return this.class.get(this.index + 1)
   }
 
   /** اندیس اوّلین آیه در صفحه */
