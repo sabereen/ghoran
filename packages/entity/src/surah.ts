@@ -36,7 +36,7 @@ export class Surah {
 
   /** تمام سوره‌های قرآن را بر می‌گرداند */
   static getAll() {
-    return surahList.map((_, i) => Surah.get(i))
+    return surahList.map((_, i) => this.get(i))
   }
 
   private get surahTuple() {

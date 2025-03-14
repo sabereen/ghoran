@@ -27,7 +27,7 @@ export class Juz {
 
   /** تمام جزءهای قرآن را بر می‌گرداند */
   static getAll() {
-    return juzList.map((_, index) => new Juz(index))
+    return juzList.map((_, index) => this.get(index))
   }
 
   /** شماره جزء جهت نمایش به کاربر */
