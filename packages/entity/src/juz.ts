@@ -1,4 +1,4 @@
-import { Ayah, Page, Surah } from '@ghoran/entity'
+import { Ayah, Page, Surah } from '.'
 import { juzList } from '@ghoran/metadata'
 import { COUNT_OF_AYAHS } from '@ghoran/metadata/constants'
 
