@@ -7,7 +7,7 @@ const cache = new Map<number, Surah>()
 
 /** سوره */
 export class Surah {
-  private constructor(readonly index: number) {
+  protected constructor(readonly index: number) {
     if (index < 0 || index >= COUNT_OF_SURAHS)
       throw new Error('Surah index is not valid')
   }

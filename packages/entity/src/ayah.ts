@@ -7,7 +7,7 @@ const cache = new Map<number, Ayah>()
 
 /**‌ آیه */
 export class Ayah {
-  private constructor(readonly index: number) {
+  protected constructor(readonly index: number) {
     if (index < 0 || index >= COUNT_OF_AYAHS)
       throw new Error('Ayah index is not valid.')
   }

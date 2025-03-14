@@ -6,7 +6,7 @@ const cache = new Map<number, Page>()
 
 /**‌ صفحه */
 export class Page {
-  private constructor(readonly index: number) {
+  protected constructor(readonly index: number) {
     if (index < 0 || index >= COUNT_OF_PAGES)
       throw new Error('Page index is not valid.')
   }
