@@ -25,8 +25,23 @@ export class Page {
     return page
   }
 
-  /** شماره صفحه جهت نمایش به کاربر */
+  /**
+   * لیست کل صفحات قرآن
+   */
+  static getAll() {
+    return pageList.map((_, i) => this.get(i))
+  }
+
+  /**
+   * شماره صفحه جهت نمایش به کاربر
+   * @deprecated use `number` instead
+   */
   get pageNumber() {
+    return this.number
+  }
+
+  /** شماره صفحه جهت نمایش به کاربر */
+  get number() {
     return this.index + 1
   }
 
@@ -62,5 +77,10 @@ export class Page {
   /** آبجکت آخرین آیه در صفحه */
   get lastAyah(): Ayah {
     return Ayah.get(this.lastAyahIndex)
+  }
+
+  /** تعداد آیات صفحه */
+  get ayahCount() {
+    return this.lastAyahIndex - this.firstAyahIndex + 1
   }
 }
