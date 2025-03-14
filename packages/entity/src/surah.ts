@@ -34,12 +34,9 @@ export class Surah {
     return Surah.get(index)
   }
 
+  /** تمام سوره‌های قرآن را بر می‌گرداند */
   static getAll() {
-    const list = [] as Surah[]
-    for (let i = 0; i < COUNT_OF_SURAHS; i++) {
-      list[i] = Surah.get(i)
-    }
-    return list
+    return surahList.map((_, i) => Surah.get(i))
   }
 
   private get surahTuple() {
