@@ -19,7 +19,7 @@ export class Juz {
   static get(index: number) {
     let juz = cache.get(index)
     if (!juz) {
-      juz = new Juz(index)
+      juz = new this(index)
       cache.set(index, juz)
     }
     return juz

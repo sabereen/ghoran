@@ -15,7 +15,7 @@ export class Ayah {
   static get(index: number) {
     let ayah = cache.get(index)
     if (!ayah) {
-      ayah = new Ayah(index)
+      ayah = new this(index)
       cache.set(index, ayah)
     }
     return ayah
@@ -26,7 +26,7 @@ export class Ayah {
     const surah = surahList[surahNumber - 1]
     if (!surah) return null
     const index = surah[0] + ayahNumberInSurah
-    return Ayah.get(index)
+    return this.get(index)
   }
 
   /** کلید آیه که به صورت 2:1 مثلا برای آیه 1 از سوره 2 استفاده می‌شود */

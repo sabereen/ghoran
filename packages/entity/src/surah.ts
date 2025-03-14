@@ -15,7 +15,7 @@ export class Surah {
   static get(index: number): Surah {
     let surah = cache.get(index)
     if (!surah) {
-      surah = new Surah(index)
+      surah = new this(index)
       cache.set(index, surah)
     }
     return surah
@@ -29,9 +29,9 @@ export class Surah {
     const index = searchBinaryForAyah(
       surahList,
       ayahIndex,
-      Surah.getIndexOfFirstAyah,
+      this.getIndexOfFirstAyah,
     )
-    return Surah.get(index)
+    return this.get(index)
   }
 
   /** تمام سوره‌های قرآن را بر می‌گرداند */

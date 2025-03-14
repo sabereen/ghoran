@@ -19,7 +19,7 @@ export class Page {
   static get(index: number) {
     let page = cache.get(index)
     if (!page) {
-      page = new Page(index)
+      page = new this(index)
       cache.set(index, page)
     }
     return page
