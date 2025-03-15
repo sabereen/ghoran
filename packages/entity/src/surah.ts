@@ -1,6 +1,6 @@
 import { SurahTuple, surahList } from '@ghoran/metadata'
 import { searchBinaryForAyah } from '@ghoran/utils'
-import { COUNT_OF_SURAHS } from '@ghoran/metadata/constants'
+import { COUNT_OF_SURAHS, COUNT_OF_AYAHS } from '@ghoran/metadata/constants'
 import { Ayah } from '.'
 
 const cache = new Map<number, Surah>()
@@ -77,7 +77,7 @@ export class Surah {
   /** اندیس آخرین آیه */
   get lastAyahIndex() {
     const nextSurah = this.next
-    const nextIndex = nextSurah?.firstAyahIndex || surahList.length
+    const nextIndex = nextSurah?.firstAyahIndex || COUNT_OF_AYAHS
     return nextIndex - 1
   }
 
