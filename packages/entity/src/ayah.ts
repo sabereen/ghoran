@@ -1,7 +1,7 @@
 import { juzList, pageList, sajdahMap, surahList } from '@ghoran/metadata'
 import { searchBinaryForAyah, simpleCache } from '@ghoran/utils'
 import { COUNT_OF_AYAHS } from '@ghoran/metadata/constants'
-import { Surah, Page } from '.'
+import { Surah, Page, Juz } from '.'
 
 const cache = new Map<number, Ayah>()
 
@@ -35,7 +35,7 @@ export class Ayah {
 
   /** کلید آیه که به صورت 2:1 مثلا برای آیه 1 از سوره 2 استفاده می‌شود */
   get key() {
-    return `${this.surahNumber}:${this.ayahNumber}`
+    return `${this.surahNumber}:${this.number}`
   }
 
   /** آیه‌ی قبلی */
@@ -61,8 +61,15 @@ export class Ayah {
     return this.surah.index + 1
   }
 
-  /** شماره آیه برای نمایش به کاربر */
+  /**
+   * شماره آیه برای نمایش به کاربر
+   * @deprecated از number استفاده کنید.
+   */
   get ayahNumber() {
+    return this.number
+  }
+
+  get number() {
     return this.index - this.surah.firstAyahIndex + 1
   }
 
@@ -75,6 +82,11 @@ export class Ayah {
   /** شماره جزء برای نمایش به کاربر */
   get juzNumber() {
     return this.juzIndex + 1
+  }
+
+  /** آبجکت جزء */
+  get juz() {
+    return Juz.get(this.juzIndex)
   }
 
   /** اندیس صفحه */
@@ -105,6 +117,31 @@ export class Ayah {
 
   /** آیا این آیه اوّلین آیه‌ی سوره است؟ */
   get isFirstOfSurah() {
-    return this.ayahNumber === 1
+    return this.number === 1
+  }
+
+  /** آیا این آیه آخرین آیه‌ی سوره است؟ */
+  get isLastOfSurah() {
+    return !this.next || this.next.isFirstOfSurah
+  }
+
+  /** آیا اولین آیه صفحه است؟ */
+  get isFirstOfPage() {
+    return this.page.firstAyahIndex === this.index
+  }
+
+  /** آیا آخرین آیه صفحه است؟ */
+  get isLastOfPage() {
+    return this.page.lastAyahIndex === this.index
+  }
+
+  /** آیا اولین آیه جزء است؟ */
+  get isFirstOfJuz() {
+    return this.juz.firstAyahIndex === this.index
+  }
+
+  /** آیا آخرین آیه جزء است؟ */
+  get isLastOfJuz() {
+    return !this.next || this.next.isFirstOfJuz
   }
 }
