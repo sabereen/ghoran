@@ -8,7 +8,7 @@ const cache = new Map<number, Juz>()
 export class Juz {
   protected constructor(readonly index: number) {
     if (index < 0 || index >= juzList.length)
-      throw new Error(`Ayah index is not valid. (${index})`)
+      throw new Error(`Juz index is not valid. (${index})`)
   }
 
   /**
