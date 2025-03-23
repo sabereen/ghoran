@@ -1,7 +1,13 @@
-import { juzList, pageList, sajdahMap, surahList } from '@ghoran/metadata'
+import {
+  hizbQuarterList,
+  juzList,
+  pageList,
+  sajdahMap,
+  surahList,
+} from '@ghoran/metadata'
 import { searchBinaryForAyah, simpleCache } from '@ghoran/utils'
 import { COUNT_OF_AYAHS } from '@ghoran/metadata/constants'
-import { Surah, Page, Juz } from '.'
+import { Surah, Page, Juz, HizbQuarter } from '.'
 
 const cache = new Map<number, Ayah>()
 
@@ -87,6 +93,17 @@ export class Ayah {
   /** آبجکت جزء */
   get juz() {
     return Juz.get(this.juzIndex)
+  }
+
+  /** اندیس ربع‌حزب */
+  @simpleCache()
+  get hizbQuarterIndex() {
+    return searchBinaryForAyah(hizbQuarterList, this.index)
+  }
+
+  /** آبجکت ربع حزب */
+  get hizbQuarter() {
+    return HizbQuarter.get(this.hizbQuarterIndex)
   }
 
   /** اندیس صفحه */
