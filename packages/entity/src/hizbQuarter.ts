@@ -47,14 +47,24 @@ export class HizbQuarter {
     return this.constructor as typeof HizbQuarter
   }
 
-  /** شماره ربع حزب جهت نمایش به کاربر */
+  /** ربع حزب فعلی چندمین ربع‌حزب مربوط به حزب است؟ */
   get number() {
-    return (this.index + 1) / 4
+    return (this.index % 4) + 1
   }
 
   /** شماره حزب مربوط به این ربع‌حزب */
   get hizbNumber() {
     return Math.floor(this.number)
+  }
+
+  /** اندیس جزئی که این ربع‌حزب در آن قرار دارد */
+  get juzIndex() {
+    return this.firstAyah.juzIndex
+  }
+
+  /** آبجکت جزئی که این ربع حزب متعلق به آن است */
+  get juz() {
+    return this.firstAyah.juz
   }
 
   /** اندیس اولین آیه‌ی ربع‌حزب */
