@@ -54,7 +54,7 @@ export class HizbQuarter {
 
   /** شماره حزب مربوط به این ربع‌حزب */
   get hizbNumber() {
-    return Math.floor(this.number)
+    return Math.floor((this.index + 1) / 4) + 1
   }
 
   /** اندیس جزئی که این ربع‌حزب در آن قرار دارد */
