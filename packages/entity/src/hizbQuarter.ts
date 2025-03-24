@@ -89,7 +89,7 @@ export class HizbQuarter {
 
   /** ربع‌حزب بعدی */
   get next(): HizbQuarter | null {
-    if (this.index >= 29) return null
+    if (this.index >= hizbQuarterList.length - 2) return null
     return this.class.get(this.index + 1)
   }
 
