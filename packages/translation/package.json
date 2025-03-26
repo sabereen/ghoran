@@ -1,6 +1,6 @@
 {
   "name": "@ghoran/translation",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "Quran translations",
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
@@ -9,7 +9,8 @@
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.mjs"
-    }
+    },
+    "./json/": "./json/"
   },
   "sideEffects": false,
   "scripts": {
@@ -23,6 +24,6 @@
   "license": "MIT",
   "files": [
     "dist/**/*",
-    "json/*.json"
+    "json/**/*.json"
   ]
 }
