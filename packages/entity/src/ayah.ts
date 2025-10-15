@@ -31,8 +31,17 @@ export class Ayah {
   static getBySurahNumber(surahNumber: number, ayahNumberInSurah: number) {
     const surah = surahList[surahNumber - 1]
     if (!surah) return null
-    const index = surah[0] + ayahNumberInSurah
+    const index = surah[0] + ayahNumberInSurah - 1
     return this.get(index)
+  }
+
+  /**
+   * رشته‌ی کلید یک آیه را می‌گیرد و آیه متناظرش را بر می‌گرداند
+   * @param key - یک استرینگ به صورت sura:ayah مثلا 2:4 یعنی آیه 4 از سوره 2
+   */
+  static getByKey(key: string) {
+    const [surahNumber, ayahNumber] = key.split(':')
+    return this.getBySurahNumber(+surahNumber, +ayahNumber)
   }
 
   protected get class() {
