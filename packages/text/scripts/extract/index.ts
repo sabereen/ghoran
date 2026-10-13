@@ -2,11 +2,13 @@ import fs from 'fs-extra'
 import { copyQuranTexts as readQuranText } from './copy-text'
 import { extractHafsV13 } from './extract-hafs-v13'
 import { extractHafsV22 } from './extract-hafs-v22'
+import { extractHafsV3 } from './extract-hafs-v3'
 import { extractTanzilText } from './extract-tanzil'
 import { QuranTextType } from '../../src/types'
 import { extractQPCTextV2 } from './extract-qpc-v2'
 
 export const texts: Record<QuranTextType, string[]> = {
+  'hafs-v3': await extractHafsV3(),
   'hafs-v13': await extractHafsV13(),
   hafs: await extractHafsV22(),
   'tanzil-simple-clean': extractTanzilText('simple-clean'),

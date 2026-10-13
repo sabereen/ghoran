@@ -11,7 +11,8 @@
       "default": "./dist/index.mjs"
     },
     "./json/": "./json/",
-    "./fonts/": "./dist/fonts/"
+    "./fonts/": "./dist/fonts/",
+    "./fonts/*": "./dist/fonts/*"
   },
   "sideEffects": false,
   "scripts": {
