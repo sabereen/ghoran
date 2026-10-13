@@ -12,12 +12,12 @@
       "import": "./dist/index.mjs"
     },
     "./constants": {
-      "types": "./dist/constants.d.mts",
+      "types": "./dist/constants.d.ts",
       "import": "./dist/constants.mjs"
     }
   },
   "scripts": {
-    "build": "unbuild"
+    "build": "tsdown"
   },
   "type": "module",
   "keywords": [],

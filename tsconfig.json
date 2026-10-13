@@ -5,6 +5,8 @@
     "lib": ["esnext"],
     "module": "esnext",
     "moduleResolution": "Bundler",
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
     "paths": {
       "@ghoran/text": ["./packages/text"],
       "@ghoran/metadata": ["./packages/metadata"],
@@ -17,8 +19,7 @@
     "strictNullChecks": true,
     "esModuleInterop": true,
     "skipDefaultLibCheck": true,
-    // esbuild does not support EcmaScript decorators yet
-    // so we use typescript experimentalDecorators temporary
+    // Getter cache decorators use TypeScript's legacy decorator semantics.
     "experimentalDecorators": true,
     "skipLibCheck": true
   },

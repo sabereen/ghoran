@@ -1,7 +1,10 @@
 import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const dirname = fileURLToPath(new URL('.', import.meta.url))
 
 function r(p: string) {
-  return resolve(__dirname, p)
+  return resolve(dirname, p)
 }
 
 export const alias: Record<string, string> = {

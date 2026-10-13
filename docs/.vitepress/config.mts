@@ -1,9 +1,9 @@
 import { defineConfig } from 'vitepress'
 import UnoCSS from 'unocss/vite'
 import assert from 'node:assert'
-import { alias } from '../../alias'
+import { alias } from '../../alias.ts'
 import typedocMenu from '../en/types/typedoc-sidebar.json'
-import unoConfig from '../uno.config'
+import unoConfig from '../uno.config.ts'
 
 typedocMenu.forEach((item) => {
   item.text = `‎@ghoran/${item.text}`
