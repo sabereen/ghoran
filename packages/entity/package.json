@@ -1,6 +1,6 @@
 {
   "name": "@ghoran/entity",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "Quran entities",
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
@@ -20,5 +20,14 @@
     "@ghoran/metadata": "workspace:*",
     "@ghoran/text": "workspace:*",
     "@ghoran/utils": "workspace:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabereen/ghoran.git",
+    "directory": "packages/entity"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

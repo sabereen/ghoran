@@ -1,6 +1,6 @@
 {
   "name": "@ghoran/font-page",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Quran page by page no-unicode fonts",
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
@@ -29,5 +29,14 @@
   "files": [
     "dist/**/*",
     "fonts/**/*"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabereen/ghoran.git",
+    "directory": "packages/font-page"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }

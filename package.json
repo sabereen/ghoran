@@ -13,7 +13,11 @@
     "test:watch": "vitest",
     "check:packages": "node scripts/check-packages.mjs",
     "typecheck": "tsc --noEmit",
-    "verify": "pnpm build && pnpm typecheck && pnpm test && pnpm check:packages && pnpm docs:build"
+    "verify": "pnpm build && pnpm typecheck && pnpm test && pnpm check:packages && pnpm docs:build",
+    "release:pack": "node scripts/release.mjs pack",
+    "release:dry-run": "node scripts/release.mjs dry-run",
+    "release:publish": "node scripts/release.mjs publish",
+    "release:version": "node scripts/version-packages.mjs"
   },
   "keywords": [],
   "author": "",

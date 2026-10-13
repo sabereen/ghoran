@@ -23,5 +23,6 @@
     "vitepress": "^1.6.4",
     "vue": "^3.5.43"
   },
-  "type": "module"
+  "type": "module",
+  "private": true
 }
