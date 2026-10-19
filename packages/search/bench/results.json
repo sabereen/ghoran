@@ -1,0 +1,99 @@
+{
+  "measuredAt": "2026-10-19T03:57:18.992Z",
+  "environment": {
+    "node": "v24.19.0",
+    "platform": "linux",
+    "arch": "x64",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "iterations": 100,
+    "initializationSamples": 5,
+    "clock": "performance.now",
+    "gc": true
+  },
+  "initialization": {
+    "cold": {
+      "medianMs": 191.983,
+      "p95Ms": 198.693
+    },
+    "warm": {
+      "medianMs": 143.984,
+      "p95Ms": 180.847
+    },
+    "measuredMs": 137.618,
+    "heapMiB": 12.78
+  },
+  "searches": {
+    "common word": {
+      "medianMs": 1.917,
+      "p95Ms": 4.126,
+      "total": 1567
+    },
+    "phrase": {
+      "medianMs": 1.346,
+      "p95Ms": 1.923,
+      "total": 6
+    },
+    "allWords": {
+      "medianMs": 2.178,
+      "p95Ms": 3.843,
+      "total": 41
+    },
+    "anyWord": {
+      "medianMs": 1.661,
+      "p95Ms": 2.463,
+      "total": 1589
+    },
+    "many results": {
+      "medianMs": 2.959,
+      "p95Ms": 8.878,
+      "total": 2023
+    },
+    "single surah": {
+      "medianMs": 0.495,
+      "p95Ms": 0.995,
+      "total": 139
+    },
+    "substring": {
+      "medianMs": 0.703,
+      "p95Ms": 1.106,
+      "total": 201
+    }
+  },
+  "worker": {
+    "initializationMs": 238.858,
+    "searches": {
+      "emptyRoundTrip": {
+        "medianMs": 0.026,
+        "p95Ms": 0.077,
+        "total": 0
+      },
+      "commonWord": {
+        "medianMs": 2.372,
+        "p95Ms": 5.922,
+        "total": 1567
+      }
+    }
+  },
+  "bundles": [
+    {
+      "name": "browser.mjs",
+      "bytes": 3968,
+      "gzipBytes": 1355
+    },
+    {
+      "name": "engine-BilkMLXG.mjs",
+      "bytes": 13152,
+      "gzipBytes": 4243
+    },
+    {
+      "name": "index.mjs",
+      "bytes": 9154,
+      "gzipBytes": 2993
+    },
+    {
+      "name": "worker.mjs",
+      "bytes": 1229,
+      "gzipBytes": 549
+    }
+  ]
+}

@@ -53,6 +53,7 @@ export default defineConfig({
       {
         text: 'کتابخانه‌ها',
         items: [
+          { text: 'جستجوی قرآن (search)', link: '/packages/search' },
           {
             text: 'متن و فونت قرآن (text)',
             link: '/packages/text',
@@ -104,6 +105,7 @@ export default defineConfig({
     ],
   },
   vite: {
+    worker: { format: 'es' },
     plugins: [UnoCSS(unoConfig)],
     resolve: {
       alias,

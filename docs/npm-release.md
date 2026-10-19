@@ -1,6 +1,6 @@
 # انتشار روی npm
 
-شش پکیج عمومی پروژه با workflow زیر منتشر می‌شوند:
+هفت پکیج عمومی پروژه با workflow زیر منتشر می‌شوند:
 
 [Publish to npm](https://github.com/sabereen/ghoran/actions/workflows/npm-release.yml)
 
@@ -12,7 +12,7 @@
 ## اتصال یک‌بارهٔ npm به گیت‌هاب
 
 این روال از [Trusted Publishing رسمی npm](https://docs.npmjs.com/trusted-publishers/)
-استفاده می‌کند و به `NPM_TOKEN` نیاز ندارد. مالک یا نگه‌دارندهٔ هر شش پکیج باید
+استفاده می‌کند و به `NPM_TOKEN` نیاز ندارد. مالک یا نگه‌دارندهٔ هر هفت پکیج باید
 در npm، بخش Settings → Trusted Publisher، گزینهٔ GitHub Actions را با مشخصات
 زیر تنظیم کند:
 
@@ -25,7 +25,7 @@
 | Allowed actions      | اجازهٔ انتشار مستقیم با `npm publish` |
 
 این تنظیم را برای `@ghoran/entity`، `@ghoran/font-page`، `@ghoran/metadata`،
-`@ghoran/text`، `@ghoran/translation` و `@ghoran/utils` انجام دهید.
+`@ghoran/text`، `@ghoran/translation`، `@ghoran/utils` و `@ghoran/search` انجام دهید.
 نام workflow فقط نام فایل است، نه مسیر کامل `.github/workflows/...`.
 
 ## اولین انتشار آماده‌شده
@@ -40,6 +40,7 @@
 | `@ghoran/text`        | `0.0.9`  |
 | `@ghoran/translation` | `0.0.10` |
 | `@ghoran/utils`       | `0.0.8`  |
+| `@ghoran/search`      | `0.1.0`  |
 
 بعد از تنظیم Trusted Publisher، در صفحهٔ Action گزینهٔ **Run workflow** را روی
 برنچ `main` اجرا کنید. برای آزمایش بدون انتشار، `dry_run` را فعال کنید؛ پیش‌فرض
@@ -76,3 +77,10 @@ pnpm release:dry-run
 tarballها و manifest در `work/npm-release/` ساخته می‌شوند. انتشار مستقیم محلی
 با `pnpm release:publish` به ورود معتبر npm نیاز دارد؛ provenance برای انتشار
 در GitHub Actions تنظیم شده است.
+
+پکیج جدید `@ghoran/search` نیز باید قبل از انتشار خودکار، برای نخستین بار
+توسط مالک در npm ایجاد و Trusted Publisher آن تنظیم شود. اسکریپت انتشار
+وابستگی‌های `metadata` و `text` را پیش از `search` منتشر می‌کند.
+
+برای آزمایش Worker واقعی در Chromium نصب‌شده، `pnpm check:search-browser` را
+اجرا کنید (`CHROME_BIN` مسیر باینری مرورگر را تعیین می‌کند).
