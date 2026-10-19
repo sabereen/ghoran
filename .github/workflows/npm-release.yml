@@ -62,4 +62,30 @@ jobs:
         with:
           name: npm-release
           path: work/npm-release/
+      - name: Verify npm trusted publishing access
+        run: |
+          node --input-type=module <<'NODE'
+          const tokenUrl = process.env.ACTIONS_ID_TOKEN_REQUEST_URL
+          const tokenAuth = process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN
+          if (!tokenUrl || !tokenAuth) throw Error('GitHub OIDC token permission is missing')
+          const url = new URL(tokenUrl)
+          url.searchParams.set('audience', 'npm:registry.npmjs.org')
+          const oidc = await fetch(url, { headers: { Authorization: `Bearer ${tokenAuth}` } })
+          if (!oidc.ok) throw Error(`Cannot request GitHub OIDC ID token: HTTP ${oidc.status}`)
+          const { value: idToken } = await oidc.json()
+          if (!idToken) throw Error('GitHub returned no OIDC ID token')
+          const names = ['font-page', 'entity', 'metadata', 'text', 'translation', 'utils']
+          let failures = 0
+          for (const name of names) {
+            const pkg = `@ghoran/${name}`
+            const endpoint = `https://registry.npmjs.org/-/npm/v1/oidc/token/exchange/package/${encodeURIComponent(pkg)}`
+            const response = await fetch(endpoint, {
+              method: 'POST',
+              headers: { Authorization: `Bearer ${idToken}` },
+            })
+            console.log(`${pkg}: npm OIDC exchange HTTP ${response.status}`)
+            if (!response.ok) failures++
+          }
+          if (failures) throw Error(`${failures} package(s) rejected the npm OIDC trust exchange; check Trusted Publisher settings and Allowed actions`)
+          NODE
       - run: node scripts/release.mjs publish
