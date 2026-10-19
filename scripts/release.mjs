@@ -73,8 +73,17 @@ if (mode === 'pack') {
     expected,
     'Artifacts must match the checked-out release versions',
   )
+  const excluded = new Set((process.env.NPM_RELEASE_EXCLUDE || '').split(',').filter(Boolean))
+  assert(
+    [...excluded].every((name) => manifest.some((pkg) => pkg.name === name)),
+    'NPM_RELEASE_EXCLUDE contains an unknown package',
+  )
   for (const pkg of manifest) {
     assert.equal(basename(pkg.file), pkg.file)
+    if (mode === 'publish' && excluded.has(pkg.name)) {
+      console.log(`Deferred by NPM_RELEASE_EXCLUDE: ${pkg.name}@${pkg.version}`)
+      continue
+    }
     if (mode === 'publish') {
       const result = spawnSync(
         'npm',
