@@ -3,6 +3,9 @@ name: Publish to npm
 on:
   push:
     tags: ['npm-*']
+    # One-time OIDC bootstrap: publish when this workflow changes on main.
+    branches: ['main']
+    paths: ['.github/workflows/npm-release.yml']
   workflow_dispatch:
     inputs:
       dry_run:
