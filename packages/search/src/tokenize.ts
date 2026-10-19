@@ -12,12 +12,13 @@ export interface PreparedText {
 }
 
 // Join controls can attach a lexical character to a larger grapheme (including
-// emoji). Take the grapheme path only for those unusual strings; Quran corpora
-// use the fast lexical scan. Never create a token ending inside a ZWJ cluster.
+// emoji). Use native graphemes for those unusual strings when available; older
+// runtimes keep the lexical scan and use conservative whole-word positions.
 function* rawWords(text: string): Generator<{ text: string; start: number }> {
-  if (!/[\u200c\u200d]/u.test(text)) {
+  const parts = /[\u200c\u200d]/u.test(text) ? graphemes(text) : undefined
+  if (!parts) {
     for (const match of text.matchAll(
-      /[\p{L}\p{N}\u0640][\p{L}\p{N}\p{M}\u0640]*/gu,
+      /[\p{L}\p{N}\u0640][\p{L}\p{N}\p{M}\u0640\u200c\u200d]*/gu,
     )) {
       yield { text: match[0], start: match.index! }
     }
@@ -25,7 +26,7 @@ function* rawWords(text: string): Generator<{ text: string; start: number }> {
   }
   let start = -1,
     word = ''
-  for (const part of graphemes(text)) {
+  for (const part of parts) {
     if (
       /^[\p{L}\p{N}\p{M}\u0640\u200c\u200d]+$/u.test(part.segment) &&
       (start >= 0 || /[\p{L}\p{N}]/u.test(part.segment))
@@ -70,14 +71,19 @@ export function prepareText(text: string, normalize: Normalizer): PreparedText {
 }
 
 let segmenter: Intl.Segmenter | undefined
-export function graphemes(text: string): Intl.Segments {
+export function graphemes(text: string): Intl.Segments | undefined {
+  // Progressive enhancement, not a runtime requirement. Check even when a native
+  // instance was cached: capability belongs to the current execution environment.
+  if (typeof Intl === 'undefined' || typeof Intl.Segmenter !== 'function')
+    return
   segmenter ??= new Intl.Segmenter('ar', { granularity: 'grapheme' })
   return segmenter.segment(text)
 }
 
 /** Map only when per-grapheme normalization reproduces the whole token exactly.
  * Otherwise the caller must highlight the complete word. Includes all marks and
- * surrogate pairs in each selected grapheme. No offsets into detached marks.
+ * surrogate pairs in each selected grapheme. Without native segmentation, return
+ * no character range so callers use the existing whole-word fallback.
  */
 export function characterRange(
   text: string,
@@ -87,9 +93,11 @@ export function characterRange(
   normalize: Normalizer,
 ): { start: number; end: number } | undefined {
   const original = text.slice(token.start, token.end)
+  const parts = graphemes(original)
+  if (!parts) return
   let value = ''
   const units: { start: number; end: number; from: number; to: number }[] = []
-  for (const grapheme of graphemes(original)) {
+  for (const grapheme of parts) {
     const part = normalize(grapheme.segment)
     const from = value.length
     value += part

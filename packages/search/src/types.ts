@@ -34,7 +34,9 @@ export interface SearchMatch {
   /** UTF-16 offsets into tokenized normalized text (tokens joined by one space). */
   normalizedStart: number
   normalizedEnd: number
-  /** UTF-16 offsets into sourceText, expanded to full graphemes. */
+  /** UTF-16 offsets into sourceText. Full graphemes when supported, otherwise
+   * complete lexical words (including for substring matches).
+   */
   sourceStart: number
   sourceEnd: number
 }

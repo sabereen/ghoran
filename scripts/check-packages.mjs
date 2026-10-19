@@ -110,7 +110,8 @@ assert.equal(direct.execution, 'direct')
 direct.dispose(); search.dispose()
 await access(new URL(import.meta.resolve('@ghoran/search/worker')))
 const { Worker } = await import('node:worker_threads')
-const thread = new Worker(new URL('./thread.mjs', import.meta.url), { type: 'module' })
+for (const withoutSegmenter of [false, true]) {
+const thread = new Worker(new URL('./thread.mjs', import.meta.url), { type: 'module', workerData: { withoutSegmenter } })
 const listeners = new Map()
 const wrapper = {
   postMessage: message => thread.postMessage(message),
@@ -122,8 +123,13 @@ const wrapper = {
   removeEventListener(type, listener) { thread.off(type, listeners.get(type)); listeners.delete(type) },
 }
 const remote = await createBrowserQuranSearch({ workerFactory: () => wrapper })
-try { assert.deepEqual(await remote.search('الرحمن الرحيم', { scope: { surahs: [1] } }), result) }
+try {
+  assert.deepEqual(await remote.search('الرحمن الرحيم', { scope: { surahs: [1] } }), result)
+  const partial = (await remote.search('سم', { mode: 'substring', scope: { ayahIndices: [0] } })).hits[0]
+  assert.equal(partial.sourceText.slice(partial.matches[0].sourceStart, partial.matches[0].sourceEnd), withoutSegmenter ? 'بسم' : 'سم')
+}
 finally { remote.dispose() }
+}
 
 assert.equal(COUNT_OF_AYAHS, 6236)
 assert.equal(Surah.getAll().length, 114)
@@ -154,7 +160,8 @@ assert(translation.every(ayah => typeof ayah === 'string' && ayah.length > 0))
   await writeFile(
     join(consumer, 'thread.mjs'),
     `
-import { parentPort } from 'node:worker_threads'
+import { parentPort, workerData } from 'node:worker_threads'
+if (workerData?.withoutSegmenter) Intl.Segmenter = undefined
 globalThis.postMessage = message => parentPort.postMessage(message)
 globalThis.addEventListener = (_, listener) => parentPort.on('message', data => listener({ data }))
 await import('@ghoran/search/worker')

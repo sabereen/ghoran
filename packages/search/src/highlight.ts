@@ -192,16 +192,30 @@ export function getHighlightRanges(
   const source = prepareText(hit.sourceText, normalize)
   const ranges: HighlightRange[] = [],
     unresolvedMatches: number[] = []
-  const boundaries = new Set<number>([0, displayText.length])
-  for (const part of graphemes(displayText)) boundaries.add(part.index)
+  const parts = graphemes(displayText)
+  const boundaries = parts
+    ? new Set<number>([0, displayText.length])
+    : undefined
+  if (parts) for (const part of parts) boundaries!.add(part.index)
+  // Without native graphemes, trusted maps still validate bounds/order and must
+  // not split surrogate pairs. Full grapheme validation is an enhancement.
+  const validBoundary = (index: number) =>
+    boundaries
+      ? boundaries.has(index)
+      : !(
+          index > 0 &&
+          index < displayText.length &&
+          /[\ud800-\udbff]/u.test(displayText[index - 1]) &&
+          /[\udc00-\udfff]/u.test(displayText[index])
+        )
   const validRange = (start: number, end: number) =>
     Number.isInteger(start) &&
     Number.isInteger(end) &&
     start >= 0 &&
     end > start &&
     end <= displayText.length &&
-    boundaries.has(start) &&
-    boundaries.has(end)
+    validBoundary(start) &&
+    validBoundary(end)
   if (options.wordMap) {
     if (options.wordMap.length !== source.tokens.length)
       throw new RangeError('wordMap must cover every source token')

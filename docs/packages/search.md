@@ -206,8 +206,8 @@ const { ranges, unresolvedMatches } = getHighlightRanges(original, hit)
 
 Render each segment as a text node/interpolation, with `<mark>` for highlighted
 segments. No HTML strings or DOM APIs are generated. Original marks, punctuation,
-spacing, NBSP and surrogate pairs remain intact. Offsets use UTF-16, and ranges
-end on grapheme boundaries. Multiple and overlapping matches merge into disjoint
+spacing, NBSP and surrogate pairs remain intact. Offsets use UTF-16. With native
+`Intl.Segmenter`, ranges end on grapheme boundaries. Multiple and overlapping matches merge into disjoint
 ranges, including whitespace between adjacent selected words.
 
 Alignment checks **word content**. It never relies only on equal word counts or
@@ -254,8 +254,9 @@ const segments = getHighlightSegments(qpc, hit, { wordMap })
 This example is not a general QPC algorithm. A QPC word may occupy several glyphs,
 word divisions may differ, and number/pause glyphs must be excluded. `wordMap`
 length must equal the normalized source token count; use `null` for unknown words.
-Ranges must be ordered, in bounds, and at grapheme boundaries. The library
-validates those structural constraints; **semantic correctness of supplied maps
+Ranges must be ordered and in bounds. Surrogate boundaries are always checked;
+full grapheme boundaries are additionally checked when `Intl.Segmenter` is available.
+The library validates those structural constraints; **semantic correctness of supplied maps
 belongs to their provider**. No automatic full-Quran QPC map is shipped because
 this repository's encoded glyph data does not establish semantic correspondence.
 QPC also requires the correct [page font](/fonts).
@@ -387,14 +388,36 @@ after their synchronous scan. Calls remain independent: the library does not gue
 which caller owns the “latest” query. Abort the previous request and use a sequence
 guard when updating reactive UI. Debounce text input to avoid queuing obsolete scans.
 
+### Older browsers: progressive enhancement
+
+`Intl.Segmenter` is optional. If the environment has no implementation (including
+inside a worker), initialization, normalization and search continue without a
+polyfill or a missing-API error. Native segmentation is detected lazily and reused
+when available.
+
+Without it, original-string positions and highlights expand to complete lexical
+words, including for partial substring matches. For example, searching `الله`
+inside `بِاللَّهِ` still matches, but the highlight covers `بِاللَّهِ` instead of
+just `اللَّهِ`. `getHighlightRanges()` reports `accuracy: 'word'`. Original text,
+spacing, surrogate pairs and the word's Arabic combining marks are preserved.
+Normalized match positions remain available, so a hit returned by an older worker
+can regain finer highlighting when rendered in an environment with segmentation.
+
+This fallback does not implement full Unicode grapheme segmentation. Complex emoji,
+joiner sequences and scripts outside ordinary Arabic may receive less precise
+boundaries. Explicit `wordMap` values remain trusted assertions: bounds, order and
+surrogate boundaries are always validated; full grapheme validation runs only when
+native segmentation is available. No dependencies or polyfills are added. Unicode
+property escapes and the repository's other JavaScript requirements still apply.
+
 ## Node.js and custom verse-aligned text
 
 The main entrypoint has no browser globals or Node-only imports. It loads text using
 `importText`, avoiding the text package's browser CacheStorage adapter. Node needs
 no Worker or DOM declarations; use normal ESM and `await createQuranSearch()`.
-UTF-16 positions require Unicode property escapes and `Intl.Segmenter`; use Node
-22.18+ (the repository baseline), or current evergreen browsers supporting those
-features.
+Unicode property escapes are required; use Node 22.18+ (the repository baseline)
+or browsers supporting those JavaScript features. `Intl.Segmenter` enhances
+highlight precision when available and is not required for search.
 
 To search only lesson verses while retaining canonical IDs:
 

@@ -74,6 +74,41 @@ describe('optional worker adapter', () => {
     direct.dispose()
     expect(worker.terminated).toBe(true)
   })
+  test('worker and direct searches both tolerate missing Intl.Segmenter', async () => {
+    vi.stubGlobal('Intl', { Segmenter: undefined })
+    let engine: Awaited<ReturnType<typeof createBrowserQuranSearch>> | undefined
+    let direct: Awaited<ReturnType<typeof createQuranSearch>> | undefined
+    try {
+      const options = { corpus: ['بِاللَّهِ ل\u200dا'] }
+      engine = await createBrowserQuranSearch({
+        ...options,
+        workerFactory: () => new LoopbackWorker(),
+      })
+      direct = await createQuranSearch(options)
+      expect(engine.execution).toBe('worker')
+      for (const mode of [
+        'phrase',
+        'allWords',
+        'anyWord',
+        'substring',
+      ] as const) {
+        expect(await engine.search('بالله', { mode })).toEqual(
+          await direct.search('بالله', { mode }),
+        )
+      }
+      const hit = (await engine.search('الله', { mode: 'substring' })).hits[0]
+      expect(
+        hit.sourceText.slice(
+          hit.matches[0].sourceStart,
+          hit.matches[0].sourceEnd,
+        ),
+      ).toBe('بِاللَّهِ')
+    } finally {
+      engine?.dispose()
+      direct?.dispose()
+      vi.unstubAllGlobals()
+    }
+  })
   test('concurrent out-of-order replies resolve only their own request', async () => {
     const worker = new LoopbackWorker()
     const engine = await createBrowserQuranSearch({

@@ -15,9 +15,13 @@ export async function verifySearchBrowser(consumer, browser = false) {
     "import '@ghoran/search/worker'\n",
   )
   await writeFile(
+    join(consumer, 'quran-legacy.worker.ts'),
+    "import '@ghoran/search/worker'\nObject.defineProperty(Intl, 'Segmenter', { value: undefined, configurable: true })\n",
+  )
+  await writeFile(
     join(consumer, 'main.ts'),
     `
-import { createQuranSearch, getHighlightSegments } from '@ghoran/search'
+import { createQuranSearch, getHighlightSegments, getHighlightRanges } from '@ghoran/search'
 import { createBrowserQuranSearch } from '@ghoran/search/browser'
 import { importText } from '@ghoran/text'
 async function verify() {
@@ -36,7 +40,25 @@ async function verify() {
     const aborted = new AbortController(); aborted.abort()
     try { await worker.search('الله', { signal: aborted.signal }); throw Error('Cancellation failed') }
     catch (error) { if (error.name !== 'AbortError') throw error }
-    document.querySelector('#result').textContent = 'PASS: worker, Quran loading, parity, highlights, cancellation'
+    const legacyWorker = await createBrowserQuranSearch({
+      corpus: ['بِاللَّهِ'],
+      workerFactory: () => new Worker(new URL('./quran-legacy.worker.ts', import.meta.url), { type: 'module' }),
+      timeoutMs: 15000,
+    })
+    const nativeSegmenter = Intl.Segmenter
+    let legacyDirect
+    try {
+      Intl.Segmenter = undefined
+      legacyDirect = await createQuranSearch({ corpus: ['بِاللَّهِ'] })
+      const old = await legacyWorker.search('الله', { mode: 'substring' })
+      const local = await legacyDirect.search('الله', { mode: 'substring' })
+      if (JSON.stringify(old) !== JSON.stringify(local)) throw Error('Legacy worker parity failed')
+      const mapped = getHighlightRanges('بِٱللَّهِ', old.hits[0])
+      if (mapped.ranges.length !== 1 || mapped.ranges[0].accuracy !== 'word') throw Error('Legacy word fallback failed')
+      const parts = getHighlightSegments('بِٱللَّهِ', old.hits[0])
+      if (parts.map(s => s.text).join('') !== 'بِٱللَّهِ' || parts.filter(s => s.highlighted).map(s => s.text).join('') !== 'بِٱللَّهِ') throw Error('Legacy reconstruction failed')
+    } finally { Intl.Segmenter = nativeSegmenter; legacyDirect?.dispose(); legacyWorker.dispose() }
+    document.querySelector('#result').textContent = 'PASS: worker, Quran loading, parity, highlights, cancellation, optional Segmenter'
   } finally { worker.dispose(); direct.dispose() }
 }
 verify().catch(error => { document.querySelector('#result').textContent = 'FAIL: ' + error.stack })

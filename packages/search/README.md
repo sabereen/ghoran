@@ -63,9 +63,15 @@ assumes equal word counts prove alignment. QPC is a font glyph encoding: Arabic
 search uses the canonical semantic companion and glyph highlights require an
 explicit trusted `wordMap`. No automatic QPC correspondence is claimed.
 
-Requires modern Unicode property escapes and `Intl.Segmenter` for grapheme-safe
-positions (Node 22.18+; current evergreen browsers). Core utilities have no DOM or
-Node built-in imports. Custom corpora may supply canonical IDs and a custom or
+Requires modern JavaScript with Unicode property escapes (Node 22.18+ is the
+repository baseline). `Intl.Segmenter` is an optional progressive enhancement:
+when absent, search still works and substring highlights expand to complete
+lexical words with `accuracy: 'word'`. No polyfill is needed or loaded. Original
+text and Arabic combining marks are preserved; full validation of complex Unicode
+grapheme boundaries is available only with native segmentation. Trusted `wordMap`
+ranges always validate bounds, ordering and surrogate boundaries, with full
+grapheme validation when supported. Core utilities have no DOM or Node built-in
+imports. Custom corpora may supply canonical IDs and a custom or
 identity normalizer; function normalizers are available only in direct mode.
 
 [Full guide, normalization tables, limitations, and demo](https://ghoran.netlify.app/packages/search)
