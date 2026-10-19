@@ -86,15 +86,14 @@ function run(mode: string, scenario = '') {
 }
 
 describe.skipIf(process.platform === 'win32')('npm release', () => {
-  test('dry-run validates every package without registry lookups or real publication', () => {
+  test('dry-run skips published versions and validates unpublished packages', () => {
     const { result, calls } = run('dry-run')
     expect(result.status, result.stderr).toBe(0)
-    expect(calls).toHaveLength(manifest.length)
-    expect(
-      calls.every(
-        (args) => args[0] === 'publish' && args.includes('--dry-run'),
-      ),
-    ).toBe(true)
+    expect(calls.filter((args) => args[0] === 'view')).toHaveLength(manifest.length)
+    const validated = calls.filter((args) => args[0] === 'publish')
+    expect(validated).toHaveLength(manifest.length - 1)
+    expect(validated.some((args) => args[1].includes('font-page'))).toBe(false)
+    expect(validated.every((args) => args.includes('--dry-run'))).toBe(true)
   })
 
   test('retry skips published versions and publishes dependencies before entity', () => {
@@ -124,6 +123,12 @@ describe.skipIf(process.platform === 'win32')('npm release', () => {
 
   test('registry errors stop the release before publishing any package', () => {
     const { result, calls } = run('publish', 'network-error')
+    expect(result.status).not.toBe(0)
+    expect(calls.filter((args) => args[0] === 'publish')).toHaveLength(0)
+  })
+
+  test('registry errors also stop dry-run before validating any package', () => {
+    const { result, calls } = run('dry-run', 'network-error')
     expect(result.status).not.toBe(0)
     expect(calls.filter((args) => args[0] === 'publish')).toHaveLength(0)
   })
