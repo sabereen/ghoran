@@ -24,6 +24,7 @@ const manifest = [
   'translation',
   'utils',
   'entity',
+  'search',
 ].map((directory) => {
   const pkg = JSON.parse(
     readFileSync(join(root, 'packages', directory, 'package.json'), 'utf8'),
@@ -88,9 +89,9 @@ describe.skipIf(process.platform === 'win32')('npm release', () => {
   test('dry-run skips published versions and validates unpublished packages', () => {
     const { result, calls } = run('dry-run')
     expect(result.status, result.stderr).toBe(0)
-    expect(calls.filter((args) => args[0] === 'view')).toHaveLength(6)
+    expect(calls.filter((args) => args[0] === 'view')).toHaveLength(manifest.length)
     const validated = calls.filter((args) => args[0] === 'publish')
-    expect(validated).toHaveLength(5)
+    expect(validated).toHaveLength(manifest.length - 1)
     expect(validated.some((args) => args[1].includes('font-page'))).toBe(false)
     expect(validated.every((args) => args.includes('--dry-run'))).toBe(true)
   })
@@ -99,9 +100,20 @@ describe.skipIf(process.platform === 'win32')('npm release', () => {
     const { result, calls } = run('publish')
     expect(result.status, result.stderr).toBe(0)
     const published = calls.filter((args) => args[0] === 'publish')
-    expect(published).toHaveLength(5)
+    expect(published).toHaveLength(manifest.length - 1)
     expect(published.some((args) => args[1].includes('font-page'))).toBe(false)
-    expect(published.at(-1)?.[1]).toContain('ghoran-entity-')
+    for (const consumer of ['entity', 'search']) {
+      const position = published.findIndex((args) =>
+        args[1].includes(`ghoran-${consumer}-`),
+      )
+      for (const dependency of ['metadata', 'text']) {
+        expect(
+          published.findIndex((args) =>
+            args[1].includes(`ghoran-${dependency}-`),
+          ),
+        ).toBeLessThan(position)
+      }
+    }
     expect(
       published.every(
         (args) => args.includes('--provenance') && !args.includes('--dry-run'),

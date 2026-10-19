@@ -17,7 +17,9 @@
     "release:pack": "node scripts/release.mjs pack",
     "release:dry-run": "node scripts/release.mjs dry-run",
     "release:publish": "node scripts/release.mjs publish",
-    "release:version": "node scripts/version-packages.mjs"
+    "release:version": "node scripts/version-packages.mjs",
+    "check:search-browser": "node scripts/check-packages.mjs --browser",
+    "bench:search": "pnpm --filter @ghoran/search bench"
   },
   "keywords": [],
   "author": "",

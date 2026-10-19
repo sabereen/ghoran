@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { verifySearchBrowser } from './check-search-browser.mjs'
 import { execFileSync } from 'node:child_process'
 import {
   mkdir,
@@ -52,7 +53,7 @@ try {
     dependencies[pkg.name] =
       `file:${join(tarballs, `${pkg.name.replace(/^@/, '').replace('/', '-')}-${pkg.version}.tgz`)}`
   }
-  assert.equal(Object.keys(dependencies).length, 6)
+  assert(dependencies['@ghoran/search'], 'search package must be packed')
   const consumer = join(temporary, 'consumer')
   await mkdir(consumer)
   await writeFile(
@@ -94,6 +95,41 @@ import { loadText } from '@ghoran/text'
 import { searchBinaryForAyah } from '@ghoran/utils'
 import '@ghoran/font-page'
 import '@ghoran/translation'
+import { createQuranSearch, normalizeArabic, getHighlightSegments } from '@ghoran/search'
+import { createBrowserQuranSearch } from '@ghoran/search/browser'
+assert.equal(normalizeArabic('ٱلرَّحِيمِ'), 'الرحيم')
+const search = await createQuranSearch()
+const result = await search.search('الرحمن الرحيم', { scope: { surahs: [1] } })
+assert.deepEqual(result.hits.map(hit => hit.key), ['1:1', '1:3'])
+const display = (await loadText('hafs-v3'))[0]
+const segments = getHighlightSegments(display, result.hits[0])
+assert.equal(segments.map(segment => segment.text).join(''), display)
+assert.equal(segments.filter(segment => segment.highlighted).map(segment => segment.text).join(''), 'ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ')
+const direct = await createBrowserQuranSearch({ corpus: ['الله'] })
+assert.equal(direct.execution, 'direct')
+direct.dispose(); search.dispose()
+await access(new URL(import.meta.resolve('@ghoran/search/worker')))
+const { Worker } = await import('node:worker_threads')
+for (const withoutSegmenter of [false, true]) {
+const thread = new Worker(new URL('./thread.mjs', import.meta.url), { type: 'module', workerData: { withoutSegmenter } })
+const listeners = new Map()
+const wrapper = {
+  postMessage: message => thread.postMessage(message),
+  terminate: () => { void thread.terminate() },
+  addEventListener(type, listener) {
+    const callback = type === 'message' ? data => listener({ data }) : error => listener({ message: error.message })
+    listeners.set(type, callback); thread.on(type, callback)
+  },
+  removeEventListener(type, listener) { thread.off(type, listeners.get(type)); listeners.delete(type) },
+}
+const remote = await createBrowserQuranSearch({ workerFactory: () => wrapper })
+try {
+  assert.deepEqual(await remote.search('الرحمن الرحيم', { scope: { surahs: [1] } }), result)
+  const partial = (await remote.search('سم', { mode: 'substring', scope: { ayahIndices: [0] } })).hits[0]
+  assert.equal(partial.sourceText.slice(partial.matches[0].sourceStart, partial.matches[0].sourceEnd), withoutSegmenter ? 'بسم' : 'سم')
+}
+finally { remote.dispose() }
+}
 
 assert.equal(COUNT_OF_AYAHS, 6236)
 assert.equal(Surah.getAll().length, 114)
@@ -121,6 +157,16 @@ assert.equal(translation.length, 6236)
 assert(translation.every(ayah => typeof ayah === 'string' && ayah.length > 0))
 `,
   )
+  await writeFile(
+    join(consumer, 'thread.mjs'),
+    `
+import { parentPort, workerData } from 'node:worker_threads'
+if (workerData?.withoutSegmenter) Intl.Segmenter = undefined
+globalThis.postMessage = message => parentPort.postMessage(message)
+globalThis.addEventListener = (_, listener) => parentPort.on('message', data => listener({ data }))
+await import('@ghoran/search/worker')
+`,
+  )
   run(process.execPath, ['check.mjs'], consumer)
   await writeFile(
     join(consumer, 'check.ts'),
@@ -130,6 +176,14 @@ import { surahList, type SurahTuple } from '@ghoran/metadata'
 import { COUNT_OF_AYAHS } from '@ghoran/metadata/constants'
 import { loadText, type QuranTextType } from '@ghoran/text'
 import { searchBinaryForAyah } from '@ghoran/utils'
+import { createQuranSearch, normalizeArabic, getHighlightSegments, type SearchHit, type SearchResponse } from '@ghoran/search'
+import { createBrowserQuranSearch, type WorkerTransport } from '@ghoran/search/browser'
+const engine = await createQuranSearch()
+const response: SearchResponse = await engine.search(normalizeArabic('ٱللَّهُ'))
+const hit: SearchHit = response.hits[0]
+getHighlightSegments(hit.sourceText, hit)
+const browser = await createBrowserQuranSearch({ workerFactory: () => new Worker(new URL('./worker.mjs', import.meta.url), { type: 'module' }) })
+engine.dispose(); browser.dispose()
 import type { Language, Translators } from '@ghoran/translation'
 import '@ghoran/font-page'
 const key: string = Ayah.get(0).key
@@ -162,9 +216,46 @@ const translator: Translators<'fa'> = 'tanzil-fooladvand'
     '-p',
     consumer,
   ])
+  // Check that importing the core needs no DOM ambient types.
+  await writeFile(
+    join(consumer, 'check-node.ts'),
+    `
+import { createQuranSearch, normalizeArabic, getHighlightSegments } from '@ghoran/search'
+const search = await createQuranSearch()
+const result = await search.search(normalizeArabic('ٱللَّهُ'))
+getHighlightSegments(result.hits[0].sourceText, result.hits[0])
+search.dispose()
+`,
+  )
+  await writeFile(
+    join(consumer, 'tsconfig.node.json'),
+    JSON.stringify({
+      compilerOptions: {
+        strict: true,
+        noEmit: true,
+        target: 'ES2022',
+        module: 'NodeNext',
+        moduleResolution: 'NodeNext',
+        types: [],
+        lib: ['ES2022'],
+      },
+      include: ['check-node.ts'],
+    }),
+  )
+  run(process.execPath, [
+    join(root, 'node_modules/typescript/bin/tsc'),
+    '-p',
+    join(consumer, 'tsconfig.node.json'),
+  ])
+  await verifySearchBrowser(consumer, process.argv.includes('--browser'))
   console.log(
-    'All 6 packed packages passed ESM, declarations, lazy text, translation, and font checks.',
+    `All ${Object.keys(dependencies).length} packed packages passed ESM, declarations, lazy text, search, worker, translation, and font checks.`,
   )
 } finally {
-  await rm(temporary, { recursive: true, force: true })
+  await rm(temporary, {
+    recursive: true,
+    force: true,
+    maxRetries: 5,
+    retryDelay: 200,
+  })
 }

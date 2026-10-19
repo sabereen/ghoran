@@ -202,6 +202,9 @@ importers:
       '@ghoran/metadata':
         specifier: workspace:*
         version: link:../packages/metadata
+      '@ghoran/search':
+        specifier: workspace:*
+        version: link:../packages/search
       '@ghoran/text':
         specifier: workspace:*
         version: link:../packages/text
@@ -245,6 +248,15 @@ importers:
   packages/font-page: {}
 
   packages/metadata: {}
+
+  packages/search:
+    dependencies:
+      '@ghoran/metadata':
+        specifier: workspace:*
+        version: link:../metadata
+      '@ghoran/text':
+        specifier: workspace:*
+        version: link:../text
 
   packages/text:
     devDependencies:

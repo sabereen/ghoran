@@ -15,7 +15,7 @@ pnpm check:packages
 pnpm docs:build
 ```
 
-بیلد هر شش کتابخانه با `tsdown` انجام می‌شود. تنظیمات مشترک در
+بیلد هر هفت کتابخانه با `tsdown` انجام می‌شود. تنظیمات مشترک در
 `tsdown.shared.ts` و ورودی هر پکیج در `tsdown.config.ts` همان پکیج قرار دارد.
 مسیر خروجی جاوااسکریپت `dist/*.mjs` و مسیر تایپ‌ها `dist/*.d.ts` است؛
 فونت‌های TTF/WOFF2 و JSON متن‌ها نیز همراه پکیج منتشر می‌شوند.
@@ -37,7 +37,20 @@ TypeScript روی شاخهٔ ۶ نگه داشته شده تا با نسخهٔ پ
 
 ## انتشار روی npm
 
-روال انتشار شش پکیج، اتصال یک‌بارهٔ Trusted Publisher و روش افزایش نسخه‌ها در
+روال انتشار هفت پکیج، اتصال یک‌بارهٔ Trusted Publisher و روش افزایش نسخه‌ها در
 [راهنمای انتشار npm](docs/npm-release.md) توضیح داده شده است.
 با پوش tagهایی که با `npm-` شروع می‌شوند، بیلد و تست اجرا و خروجی تأییدشده
 به‌صورت خودکار روی npm منتشر می‌شود.
+
+## جستجو در قرآن
+
+`@ghoran/search` یک موتور جستجوی مستقل از فریم‌ورک، همراه با نرمال‌سازی عربی،
+هایلایت رسم‌الخط‌های مختلف و Worker اختیاری است.
+
+```ts
+import { createQuranSearch } from '@ghoran/search'
+const search = await createQuranSearch()
+const results = await search.search('الرحمن الرحيم')
+```
+
+[راهنمای جستجو و نمونهٔ تعاملی](https://ghoran.netlify.app/packages/search)
