@@ -49,6 +49,8 @@ jobs:
     needs: verify
     if: ${{ github.event_name != 'workflow_dispatch' || !inputs.dry_run }}
     runs-on: ubuntu-latest
+    env:
+      NPM_RELEASE_EXCLUDE: '@ghoran/font-page' # Wait for this package's trusted publisher to be fixed.
     permissions:
       contents: read
       id-token: write
@@ -84,8 +86,8 @@ jobs:
               headers: { Authorization: `Bearer ${idToken}` },
             })
             console.log(`${pkg}: npm OIDC exchange HTTP ${response.status}`)
-            if (!response.ok) failures++
+            if (!response.ok && pkg !== '@ghoran/font-page') failures++
           }
-          if (failures) throw Error(`${failures} package(s) rejected the npm OIDC trust exchange; check Trusted Publisher settings and Allowed actions`)
+          if (failures) throw Error(`${failures} required package(s) rejected the npm OIDC trust exchange; check Trusted Publisher settings and Allowed actions`)
           NODE
       - run: node scripts/release.mjs publish
