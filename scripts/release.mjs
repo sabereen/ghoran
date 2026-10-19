@@ -75,7 +75,7 @@ if (mode === 'pack') {
   )
   for (const pkg of manifest) {
     assert.equal(basename(pkg.file), pkg.file)
-    if (mode === 'publish') {
+    if (mode === 'publish' || mode === 'dry-run') {
       const result = spawnSync(
         'npm',
         [
