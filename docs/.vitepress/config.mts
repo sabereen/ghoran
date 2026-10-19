@@ -79,6 +79,7 @@ export default defineConfig({
       {
         text: 'نمونه کد',
         items: [
+          { text: 'جستجوی زندهٔ قرآن', link: '/demo/search/' },
           { text: 'استفاده از فونت', link: '/demo/font/' },
           { text: 'استفاده از سوره‌ها', link: '/demo/surah/' },
         ],

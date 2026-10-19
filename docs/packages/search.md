@@ -5,7 +5,7 @@ dir: ltr
 ---
 
 <script setup>
-import SearchDemo from '../components/SearchDemo.vue'
+import SearchDemo from '../demo/search/SearchDemo.vue'
 </script>
 
 # Quran search — `@ghoran/search`
@@ -19,8 +19,11 @@ not ship another copy of the Quran.
 
 <ClientOnly><SearchDemo /></ClientOnly>
 
-The demo loads on demand, searches in a module worker, and displays Hafs v3 text.
-Results are limited to ten verses. Rendering uses text interpolation, never HTML.
+Search updates as you type after a short debounce. The demo searches in a module
+worker and displays highlighted Hafs v3 text. Results are limited to ten verses.
+Rendering uses text interpolation, never HTML.
+
+[Open the full search demo and its source code](/demo/search/).
 
 ## Install and search
 

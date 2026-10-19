@@ -1,30 +1,69 @@
 <script setup lang="ts">
-import { onBeforeUnmount, ref, shallowRef } from 'vue'
-import type { HighlightSegment, QuranSearch } from '@ghoran/search'
+import { onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
+import type { HighlightSegment, QuranSearch, SearchMode } from '@ghoran/search'
 import '@ghoran/text/fonts/uthmanic-hafs-v3/style.css'
 
 const query = ref('الرحمن الرحيم')
-const status = ref('Enter a phrase and select Search. Text loads on first use.')
+const mode = ref<SearchMode>('phrase')
+const status = ref('عبارت مورد نظر را بنویسید؛ نتیجه‌ها خودکار به‌روز می‌شوند.')
 const busy = ref(false)
 const rows = shallowRef<{ key: string; segments: HighlightSegment[] }[]>([])
 let engine: Promise<QuranSearch> | undefined
 let controller: AbortController | undefined
 let generation = 0
+let debounce: ReturnType<typeof setTimeout> | undefined
+
+function schedule() {
+  // Invalidate immediately, before the debounce, so a previous query cannot
+  // replace the results while the visitor is typing a new one.
+  generation++
+  controller?.abort()
+  clearTimeout(debounce)
+  if (!query.value.trim()) {
+    rows.value = []
+    busy.value = false
+    status.value = 'عبارت مورد نظر را بنویسید.'
+    return
+  }
+  busy.value = true
+  status.value = 'در حال جستجو…'
+  debounce = setTimeout(run, 250)
+}
+
+watch([query, mode], schedule)
+onMounted(run)
 
 async function run() {
+  clearTimeout(debounce)
+  if (!query.value.trim()) {
+    schedule()
+    return
+  }
+  const currentQuery = query.value
+  const currentMode = mode.value
   controller?.abort()
   controller = new AbortController()
   const current = ++generation
   const signal = controller.signal
   busy.value = true
-  status.value = 'Searching…'
+  status.value = 'در حال جستجو…'
   try {
     const { createBrowserQuranSearch } = await import('@ghoran/search/browser')
     engine ??= createBrowserQuranSearch({
-      workerFactory: () =>
-        new Worker(new URL('./search.worker.ts', import.meta.url), {
-          type: 'module',
-        }),
+      workerFactory:
+        typeof Worker === 'undefined'
+          ? undefined
+          : () =>
+              new Worker(new URL('./search.worker.ts', import.meta.url), {
+                type: 'module',
+              }),
+      fallback: 'direct',
+      onFallback(error) {
+        console.warn(
+          'Quran search demo: worker initialization failed; using direct execution.',
+          error,
+        )
+      },
     }).catch((error) => {
       engine = undefined
       throw error
@@ -36,7 +75,7 @@ async function run() {
         engine,
       ])
     const [response, display] = await Promise.all([
-      search.search(query.value, { limit: 10, signal }),
+      search.search(currentQuery, { mode: currentMode, limit: 10, signal }),
       importText('hafs-v3'),
     ])
     if (current !== generation) return
@@ -44,17 +83,20 @@ async function run() {
       key: hit.key,
       segments: getHighlightSegments(display.default[hit.ayahIndex], hit),
     }))
-    status.value = `${response.total} verses. Showing ${response.hits.length}.`
+    status.value = response.total
+      ? `${response.total} آیه پیدا شد؛ ${response.hits.length} نتیجه نمایش داده می‌شود.`
+      : 'آیه‌ای با این عبارت پیدا نشد.'
   } catch (error) {
     if (current === generation && (error as Error).name !== 'AbortError') {
       rows.value = []
-      status.value = `Search failed: ${(error as Error).message}`
+      status.value = `جستجو انجام نشد: ${(error as Error).message}`
     }
   } finally {
     if (current === generation) busy.value = false
   }
 }
 onBeforeUnmount(() => {
+  clearTimeout(debounce)
   generation++
   controller?.abort()
   void engine?.then((search) => search.dispose()).catch(() => {})
@@ -62,9 +104,9 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section class="quran-search-demo" dir="ltr" aria-label="Quran search demo">
+  <section class="quran-search-demo" dir="rtl" aria-label="دموی جستجوی قرآن">
     <form @submit.prevent="run">
-      <label for="quran-search-query">Arabic phrase</label>
+      <label for="quran-search-query">عبارت جستجو</label>
       <div class="query-controls">
         <input
           id="quran-search-query"
@@ -73,13 +115,22 @@ onBeforeUnmount(() => {
           type="search"
           autocomplete="off"
         />
-        <button type="submit">Search</button>
+        <button type="submit">جستجو</button>
+      </div>
+      <div class="mode-control">
+        <label for="quran-search-mode">نوع جستجو</label>
+        <select id="quran-search-mode" v-model="mode">
+          <option value="phrase">عبارت به ترتیب</option>
+          <option value="allWords">همهٔ کلمه‌ها</option>
+          <option value="anyWord">حداقل یک کلمه</option>
+          <option value="substring">بخشی از کلمه</option>
+        </select>
       </div>
     </form>
     <p role="status" aria-live="polite">{{ status }}</p>
     <ol :aria-busy="busy">
       <li v-for="row in rows" :key="row.key">
-        <span class="verse-key">{{ row.key }}</span>
+        <span class="verse-key" dir="ltr">{{ row.key }}</span>
         <p dir="rtl" lang="ar" class="text-uthmanic-hafs-v3">
           <template v-for="(segment, index) in row.segments" :key="index"
             ><mark v-if="segment.highlighted">{{ segment.text }}</mark
@@ -102,7 +153,8 @@ onBeforeUnmount(() => {
   gap: 0.5rem;
   margin-top: 0.5rem;
 }
-input {
+input,
+select {
   flex: 1;
   min-width: 0;
   border: 1px solid var(--vp-c-divider);
@@ -116,9 +168,20 @@ button {
   padding: 0.5rem 1rem;
 }
 input:focus-visible,
+select:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--vp-c-brand-1);
   outline-offset: 3px;
+}
+.mode-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.mode-control select {
+  flex: 0 1 auto;
+  min-width: 0;
 }
 ol {
   padding: 0;
@@ -131,6 +194,7 @@ li {
 .verse-key {
   font-size: 0.85rem;
   color: var(--vp-c-text-2);
+  display: inline-block;
 }
 li p {
   font-size: 1.7rem;
