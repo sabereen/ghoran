@@ -1,6 +1,6 @@
 {
   "name": "@ghoran/search",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Headless Quran search, Arabic normalization and orthography-aware highlighting",
   "type": "module",
   "main": "dist/index.mjs",
