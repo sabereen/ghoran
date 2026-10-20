@@ -1,13 +1,13 @@
 {
   "name": "@ghoran/entity",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Quran entities",
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "build": "unbuild"
+    "build": "tsdown"
   },
   "type": "module",
   "keywords": [],
@@ -20,5 +20,14 @@
     "@ghoran/metadata": "workspace:*",
     "@ghoran/text": "workspace:*",
     "@ghoran/utils": "workspace:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabereen/ghoran.git",
+    "directory": "packages/entity"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

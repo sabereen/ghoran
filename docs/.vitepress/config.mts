@@ -1,9 +1,9 @@
 import { defineConfig } from 'vitepress'
 import UnoCSS from 'unocss/vite'
 import assert from 'node:assert'
-import { alias } from '../../alias'
+import { alias } from '../../alias.ts'
 import typedocMenu from '../en/types/typedoc-sidebar.json'
-import unoConfig from '../uno.config'
+import unoConfig from '../uno.config.ts'
 
 typedocMenu.forEach((item) => {
   item.text = `‎@ghoran/${item.text}`
@@ -53,6 +53,7 @@ export default defineConfig({
       {
         text: 'کتابخانه‌ها',
         items: [
+          { text: 'جستجوی قرآن (search)', link: '/packages/search' },
           {
             text: 'متن و فونت قرآن (text)',
             link: '/packages/text',
@@ -78,6 +79,7 @@ export default defineConfig({
       {
         text: 'نمونه کد',
         items: [
+          { text: 'جستجوی زندهٔ قرآن', link: '/demo/search/' },
           { text: 'استفاده از فونت', link: '/demo/font/' },
           { text: 'استفاده از سوره‌ها', link: '/demo/surah/' },
         ],
@@ -104,6 +106,7 @@ export default defineConfig({
     ],
   },
   vite: {
+    worker: { format: 'es' },
     plugins: [UnoCSS(unoConfig)],
     resolve: {
       alias,

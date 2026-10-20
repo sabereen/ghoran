@@ -15,6 +15,21 @@
 
 ما این متن و فونت را جهت استفاده راحت‌تر شما در اختیارتان قرار داده ایم.
 
+نسخهٔ ۳٫۰ با متن اختصاصی `hafs-v3` و فونت `uthmanic-hafs-v3` در دسترس است:
+
+```js
+import { loadText } from '@ghoran/text'
+import '@ghoran/text/fonts/uthmanic-hafs-v3/style.css'
+
+const quranText = await loadText('hafs-v3')
+```
+
+برای نمایش، کلاس `text-uthmanic-hafs-v3` را به عنصر متن بدهید. این فونت یک وزن دارد و فایل‌های TTF و WOFF2 آن همراه پکیج منتشر می‌شوند.
+فونت و متن باید هر دو از نسخهٔ ۳ باشند؛ به‌ویژه بعضی علائم تنوین در متن جدید کدهای متفاوتی دارند.
+
+نام‌های قبلی `hafs` و `uthmanic-hafs` همچنان به نسخهٔ ۲٫۲ اشاره می‌کنند. نسخهٔ ۳ به‌صورت مستقل اضافه شده تا برنامه‌های فعلی تغییر نکنند.
+جزئیات منبع بسته و SHA-256 فایل‌ها در `packages/text/raw-text/hafs-v3-source.md` ثبت شده است.
+
 ```js
 import { loadText } from '@ghoran/text'
 import '@ghoran/text/fonts/uthmanic-hafs/style.css'

@@ -1,6 +1,6 @@
 {
   "name": "@ghoran/translation",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Quran translations",
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
@@ -10,13 +10,15 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.mjs"
     },
-    "./json/": "./json/"
+    "./json/": "./json/",
+    "./json/*": "./json/*"
   },
   "sideEffects": false,
   "scripts": {
-    "generate-texts": "esno ./scripts/fetch-from-tanzil",
-    "build": "pnpm run generate-texts && unbuild",
-    "prepublish": "pnpm run build"
+    "generate-texts": "tsx ./scripts/fetch-from-tanzil.ts",
+    "build": "pnpm run prepare-data && tsdown",
+    "prepublish": "pnpm run build",
+    "prepare-data": "tsx ./scripts/prepare-data.ts"
   },
   "type": "module",
   "keywords": [],
@@ -25,5 +27,17 @@
   "files": [
     "dist/**/*",
     "json/**/*.json"
-  ]
+  ],
+  "devDependencies": {
+    "@ghoran/translation-source": "npm:@ghoran/translation@0.0.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabereen/ghoran.git",
+    "directory": "packages/translation"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }

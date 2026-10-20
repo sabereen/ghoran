@@ -1,6 +1,6 @@
 {
   "name": "@ghoran/metadata",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Quran metadata",
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
@@ -12,12 +12,12 @@
       "import": "./dist/index.mjs"
     },
     "./constants": {
-      "types": "./dist/constants.d.mts",
+      "types": "./dist/constants.d.ts",
       "import": "./dist/constants.mjs"
     }
   },
   "scripts": {
-    "build": "unbuild"
+    "build": "tsdown"
   },
   "type": "module",
   "keywords": [],
@@ -25,5 +25,14 @@
   "license": "MIT",
   "files": [
     "dist/**/*"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabereen/ghoran.git",
+    "directory": "packages/metadata"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }

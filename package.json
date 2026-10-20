@@ -3,30 +3,44 @@
   "version": "0.0.7",
   "description": "",
   "main": "index.js",
-  "private": false,
+  "private": true,
   "scripts": {
     "build": "pnpm -r --filter=./packages/* run build",
     "docs:dev": "pnpm --filter=@ghoran/docs run docs:dev",
     "docs:build": "pnpm --filter=@ghoran/docs run docs:build",
     "format": "prettier --write .",
-    "test": "vitest"
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check:packages": "node scripts/check-packages.mjs",
+    "typecheck": "tsc --noEmit",
+    "verify": "pnpm build && pnpm typecheck && pnpm test && pnpm check:packages && pnpm docs:build",
+    "release:pack": "node scripts/release.mjs pack",
+    "release:dry-run": "node scripts/release.mjs dry-run",
+    "release:publish": "node scripts/release.mjs publish",
+    "release:version": "node scripts/version-packages.mjs",
+    "check:search-browser": "node scripts/check-packages.mjs --browser",
+    "bench:search": "pnpm --filter @ghoran/search bench"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "packageManager": "pnpm@10.30.2",
+  "packageManager": "pnpm@12.11.2",
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^20.12.2",
-    "esno": "^4.7.0",
-    "fs-extra": "^11.2.0",
-    "pnpm": "^10.30.2",
-    "prettier": "3.2.5",
-    "unbuild": "^2.0.0",
-    "vite": "^5.2.7",
-    "vitest": "^1.4.0"
+    "@types/node": "^24.19.2",
+    "fs-extra": "^11.4.1",
+    "prettier": "^3.9.10",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.4",
+    "tsdown": "^0.23.1",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3"
   },
   "files": [
     "package.json"
-  ]
+  ],
+  "type": "module",
+  "engines": {
+    "node": "^22.18.0 || ^24.11.0 || >=26.0.0"
+  }
 }

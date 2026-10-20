@@ -1,6 +1,6 @@
 {
   "name": "@ghoran/text",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Quran text",
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
@@ -11,14 +11,17 @@
       "default": "./dist/index.mjs"
     },
     "./json/": "./json/",
-    "./fonts/": "./dist/fonts/"
+    "./fonts/": "./dist/fonts/",
+    "./fonts/*": "./dist/fonts/*",
+    "./json/*": "./json/*"
   },
-  "sideEffects": false,
+  "sideEffects": [
+    "**/*.css"
+  ],
   "scripts": {
-    "generate-texts": "esno ./scripts/generate-texts",
-    "generate-fonts": "esno ./scripts/generate-fonts",
-    "postbuild": "pnpm run generate-fonts",
-    "build": "pnpm run generate-texts && unbuild && pnpm run postbuild",
+    "generate-texts": "tsx ./scripts/generate-texts.ts",
+    "generate-fonts": "tsx ./scripts/generate-fonts.ts",
+    "build": "pnpm run generate-texts && tsdown && pnpm run generate-fonts",
     "prepublish": "pnpm run build"
   },
   "type": "module",
@@ -31,7 +34,16 @@
   ],
   "devDependencies": {
     "@types/wawoff2": "^1.0.2",
-    "mammoth": "^1.7.1",
+    "mammoth": "^1.13.0",
     "wawoff2": "^2.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabereen/ghoran.git",
+    "directory": "packages/text"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

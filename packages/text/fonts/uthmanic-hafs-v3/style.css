@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'uthmanic-hafs-v3';
+  src:
+    url('./uthmanic-hafs-v3.woff2') format('woff2'),
+    url('./uthmanic-hafs-v3.ttf') format('truetype');
+}
+
+.text-uthmanic-hafs-v3 {
+  font-family: 'uthmanic-hafs-v3', serif;
+}

@@ -1,0 +1,62 @@
+name: Publish to npm
+
+on:
+  push:
+    tags: ['npm-*']
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Validate publishing without uploading to npm
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: npm-release
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - name: Only release commits from main
+        run: |
+          git fetch origin main
+          git merge-base --is-ancestor HEAD origin/main
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+      - uses: pnpm/action-setup@d9184bf108216479bc5a137cc391f4d7b14c870b # v6.1.0
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm verify
+      - run: pnpm release:pack && pnpm release:dry-run
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: npm-release
+          path: work/npm-release/
+          retention-days: 7
+          if-no-files-found: error
+
+  publish:
+    needs: verify
+    if: ${{ github.event_name != 'workflow_dispatch' || !inputs.dry_run }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+      - run: npm install --global npm@11.21.0
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: npm-release
+          path: work/npm-release/
+      - run: node scripts/release.mjs publish

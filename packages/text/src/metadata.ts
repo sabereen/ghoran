@@ -5,6 +5,9 @@ import { QuranTextMeta } from './types'
  */
 export const textMetaData: QuranTextMeta[] = [
   {
+    name: 'hafs-v3',
+  },
+  {
     name: 'hafs',
   },
   {

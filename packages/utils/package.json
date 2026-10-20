@@ -1,13 +1,13 @@
 {
   "name": "@ghoran/utils",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Quran utils",
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "build": "unbuild"
+    "build": "tsdown"
   },
   "type": "module",
   "keywords": [],
@@ -15,5 +15,14 @@
   "license": "MIT",
   "files": [
     "dist/**/*"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabereen/ghoran.git",
+    "directory": "packages/utils"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }

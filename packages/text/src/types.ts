@@ -6,6 +6,7 @@
  * imla: رسم الاملا
  * hafs: رسم الخط عثمان طه اصلی - باید با فونت مربوطه استفاده شود
  * hafs-v13: رسم الخط عثمان طه اصلی نسخه قدیمی - باید با فونت مربوطه استفاده شود
+ * hafs-v3: رسم الخط عثمان طه نسخه ۳٫۰ - باید با فونت نسخه ۳ استفاده شود
  */
 export type QuranTextType =
   | 'tanzil-simple-clean'
@@ -13,6 +14,7 @@ export type QuranTextType =
   | 'imla'
   | 'hafs'
   | 'hafs-v13'
+  | 'hafs-v3'
   | 'qpc-v1'
   | 'qpc-v2'
 

@@ -1,12 +1,12 @@
 import {
   defineConfig,
-  presetUno,
+  presetWind3,
   presetIcons,
   transformerVariantGroup,
 } from 'unocss'
 
 export default defineConfig({
-  presets: [presetUno({}), presetIcons({ autoInstall: true })],
+  presets: [presetWind3({}), presetIcons({})],
   transformers: [transformerVariantGroup({ separators: [':'] })],
   shortcuts: [[/^s-(.*)/, ([_, v]) => `w-${v} h-${v}`]],
 })
