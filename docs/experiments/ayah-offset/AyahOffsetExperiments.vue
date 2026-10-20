@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import { useData } from 'vitepress'
 import { loadText } from '@ghoran/text'
 import { computed, ref } from 'vue'
+
+const { lang } = useData()
+const t = (fa: string, en: string) => (lang.value.startsWith('fa') ? fa : en)
 
 const mode = ref<'word' | 'alphabet'>('word')
 const autofix = ref(false)
@@ -183,26 +187,29 @@ function previewAutofix(index: number) {
     <div class="my-4">
       <label class="mr-3">
         <input type="radio" v-model="mode" value="word" />
-        تفکیک واژه
+        {{ t('تفکیک واژه', 'Split words') }}
       </label>
       <label>
         <input type="radio" v-model="mode" value="alphabet" />
-        تفکیک حروف الفبا
+        {{ t('تفکیک حروف الفبا', 'Split letters') }}
       </label>
     </div>
     <div class="mb-4">
       <label>
         <input type="checkbox" v-model="autofix" />
-        تلاش برای رفع اشکالات
+        {{ t('تلاش برای رفع اشکالات', 'Attempt automatic fixes') }}
       </label>
     </div>
-    <div>تعداد آیات متفاوت: {{ affectiveCountTestResult.length }}</div>
+    <div>
+      {{ t('تعداد آیات متفاوت:', 'Verses with differences:') }}
+      {{ affectiveCountTestResult.length }}
+    </div>
     <div>
       <table v-if="affectiveCountTestResult.length">
         <thead>
-          <th>ش</th>
-          <th>عثمان‌طه</th>
-          <th>رسم الاملاء</th>
+          <th>{{ t('ش', 'Index') }}</th>
+          <th>{{ t('عثمان‌طه', 'Uthman Taha') }}</th>
+          <th>{{ t('رسم الاملاء', 'Imla') }}</th>
         </thead>
         <tbody>
           <template v-for="index in affectiveCountTestResult">
@@ -258,7 +265,7 @@ function previewAutofix(index: number) {
           </template>
         </tbody>
       </table>
-      <div class="pt-1">موردی وجود ندارد.</div>
+      <div class="pt-1">{{ t('موردی وجود ندارد.', 'No items.') }}</div>
     </div>
   </div>
 </template>

@@ -1,31 +1,26 @@
 ---
-title: Quran search (@ghoran/search)
-lang: en-US
-dir: ltr
+title: جستجوی قرآن (@ghoran/search)
+lang: fa
+dir: rtl
 ---
 
 <script setup>
 import SearchDemo from '../demo/search/SearchDemo.vue'
 </script>
 
-# Quran search — `@ghoran/search`
+# جستجوی قرآن — `@ghoran/search`
 
-A small, headless ESM library with TypeScript declarations. Use it from vanilla
-JavaScript, Node.js, React, Vue or Nuxt. It has no UI, DOM, database or search-service
-dependency. Quran text comes from the existing `@ghoran/text` package; search does
-not ship another copy of the Quran.
+کتابخانه‌ای کوچک با قالب ESM و اعلان‌های TypeScript که در جاوااسکریپت ساده، Node.js، React، Vue و Nuxt قابل استفاده است. این پکیج رابط کاربری ندارد و به DOM، پایگاه داده یا سرویس جستجو وابسته نیست. متن قرآن را از پکیج `@ghoran/text` دریافت می‌کند و نسخهٔ دیگری از قرآن را همراه خود منتشر نمی‌کند.
 
-## Try it
+## امتحان کنید
 
 <ClientOnly><SearchDemo /></ClientOnly>
 
-Search updates as you type after a short debounce. The demo searches in a module
-worker and displays highlighted Hafs v3 text. Results are limited to ten verses.
-Rendering uses text interpolation, never HTML.
+نتیجه‌ها پس از مکث کوتاه در تایپ به‌روز می‌شوند. دمو در یک module worker جستجو می‌کند و متن حفص نسخهٔ ۳ را با هایلایت نمایش می‌دهد. خروجی به ده آیه محدود است و متن با interpolation نمایش داده می‌شود، نه HTML.
 
-[Open the full search demo and its source code](/demo/search/).
+[دموی کامل جستجو و کد منبع آن](/demo/search/)
 
-## Install and search
+## نصب و جستجو
 
 ```sh
 pnpm add @ghoran/search
@@ -43,19 +38,15 @@ console.log(results.total, results.hits)
 search.dispose()
 ```
 
-The default corpus is `tanzil-simple-clean`. Other Arabic corpora include
-`tanzil-simple-min`, `imla`, `hafs`, `hafs-v13` and `hafs-v3`:
+متن پیش‌فرض `tanzil-simple-clean` است. متن‌های عربی دیگر شامل `tanzil-simple-min`، `imla`، `hafs`، `hafs-v13` و `hafs-v3` هستند:
 
 ```ts
 const search = await createQuranSearch({ corpus: 'hafs-v3' })
 ```
 
-QPC v1/v2 are **font glyph encodings**, not ordinary Unicode Arabic. Selecting
-`qpc-v1` or `qpc-v2` searches the `tanzil-simple-clean` semantic companion. Results
-contain that companion's source text and token positions. QPC display mapping is
-explicit; see the highlighting limitations below.
+QPC نسخهٔ ۱ و ۲ **کدگذاری گلیف‌های فونت** هستند، نه متن عادی یونیکد عربی. انتخاب `qpc-v1` یا `qpc-v2` باعث جستجو در متن معنایی همراه، یعنی `tanzil-simple-clean` می‌شود. متن مبدأ و موقعیت توکن‌های نتیجه به همان متن همراه مربوط‌اند. نگاشت برای نمایش QPC باید صریح باشد؛ محدودیت‌های آن در بخش هایلایت آمده است.
 
-## Modes, ordering and pagination
+## حالت‌ها، ترتیب و صفحه‌بندی
 
 ```ts
 await search.search('الرحمن الرحيم', { mode: 'phrase' })
@@ -65,29 +56,18 @@ await search.search('رحم', { mode: 'substring' })
 await search.search('الله', { limit: 10, offset: 20 })
 ```
 
-| Mode               | Meaning                                                                          |
-| ------------------ | -------------------------------------------------------------------------------- |
-| `phrase` (default) | Consecutive, ordered lexical tokens after normalization.                         |
-| `allWords`         | Every distinct query token occurs, in any order.                                 |
-| `anyWord`          | At least one query token occurs.                                                 |
-| `substring`        | Literal substring of normalized tokens joined with spaces; allows partial words. |
+| حالت               | معنا                                                                                                       |
+| ------------------ | ---------------------------------------------------------------------------------------------------------- |
+| `phrase` (پیش‌فرض) | توکن‌های واژگانیِ متوالی و به ترتیب، پس از نرمال‌سازی                                                      |
+| `allWords`         | حضور همهٔ توکن‌های متمایز عبارت، با هر ترتیبی                                                              |
+| `anyWord`          | حضور دست‌کم یکی از توکن‌ها                                                                                 |
+| `substring`        | زیررشتهٔ عیناً مطابق در توکن‌های نرمال‌شده که با فاصله به هم وصل شده‌اند؛ برای بخشی از کلمه هم کاربرد دارد |
 
-Word modes never match `الله` inside `بالله`. Punctuation and whitespace separate
-lexical tokens. A phrase may span punctuation. NBSP used by text homogenization is
-also whitespace; token indices are **not** `text.split(' ')` indices. Standalone
-Quran annotations do not become tokens. Repeated query tokens require consecutive
-repetitions in phrase mode; word-set modes deduplicate them. All occurrences,
-including overlapping ones, appear in a hit's `matches`.
+حالت‌های کلمه‌ای، `الله` را داخل `بالله` پیدا نمی‌کنند. علائم نگارشی و فاصله‌ها مرز توکن‌اند؛ یک عبارت می‌تواند از روی علائم نگارشی عبور کند. فاصلهٔ نشکن (NBSP) حاصل از همگن‌سازی متن هم فاصله محسوب می‌شود؛ اندیس توکن با اندیس `text.split(' ')` یکسان نیست. علائم مستقل قرآنی توکن نمی‌شوند. تکرار توکن در `phrase` به تکرار متوالی نیاز دارد، اما حالت‌های مجموعهٔ کلمات تکرارها را حذف می‌کنند. همهٔ رخدادها، حتی هم‌پوشان‌ها، در `matches` می‌آیند.
 
-Every mode returns canonical Quran order. `score` is occurrence count, with no
-relevance sorting. `total` counts matching **verses**, before pagination. Defaults
-are `limit: 20`, `offset: 0`; `limit: 0` returns just the count. Empty, whitespace,
-mark-only and non-word queries return zero hits. Queries are literal; they never
-become regular expressions. Wrong query types and unknown modes throw. Pagination
-must use nonnegative safe integers. There is no implicit maximum result count;
-requesting all common-word results increases allocation and transport cost.
+خروجی همهٔ حالت‌ها به ترتیب مصحف است. `score` تعداد رخدادهاست و مرتب‌سازی بر اساس ارتباط انجام نمی‌شود. `total` تعداد **آیه‌های** مطابق پیش از صفحه‌بندی است. پیش‌فرض‌ها `limit: 20` و `offset: 0` هستند؛ `limit: 0` فقط شمارش را برمی‌گرداند. عبارت خالی، فقط فاصله، فقط علامت یا بدون کلمه نتیجه ندارد. عبارت همیشه متن تحت‌اللفظی است و به regular expression تبدیل نمی‌شود. نوع اشتباه عبارت و حالت ناشناخته خطا می‌دهند. مقادیر صفحه‌بندی باید اعداد صحیح امن و نامنفی باشند. سقف ضمنی برای تعداد نتیجه‌ها وجود ندارد؛ درخواست همهٔ نتیجه‌های کلمات پرتکرار هزینهٔ حافظه و انتقال را زیاد می‌کند.
 
-## Arabic normalization
+## نرمال‌سازی عربی
 
 ```ts
 import { normalizeArabic } from '@ghoran/search'
@@ -100,42 +80,27 @@ const strictSearch = await createQuranSearch({ normalization: 'strict' })
 await search.search('أحد', { normalization: 'strict' })
 ```
 
-| Behavior                                                                 | `strict`                | `standard` (default)           | `loose`      |
-| ------------------------------------------------------------------------ | ----------------------- | ------------------------------ | ------------ |
-| NFC canonical composition                                                | Yes                     | Yes                            | Yes          |
-| Arabic presentation-form ligatures                                       | Compatibility expansion | Same                           | Same         |
-| Vowels, shadda, sukun, tatweel, superscript alef, pause/recitation signs | Remove                  | Remove                         | Remove       |
-| Alef `آ أ إ ٱ`                                                           | Preserve                | `ا`                            | `ا`          |
-| Persian `ی ک`                                                            | Preserve                | Arabic `ي ك`                   | Arabic `ي ك` |
-| Hamza on waw/yeh `ؤ ئ`                                                   | Preserve                | Preserve                       | `و ي`        |
-| Standalone `ء` / residual combining hamza and madda                      | Preserve                | Preserve except on folded alef | Remove       |
-| Alef maqsura `ى`                                                         | Preserve                | Preserve                       | `ي`          |
-| Ta marbuta `ة`                                                           | Preserve                | Preserve                       | `ه`          |
-| Whitespace                                                               | Trim and collapse       | Same                           | Same         |
-| Other scripts' marks and compatibility characters                        | Preserve                | Preserve                       | Preserve     |
+| رفتار                                                  | `strict`                                   | `standard` (پیش‌فرض)        | `loose`    |
+| ------------------------------------------------------ | ------------------------------------------ | --------------------------- | ---------- |
+| ترکیب کانونی NFC                                       | بله                                        | بله                         | بله        |
+| لیگاتورهای فرم نمایشی عربی                             | بسط سازگاری                                | همان                        | همان       |
+| حرکت، تشدید، سکون، کشیده، الف کوچک و علائم وقف و تلاوت | حذف                                        | حذف                         | حذف        |
+| الف `آ أ إ ٱ`                                          | حفظ                                        | `ا`                         | `ا`        |
+| حروف فارسی `ی ک`                                       | حفظ                                        | عربی `ي ك`                  | عربی `ي ك` |
+| همزه روی واو و یاء `ؤ ئ`                               | حفظ                                        | حفظ                         | `و ي`      |
+| `ء` مستقل و همزه و مد ترکیبی باقی‌مانده                | حفظ                                        | حفظ به‌جز روی الف یکسان‌شده | حذف        |
+| الف مقصوره `ى`                                         | حفظ                                        | حفظ                         | `ي`        |
+| تاء مربوطه `ة`                                         | حفظ                                        | حفظ                         | `ه`        |
+| فاصله‌ها                                               | حذف ابتدا و انتها و ادغام فاصله‌های متوالی | همان                        | همان       |
+| علائم سایر خط‌ها و نویسه‌های سازگاری                   | حفظ                                        | حفظ                         | حفظ        |
 
-The explicit removal ranges are U+0610–061A, U+064B–0652, U+0656–065F,
-U+0670, U+06D6–06ED, U+08D3–08E1 and U+08E3–08FF, plus U+08E2.
-These cover Quranic annotations, small waw/yeh and Hafs v3 open tanwin.
-U+0653–0655 (madda/hamza) are deliberately handled separately. NFC runs before and
-after transformations, including unexpected combining sequences. Only Arabic
-presentation ranges U+FB50–FDFF and U+FE70–FEFC receive compatibility expansion;
-there is no blanket NFKC or deletion of every Unicode combining mark.
+بازه‌های حذف صریح عبارت‌اند از U+0610–061A، U+064B–0652، U+0656–065F، U+0670، U+06D6–06ED، U+08D3–08E1 و U+08E3–08FF، به‌اضافهٔ U+08E2. این‌ها علائم قرآنی، واو و یاء کوچک و تنوین باز حفص نسخهٔ ۳ را پوشش می‌دهند. U+0653–0655 (مد و همزه) جداگانه پردازش می‌شوند. NFC پیش و پس از تبدیل‌ها اجرا می‌شود، حتی برای ترکیب‌های غیرمنتظره. بسط سازگاری فقط روی بازه‌های نمایشی عربی U+FB50–FDFF و U+FE70–FEFC انجام می‌شود؛ NFKC سراسری یا حذف همهٔ combining markهای یونیکد نداریم.
 
-All profiles are pure and idempotent. “Strict” is conservative **search
-normalization**, not a reversible spelling or linguistic identity operation:
-vocalization and small-letter distinctions are still lost. Standard intentionally
-merges alef/hamza-on-alef variants. Loose can produce false positives such as
-`على`/`علي` or `مدرسة`/`مدرسه`, and removes standalone hamza. None of these profiles
-performs morphology, root extraction, stemming, synonyms or fuzzy matching.
+همهٔ پروفایل‌ها خالص و idempotent هستند. `strict` یک **نرمال‌سازی محافظه‌کارانه برای جستجو** است، نه تبدیل برگشت‌پذیر املایی یا تشخیص هویت زبانی؛ حرکت‌ها و تفاوت حروف کوچک همچنان از دست می‌روند. `standard` عمداً گونه‌های الف و همزه روی الف را یکی می‌کند. `loose` ممکن است نتیجهٔ مثبت کاذب مثل `على`/`علي` یا `مدرسة`/`مدرسه` تولید کند و همزهٔ مستقل را حذف می‌کند. هیچ پروفایلی تحلیل صرفی، استخراج ریشه، stemming، مترادف یا تطبیق تقریبی انجام نمی‌دهد.
 
-Removing superscript alef does not universally reconstruct imla spelling: for
-example, Uthmanic `كِتَٰب` normalizes differently from `كتاب`. Prefer searching the
-default corpus and mapping highlights to display text. The highlighter can use
-limited spelling alternatives without silently broadening search semantics.
-Never apply Arabic presentation normalization to QPC glyph codes.
+حذف الف کوچک همیشه املای معمول را بازسازی نمی‌کند؛ مثلاً `كِتَٰب` عثمانی با `كتاب` یکسان نرمال نمی‌شود. بهتر است در متن پیش‌فرض جستجو کنید و هایلایت را به متن نمایشی نگاشت کنید. هایلایتر می‌تواند تفاوت‌های املایی محدودی را بپذیرد، بدون اینکه معنای جستجو را پنهانی گسترش دهد. هرگز نرمال‌سازی نمایشی عربی را روی کدهای گلیف QPC اجرا نکنید.
 
-## Scope: surahs, ranges and selected verses
+## محدوده: سوره‌ها، بازه‌ها و آیه‌های منتخب
 
 ```ts
 await search.search('الله', { scope: { surahs: [1, 2] } })
@@ -143,13 +108,9 @@ await search.search('الله', { scope: { ayahRange: [7, 293] } })
 await search.search('الله', { scope: { ayahIndices: [0, 8, 255, 6221] } })
 ```
 
-Surah numbers are public **1–114**. Ayah indices are canonical **0–6235**.
-Ranges are half-open: `[7, 293)` includes Al-Baqara only. Fields intersect when
-combined. An empty set or an empty range matches nothing. Invalid indices,
-fractional values, reversed ranges and out-of-bounds ranges throw, even for an
-empty query. Duplicate scope entries are harmless.
+شمارهٔ عمومی سوره **۱ تا ۱۱۴** و اندیس آیه **۰ تا ۶۲۳۵** است. بازه‌ها نیمه‌بازند: `[7, 293)` فقط بقره را شامل می‌شود. اگر چند فیلد بدهید، اشتراک آن‌ها اعمال می‌شود. مجموعه یا بازهٔ خالی نتیجه ندارد. اندیس نامعتبر، اعشار، بازهٔ معکوس و خارج از محدوده حتی برای عبارت خالی خطا می‌دهند. تکرار اعضای محدوده مشکلی ندارد.
 
-Reuse metadata for chapter bounds:
+برای مرزهای سوره از متادیتا استفاده کنید:
 
 ```ts
 import { surahList } from '@ghoran/metadata'
@@ -159,7 +120,7 @@ const results = await search.search('الله', {
 })
 ```
 
-## Results and indexing conventions
+## خروجی و قراردادهای اندیس‌گذاری
 
 ```ts
 import type { SearchResponse, SearchHit, SearchMatch } from '@ghoran/search'
@@ -171,25 +132,19 @@ const ayah = Ayah.get(hit.ayahIndex)
 console.log(hit.key, ayah.page.number, ayah.surahNumber)
 ```
 
-A response is `{ total, hits }`. A hit contains `ayahIndex`, `key`, `score`,
-`sourceText`, `normalization` and `matches`. It contains no entity class instances.
-The complete object is JSON-serializable and structured-clone-compatible.
-`sourceText` makes each hit independently usable for highlighting.
+پاسخ به شکل `{ total, hits }` است. هر نتیجه فیلدهای `ayahIndex`، `key`، `score`، `sourceText`، `normalization` و `matches` دارد و نمونه‌ای از کلاس‌های entity در آن نیست. کل شیء با JSON و structured clone سازگار است. وجود `sourceText` باعث می‌شود هر نتیجه مستقلاً قابل هایلایت باشد.
 
-All match ranges are zero-based and half-open:
+همهٔ بازه‌های تطبیق از صفر شروع می‌شوند و نیمه‌بازند:
 
-| Fields                             | Addressed string/sequence                                                                                      |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `startWord`, `endWord`             | Lexical token indices **after normalization**.                                                                 |
-| `normalizedStart`, `normalizedEnd` | UTF-16 offsets into normalized token values joined by a single space.                                          |
-| `sourceStart`, `sourceEnd`         | UTF-16 offsets into the original `sourceText`; full graphemes, or whole words if exact mapping is unavailable. |
+| فیلدها                             | رشته یا دنبالهٔ مربوط                                                             |
+| ---------------------------------- | --------------------------------------------------------------------------------- |
+| `startWord`, `endWord`             | اندیس توکن‌های واژگانی **پس از نرمال‌سازی**                                       |
+| `normalizedStart`, `normalizedEnd` | آفست UTF-16 در توکن‌های نرمال‌شدهٔ متصل با یک فاصله                               |
+| `sourceStart`, `sourceEnd`         | آفست UTF-16 در `sourceText` اصلی؛ گرافیم کامل، یا کل کلمه در صورت نبود نگاشت دقیق |
 
-`sourceText.slice(match.sourceStart, match.sourceEnd)` is safe for same-source
-rendering. Never apply normalized offsets or these source offsets to a different
-orthography. A custom normalizer can expand one word into several tokens; mapping
-falls back to that original word when per-character correspondence is unavailable.
+`sourceText.slice(match.sourceStart, match.sourceEnd)` برای نمایش همان مبدأ امن است. آفست نرمال‌شده یا آفست مبدأ را روی رسم‌الخط دیگری اعمال نکنید. نرمال‌ساز سفارشی ممکن است یک کلمه را به چند توکن بسط دهد؛ در نبود تناظر نویسه‌به‌نویسه، نگاشت به کل کلمهٔ اصلی برمی‌گردد.
 
-## Highlighting across Arabic orthographies
+## هایلایت میان رسم‌الخط‌های عربی
 
 ```ts
 import { getHighlightSegments, getHighlightRanges } from '@ghoran/search'
@@ -207,39 +162,17 @@ const { ranges, unresolvedMatches } = getHighlightRanges(original, hit)
 // ranges: { start, end, accuracy: 'exact' | 'word' }[]
 ```
 
-Render each segment as a text node/interpolation, with `<mark>` for highlighted
-segments. No HTML strings or DOM APIs are generated. Original marks, punctuation,
-spacing, NBSP and surrogate pairs remain intact. Offsets use UTF-16. With native
-`Intl.Segmenter`, ranges end on grapheme boundaries. Multiple and overlapping matches merge into disjoint
-ranges, including whitespace between adjacent selected words.
+هر قطعه را به شکل گرهٔ متنی یا interpolation نمایش دهید و قطعات هایلایت‌شده را در `<mark>` بگذارید. کتابخانه رشتهٔ HTML تولید نمی‌کند و از APIهای DOM استفاده نمی‌کند. علائم اصلی، نشانه‌گذاری، فاصله‌ها، NBSP و surrogate pairها حفظ می‌شوند. آفست‌ها UTF-16 هستند و در حضور `Intl.Segmenter` بومی، مرزها روی گرافیم می‌افتند. تطبیق‌های متعدد و هم‌پوشان در بازه‌های مجزا ادغام می‌شوند، از جمله فاصلهٔ میان کلمات منتخب مجاور.
 
-Alignment checks **word content**. It never relies only on equal word counts or
-the existing homogenization script's filtered-letter counts. Built-in Arabic
-alignment compares standard-normalized spelling plus an optional expansion of
-superscript alef; waw/maqsura carrying superscript alef may correspond to alef. Quranic `ءَا`
-and precomposed `آ` are also accepted spelling alternatives.
-One-to-many/many-to-one joins up to three lexical words are supported. An optimal
-sequence alignment accepts only correspondences shared by all minimum-cost paths.
-Ambiguous repeated words and unsupported spelling differences remain unresolved.
-For oversized custom texts, alignment work is bounded to 65,536 word-pair states;
-larger nonidentical alignments remain unresolved rather than allocating an unbounded matrix.
+ترازسازی **محتوای کلمات** را بررسی می‌کند؛ تنها برابر بودن تعداد کلمات یا شمار حروف فیلترشده در اسکریپت همگن‌سازی کافی نیست. ترازسازی داخلی، املای نرمال‌شدهٔ استاندارد را با امکان بسط الف کوچک مقایسه می‌کند؛ واو یا مقصورهٔ دارای الف کوچک ممکن است معادل الف باشد. `ءَا` قرآنی و `آ` مرکب هم تفاوت املایی قابل‌قبول‌اند.
 
-If normalized letters correspond exactly, substring matches receive character
-ranges including attached combining marks. If validated words have different
-spelling, highlighting expands to whole display words. A matched part of a joined
-word can therefore highlight the whole joined word. No fuzzy letter similarity,
-blanket alef deletion, or ta-marbuta/ta substitution is used for alignment.
-`unresolvedMatches` lists match indices with at least one unmapped word; other
-validated words may still be highlighted. Inspect it when complete coverage is
-required. A missing highlight is preferable to assigning a match to an unrelated
-word.
+اتصال یک‌به‌چند و چندبه‌یک تا سه کلمه پشتیبانی می‌شود. ترازسازی بهینه فقط تناظرهای مشترک در همهٔ مسیرهای کم‌هزینه را می‌پذیرد. کلمات تکراری مبهم و تفاوت‌های املایی پشتیبانی‌نشده حل‌نشده می‌مانند. برای متن‌های سفارشی بزرگ، محاسبه به ۶۵٬۵۳۶ حالت جفت‌کلمه محدود است؛ ترازسازی‌های بزرگ‌ترِ غیرهمسان به جای تخصیص ماتریس نامحدود، حل‌نشده می‌مانند.
 
-### QPC and explicit mappings
+اگر حروف نرمال‌شده دقیقاً متناظر باشند، تطبیق زیررشته بازهٔ نویسه‌ای همراه علائم متصل می‌گیرد. اگر کلمات معتبر املای متفاوتی داشته باشند، هایلایت به کل کلمات نمایشی گسترش می‌یابد؛ پس تطبیق بخشی از یک کلمهٔ متصل ممکن است کل آن را هایلایت کند. از شباهت تقریبی حروف، حذف کلی الف یا جایگزینی تاء مربوطه با تاء استفاده نمی‌شود. `unresolvedMatches` اندیس تطبیق‌هایی را می‌دهد که دست‌کم یک کلمهٔ بدون نگاشت دارند؛ سایر کلمات معتبر ممکن است هایلایت شوند. برای پوشش کامل آن را بررسی کنید. نبود هایلایت بهتر از نسبت دادن تطبیق به کلمهٔ نامرتبط است.
 
-QPC codes are reused by page-specific fonts. Codepoints, spaces, glyph counts or
-Unicode decomposition cannot validate their Arabic meaning. By default QPC
-highlights are unresolved. Supply a **trusted** source-token-to-display range map
-from your verified content pipeline:
+### QPC و نگاشت صریح
+
+کدهای QPC در فونت‌های هر صفحه دوباره استفاده می‌شوند. codepoint، فاصله، تعداد گلیف و تجزیهٔ یونیکد معنای عربی آن‌ها را تأیید نمی‌کند. هایلایت QPC به‌طور پیش‌فرض حل‌نشده است. باید از فرایند محتوایی تأییدشدهٔ خود، یک نگاشت **قابل اعتماد** از توکن مبدأ به بازهٔ نمایشی بدهید:
 
 ```ts
 // Golden correspondence for 1:1 in this repository's QPC v2 corpus only.
@@ -254,22 +187,11 @@ const segments = getHighlightSegments(qpc, hit, { wordMap })
 // Highlights ﱃﱄ; leaves the final verse-number glyph unhighlighted.
 ```
 
-This example is not a general QPC algorithm. A QPC word may occupy several glyphs,
-word divisions may differ, and number/pause glyphs must be excluded. `wordMap`
-length must equal the normalized source token count; use `null` for unknown words.
-Ranges must be ordered and in bounds. Surrogate boundaries are always checked;
-full grapheme boundaries are additionally checked when `Intl.Segmenter` is available.
-The library validates those structural constraints; **semantic correctness of supplied maps
-belongs to their provider**. No automatic full-Quran QPC map is shipped because
-this repository's encoded glyph data does not establish semantic correspondence.
-QPC also requires the correct [page font](/fonts).
+این مثال الگوریتم عمومی QPC نیست. هر کلمه ممکن است چند گلیف داشته باشد، مرزهای کلمات متفاوت باشند، و گلیف شماره و وقف باید کنار گذاشته شوند. طول `wordMap` باید با تعداد توکن‌های نرمال‌شدهٔ مبدأ برابر باشد؛ برای کلمات ناشناخته `null` بگذارید. بازه‌ها باید مرتب و در محدوده باشند. مرز surrogate همیشه و مرز گرافیم کامل در حضور `Intl.Segmenter` بررسی می‌شود. کتابخانه این ساختار را اعتبارسنجی می‌کند؛ **درستی معنایی نگاشت بر عهدهٔ ارائه‌دهنده است**. نگاشت خودکار کل قرآن برای QPC ارائه نمی‌شود، چون دادهٔ گلیف این مخزن تناظر معنایی را ثابت نمی‌کند. [فونت صفحهٔ مناسب](/fonts) هم لازم است.
 
-## Browser Worker: Vite, Vue and Nuxt
+## Worker مرورگر: Vite، Vue و Nuxt
 
-The package exports a real `@ghoran/search/worker` module asset, which imports the
-same engine as direct execution. Its relative generated chunks ship alongside it.
-Use a local worker entry so the consumer's bundler resolves package imports and
-emits all worker dependencies:
+پکیج، ماژول واقعی `@ghoran/search/worker` را منتشر می‌کند که همان موتور اجرای مستقیم را وارد می‌کند. chunkهای نسبی تولیدشده هم همراه آن هستند. از یک ورودی محلی Worker استفاده کنید تا bundler مصرف‌کننده importها را resolve و همهٔ وابستگی‌ها را منتشر کند:
 
 ```ts
 // src/quran.worker.ts — this is the complete file
@@ -288,9 +210,7 @@ export const search = await createBrowserQuranSearch({
 })
 ```
 
-Configure ESM worker output because lazy Quran loading uses code splitting. This
-is required by Vite versions whose worker output defaults to IIFE (including the
-Vite version used by VitePress):
+چون بارگذاری lazy قرآن از code splitting استفاده می‌کند، خروجی Worker باید ESM باشد. این تنظیم برای نسخه‌های Vite با پیش‌فرض IIFE، از جمله نسخهٔ مورد استفادهٔ VitePress، لازم است:
 
 ```ts
 // vite.config.ts
@@ -298,25 +218,15 @@ import { defineConfig } from 'vite'
 export default defineConfig({ worker: { format: 'es' } })
 ```
 
-For Nuxt, put the equivalent in `nuxt.config.ts`:
+در Nuxt تنظیم معادل را در `nuxt.config.ts` قرار دهید:
 
 ```ts
 export default defineNuxtConfig({ vite: { worker: { format: 'es' } } })
 ```
 
-Keep the literal `new URL('./quran.worker.ts', import.meta.url)` expression inside
-`new Worker` so Vite recognizes it in both development and production. Do not use
-`new URL('@ghoran/search/worker', import.meta.url)`: package specifiers are not
-relative URLs. The wrapper imports the **published export**, with no monorepo path.
-A Vite-specific alternative is `import QuranWorker from '@ghoran/search/worker?worker'`
-then `workerFactory: () => new QuranWorker()`; the local wrapper is the tested recipe.
+عبارت ثابت `new URL('./quran.worker.ts', import.meta.url)` را داخل `new Worker` نگه دارید تا Vite در توسعه و تولید آن را تشخیص دهد. از `new URL('@ghoran/search/worker', import.meta.url)` استفاده نکنید؛ نام پکیج URL نسبی نیست. ورودی محلی، **export منتشرشده** را بدون مسیر monorepo وارد می‌کند. روش مخصوص Vite، یعنی `import QuranWorker from '@ghoran/search/worker?worker'` و سپس `workerFactory: () => new QuranWorker()` هم ممکن است، ولی روش ورودی محلی بررسی شده است.
 
-For Nuxt, construct the worker in `onMounted` or a `.client.ts` plugin, using a local
-wrapper next to the component/plugin. Do not instantiate `Worker` during SSR.
-The browser entrypoint itself is SSR-safe and has no top-level worker creation.
-Omitting `workerFactory` explicitly uses direct execution; `search.execution`
-reports `'worker'` or `'direct'`. Supplying a factory makes initialization failures
-reject by default. An explicit fallback must communicate the reason:
+در Nuxt، Worker را در `onMounted` یا افزونهٔ `.client.ts` با ورودی محلی کنار کامپوننت یا افزونه بسازید؛ هنگام SSR نمونه نسازید. خود entrypoint مرورگر برای SSR امن است و در سطح ماژول Worker نمی‌سازد. حذف `workerFactory` صریحاً اجرای مستقیم را انتخاب می‌کند؛ `search.execution` مقدار `'worker'` یا `'direct'` دارد. با ارائهٔ factory، خطای راه‌اندازی به‌طور پیش‌فرض reject می‌شود. fallback صریح باید دلیل را گزارش کند:
 
 ```ts
 const search = await createBrowserQuranSearch({
@@ -332,14 +242,9 @@ const search = await createBrowserQuranSearch({
 })
 ```
 
-Runtime worker errors reject pending requests, terminate the worker and leave the
-instance unusable. They do not silently rerun queries on the main thread.
-Search validation errors reject that request while the worker remains usable.
-Every request has its own ID; concurrent/out-of-order responses cannot resolve
-another request. `dispose()` rejects pending work, removes listeners and terminates
-the worker. Calls after disposal reject.
+خطای زمان اجرای Worker درخواست‌های معلق را reject می‌کند، Worker را می‌بندد و نمونه را غیرقابل استفاده می‌کند؛ جستجوها بی‌اطلاع روی نخ اصلی تکرار نمی‌شوند. خطای اعتبارسنجی جستجو فقط همان درخواست را رد می‌کند و Worker قابل استفاده می‌ماند. هر درخواست شناسهٔ مستقل دارد؛ پاسخ هم‌زمان یا خارج از ترتیب درخواست دیگری را resolve نمی‌کند. `dispose()` کارهای معلق را رد می‌کند، listenerها را برمی‌دارد و Worker را می‌بندد. فراخوانی بعد از آن reject می‌شود.
 
-### Vue/Nuxt lifecycle and stale results
+### چرخهٔ عمر Vue/Nuxt و نتیجه‌های قدیمی
 
 ```vue
 <script setup lang="ts">
@@ -384,45 +289,21 @@ onBeforeUnmount(() => {
 </script>
 ```
 
-Aborting rejects promptly on the caller side and ignores the eventual reply.
-Already-running synchronous loading/normalization/search CPU work is not interrupted;
-disposal terminates the worker. Direct searches only check cancellation before and
-after their synchronous scan. Calls remain independent: the library does not guess
-which caller owns the “latest” query. Abort the previous request and use a sequence
-guard when updating reactive UI. Debounce text input to avoid queuing obsolete scans.
+لغو درخواست، سمت فراخواننده سریعاً reject می‌شود و پاسخ نهایی نادیده گرفته می‌شود؛ کار هم‌زمان CPU که برای بارگذاری، نرمال‌سازی یا جستجو شروع شده قطع نمی‌شود. `dispose()` خود Worker را خاتمه می‌دهد. جستجوی مستقیم فقط قبل و بعد از اسکن هم‌زمان لغو را بررسی می‌کند. فراخوانی‌ها مستقل‌اند و کتابخانه حدس نمی‌زند کدام درخواست «جدیدترین» است. درخواست قبلی را لغو و هنگام به‌روزرسانی UI از شمارندهٔ ترتیب استفاده کنید. برای جلوگیری از صف اسکن‌های قدیمی، ورودی متن را debounce کنید.
 
-### Older browsers: progressive enhancement
+### مرورگرهای قدیمی: بهبود تدریجی
 
-`Intl.Segmenter` is optional. If the environment has no implementation (including
-inside a worker), initialization, normalization and search continue without a
-polyfill or a missing-API error. Native segmentation is detected lazily and reused
-when available.
+`Intl.Segmenter` اختیاری است. در محیط فاقد آن، حتی داخل Worker، راه‌اندازی، نرمال‌سازی و جستجو بدون polyfill یا خطای API ادامه می‌یابد. پیاده‌سازی بومی به‌صورت lazy تشخیص داده و دوباره استفاده می‌شود.
 
-Without it, original-string positions and highlights expand to complete lexical
-words, including for partial substring matches. For example, searching `الله`
-inside `بِاللَّهِ` still matches, but the highlight covers `بِاللَّهِ` instead of
-just `اللَّهِ`. `getHighlightRanges()` reports `accuracy: 'word'`. Original text,
-spacing, surrogate pairs and the word's Arabic combining marks are preserved.
-Normalized match positions remain available, so a hit returned by an older worker
-can regain finer highlighting when rendered in an environment with segmentation.
+بدون آن، موقعیت در متن اصلی و هایلایت به کل کلمه گسترش می‌یابد، حتی برای تطبیق بخشی از کلمه. مثلاً جستجوی `الله` داخل `بِاللَّهِ` در حالت زیررشته همچنان نتیجه می‌دهد، ولی کل `بِاللَّهِ` به‌جای فقط `اللَّهِ` هایلایت می‌شود. خروجی `getHighlightRanges()` دارای `accuracy: 'word'` است. متن، فاصله‌ها، surrogate pairها و علائم ترکیبی عربی کلمه حفظ می‌شوند. موقعیت‌های نرمال‌شده باقی می‌مانند؛ پس نتیجهٔ Worker قدیمی هنگام نمایش در محیط دارای segmentation می‌تواند هایلایت دقیق‌تر بگیرد.
 
-This fallback does not implement full Unicode grapheme segmentation. Complex emoji,
-joiner sequences and scripts outside ordinary Arabic may receive less precise
-boundaries. Explicit `wordMap` values remain trusted assertions: bounds, order and
-surrogate boundaries are always validated; full grapheme validation runs only when
-native segmentation is available. No dependencies or polyfills are added. Unicode
-property escapes and the repository's other JavaScript requirements still apply.
+این fallback پیاده‌سازی کامل گرافیم یونیکد نیست؛ ایموجی پیچیده، دنباله‌های joiner و خط‌های غیرعربی ممکن است مرزهای کم‌دقت‌تری داشته باشند. `wordMap` همچنان ادعای مورد اعتماد ارائه‌دهنده است. محدوده، ترتیب و مرز surrogate همیشه و مرز گرافیم فقط با segmentation بومی بررسی می‌شود. وابستگی یا polyfill اضافه نمی‌شود. پشتیبانی Unicode property escape و سایر پیش‌نیازهای جاوااسکریپت مخزن همچنان لازم است.
 
-## Node.js and custom verse-aligned text
+## Node.js و متن سفارشی هم‌تراز با آیه‌ها
 
-The main entrypoint has no browser globals or Node-only imports. It loads text using
-`importText`, avoiding the text package's browser CacheStorage adapter. Node needs
-no Worker or DOM declarations; use normal ESM and `await createQuranSearch()`.
-Unicode property escapes are required; use Node 22.18+ (the repository baseline)
-or browsers supporting those JavaScript features. `Intl.Segmenter` enhances
-highlight precision when available and is not required for search.
+ورودی اصلی نه global مرورگر دارد و نه import مخصوص Node. بارگذاری از طریق `importText` انجام می‌شود و از آداپتر CacheStorage مرورگر استفاده نمی‌کند. در Node نیازی به Worker یا اعلان‌های DOM نیست؛ ESM معمول و `await createQuranSearch()` کافی است. Unicode property escape لازم است؛ از Node نسخهٔ 22.18 به بالا (حد پایهٔ مخزن) یا مرورگر پشتیبان این قابلیت‌ها استفاده کنید. `Intl.Segmenter` دقت هایلایت را بهتر می‌کند ولی برای جستجو ضروری نیست.
 
-To search only lesson verses while retaining canonical IDs:
+برای جستجو فقط در آیه‌های درس، با حفظ شناسه‌های اصلی:
 
 ```ts
 const text = (await importText('tanzil-simple-clean')).default
@@ -433,7 +314,7 @@ const lesson = await createQuranSearch({
 })
 ```
 
-For translations or other content aligned with Quran verses:
+برای ترجمه یا محتوای هم‌تراز با آیه‌های قرآن:
 
 ```ts
 // Full-length arrays default to positional canonical ayah indices.
@@ -452,34 +333,15 @@ const hit = (await caseInsensitive.search('GOD')).hits[0]
 getHighlightSegments(hit.sourceText, hit, { normalizer: lower })
 ```
 
-Custom arrays contain at most 6,236 strings. Supply unique canonical `ayahIndices`
-for subsets, or positional indices are used. Inputs are copied and results sorted
-by canonical ID. Empty arrays are valid. Custom functions must be deterministic
-and operate on individual lexical words; punctuation/tokenization remains shared.
-A per-query Arabic profile cannot override a custom/identity normalizer. Function
-normalizers cannot cross worker transport; use direct mode or the serializable
-`normalizer: 'none'`. Arabic cross-orthography spelling alternatives are disabled
-for custom/identity normalization.
+آرایهٔ سفارشی حداکثر ۶٬۲۳۶ رشته دارد. برای زیرمجموعه‌ها `ayahIndices` یکتا با اندیس‌های اصلی بدهید؛ در غیر این صورت اندیس موقعیتی استفاده می‌شود. ورودی کپی و خروجی بر اساس شناسهٔ اصلی مرتب می‌شود. آرایهٔ خالی مجاز است. تابع سفارشی باید قطعی باشد و روی هر کلمهٔ واژگانی جداگانه کار کند؛ نشانه‌گذاری و توکن‌سازی مشترک می‌ماند. پروفایل عربی در سطح درخواست نمی‌تواند نرمال‌ساز سفارشی یا identity را جایگزین کند. تابع از مرز انتقال Worker عبور نمی‌کند؛ اجرای مستقیم یا مقدار قابل‌انتقال `normalizer: 'none'` را انتخاب کنید. تفاوت‌های املایی میان رسم‌الخط‌های عربی برای نرمال‌ساز سفارشی یا identity غیرفعال‌اند.
 
-## Performance and ownership
+## کارایی و مالکیت منابع
 
-A linear scan is sufficient for this corpus. Each engine normalizes its selected
-corpus once on initialization. A different Arabic profile is prepared lazily on
-first use and retained in that instance (at most three profiles). No application-
-wide mutable engine cache, inverted index or persistent storage is used. Concurrent
-factories have independent normalized data; JavaScript's module loader reuses text
-imports. A warm factory still normalizes its own corpus. Reuse an engine across
-queries and dispose it when its owner ends. Imported text modules may remain in
-the runtime's module cache after disposal.
+اسکن خطی برای این مجموعه کافی است. هر موتور متن منتخب خود را یک بار هنگام راه‌اندازی نرمال می‌کند. پروفایل عربی متفاوت در اولین استفاده به‌صورت lazy آماده و در همان نمونه نگهداری می‌شود (حداکثر سه پروفایل). کش موتور سراسریِ قابل تغییر، inverted index یا ذخیره‌سازی پایدار وجود ندارد. factoryهای هم‌زمان دادهٔ نرمال‌شدهٔ مستقل دارند؛ بارگذار ماژول جاوااسکریپت import متن را بازاستفاده می‌کند. حتی factory با ماژول از قبل بارگذاری‌شده، متن خود را نرمال می‌کند. موتور را میان درخواست‌ها بازاستفاده و در پایان عمر مالک dispose کنید. ماژول متن ممکن است پس از dispose در کش runtime بماند.
 
-The package's static code does not embed Quran text. Bundlers may **emit** chunks
-for all text editions because `@ghoran/text` exposes dynamic imports for them, but
-only the selected semantic corpus downloads at initialization. Loading a display
-edition is a separate download. Worker cold-start time also includes its module
-loading. Results include source strings and can increase clone cost for large
-limits.
+کد ایستای پکیج متن قرآن را جاسازی نمی‌کند. bundler ممکن است chunk همهٔ نسخه‌ها را **تولید** کند، چون `@ghoran/text` برای همه import پویا دارد؛ ولی هنگام راه‌اندازی فقط متن معنایی منتخب دانلود می‌شود. نسخهٔ نمایشی دانلود جداگانه دارد. شروع سرد Worker بارگذاری ماژول‌های آن را هم شامل می‌شود. رشتهٔ مبدأ در نتیجه‌ها وجود دارد و limit بزرگ هزینهٔ clone را افزایش می‌دهد.
 
-Run the reproducible production-output benchmark after building:
+بنچمارک بازتولیدپذیر را پس از بیلد اجرا کنید:
 
 ```sh
 pnpm build
@@ -488,74 +350,35 @@ pnpm bench:search
 pnpm --filter @ghoran/search exec node --expose-gc bench/search.mjs --write
 ```
 
-Measurements and environment are recorded in the repository's
-[`packages/search/bench/results.json`](https://github.com/sabereen/ghoran/blob/main/packages/search/bench/results.json).
-The benchmark measures cold and warm factories, repeated query median/p95,
-post-GC heap change, generated ESM/gzip sizes and real-thread worker round trips.
-Worker CPU/clone timings use Node's worker threads with the published browser
-worker module; they do not include browser network downloads. Results are not
-Android device measurements. On lower-end devices prefer workers, debounce input,
-keep result limits small and test cold loading on target hardware.
+اندازه‌گیری و مشخصات محیط در [`packages/search/bench/results.json`](https://github.com/sabereen/ghoran/blob/main/packages/search/bench/results.json) ثبت شده است. بنچمارک factory سرد و گرم، میانه و p95 درخواست تکراری، تغییر heap پس از GC، اندازهٔ ESM و gzip و رفت‌وبرگشت Worker واقعی را می‌سنجد. زمان CPU و clone با worker threadهای Node و ماژول منتشرشدهٔ مرورگر سنجیده می‌شود و دانلود شبکهٔ مرورگر را شامل نمی‌شود. این‌ها اندازه‌گیری دستگاه اندرویدی نیستند. روی دستگاه ضعیف‌تر Worker، debounce، limit کوچک و آزمایش بارگذاری سرد روی سخت‌افزار هدف را ترجیح دهید.
 
-Measured on **19 October 2026**, Node v24.19.0, Linux x64,
-AMD EPYC 9V74 80-Core Processor. Each query has 10 warmups and 100 measured repetitions;
-initialization uses five fresh-process or fresh-instance samples. Cold timing
-includes module loading and corpus preparation, excluding Node process startup.
+اندازه‌گیری در **۱۹ اکتبر ۲۰۲۶** با Node v24.19.0، Linux x64 و AMD EPYC 9V74 80-Core Processor انجام شده است. هر درخواست ۱۰ بار گرم‌کردن و ۱۰۰ بار اندازه‌گیری دارد؛ راه‌اندازی با پنج نمونهٔ فرایند یا نمونهٔ تازه سنجیده می‌شود. زمان سرد شامل بارگذاری ماژول و آماده‌سازی متن است، نه شروع فرایند Node.
 
-| Query        | Median (ms) | p95 (ms) | Matching verses |
-| ------------ | ----------: | -------: | --------------: |
-| common word  |       1.917 |    4.126 |            1567 |
-| phrase       |       1.346 |    1.923 |               6 |
-| allWords     |       2.178 |    3.843 |              41 |
-| anyWord      |       1.661 |    2.463 |            1589 |
-| many results |       2.959 |    8.878 |            2023 |
-| single surah |       0.495 |    0.995 |             139 |
-| substring    |       0.703 |    1.106 |             201 |
+| درخواست        | میانه (ms) | p95 (ms) | تعداد آیه |
+| -------------- | ---------: | -------: | --------: |
+| کلمهٔ پرتکرار  |      1.917 |    4.126 |      1567 |
+| عبارت          |      1.346 |    1.923 |         6 |
+| `allWords`     |      2.178 |    3.843 |        41 |
+| `anyWord`      |      1.661 |    2.463 |      1589 |
+| نتیجه‌های زیاد |      2.959 |    8.878 |      2023 |
+| یک سوره        |      0.495 |    0.995 |       139 |
+| زیررشته        |      0.703 |    1.106 |       201 |
 
-Cold initialization median: **192.0 ms**; warm-module, new-instance
-initialization: **144.0 ms**. Incremental post-GC heap for one normalized
-engine was approximately **12.78 MiB**, with the text module already cached.
-Worker initialization was **238.9 ms**; common-word worker search median
-was **2.372 ms**, with an empty round trip median of
-**0.026 ms**. These timings measure Node worker CPU/clone overhead.
+میانهٔ راه‌اندازی سرد **192.0 ms** و راه‌اندازی نمونهٔ تازه با ماژول گرم **144.0 ms** است. افزایش heap پس از GC برای یک موتور با متن از پیش کش‌شده حدود **12.78 MiB** بود. راه‌اندازی Worker **238.9 ms**، میانهٔ جستجوی کلمهٔ پرتکرار در Worker **2.372 ms** و میانهٔ رفت‌وبرگشت خالی **0.026 ms** بود. این زمان‌ها هزینهٔ CPU و clone در Workerِ Node را می‌سنجند.
 
-Generated main ESM plus its shared runtime chunk: **22.31 kB raw / 7.24 kB gzip**.
-The browser adapter adds 3.97 kB raw / 1.36 kB gzip; the worker entry adds
-1.23 kB raw / 0.55 kB gzip and reuses the shared engine. These are tsdown production
-ESM sizes before consumer tree-shaking/minification, excluding external metadata,
-text-loader dependencies and Quran data. The text package’s selected canonical
-corpus chunk is approximately 196.7 kB gzip; its other editions are lazy chunks.
+ESM اصلی و chunk مشترک runtime در مجموع **22.31 kB خام / 7.24 kB gzip** هستند. آداپتر مرورگر 3.97 kB خام / 1.36 kB gzip و ورودی Worker برابر 1.23 kB خام / 0.55 kB gzip اضافه می‌کند و موتور مشترک را بازاستفاده می‌کند. این اندازهٔ خروجی تولیدی tsdown پیش از tree shaking و minification مصرف‌کننده است و متادیتا، وابستگی بارگذار متن و دادهٔ قرآن را شامل نمی‌شود. chunk متن اصلی منتخب حدود 196.7 kB gzip است و سایر نسخه‌ها lazy هستند.
 
-The measured scans do not justify an inverted index for this iteration. Results
-vary with runtime load, device, profile and result limit; no mobile latency guarantee
-is inferred from this server-class CPU.
+این اسکن‌های اندازه‌گیری‌شده برای این نسخه inverted index را توجیه نمی‌کنند. نتیجه با بار runtime، دستگاه، پروفایل و limit تغییر می‌کند؛ از این CPU سروری نمی‌توان تضمین تأخیر موبایل نتیجه گرفت.
 
-## Verification and troubleshooting
+## بررسی صحت و عیب‌یابی
 
-`pnpm verify` builds all seven packages, typechecks, runs Vitest, installs actual
-packed tarballs into an independent offline consumer, verifies ESM/declarations,
-executes the published worker in a real thread, checks Vite dev resolution and
-production worker emission, and builds the docs. `pnpm check:search-browser`
-also runs the packed Vite application in Chromium in development and production;
-set `CHROME_BIN` if Chromium is not on PATH. Release scripts discover packages and
-publish dependencies before their consumers. No publish command runs as part of
-this implementation's verification.
+`pnpm verify` هر هفت پکیج را بیلد و typecheck می‌کند، Vitest را اجرا می‌کند، tarballهای واقعی را در مصرف‌کنندهٔ مستقل آفلاین نصب می‌کند، ESM و اعلان‌ها را بررسی می‌کند، Worker منتشرشده را در نخ واقعی اجرا می‌کند، resolve در Vite dev و خروجی Worker تولیدی را بررسی می‌کند و مستندات را می‌سازد. `pnpm check:search-browser` برنامهٔ بسته‌بندی‌شدهٔ Vite را در Chromium در توسعه و تولید هم اجرا می‌کند؛ اگر مرورگر در PATH نیست `CHROME_BIN` را تنظیم کنید. اسکریپت انتشار پکیج‌ها را کشف و وابستگی‌ها را پیش از مصرف‌کنندگان منتشر می‌کند. بررسی صحت این پیاده‌سازی دستور انتشار اجرا نمی‌کند.
 
-- **No match in a display corpus:** small alef and Uthmanic spelling can differ.
-  Search `tanzil-simple-clean` and map the hit to the display edition.
-- **Some words are not highlighted:** inspect `unresolvedMatches`. An ambiguous,
-  unsupported or mismatched verse is never guessed by word count.
-- **QPC results have no highlights:** provide trusted `wordMap` ranges and the
-  correct page font. Normalizing glyph codes cannot recover their Arabic text.
-- **Wrong offsets:** normalized offsets, original UTF-16 offsets and lexical word
-  indices address different sequences. Use the segment API across orthographies.
-- **Worker 404, MIME or CSP error:** keep the local wrapper, let Vite bundle its
-  package import, deploy emitted chunks, and allow your module worker in CSP. If a build reports IIFE/code-splitting errors,
-  set Vite's `worker.format` to `'es'`.
-  Raw Node module resolution does not turn a package specifier into a browser URL.
-- **SSR says Worker is undefined:** create the factory's worker inside a client
-  lifecycle hook. Omit the factory for explicit server-side direct execution.
-- **Memory grows:** reuse engines, limit profile switching and dispose component-
-  owned engines. Do not create an engine on every keystroke.
-- **Old results replace new ones:** abort prior calls and guard UI assignment with
-  a generation ID. Independent concurrent searches are intentionally supported.
+- **در متن نمایشی نتیجه ندارید:** الف کوچک و املای عثمانی ممکن است متفاوت باشند. در `tanzil-simple-clean` جستجو و نتیجه را به نسخهٔ نمایشی نگاشت کنید.
+- **بعضی کلمات هایلایت نمی‌شوند:** `unresolvedMatches` را ببینید. برای آیهٔ مبهم، نامنطبق یا پشتیبانی‌نشده از شمار کلمات حدس زده نمی‌شود.
+- **نتیجهٔ QPC هایلایت ندارد:** `wordMap` قابل اعتماد و فونت صفحهٔ درست بدهید؛ نرمال‌سازی کد گلیف متن عربی را بازیابی نمی‌کند.
+- **آفست اشتباه است:** آفست نرمال‌شده، آفست UTF-16 اصلی و اندیس واژگانی به دنباله‌های متفاوت اشاره می‌کنند. میان رسم‌الخط‌ها از API قطعه‌بندی استفاده کنید.
+- **خطای 404، MIME یا CSP در Worker:** ورودی محلی را نگه دارید، import پکیج را به Vite بسپارید، chunkهای تولیدشده را مستقر کنید و Worker ماژولی را در CSP مجاز کنید. برای خطای IIFE/code splitting، مقدار `worker.format` در Vite را `'es'` بگذارید. resolve خام ماژول Node نام پکیج را به URL مرورگر تبدیل نمی‌کند.
+- **خطای Worker is undefined در SSR:** Worker را در چرخهٔ عمر کلاینت بسازید؛ برای اجرای مستقیم سرور factory ندهید.
+- **مصرف حافظه زیاد می‌شود:** موتور را بازاستفاده کنید، تغییر پروفایل را محدود کنید و موتور متعلق به کامپوننت را dispose کنید. با هر کلید موتور نسازید.
+- **نتیجهٔ قدیمی جای جدید را می‌گیرد:** درخواست قبلی را لغو و تخصیص UI را با شناسهٔ نسل محافظت کنید. جستجوهای هم‌زمان مستقل عمداً پشتیبانی می‌شوند.

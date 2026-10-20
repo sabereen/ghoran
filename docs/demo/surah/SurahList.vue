@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { useData } from 'vitepress'
 import { Surah } from '@ghoran/entity'
+
+const { lang } = useData()
+const t = (fa: string, en: string) => (lang.value.startsWith('fa') ? fa : en)
 
 const surahList = Surah.getAll()
 </script>
@@ -13,11 +17,14 @@ const surahList = Surah.getAll()
       <div class="text-2xl font-bold">
         {{ surah.number }}.
         {{ surah.name }}
-        <span v-if="surah.isMedinan" class="text-xs">مدنی</span>
-        <span v-else class="text-xs">مکی</span>
+        <span v-if="surah.isMedinan" class="text-xs">{{
+          t('مدنی', 'Medinan')
+        }}</span>
+        <span v-else class="text-xs">{{ t('مکی', 'Meccan') }}</span>
       </div>
-      تعداد آیات: {{ surah.ayahCount }} <br />
-      جزء {{ surah.firstAyah.juzNumber }}، صفحه {{ surah.firstAyah.pageNumber }}
+      {{ t('تعداد آیات:', 'Verses:') }} {{ surah.ayahCount }} <br />
+      {{ t('جزء', 'Juz') }} {{ surah.firstAyah.juzNumber
+      }}{{ t('، صفحه', ' — Page') }} {{ surah.firstAyah.pageNumber }}
     </div>
   </div>
 </template>

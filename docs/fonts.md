@@ -65,7 +65,7 @@ const quranText = await loadText('imla')
 ```js
 import { loadText } from '@ghoran/text'
 
-const quranText = await loadText('simple-min')
+const quranText = await loadText('tanzil-simple-min')
 ```
 
 ## قرآن بی علامت
@@ -75,5 +75,5 @@ const quranText = await loadText('simple-min')
 ```js
 import { loadText } from '@ghoran/text'
 
-const quranText = await loadText('clean')
+const quranText = await loadText('tanzil-simple-clean')
 ```

@@ -1,8 +1,12 @@
 <script lang="ts" setup>
+import { useData } from 'vitepress'
 import { computed, ref, shallowRef, watch } from 'vue'
 import { loadText, textMetaData, QuranTextType } from '@ghoran/text'
 import { pageList } from '@ghoran/metadata'
 import { Ayah } from '@ghoran/entity'
+
+const { lang } = useData()
+const t = (fa: string, en: string) => (lang.value.startsWith('fa') ? fa : en)
 
 const pageNumber = ref(1)
 
@@ -54,7 +58,7 @@ const pageAyat = computed(() =>
 declare const window: any
 function copy(text: string | number) {
   window.navigator.clipboard.writeText(text)
-  window.alert('کپی شد.')
+  window.alert(t('کپی شد.', 'Copied.'))
 }
 
 watch(rasmolkhat, async (rasmolkhat) => {
@@ -98,7 +102,7 @@ function select(ayahIndex: number, offset: number) {
     <div class="mb-3">
       <span>
         <i class="i-solar:text-square-line-duotone w-5 h-5"></i>
-        رسم الخط:
+        {{ t('رسم الخط:', 'Orthography:') }}
       </span>
       <select
         v-model="rasmolkhat"
@@ -117,7 +121,7 @@ function select(ayahIndex: number, offset: number) {
         @click="pageNumber--"
       />
       <span class="mx-1">
-        صفحه‌ی
+        {{ t('صفحه‌ی', 'Page') }}
         <input
           type="number"
           min="1"
@@ -134,14 +138,20 @@ function select(ayahIndex: number, offset: number) {
     </div>
     <!-- بازه -->
     <div class="mb-6 border border-dashed border-gray-500 p-2">
-      <div>از: اندیس {{ range.fromAyah }} و آفست {{ range.fromOffset }}</div>
-      <div>تا: اندیس {{ range.toAyah }} و آفست {{ range.toOffset }}</div>
+      <div>
+        {{ t('از: اندیس', 'From: index') }} {{ range.fromAyah }}
+        {{ t('و آفست', 'and offset') }} {{ range.fromOffset }}
+      </div>
+      <div>
+        {{ t('تا: اندیس', 'To: index') }} {{ range.toAyah }}
+        {{ t('و آفست', 'and offset') }} {{ range.toOffset }}
+      </div>
     </div>
 
     <div v-if="isValidPageNumber">
       <div v-for="(ayah, i) in pageText" class="mb-6">
         <div v-if="pageAyat[i].isFirstOfSurah" class="mb-3">
-          سوره {{ pageAyat[i].surah.name }}
+          {{ t('سوره', 'Surah') }} {{ pageAyat[i].surah.name }}
           <div v-if="pageAyat[i].surah.hasBasmalah" class="mt-2">
             {{ text[0] }}
           </div>
@@ -150,7 +160,7 @@ function select(ayahIndex: number, offset: number) {
         <div class="flex items-center">
           <div class="mr-3 flex flex-col">
             <span class="flex flex-col">
-              <span class="text-xs">اندیس:</span>
+              <span class="text-xs">{{ t('اندیس:', 'Index:') }}</span>
               <button
                 class="flex items-center hover:opacity-75"
                 @click="copy(pageAyat[i].index)"
@@ -191,6 +201,6 @@ function select(ayahIndex: number, offset: number) {
         </div>
       </div>
     </div>
-    <div v-else>شماره صفحه نامعتبر است</div>
+    <div v-else>{{ t('شماره صفحه نامعتبر است', 'Invalid page number') }}</div>
   </div>
 </template>

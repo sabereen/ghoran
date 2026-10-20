@@ -1,11 +1,20 @@
 <script setup lang="ts">
+import { useData } from 'vitepress'
 import { onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import type { HighlightSegment, QuranSearch, SearchMode } from '@ghoran/search'
 import '@ghoran/text/fonts/uthmanic-hafs-v3/style.css'
 
+const { lang } = useData()
+const t = (fa: string, en: string) => (lang.value.startsWith('fa') ? fa : en)
+
 const query = ref('الرحمن الرحيم')
 const mode = ref<SearchMode>('phrase')
-const status = ref('عبارت مورد نظر را بنویسید؛ نتیجه‌ها خودکار به‌روز می‌شوند.')
+const status = ref(
+  t(
+    'عبارت مورد نظر را بنویسید؛ نتیجه‌ها خودکار به‌روز می‌شوند.',
+    'Enter a query; results update automatically.',
+  ),
+)
 const busy = ref(false)
 const rows = shallowRef<{ key: string; segments: HighlightSegment[] }[]>([])
 let engine: Promise<QuranSearch> | undefined
@@ -22,11 +31,11 @@ function schedule() {
   if (!query.value.trim()) {
     rows.value = []
     busy.value = false
-    status.value = 'عبارت مورد نظر را بنویسید.'
+    status.value = t('عبارت مورد نظر را بنویسید.', 'Enter a query.')
     return
   }
   busy.value = true
-  status.value = 'در حال جستجو…'
+  status.value = t('در حال جستجو…', 'Searching…')
   debounce = setTimeout(run, 250)
 }
 
@@ -46,7 +55,7 @@ async function run() {
   const current = ++generation
   const signal = controller.signal
   busy.value = true
-  status.value = 'در حال جستجو…'
+  status.value = t('در حال جستجو…', 'Searching…')
   try {
     const { createBrowserQuranSearch } = await import('@ghoran/search/browser')
     engine ??= createBrowserQuranSearch({
@@ -84,12 +93,18 @@ async function run() {
       segments: getHighlightSegments(display.default[hit.ayahIndex], hit),
     }))
     status.value = response.total
-      ? `${response.total} آیه پیدا شد؛ ${response.hits.length} نتیجه نمایش داده می‌شود.`
-      : 'آیه‌ای با این عبارت پیدا نشد.'
+      ? t(
+          `${response.total} آیه پیدا شد؛ ${response.hits.length} نتیجه نمایش داده می‌شود.`,
+          `${response.total} verses found; showing ${response.hits.length} results.`,
+        )
+      : t('آیه‌ای با این عبارت پیدا نشد.', 'No matching verses found.')
   } catch (error) {
     if (current === generation && (error as Error).name !== 'AbortError') {
       rows.value = []
-      status.value = `جستجو انجام نشد: ${(error as Error).message}`
+      status.value = t(
+        `جستجو انجام نشد: ${(error as Error).message}`,
+        `Search failed: ${(error as Error).message}`,
+      )
     }
   } finally {
     if (current === generation) busy.value = false
@@ -104,9 +119,15 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section class="quran-search-demo" dir="rtl" aria-label="دموی جستجوی قرآن">
+  <section
+    class="quran-search-demo"
+    :dir="lang.startsWith('fa') ? 'rtl' : 'ltr'"
+    :aria-label="t('دموی جستجوی قرآن', 'Quran search demo')"
+  >
     <form @submit.prevent="run">
-      <label for="quran-search-query">عبارت جستجو</label>
+      <label for="quran-search-query">{{
+        t('عبارت جستجو', 'Search query')
+      }}</label>
       <div class="query-controls">
         <input
           id="quran-search-query"
@@ -115,15 +136,19 @@ onBeforeUnmount(() => {
           type="search"
           autocomplete="off"
         />
-        <button type="submit">جستجو</button>
+        <button type="submit">{{ t('جستجو', 'Search') }}</button>
       </div>
       <div class="mode-control">
-        <label for="quran-search-mode">نوع جستجو</label>
+        <label for="quran-search-mode">{{
+          t('نوع جستجو', 'Search mode')
+        }}</label>
         <select id="quran-search-mode" v-model="mode">
-          <option value="phrase">عبارت به ترتیب</option>
-          <option value="allWords">همهٔ کلمه‌ها</option>
-          <option value="anyWord">حداقل یک کلمه</option>
-          <option value="substring">بخشی از کلمه</option>
+          <option value="phrase">{{ t('عبارت به ترتیب', 'Phrase') }}</option>
+          <option value="allWords">{{ t('همهٔ کلمه‌ها', 'All words') }}</option>
+          <option value="anyWord">{{ t('حداقل یک کلمه', 'Any word') }}</option>
+          <option value="substring">
+            {{ t('بخشی از کلمه', 'Substring') }}
+          </option>
         </select>
       </div>
     </form>
