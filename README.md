@@ -1,6 +1,6 @@
 # ریسورس‌های قرآن برای برنامه‌نویسان جاوااسکریپتی
 
-[Ghoran.netlify.app](https://ghoran.netlify.app)
+[مستندات Ghoran](https://sabereen.github.io/ghoran/)
 
 ## توسعه و بیلد
 
@@ -35,6 +35,32 @@ TypeScript روی شاخهٔ ۶ نگه داشته شده تا با نسخهٔ پ
 
 برای اجرای همهٔ بررسی‌ها به‌ترتیب از `pnpm verify` استفاده کنید.
 
+## انتشار مستندات روی GitHub Pages
+
+مستندات به‌صورت استاتیک در [GitHub Pages](https://sabereen.github.io/ghoran/)
+منتشر می‌شوند. در تنظیمات مخزن، بخش `Settings → Pages → Build and deployment`،
+گزینهٔ `Source` را یک‌بار روی `GitHub Actions` قرار دهید.
+
+workflow فایل `.github/workflows/docs.yml` با هر push روی `main`، وابستگی‌ها را
+با lockfile نصب می‌کند، کتابخانه‌ها و مستندات را می‌سازد و خروجی
+`docs/.vitepress/dist` را با اکشن‌های رسمی Pages منتشر می‌کند. اجرای دستی از
+بخش `Actions → Deploy documentation → Run workflow` روی شاخهٔ `main` نیز ممکن است.
+انتشار فقط از `main` انجام می‌شود؛ بررسی بیلد pull requestها در CI موجود اجرا می‌شود.
+این روند به secret اختصاصی نیاز ندارد و از `GITHUB_TOKEN` خودکار استفاده می‌کند.
+
+مسیر پایهٔ VitePress برابر `/ghoran/` است تا لینک‌ها، فونت‌ها و Worker جستجو
+در زیردایرکتوری مخزن درست بارگیری شوند. برای پیش‌نمایش محلی:
+
+```bash
+pnpm build
+pnpm docs:build
+pnpm --filter @ghoran/docs docs:preview
+```
+
+پیش‌نمایش را در مسیر `/ghoran/` باز کنید. پس از اولین انتشار موفق روی Pages،
+انتشار خودکار سایت قبلی را در پنل Netlify متوقف کنید؛ اتصال آن خارج از تنظیمات
+این مخزن است. آدرس‌های قدیمی Netlify خودکار به Pages هدایت نمی‌شوند.
+
 ## انتشار روی npm
 
 روال انتشار هفت پکیج، اتصال یک‌بارهٔ Trusted Publisher و روش افزایش نسخه‌ها در
@@ -53,4 +79,4 @@ const search = await createQuranSearch()
 const results = await search.search('الرحمن الرحيم')
 ```
 
-[راهنمای جستجو و نمونهٔ تعاملی](https://ghoran.netlify.app/packages/search)
+[راهنمای جستجو و نمونهٔ تعاملی](https://sabereen.github.io/ghoran/packages/search)

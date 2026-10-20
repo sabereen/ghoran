@@ -14,6 +14,7 @@ typedocMenu.forEach((item) => {
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: '/ghoran/',
   title: 'قرآن - Ghoran',
   description: 'قرآن برای برنامه‌نویسان',
   dir: 'rtl',

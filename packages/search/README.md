@@ -74,7 +74,7 @@ grapheme validation when supported. Core utilities have no DOM or Node built-in
 imports. Custom corpora may supply canonical IDs and a custom or
 identity normalizer; function normalizers are available only in direct mode.
 
-[Full guide, normalization tables, limitations, and demo](https://ghoran.netlify.app/packages/search)
+[Full guide, normalization tables, limitations, and demo](https://sabereen.github.io/ghoran/packages/search)
 
 Repository verification: `pnpm verify`, `pnpm check:search-browser` (Chromium),
 `pnpm bench:search`. Measured results live in `bench/results.json` in the repository.
