@@ -3,9 +3,6 @@ name: Publish to npm
 on:
   push:
     tags: ['npm-*']
-    # One-time bootstrap trigger for the search OIDC release; removed after publication.
-    branches: [main]
-    paths: ['packages/search/package.json']
   workflow_dispatch:
     inputs:
       dry_run:
