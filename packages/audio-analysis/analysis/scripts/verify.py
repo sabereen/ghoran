@@ -30,7 +30,7 @@ def verify(root, pilot=False):
     validators = {}
     try:
         from jsonschema import Draft202012Validator
-        for name in ("measurement", "recommendation"):
+        for name in ("measurement", "recommendation", "inference"):
             schema = json.loads((root / "schemas" / (name + ".schema.json")).read_text())
             Draft202012Validator.check_schema(schema)
             validators[name] = Draft202012Validator(schema)
@@ -90,6 +90,20 @@ def verify(root, pilot=False):
                 assert rec["limiting_or_compression_used"] is False
             except Exception as exc:
                 errors.append({"source_id": rec.get("source_id"), "verse_id": rec.get("verse_id"), "type": type(exc).__name__, "message": str(exc)})
+    inferences_checked=0
+    inference_files=[root/'profiles.json']+sorted((root/'segments').glob('*.json'))+sorted((root/'anomalies').glob('*.jsonl'))
+    for file in inference_files:
+        if not file.exists():
+            continue
+        for line in (file.read_text().splitlines() if file.suffix=='.jsonl' else [file.read_text()]):
+            item=json.loads(line);inferences_checked+=1
+            try:
+                if 'inference' in validators:
+                    validators['inference'].validate(item)
+                assert item['data_class']=='inferred'
+                assert item.get('automatic_correction_authorized',False) is False
+            except Exception as exc:
+                errors.append({'file':str(file.relative_to(root)),'type':type(exc).__name__,'message':str(exc)})
     pilot_rows = [r for r in rows if r["verse_id"] in PILOT]
     pilot_counts = {s: sum(r["status"] == "success" and r["source_id"] == s for r in pilot_rows) for s in source_ids}
     if pilot:
@@ -106,6 +120,7 @@ def verify(root, pilot=False):
               "pilot_success_counts": pilot_counts, "errors": errors, "warnings": warnings,
               "passed": not errors, "json_schema_validation_performed": bool(validators),
               "recommendations_checked": recommendations_checked,
+              "inferences_checked": inferences_checked,
               "not_a_listening_review": True, "not_ebu_conformance_certification": True}
     atomic_json(root / "reports" / ("pilot-validation.json" if pilot else "dataset-validation.json"), result)
     print(json.dumps({"passed": result["passed"], "rows_checked": len(rows), "error_count": len(errors), "pilot_success": pilot_counts}))

@@ -55,7 +55,7 @@ def profile(records, config):
         bins[str(i)] = stats(group)
     return {"schema_version": SCHEMA, "data_class": "inferred", "n_success": len(records),
             "n_eligible": len(valid), "expected": 6236, "success_coverage": len(records) / 6236,
-            "provisional": len(records) < 6236 * .8,
+            "provisional": len(records) < 6236,
             "native_integrated_lufs": stats([r["measured"]["loudness"]["integrated_lufs"] for r in records]),
             "dualmono_playback_lufs": stats(vals), "baseline_playback_lufs": weighted_median(vals, weights),
             "baseline_method": "active-duration-weighted median; duration weights capped at 20s; mono +3.0103 LU playback convention",
@@ -322,6 +322,8 @@ def analyze(root):
         for r in records:
             r["_kind"] = source["kind"]
         prof = profile(records, cfg); profiles[sid] = prof
+        attempted=conn.execute('SELECT count(*) FROM records WHERE source=?',(sid,)).fetchone()[0]
+        prof.update(n_attempted=attempted,inventory_complete=attempted==6236,provisional=attempted<6236)
         segs, points = changes(records, prof, cfg)
         atomic_json(root / "segments" / (sid + ".json"), {"schema_version": SCHEMA, "data_class": "inferred", "source_id": sid, "segments": segs, "change_points": points})
         anomalies = find_anomalies(records, prof, segs, source, cfg)
@@ -359,7 +361,7 @@ def analyze(root):
                           "median_translator_minus_reciter_lu": median(diff), "difference_distribution_lu": stats(diff),
                           "median_absolute_mismatch_lu": median([abs(d) for d in diff]),
                           "fraction_above_6lu": sum(abs(d) > 6 for d in diff) / len(diff) if diff else None,
-                          "provisional": len(common) < 6236 * .8})
+                          "provisional": profiles[rec['id']]['provisional'] or profiles[tr['id']]['provisional']})
     atomic_json(root / "reports" / "pairing-matrix.json", {"data_class": "inferred", "schema_version": SCHEMA, "pairs": pairs})
     pair_policies = []
     for target in cfg["recommendation"]["targets_lufs"]:
@@ -396,7 +398,7 @@ def analyze(root):
     for sid, records in all_records.items():
         for r in records:
             duplicates[r["measured"]["sha256"]].append({"source_id": sid, "verse_id": r["verse_id"]})
-    atomic_json(root / "reports" / "cross-source-duplicates.json", {"data_class": "inferred", "groups": [{"sha256": h, "files": g} for h, g in duplicates.items() if len({x["source_id"] for x in g}) > 1]})
+    atomic_json(root / "reports" / "cross-source-duplicates.json", {"schema_version": SCHEMA, "data_class": "inferred", "groups": [{"sha256": h, "files": g} for h, g in duplicates.items() if len({x["source_id"] for x in g}) > 1]})
     totals = {"completed_at": now(), "events": conn.execute("SELECT count(*) FROM events").fetchone()[0],
               "downloaded_bytes_all_attempts": 0, "sum_file_processing_wall_s": 0,
               "note": "sum of per-file wall time includes concurrent work; not elapsed session time"}
@@ -431,6 +433,8 @@ def analyze(root):
                         "decoder_warning": sum("decoder_warning" in r["measured"]["quality_flags"] for r in rs)})
     atomic_json(root / "reports" / "quality-summary.json", {"schema_version": SCHEMA, "sources": quality})
     atomic_json(root / "reports" / "processing-statistics.json", totals)
+    from duration_review import write_review
+    write_review(root,sources,all_records,cfg)
     conn.close()
     from report import build_report
     build_report(root, sources, all_records, profiles, all_anomalies, policy_stats, pairs)

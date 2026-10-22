@@ -78,7 +78,7 @@ def build_report(root, sources, records, profiles, anomalies, policies, pairs):
     unprocessed = sum(c["unprocessed"] for c in coverage)
     lines = ["# گزارش استخراج و تحلیل صوت قرآن", "", f"زمان snapshot به UTC: {progress['updated_at']}", "",
              f"**وضعیت: {'فهرست همهٔ منابع بررسی شده است' if progress['complete_inventory'] else 'ناقص و قابل ادامه'}. {successful:,} فایل با موفقیت اندازه‌گیری شده و {unprocessed:,} مورد هنوز بررسی نشده است.**",
-             "", "نبودن رکورد به معنای ناموجودبودن فایل نیست. 404/410 از خطای شبکه و خطای Decode جدا است. نتایج فعلی برای تعمیم قطعی به تمام قرآن کافی نیستند.", "",
+             "", "نبودن رکورد به معنای ناموجودبودن فایل نیست. 404/410 از خطای شبکه و خطای Decode جدا است. " + ("همهٔ شناسه‌های مورد انتظار بررسی شده‌اند؛ معتبر بودن انتساب و محتوای خوانده‌شده نیازمند بازبینی مستقل است." if progress['complete_inventory'] else "نتایج فعلی برای تعمیم قطعی به تمام قرآن کافی نیستند."), "",
              "## تفکیک اعتبار نتایج", "",
              "- Measured: خروجی واقعی FFmpeg از بایت‌های دریافت‌شده؛ شامل هش، شرایط اندازه‌گیری و محدودیت دقت. این امر صحت محتوای تلاوت یا انتساب قاری را ثابت نمی‌کند.",
              "- Inferred: baseline، تخمین فعالیت صوت، فرضیهٔ تغییر ضبط و ناهنجاری‌ها. انرژی پایین لزوماً سکوت شنیداری نیست و امتیاز اطمینان، احتمال کالیبره‌شده نیست.",
@@ -115,6 +115,13 @@ def build_report(root, sources, records, profiles, anomalies, policies, pairs):
     top.sort(key=lambda z: ({"high": 0, "medium": 1, "low": 2}[z[1]["severity"]], -z[1].get("review_priority_score", 50), -z[1]["confidence_score"]))
     for sid, a in top[:40]:
         lines.append(f"| {sid} | {a.get('verse_id', 'گروه تکراری')} | {a['type']} | {a['severity']} | {a['confidence_score']:.2f} |")
+    duration_review=json.loads((folder/'duration-review.json').read_text())
+    lines += ['', '## بازبینی مستقل مدت فایل', '',
+              'مدت هر آیه با میانهٔ همان آیه در منابع هم‌نوع مقایسه و سرعت معمول هر منبع جبران شده است. کاندیدا باید هم بیش از چهار برابر کوتاه‌تر/بلندتر از انتظار و هم فراتر از چهار مقیاس MAD لگاریتمی باشد. حداقل پنج قاری همتا یا دو مترجم همتا لازم است. تکرار و بیان طبیعی مجوّد می‌تواند چنین اختلافی بسازد؛ این آزمون صحت متن آیه را ثابت نمی‌کند و هیچ اصلاحی از آن اعمال نمی‌شود.', '',
+              f"تعداد کاندیداهای بازبینی مدت: {duration_review['candidate_count']}. جزئیات در duration-review.json و anomalies/cross-source-duration.jsonl است.", '',
+              '| منبع | آیه | مدت ثانیه | نسبت به انتظار |', '|---|---|---:|---:|']
+    for r in duration_review['candidates'][:20]:
+        lines.append(f"| {r['source_id']} | {r['verse_id']} | {r['evidence']['duration_s']:.2f} | {r['evidence']['duration_ratio_to_expected']:.2f} |")
     lines += ["", f"تعداد کل پرچم‌های استنباطی: {len(top):,}. یک فایل ممکن است چند پرچم داشته باشد. جزئیات شواهد در anomalies و تکرارهای بین منابع در cross-source-duplicates.json است.", "",
               "## ماتریس ۹ قاری × ۴ مترجم", "", "![سازگاری بلندی منابع](pairing-matrix.png)", "",
               "عدد مثبت یعنی مترجم در آیات مشترک بلندتر است. این مقایسهٔ جفت‌شدهٔ آیه‌ای است؛ تغییرات طبیعی اجرای آیه را حذف نمی‌کند. تعداد آیات مشترک، توزیع اختلاف و سهم اختلاف بیش از ۶ LU در pairing-matrix.json آمده است.", "",

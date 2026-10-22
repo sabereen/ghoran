@@ -2,8 +2,8 @@
   "schema_version": "1.0.0",
   "analyzer_version": "0.1.0",
   "download": {
-    "workers": 16,
-    "per_host": 6,
+    "workers": 24,
+    "per_host": 8,
     "timeout_s": 35,
     "attempts": 4,
     "backoff_base_s": 1,
@@ -41,7 +41,12 @@
     "translation_outlier_z": 3.5,
     "recitation_outlier_z": 4.5,
     "mujawwad_outlier_z": 6,
-    "mad_floor_lu": 1
+    "mad_floor_lu": 1,
+    "duration_minimum_translation_peers": 2,
+    "duration_minimum_recitation_peers": 5,
+    "duration_log_mad_floor": 0.25,
+    "duration_outlier_z": 4,
+    "duration_minimum_outlier_factor": 4
   },
   "recommendation": {
     "targets_lufs": [

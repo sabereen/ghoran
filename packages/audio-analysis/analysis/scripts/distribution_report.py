@@ -39,6 +39,7 @@ def stats(root, output):
         audit(frozen)
         with closing(sqlite3.connect(frozen/'checkpoints/state.sqlite3')) as c:
             status = c.execute('SELECT source,status,count(*) FROM records GROUP BY source,status').fetchall()
+            fully_attempted={v for v,n in c.execute('SELECT verse,count(DISTINCT source) FROM records GROUP BY verse') if n==len(sources)}
             rows = c.execute("""SELECT source,verse,
                 json_extract(payload,'$.measured.loudness.integrated_lufs'),
                 json_extract(payload,'$.measured.dualmono_playback_lufs'),
@@ -73,13 +74,9 @@ def stats(root, output):
         counts[sid][state] = n
     observed = sum(n for _,_,n in status)
     end_contiguous = 0
-    observed_per_source = [{r['ordinal'] for r in groups[s['id']]} for s in sources]
     # Coverage prefix includes attempted failures, since they were actually checked.
-    attempted_ordinals = set()
-    for r in rows:
-        attempted_ordinals.add(r[1])
     for i in range(1,6237):
-        if i not in attempted_ordinals:
+        if i not in fully_attempted:
             break
         end_contiguous = i
     result = {'created_at': now(), 'schema_version': '1.0.0', 'data_class': 'inferred',
@@ -90,6 +87,7 @@ def stats(root, output):
               'cohort_rule': 'intersection of 13 sources; valid decode, duration >=3s, active duration >=1s; consecutive ordinals only for jumps',
               'loudness_convention': 'native BS.1770 +3.0103 LU for mono duplicated at equal amplitude to two channels',
               'highest_contiguous_observed_ordinal': end_contiguous,
+              'contiguous_prefix_definition': 'all 13 sources attempted at each ordinal; includes known failures',
               'highest_contiguous_observed_verse': verses[end_contiguous-1]['verse_id'] if end_contiguous else None,
               'sources': summaries}
     output.mkdir(parents=True,exist_ok=True)
@@ -147,7 +145,7 @@ def plot(output,sources,groups,eligible,common,summaries,result):
     for suffix in ['png','svg']:fig.savefig(output/f'neighbor-continuity.{suffix}',dpi=170)
     plt.close(fig)
     # Identical bins/scales expose skew and multiple modes that quantiles hide.
-    bins=np.arange(-45, 1.001, .5)
+    bins=np.arange(-60, 10.001, .5)
     for kind,title,shape in [('recitation','Recitations',(3,3)),('translation','Translations',(2,2))]:
         cohort_sources=[s for s in sources if (s['kind']=='translation')==(kind=='translation')]
         fig,axes=plt.subplots(*shape,figsize=(13,9 if kind=='recitation' else 6),sharex=True,sharey=True,constrained_layout=True)
@@ -156,6 +154,9 @@ def plot(output,sources,groups,eligible,common,summaries,result):
             if len(values):
                 ax.hist(values,bins=bins,weights=np.full(len(values),100/len(values)),color=color[sid],alpha=.8)
                 ax.axvline(np.median(values),color='#233333',lw=1.3)
+                outside=100*np.mean((values<-40)|(values>-5))
+                if outside:
+                    ax.text(.98,.96,f'{outside:.2f}% outside x view',transform=ax.transAxes,ha='right',va='top',fontsize=8)
             ax.set_title(sid,loc='left');ax.grid(axis='y',alpha=.15);ax.set_xlim(-40,-5)
         fig.supxlabel('Playback-convention integrated loudness (LUFS), 0.5 LU bins')
         fig.supylabel('Percent of common eligible verses per bin')

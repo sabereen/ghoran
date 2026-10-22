@@ -23,9 +23,11 @@
     "dist/**/*",
     "data/**/*",
     "analysis/scripts/**/*",
+    "analysis/tests/**/*",
     "analysis/schemas/**/*",
     "analysis/metadata/**/*",
     "analysis/measurement-runs/**/*",
+    "analysis/execution-runs/**/*",
     "analysis/config.json",
     "analysis/sources.json",
     "analysis/approvals.json",
@@ -37,7 +39,7 @@
   "scripts": {
     "build": "tsdown",
     "analyze": "python3 analysis/scripts/analyze.py",
-    "extract": "python3 analysis/scripts/pipeline.py run --phase full",
+    "extract": "python3 analysis/scripts/parallel_run.py run --phase full",
     "test:analysis": "python3 -m unittest discover -s analysis/tests -v",
     "export:data": "python3 analysis/scripts/export_package.py"
   },
