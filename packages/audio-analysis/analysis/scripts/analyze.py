@@ -397,7 +397,8 @@ def analyze(root):
                  "maximum_peak_limited_fraction": peak_budget, "maximum_extra_pair_mismatch_lu": mismatch_budget,
                  "provisional_not_a_listening_verdict": True}
     atomic_json(root / "reports" / "pairing-policy-comparison.json", {"schema_version": SCHEMA, "data_class": "recommended",
-                "aggregate": aggregate, "pairs": pair_policies, "target_selection": selection, "observed_only_provisional": True})
+                "aggregate": aggregate, "pairs": pair_policies, "target_selection": selection,
+                "observed_only_provisional": any(p['provisional'] for p in profiles.values())})
     # Cross-source duplicate evidence; source/channel/rate are retained for PCM hashes.
     duplicates = defaultdict(list)
     for sid, records in all_records.items():

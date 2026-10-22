@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "execution_provenance",
+  "started_at": "2026-10-22T14:57:20.843459+00:00",
+  "scheduler_sha256": "6f71108feb1c75e4da27f561e252ecf699215b80cc023f707fb175b8a0d5bc04",
+  "measurement_processes": 8,
+  "multiprocessing_context": "spawn",
+  "argv": [
+    "run",
+    "--phase",
+    "full"
+  ],
+  "openblas_num_threads": "1",
+  "event_id_before": 65543,
+  "measurement_function": "unchanged measure.measure",
+  "download_parameters": {
+    "workers": 24,
+    "per_host": 8,
+    "timeout_s": 35,
+    "attempts": 4,
+    "backoff_base_s": 1,
+    "max_file_bytes": 100000000,
+    "minimum_host_interval_s": 0.05
+  },
+  "ended_at": "2026-10-22T15:11:54.806985+00:00",
+  "event_id_after": 81466
+}

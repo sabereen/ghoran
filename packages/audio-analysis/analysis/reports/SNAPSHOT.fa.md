@@ -1,59 +1,31 @@
-# Snapshot ناقص تحلیل صوت قرآن
+# وضعیت استخراج صوت قرآن
 
-زمان UTC: 2026-10-22T10:40:04.028229+00:00
+زمان UTC: 2026-10-22T15:12:21.433816+00:00
 
-**9,534 فایل معتبر، 3 فایل نامعتبر و 71,531 مورد بررسی‌نشده از ۸۱٬۰۶۸ مورد انتظار.**
+**فهرست کامل بررسی شده: 81,068 مورد بررسی‌شده، 81,058 فایل معتبر، 10 فایل نامعتبر و 0 مورد بررسی‌نشده از ۸۱٬۰۶۸ مورد.**
 
-استخراج واقعی است و پوشش کامل هیچ مجموعه‌ای ادعا نمی‌شود. Measured، Inferred و Recommended جدا هستند. هیچ MP3 تغییر نکرده و تمام اصلاح‌های استنباطی تأییدنشده باقی مانده‌اند.
+فهرست کامل بررسی‌شده به معنای معتبر بودن همهٔ فایل‌ها نیست؛ نتیجهٔ هر URL در جدول زیر جدا ثبت می‌شود. اندازه‌گیری‌های فایل نامعتبر فقط تشخیصی‌اند و در baseline و Gain وارد نمی‌شوند.
 
-| منبع | معتبر | ناموجود | نامعتبر | موقت/HTTP | بررسی‌نشده |
-|---|---:|---:|---:|---:|---:|
-| parhizgar | 734 | 0 | 0 | 0 | 5502 |
-| ghamadi | 733 | 0 | 1 | 0 | 5502 |
-| husary | 734 | 0 | 0 | 0 | 5502 |
-| minshawy-murattal | 734 | 0 | 0 | 0 | 5502 |
-| minshawy-mujawwad | 734 | 0 | 0 | 0 | 5502 |
-| motaz | 734 | 0 | 0 | 0 | 5502 |
-| abdulbasit | 734 | 0 | 0 | 0 | 5502 |
-| almuiqly | 734 | 0 | 0 | 0 | 5502 |
-| jafarpour | 733 | 0 | 0 | 0 | 5503 |
-| ansarian | 733 | 0 | 0 | 0 | 5503 |
-| maleki | 731 | 0 | 2 | 0 | 5503 |
-| makarem-kabiri | 733 | 0 | 0 | 0 | 5503 |
-| fooladvand-hedayatfar | 733 | 0 | 0 | 0 | 5503 |
+| منبع | معتبر | ناموجود | نامعتبر | موقت | HTTP دیگر | بررسی‌نشده |
+|---|---:|---:|---:|---:|---:|---:|
+| parhizgar | 6236 | 0 | 0 | 0 | 0 | 0 |
+| ghamadi | 6231 | 0 | 5 | 0 | 0 | 0 |
+| husary | 6236 | 0 | 0 | 0 | 0 | 0 |
+| minshawy-murattal | 6236 | 0 | 0 | 0 | 0 | 0 |
+| minshawy-mujawwad | 6236 | 0 | 0 | 0 | 0 | 0 |
+| motaz | 6236 | 0 | 0 | 0 | 0 | 0 |
+| abdulbasit | 6235 | 0 | 1 | 0 | 0 | 0 |
+| almuiqly | 6236 | 0 | 0 | 0 | 0 | 0 |
+| jafarpour | 6236 | 0 | 0 | 0 | 0 | 0 |
+| ansarian | 6236 | 0 | 0 | 0 | 0 | 0 |
+| maleki | 6232 | 0 | 4 | 0 | 0 | 0 |
+| makarem-kabiri | 6236 | 0 | 0 | 0 | 0 | 0 |
+| fooladvand-hedayatfar | 6236 | 0 | 0 | 0 | 0 | 0 |
 
-## فایل‌های نامعتبر
+Measured، Inferred و Recommended جدا هستند. فرضیه‌های ضبط و ناهنجاری‌ها مجوز اصلاح خودکار نیستند. هیچ فایل اصلی تغییر، trim، نرمال‌سازی یا دوباره Encode نشده است.
 
-- ghamadi، 4:94: partial_decode_error; diagnostic_metrics_not_valid_for_gain
-- maleki، 3:91: http_200_empty_file
-- maleki، 3:128: partial_decode_error; diagnostic_metrics_not_valid_for_gain
+گزارش فارسی و نمودارها: report.fa.html و report.fa.standalone.html؛ مقایسهٔ توزیع‌های همسان: distributions/distribution-report.fa.md. نتیجهٔ کنترل Schema و معنایی در dataset-validation.json و خطاهای فایل‌ها در failures.jsonl است.
 
-دو فایل خطادارِ Decode، diagnostic-only هستند؛ محاسبات decoded آن‌ها برای بازبینی حفظ شده و از baseline و Gain کنار گذاشته شده‌اند. لاگ اولیه، تغییر وضعیت و audit در SQLite باقی است.
+کد بسته در sabereen/ghoran، مسیر packages/audio-analysis و برنچ feat/audio-analysis-package قرار دارد. دادهٔ سبک consumer از همین snapshot با export_package.py تولید می‌شود؛ تاریخ و پوشش data/coverage.json مرجع نسخهٔ مصرفی است. فایل ZIP شامل checkpoint و تاریخچهٔ واقعی SQLite است.
 
-دانلود ثبت‌شده: 3,864,254,800 بایت؛ صوت معتبر یکتای Decodeشده: 81.27 ساعت. ترافیک metadata، نصب ابزارها و سیگنال آزمون در عدد دانلود نیست.
-
-پایلوت نهایی ۳۹۰/۳۹۰ موفق بود. ۱۳ آزمون گذشت و مرجع رسمی EBU مقدار ‎−۲۲٫۹۷۲ LUFS در برابر انتظار ‎−۲۳ داشت؛ گواهی کامل EBU یا بازبینی شنیداری ادعا نمی‌شود.
-
-کنترل نهایی 9,537 رکورد و 38,136 توصیهٔ Gain: بدون خطای semantic یا JSON Schema.
-
-| هدف LUFS | سهم محدودیت peak | میانهٔ اختلاف مطلق جفت‌ها LU |
-|---:|---:|---:|
-| -23 | 0.01٪ | 1.827 |
-| -20 | 2.39٪ | 1.825 |
-| -18 | 12.52٪ | 1.784 |
-| -16 | 32.13٪ | 2.085 |
-
-هدف پیشنهادی آزمایشی طبق سیاست فعلی: -20 LUFS؛ ‎−۲۳ گزینهٔ محافظه‌کارانه‌تر برای headroom است. تمام نتایج provisional و فاقد داوری شنیداری‌اند.
-
-گزارش کامل فارسی HTML/Markdown، نمودارها، JSONL/CSV، چهار سناریوی Gain و خروجی سبک پلیر، کد دقیق نسخه‌ها، SQLite عملیاتی، backup قابل ادامه و manifest در بستهٔ quran-audio-analysis-partial.zip تحویل شده‌اند. دادهٔ حجیم وارد کد اجرایی اپ نشده است.
-
-SHA-256 بسته: `4a84384f681d448052634856c0433196a0ec9b9562b31091e8145fe9f77f3b39`
-
-پس از نصب requirements.txt در همان پوشهٔ بسته و با همان نسخهٔ FFmpeg، ادامه از checkpoint:
-
-```bash
-OPENBLAS_NUM_THREADS=1 python3 scripts/pipeline.py run --phase full --max-seconds 1800
-python3 scripts/analyze.py
-python3 scripts/verify.py
-python3 scripts/package.py
-```
+در بازنشانی محیط، snapshot پایدار ۶۵٬۱۴۵ مورد بازیابی شد؛ fingerprint کد اندازه‌گیری و نسخهٔ کامل FFmpeg با اجرای قبلی یکسان بود و فقط موارد باقی‌مانده دوباره در صف قرار گرفتند. تلاش‌های موقت و بازبینی فایل‌های نامعتبر در events ثبت می‌شوند؛ تعداد events با تعداد فایل یکتا تفاوت دارد.

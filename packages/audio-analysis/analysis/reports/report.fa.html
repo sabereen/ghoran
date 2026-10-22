@@ -1,197 +1,425 @@
 <!doctype html><html lang="fa" dir="rtl"><meta charset="utf-8"><title>گزارش تحلیل صوت قرآن</title><style>body{max-width:1250px;margin:40px auto;padding:0 24px;font:17px/1.9 Tahoma,Arial;color:#17312d;background:#f6faf8}h1,h2{color:#09685b}table{width:100%;border-collapse:collapse;font-size:14px;background:white;direction:rtl}td{border:1px solid #cbdcd6;padding:8px}tr:first-child{font-weight:bold;background:#e3f0e9}img{max-width:100%;background:white;border:1px solid #dae4df;border-radius:10px}p{overflow-wrap:anywhere}</style><body><h1>گزارش استخراج و تحلیل صوت قرآن</h1>
-<p>زمان snapshot به UTC: 2026-10-22T10:40:04.028229+00:00</p>
-<p>**وضعیت: ناقص و قابل ادامه. 9,534 فایل با موفقیت اندازه‌گیری شده و 71,531 مورد هنوز بررسی نشده است.**</p>
-<p>نبودن رکورد به معنای ناموجودبودن فایل نیست. 404/410 از خطای شبکه و خطای Decode جدا است. نتایج فعلی برای تعمیم قطعی به تمام قرآن کافی نیستند.</p>
+<p>زمان snapshot به UTC: 2026-10-22T15:12:21.433816+00:00</p>
+<p><strong>وضعیت: فهرست همهٔ منابع بررسی شده است. 81,058 فایل با موفقیت اندازه‌گیری شده و 0 مورد هنوز بررسی نشده است.</strong></p>
+<p>نبودن رکورد به معنای ناموجودبودن فایل نیست. 404/410 از خطای شبکه و خطای Decode جدا است. همهٔ شناسه‌های مورد انتظار بررسی شده‌اند؛ معتبر بودن انتساب و محتوای خوانده‌شده نیازمند بازبینی مستقل است.</p>
 <h2>تفکیک اعتبار نتایج</h2>
 <p>- Measured: خروجی واقعی FFmpeg از بایت‌های دریافت‌شده؛ شامل هش، شرایط اندازه‌گیری و محدودیت دقت. این امر صحت محتوای تلاوت یا انتساب قاری را ثابت نمی‌کند.</p>
 <p>- Inferred: baseline، تخمین فعالیت صوت، فرضیهٔ تغییر ضبط و ناهنجاری‌ها. انرژی پایین لزوماً سکوت شنیداری نیست و امتیاز اطمینان، احتمال کالیبره‌شده نیست.</p>
 <p>- Recommended: سناریوی Gain وابسته به سیاست؛ اصلاح‌های استنباطی تا ثبت تأیید انسانی اعمال نمی‌شوند. هیچ MP3 تغییر نکرده است.</p>
 <h2>پوشش واقعی</h2>
 <table>
-<tr><td>منبع</td><td>موفق</td><td>ناموجود</td><td>نامعتبر</td><td>موقت</td><td>HTTP دیگر</td><td>بررسی‌نشده</td></tr>
-<tr><td>parhizgar</td><td>734</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5502</td></tr>
-<tr><td>ghamadi</td><td>733</td><td>0</td><td>1</td><td>0</td><td>0</td><td>5502</td></tr>
-<tr><td>husary</td><td>734</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5502</td></tr>
-<tr><td>minshawy-murattal</td><td>734</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5502</td></tr>
-<tr><td>minshawy-mujawwad</td><td>734</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5502</td></tr>
-<tr><td>motaz</td><td>734</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5502</td></tr>
-<tr><td>abdulbasit</td><td>734</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5502</td></tr>
-<tr><td>almuiqly</td><td>734</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5502</td></tr>
-<tr><td>jafarpour</td><td>733</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5503</td></tr>
-<tr><td>ansarian</td><td>733</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5503</td></tr>
-<tr><td>maleki</td><td>731</td><td>0</td><td>2</td><td>0</td><td>0</td><td>5503</td></tr>
-<tr><td>makarem-kabiri</td><td>733</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5503</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>733</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5503</td></tr>
+<tr><td dir="auto">منبع</td><td dir="auto">موفق</td><td dir="auto">ناموجود</td><td dir="auto">نامعتبر</td><td dir="auto">موقت</td><td dir="auto">HTTP دیگر</td><td dir="auto">بررسی‌نشده</td></tr>
+<tr><td dir="auto">parhizgar</td><td dir="ltr">6236</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">ghamadi</td><td dir="ltr">6231</td><td dir="ltr">0</td><td dir="ltr">5</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">husary</td><td dir="ltr">6236</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">minshawy-murattal</td><td dir="ltr">6236</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">minshawy-mujawwad</td><td dir="ltr">6236</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">motaz</td><td dir="ltr">6236</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">abdulbasit</td><td dir="ltr">6235</td><td dir="ltr">0</td><td dir="ltr">1</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">almuiqly</td><td dir="ltr">6236</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">jafarpour</td><td dir="ltr">6236</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">ansarian</td><td dir="ltr">6236</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">6232</td><td dir="ltr">0</td><td dir="ltr">4</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">makarem-kabiri</td><td dir="ltr">6236</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="ltr">6236</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td><td dir="ltr">0</td></tr>
+</table>
+<h2>نوع واقعی دادهٔ صوتی</h2>
+<p>پسوند URL مبنای تشخیص Codec نبوده است. فایل غیر MP3 که با پسوند mp3 ارائه شده باشد، در صورت Decode معتبر در اندازه‌گیری‌ها باقی می‌ماند و برای سازگاری Container/MIME پلیر پرچم می‌گیرد؛ هیچ تبدیل فرمت انجام نشده است.</p>
+<table>
+<tr><td dir="auto">منبع</td><td dir="auto">تعداد به تفکیک Codec واقعی</td><td dir="auto">ناسازگار با پسوند MP3</td></tr>
+<tr><td dir="auto">parhizgar</td><td dir="auto">mp3: 6236</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">ghamadi</td><td dir="auto">mp3: 6231</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">husary</td><td dir="auto">mp3: 6236</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">minshawy-murattal</td><td dir="auto">mp3: 6236</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">minshawy-mujawwad</td><td dir="auto">mp3: 6236</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">motaz</td><td dir="auto">mp3: 6236</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">abdulbasit</td><td dir="auto">mp3: 6235</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">almuiqly</td><td dir="auto">mp3: 6124, pcm_s16le: 112</td><td dir="ltr">112</td></tr>
+<tr><td dir="auto">jafarpour</td><td dir="auto">mp3: 6236</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">ansarian</td><td dir="auto">mp3: 6236</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">maleki</td><td dir="auto">mp3: 6232</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">makarem-kabiri</td><td dir="auto">mp3: 6236</td><td dir="ltr">0</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="auto">mp3: 6236</td><td dir="ltr">0</td></tr>
 </table>
 <h2>توزیع‌ها و مقایسهٔ سطح بلندی</h2>
 <img src="distributions.png" alt="نمودار تحلیل صوت">
 <img src="histogram-continuity.png" alt="نمودار تحلیل صوت">
+<p>برای مقایسهٔ منصفانهٔ منابع، نمودارهای زیر فقط آیات مشترکِ معتبر هر ۱۳ منبع با مدت حداقل سه ثانیه و فعالیت حداقل یک ثانیه را نشان می‌دهند. اعداد هر نمودار تعداد واقعی cohort را مشخص می‌کند. این نمودارها از پهنای کلی توزیع، جهش همسایه‌ها و سطح معمول صدا تفکیک می‌سازند.</p>
+<img src="distributions/level-and-spread.png" alt="نمودار تحلیل صوت">
+<img src="distributions/recitation-histograms.png" alt="نمودار تحلیل صوت">
+<img src="distributions/translation-histograms.png" alt="نمودار تحلیل صوت">
+<img src="distributions/neighbor-continuity.png" alt="نمودار تحلیل صوت">
 <p>هر آیه یک مشاهده است. baseline، میانهٔ وزنی با وزن مدت فعالیتِ محدودشده به ۲۰ ثانیه است؛ LUFS آلبوم یا اندازه‌گیری یک اجرای پیوسته محسوب نمی‌شود. فایل‌های کوتاه و دارای فعالیت زیر یک ثانیه از baseline کنار گذاشته می‌شوند.</p>
 <p>LUFS اصلی با کانال‌های واقعی فایل و dualmono=false ثبت شده است. برای مقایسهٔ پخش متعارف، به فایل مونو ۳٫۰۱۰۳ LU افزوده می‌شود؛ این فقط برای پخشی معتبر است که مونو را با همان دامنه به هر دو کانال کپی کند. در صورت pan-law متفاوت باید این فرض تغییر کند.</p>
 <table>
-<tr><td>منبع</td><td>میانه LUFS اصلی</td><td>baseline پخش</td><td>MAD پخش</td><td>p95 True Peak</td></tr>
-<tr><td>parhizgar</td><td>-13.14</td><td>-13.09</td><td>1.51</td><td>1.50</td></tr>
-<tr><td>ghamadi</td><td>-18.76</td><td>-15.66</td><td>2.05</td><td>0.94</td></tr>
-<tr><td>husary</td><td>-15.72</td><td>-15.69</td><td>1.37</td><td>-0.30</td></tr>
-<tr><td>minshawy-murattal</td><td>-14.01</td><td>-14.01</td><td>1.16</td><td>0.10</td></tr>
-<tr><td>minshawy-mujawwad</td><td>-12.77</td><td>-12.78</td><td>1.61</td><td>0.40</td></tr>
-<tr><td>motaz</td><td>-25.26</td><td>-22.17</td><td>1.49</td><td>-3.50</td></tr>
-<tr><td>abdulbasit</td><td>-13.30</td><td>-13.28</td><td>1.20</td><td>0.30</td></tr>
-<tr><td>almuiqly</td><td>-13.74</td><td>-12.81</td><td>1.31</td><td>0.10</td></tr>
-<tr><td>jafarpour</td><td>-18.26</td><td>-15.16</td><td>0.97</td><td>1.60</td></tr>
-<tr><td>ansarian</td><td>-20.42</td><td>-17.37</td><td>1.25</td><td>1.80</td></tr>
-<tr><td>maleki</td><td>-20.20</td><td>-20.14</td><td>0.89</td><td>-0.60</td></tr>
-<tr><td>makarem-kabiri</td><td>-17.07</td><td>-14.11</td><td>1.12</td><td>2.30</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>-12.64</td><td>-12.64</td><td>0.70</td><td>3.00</td></tr>
+<tr><td dir="auto">منبع</td><td dir="auto">میانه LUFS اصلی</td><td dir="auto">baseline پخش</td><td dir="auto">MAD پخش</td><td dir="auto">p95 True Peak</td></tr>
+<tr><td dir="auto">parhizgar</td><td dir="ltr">-12.49</td><td dir="ltr">-12.47</td><td dir="ltr">2.15</td><td dir="ltr">1.60</td></tr>
+<tr><td dir="auto">ghamadi</td><td dir="ltr">-18.82</td><td dir="ltr">-15.79</td><td dir="ltr">1.08</td><td dir="ltr">-0.60</td></tr>
+<tr><td dir="auto">husary</td><td dir="ltr">-16.04</td><td dir="ltr">-16.02</td><td dir="ltr">1.62</td><td dir="ltr">-0.30</td></tr>
+<tr><td dir="auto">minshawy-murattal</td><td dir="ltr">-14.10</td><td dir="ltr">-14.14</td><td dir="ltr">1.24</td><td dir="ltr">0.10</td></tr>
+<tr><td dir="auto">minshawy-mujawwad</td><td dir="ltr">-13.41</td><td dir="ltr">-13.34</td><td dir="ltr">1.64</td><td dir="ltr">-0.40</td></tr>
+<tr><td dir="auto">motaz</td><td dir="ltr">-25.97</td><td dir="ltr">-22.66</td><td dir="ltr">1.28</td><td dir="ltr">-5.50</td></tr>
+<tr><td dir="auto">abdulbasit</td><td dir="ltr">-14.24</td><td dir="ltr">-14.15</td><td dir="ltr">1.53</td><td dir="ltr">0.10</td></tr>
+<tr><td dir="auto">almuiqly</td><td dir="ltr">-15.87</td><td dir="ltr">-15.82</td><td dir="ltr">1.54</td><td dir="ltr">0.00</td></tr>
+<tr><td dir="auto">jafarpour</td><td dir="ltr">-17.84</td><td dir="ltr">-14.80</td><td dir="ltr">1.17</td><td dir="ltr">1.50</td></tr>
+<tr><td dir="auto">ansarian</td><td dir="ltr">-19.71</td><td dir="ltr">-16.71</td><td dir="ltr">1.22</td><td dir="ltr">1.40</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">-20.24</td><td dir="ltr">-20.11</td><td dir="ltr">1.11</td><td dir="ltr">-0.90</td></tr>
+<tr><td dir="auto">makarem-kabiri</td><td dir="ltr">-17.73</td><td dir="ltr">-14.86</td><td dir="ltr">1.43</td><td dir="ltr">2.20</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="ltr">-14.78</td><td dir="ltr">-14.53</td><td dir="ltr">1.52</td><td dir="ltr">2.20</td></tr>
 </table>
 <h2>فرضیه‌های تغییر شرایط ضبط</h2>
 <p>آزمون پنجره‌های دوطرفهٔ ۲۰ آیه‌ای، بررسی پایداری در نیم‌پنجره‌ها، حذف قله‌های نزدیک و شواهد طیف/نویز به کار رفته است. تحلیل از روی شکاف‌های بررسی‌نشده نمی‌پرد. مرز سوره و جزء فقط شاهد کمکی است. حذف یک پنجره به علت کمبود داده به معنای نبود تغییر نیست.</p>
-<p>- parhizgar، حوالی 2:199: تغییر +3.46 LU، امتیاز اطمینان 0.78؛ نیازمند بازبینی.</p>
-<p>- parhizgar، حوالی 2:223: تغییر -3.88 LU، امتیاز اطمینان 0.80؛ نیازمند بازبینی.</p>
-<p>- parhizgar، حوالی 3:45: تغییر -3.36 LU، امتیاز اطمینان 0.84؛ نیازمند بازبینی.</p>
-<p>- parhizgar، حوالی 4:25: تغییر +5.55 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>هماهنگی proxy نویز با LUFS شاهد مستقلی نیست، چون هر دو از همان دامنهٔ صوت مشتق می‌شوند؛ centroid طیفی نیز به واج‌های خوانده‌شده حساس است. حتی چند شاهد هم‌سو، جلسهٔ تاریخی ضبط یا خطای میکس را ثابت نمی‌کند.</p>
+<p>حساسیت تغییر پایدار نیز قابل تنظیم است: ضریب حداقل جهش برای ترتیل ۱، مجوّد ۱٫۵ و ترجمه ۰٫۸۵ است؛ نسبت به حد پایهٔ ۳ LU. مجوّد محافظه‌کارانه‌تر و ترجمه حساس‌تر بررسی می‌شود.</p>
+<img src="distributions/quran-order-traces.png" alt="نمودار تحلیل صوت">
+<p>- parhizgar، حوالی 2:200: تغییر +3.10 LU، امتیاز اطمینان 0.77؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 2:223: تغییر -3.76 LU، امتیاز اطمینان 0.82؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 3:44: تغییر -3.21 LU، امتیاز اطمینان 0.82؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 4:24: تغییر +5.69 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
 <p>- parhizgar، حوالی 4:47: تغییر -6.29 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
-<p>- parhizgar، حوالی 5:25: تغییر -4.49 LU، امتیاز اطمینان 0.73؛ نیازمند بازبینی.</p>
-<p>- husary، حوالی 3:103: تغییر +4.43 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
-<p>- husary، حوالی 4:4: تغییر -4.83 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 5:24: تغییر -4.90 LU، امتیاز اطمینان 0.73؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 6:89: تغییر +3.41 LU، امتیاز اطمینان 0.69؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 6:110: تغییر +4.17 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 8:42: تغییر -4.65 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 9:39: تغییر +4.52 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 10:35: تغییر -3.79 LU، امتیاز اطمینان 0.71؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 11:6: تغییر -5.23 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 17:2: تغییر +4.59 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 17:99: تغییر -3.45 LU، امتیاز اطمینان 0.84؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 20:1: تغییر +5.27 LU، امتیاز اطمینان 0.79؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 20:44: تغییر +3.26 LU، امتیاز اطمینان 0.75؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 23:44: تغییر -4.19 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 24:28: تغییر +4.14 LU، امتیاز اطمینان 0.69؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 26:77: تغییر -3.71 LU، امتیاز اطمینان 0.63؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 29:52: تغییر +3.53 LU، امتیاز اطمینان 0.84؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 33:72: تغییر -3.54 LU، امتیاز اطمینان 0.85؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 35:1: تغییر -7.88 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 36:21: تغییر +4.70 LU، امتیاز اطمینان 0.78؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 36:83: تغییر -6.85 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 39:31: تغییر +3.13 LU، امتیاز اطمینان 0.77؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 41:49: تغییر +4.94 LU، امتیاز اطمینان 0.87؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 48:23: تغییر -4.88 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 55:77: تغییر -3.34 LU، امتیاز اطمینان 0.78؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 57:27: تغییر +4.08 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 67:3: تغییر -3.86 LU، امتیاز اطمینان 0.87؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 74:1: تغییر -14.53 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 78:6: تغییر +8.65 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- parhizgar، حوالی 81:20: تغییر +3.52 LU، امتیاز اطمینان 0.74؛ نیازمند بازبینی.</p>
+<p>- ghamadi، حوالی 7:6: تغییر -4.73 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- ghamadi، حوالی 8:2: تغییر +3.65 LU، امتیاز اطمینان 0.86؛ نیازمند بازبینی.</p>
+<p>- ghamadi، حوالی 10:8: تغییر -3.88 LU، امتیاز اطمینان 0.87؛ نیازمند بازبینی.</p>
+<p>- ghamadi، حوالی 11:4: تغییر +3.76 LU، امتیاز اطمینان 0.86؛ نیازمند بازبینی.</p>
+<p>- ghamadi، حوالی 30:1: تغییر -3.65 LU، امتیاز اطمینان 0.86؛ نیازمند بازبینی.</p>
+<p>- ghamadi، حوالی 37:6: تغییر -3.56 LU، امتیاز اطمینان 0.85؛ نیازمند بازبینی.</p>
+<p>- ghamadi، حوالی 38:12: تغییر +3.07 LU، امتیاز اطمینان 0.81؛ نیازمند بازبینی.</p>
+<p>- husary، حوالی 2:206: تغییر -3.08 LU، امتیاز اطمینان 0.74؛ نیازمند بازبینی.</p>
+<p>- husary، حوالی 3:103: تغییر +4.37 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- husary، حوالی 4:4: تغییر -4.85 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
 <p>- husary، حوالی 4:164: تغییر -3.69 LU، امتیاز اطمینان 0.86؛ نیازمند بازبینی.</p>
+<p>- husary، حوالی 6:1: تغییر -4.09 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- husary، حوالی 7:108: تغییر +3.85 LU، امتیاز اطمینان 0.70؛ نیازمند بازبینی.</p>
+<p>- husary، حوالی 9:125: تغییر +4.46 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- husary، حوالی 15:7: تغییر -3.87 LU، امتیاز اطمینان 0.87؛ نیازمند بازبینی.</p>
+<p>- husary، حوالی 21:24: تغییر -3.28 LU، امتیاز اطمینان 0.79؛ نیازمند بازبینی.</p>
+<p>- husary، حوالی 27:54: تغییر -5.97 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- husary، حوالی 31:1: تغییر +4.33 LU، امتیاز اطمینان 0.73؛ نیازمند بازبینی.</p>
+<p>- husary، حوالی 35:28: تغییر -3.20 LU، امتیاز اطمینان 0.82؛ نیازمند بازبینی.</p>
+<p>- husary، حوالی 43:67: تغییر -4.47 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- husary، حوالی 54:53: تغییر -4.05 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- husary، حوالی 55:23: تغییر +5.02 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- husary، حوالی 78:6: تغییر +3.53 LU، امتیاز اطمینان 0.82؛ نیازمند بازبینی.</p>
+<p>- husary، حوالی 80:18: تغییر -5.42 LU، امتیاز اطمینان 0.82؛ نیازمند بازبینی.</p>
+<p>- husary، حوالی 82:2: تغییر -5.23 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- minshawy-murattal، حوالی 5:76: تغییر +3.26 LU، امتیاز اطمینان 0.77؛ نیازمند بازبینی.</p>
+<p>- minshawy-murattal، حوالی 12:20: تغییر -3.58 LU، امتیاز اطمینان 0.78؛ نیازمند بازبینی.</p>
+<p>- minshawy-murattal، حوالی 12:49: تغییر +3.87 LU، امتیاز اطمینان 0.80؛ نیازمند بازبینی.</p>
+<p>- minshawy-murattal، حوالی 19:62: تغییر -3.07 LU، امتیاز اطمینان 0.81؛ نیازمند بازبینی.</p>
+<p>- minshawy-murattal، حوالی 23:28: تغییر -3.12 LU، امتیاز اطمینان 0.62؛ نیازمند بازبینی.</p>
+<p>- minshawy-murattal، حوالی 23:54: تغییر +3.86 LU، امتیاز اطمینان 0.80؛ نیازمند بازبینی.</p>
+<p>- minshawy-murattal، حوالی 23:75: تغییر -3.63 LU، امتیاز اطمینان 0.77؛ نیازمند بازبینی.</p>
+<p>- minshawy-murattal، حوالی 23:101: تغییر +3.50 LU، امتیاز اطمینان 0.81؛ نیازمند بازبینی.</p>
+<p>- minshawy-murattal، حوالی 26:2: تغییر +3.28 LU، امتیاز اطمینان 0.83؛ نیازمند بازبینی.</p>
+<p>- minshawy-murattal، حوالی 52:4: تغییر +3.61 LU، امتیاز اطمینان 0.75؛ نیازمند بازبینی.</p>
+<p>- minshawy-murattal، حوالی 66:3: تغییر +3.18 LU، امتیاز اطمینان 0.61؛ نیازمند بازبینی.</p>
 <p>- minshawy-mujawwad، حوالی 3:187: تغییر +5.55 LU، امتیاز اطمینان 0.78؛ نیازمند بازبینی.</p>
-<p>- motaz، حوالی 2:20: تغییر +4.59 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
-<p>- motaz، حوالی 4:24: تغییر -4.79 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
-<p>- motaz، حوالی 4:114: تغییر +3.33 LU، امتیاز اطمینان 0.83؛ نیازمند بازبینی.</p>
-<p>- motaz، حوالی 4:148: تغییر -4.21 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- minshawy-mujawwad، حوالی 9:111: تغییر -4.68 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- minshawy-mujawwad، حوالی 10:2: تغییر +5.08 LU، امتیاز اطمینان 0.81؛ نیازمند بازبینی.</p>
+<p>- minshawy-mujawwad، حوالی 18:64: تغییر -4.78 LU، امتیاز اطمینان 0.82؛ نیازمند بازبینی.</p>
+<p>- minshawy-mujawwad، حوالی 23:115: تغییر -6.47 LU، امتیاز اطمینان 0.67؛ نیازمند بازبینی.</p>
+<p>- minshawy-mujawwad، حوالی 24:22: تغییر +5.01 LU، امتیاز اطمینان 0.77؛ نیازمند بازبینی.</p>
+<p>- minshawy-mujawwad، حوالی 24:58: تغییر -5.56 LU، امتیاز اطمینان 0.70؛ نیازمند بازبینی.</p>
+<p>- minshawy-mujawwad، حوالی 28:11: تغییر -4.97 LU، امتیاز اطمینان 0.77؛ نیازمند بازبینی.</p>
+<p>- minshawy-mujawwad، حوالی 28:31: تغییر +4.64 LU، امتیاز اطمینان 0.84؛ نیازمند بازبینی.</p>
+<p>- minshawy-mujawwad، حوالی 30:36: تغییر -7.26 LU، امتیاز اطمینان 0.67؛ نیازمند بازبینی.</p>
+<p>- minshawy-mujawwad، حوالی 30:57: تغییر +7.59 LU، امتیاز اطمینان 0.81؛ نیازمند بازبینی.</p>
+<p>- minshawy-mujawwad، حوالی 33:10: تغییر -4.87 LU، امتیاز اطمینان 0.73؛ نیازمند بازبینی.</p>
+<p>- minshawy-mujawwad، حوالی 33:55: تغییر +7.72 LU، امتیاز اطمینان 0.73؛ نیازمند بازبینی.</p>
+<p>- minshawy-mujawwad، حوالی 37:152: تغییر +4.54 LU، امتیاز اطمینان 0.76؛ نیازمند بازبینی.</p>
+<p>- minshawy-mujawwad، حوالی 51:11: تغییر +4.81 LU، امتیاز اطمینان 0.76؛ نیازمند بازبینی.</p>
+<p>- minshawy-mujawwad، حوالی 64:16: تغییر -4.78 LU، امتیاز اطمینان 0.71؛ نیازمند بازبینی.</p>
+<p>- minshawy-mujawwad، حوالی 68:2: تغییر +7.14 LU، امتیاز اطمینان 0.87؛ نیازمند بازبینی.</p>
+<p>- minshawy-mujawwad، حوالی 69:47: تغییر -5.25 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- minshawy-mujawwad، حوالی 77:49: تغییر +5.01 LU، امتیاز اطمینان 0.75؛ نیازمند بازبینی.</p>
+<p>- motaz، حوالی 2:19: تغییر +4.30 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- motaz، حوالی 4:23: تغییر -4.89 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- motaz، حوالی 4:114: تغییر +3.40 LU، امتیاز اطمینان 0.84؛ نیازمند بازبینی.</p>
+<p>- motaz، حوالی 4:148: تغییر -4.15 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- motaz، حوالی 8:41: تغییر -3.26 LU، امتیاز اطمینان 0.63؛ نیازمند بازبینی.</p>
+<p>- motaz، حوالی 20:135: تغییر -3.72 LU، امتیاز اطمینان 0.82؛ نیازمند بازبینی.</p>
+<p>- motaz، حوالی 39:30: تغییر -3.45 LU، امتیاز اطمینان 0.84؛ نیازمند بازبینی.</p>
+<p>- motaz، حوالی 67:2: تغییر -3.69 LU، امتیاز اطمینان 0.85؛ نیازمند بازبینی.</p>
+<p>- motaz، حوالی 80:18: تغییر -3.00 LU، امتیاز اطمینان 0.62؛ نیازمند بازبینی.</p>
 <p>- abdulbasit، حوالی 2:59: تغییر +3.16 LU، امتیاز اطمینان 0.76؛ نیازمند بازبینی.</p>
-<p>- abdulbasit، حوالی 5:16: تغییر +3.07 LU، امتیاز اطمینان 0.66؛ نیازمند بازبینی.</p>
-<p>- almuiqly، حوالی 5:1: تغییر -3.11 LU، امتیاز اطمینان 0.79؛ نیازمند بازبینی.</p>
-<p>- jafarpour، حوالی 4:149: تغییر +3.25 LU، امتیاز اطمینان 0.83؛ نیازمند بازبینی.</p>
-<p>- makarem-kabiri، حوالی 2:207: تغییر +3.02 LU، امتیاز اطمینان 0.77؛ نیازمند بازبینی.</p>
-<p>- fooladvand-hedayatfar، حوالی 2:56: تغییر -5.58 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 5:82: تغییر -3.48 LU، امتیاز اطمینان 0.69؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 15:77: تغییر +3.10 LU، امتیاز اطمینان 0.63؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 21:100: تغییر -5.73 LU، امتیاز اطمینان 0.76؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 23:48: تغییر +4.79 LU، امتیاز اطمینان 0.74؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 23:74: تغییر -3.69 LU، امتیاز اطمینان 0.76؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 26:14: تغییر -5.25 LU، امتیاز اطمینان 0.80؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 26:34: تغییر +5.29 LU، امتیاز اطمینان 0.79؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 26:223: تغییر -6.52 LU، امتیاز اطمینان 0.79؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 37:20: تغییر +4.33 LU، امتیاز اطمینان 0.63؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 37:54: تغییر -4.15 LU، امتیاز اطمینان 0.77؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 37:77: تغییر +3.65 LU، امتیاز اطمینان 0.79؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 38:24: تغییر +3.30 LU، امتیاز اطمینان 0.74؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 40:34: تغییر +3.90 LU، امتیاز اطمینان 0.63؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 50:23: تغییر -3.78 LU، امتیاز اطمینان 0.79؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 56:24: تغییر +3.87 LU، امتیاز اطمینان 0.84؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 56:88: تغییر -3.84 LU، امتیاز اطمینان 0.75؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 68:33: تغییر -5.71 LU، امتیاز اطمینان 0.83؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 69:1: تغییر +4.23 LU، امتیاز اطمینان 0.76؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 72:1: تغییر -3.42 LU، امتیاز اطمینان 0.84؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 73:19: تغییر -3.35 LU، امتیاز اطمینان 0.80؛ نیازمند بازبینی.</p>
+<p>- abdulbasit، حوالی 77:34: تغییر -3.37 LU، امتیاز اطمینان 0.78؛ نیازمند بازبینی.</p>
+<p>- almuiqly، حوالی 4:170: تغییر -3.11 LU، امتیاز اطمینان 0.75؛ نیازمند بازبینی.</p>
+<p>- almuiqly، حوالی 6:165: تغییر +5.09 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- almuiqly، حوالی 7:204: تغییر -3.03 LU، امتیاز اطمینان 0.78؛ نیازمند بازبینی.</p>
+<p>- almuiqly، حوالی 11:5: تغییر +5.10 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- almuiqly، حوالی 15:1: تغییر -4.04 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- almuiqly، حوالی 33:71: تغییر -6.10 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- almuiqly، حوالی 42:14: تغییر +3.29 LU، امتیاز اطمینان 0.83؛ نیازمند بازبینی.</p>
+<p>- almuiqly، حوالی 45:1: تغییر +3.02 LU، امتیاز اطمینان 0.81؛ نیازمند بازبینی.</p>
+<p>- jafarpour، حوالی 4:148: تغییر +3.45 LU، امتیاز اطمینان 0.84؛ نیازمند بازبینی.</p>
+<p>- jafarpour، حوالی 5:109: تغییر -3.13 LU، امتیاز اطمینان 0.77؛ نیازمند بازبینی.</p>
+<p>- jafarpour، حوالی 7:88: تغییر -3.71 LU، امتیاز اطمینان 0.86؛ نیازمند بازبینی.</p>
+<p>- jafarpour، حوالی 12:14: تغییر +3.73 LU، امتیاز اطمینان 0.71؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 2:244: تغییر -2.73 LU، امتیاز اطمینان 0.76؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 3:165: تغییر +2.63 LU، امتیاز اطمینان 0.78؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 12:52: تغییر -3.33 LU، امتیاز اطمینان 0.83؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 14:31: تغییر -2.73 LU، امتیاز اطمینان 0.79؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 14:51: تغییر +4.63 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 17:3: تغییر +2.56 LU، امتیاز اطمینان 0.77؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 19:64: تغییر +3.33 LU، امتیاز اطمینان 0.83؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 20:4: تغییر -2.66 LU، امتیاز اطمینان 0.77؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 20:95: تغییر +3.27 LU، امتیاز اطمینان 0.76؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 20:115: تغییر -3.33 LU، امتیاز اطمینان 0.79؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 21:2: تغییر +3.53 LU، امتیاز اطمینان 0.85؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 23:1: تغییر -4.72 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 23:21: تغییر +3.78 LU، امتیاز اطمینان 0.86؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 23:59: تغییر +3.05 LU، امتیاز اطمینان 0.79؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 23:79: تغییر -5.51 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 23:99: تغییر +5.43 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 24:40: تغییر -4.93 LU، امتیاز اطمینان 0.86؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 25:3: تغییر +5.68 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 25:23: تغییر -3.50 LU، امتیاز اطمینان 0.84؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 25:44: تغییر -2.81 LU، امتیاز اطمینان 0.80؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 26:199: تغییر +3.30 LU، امتیاز اطمینان 0.83؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 33:63: تغییر +2.98 LU، امتیاز اطمینان 0.81؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 34:18: تغییر +3.36 LU، امتیاز اطمینان 0.79؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 35:1: تغییر -3.80 LU، امتیاز اطمینان 0.87؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 35:27: تغییر -4.91 LU، امتیاز اطمینان 0.77؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 36:74: تغییر -2.80 LU، امتیاز اطمینان 0.80؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 37:11: تغییر +3.43 LU، امتیاز اطمینان 0.81؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 37:37: تغییر -2.64 LU، امتیاز اطمینان 0.74؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 40:23: تغییر -2.75 LU، امتیاز اطمینان 0.79؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 56:49: تغییر +3.12 LU، امتیاز اطمینان 0.78؛ نیازمند بازبینی.</p>
+<p>- ansarian، حوالی 56:78: تغییر -3.18 LU، امتیاز اطمینان 0.82؛ نیازمند بازبینی.</p>
+<p>- maleki، حوالی 10:91: تغییر -2.74 LU، امتیاز اطمینان 0.64؛ نیازمند بازبینی.</p>
+<p>- maleki، حوالی 26:73: تغییر +3.38 LU، امتیاز اطمینان 0.78؛ نیازمند بازبینی.</p>
+<p>- maleki، حوالی 37:180: تغییر +3.55 LU، امتیاز اطمینان 0.61؛ نیازمند بازبینی.</p>
+<p>- maleki، حوالی 40:23: تغییر +3.13 LU، امتیاز اطمینان 0.67؛ نیازمند بازبینی.</p>
+<p>- maleki، حوالی 40:51: تغییر -3.13 LU، امتیاز اطمینان 0.64؛ نیازمند بازبینی.</p>
+<p>- maleki، حوالی 44:18: تغییر +2.67 LU، امتیاز اطمینان 0.75؛ نیازمند بازبینی.</p>
+<p>- maleki، حوالی 68:1: تغییر -3.97 LU، امتیاز اطمینان 0.80؛ نیازمند بازبینی.</p>
+<p>- makarem-kabiri، حوالی 2:207: تغییر +3.10 LU، امتیاز اطمینان 0.78؛ نیازمند بازبینی.</p>
+<p>- makarem-kabiri، حوالی 5:117: تغییر -3.28 LU، امتیاز اطمینان 0.83؛ نیازمند بازبینی.</p>
+<p>- makarem-kabiri، حوالی 8:72: تغییر -3.25 LU، امتیاز اطمینان 0.68؛ نیازمند بازبینی.</p>
+<p>- makarem-kabiri، حوالی 20:135: تغییر -2.81 LU، امتیاز اطمینان 0.80؛ نیازمند بازبینی.</p>
+<p>- makarem-kabiri، حوالی 41:49: تغییر -2.87 LU، امتیاز اطمینان 0.62؛ نیازمند بازبینی.</p>
+<p>- makarem-kabiri، حوالی 45:3: تغییر +2.58 LU، امتیاز اطمینان 0.78؛ نیازمند بازبینی.</p>
+<p>- makarem-kabiri، حوالی 51:55: تغییر -4.95 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- makarem-kabiri، حوالی 54:54: تغییر -8.68 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- makarem-kabiri، حوالی 71:6: تغییر +8.51 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- makarem-kabiri، حوالی 108:2: تغییر +2.80 LU، امتیاز اطمینان 0.64؛ نیازمند بازبینی.</p>
+<p>- fooladvand-hedayatfar، حوالی 2:57: تغییر -5.87 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- fooladvand-hedayatfar، حوالی 11:121: تغییر +3.09 LU، امتیاز اطمینان 0.67؛ نیازمند بازبینی.</p>
+<p>- fooladvand-hedayatfar، حوالی 14:52: تغییر -3.82 LU، امتیاز اطمینان 0.70؛ نیازمند بازبینی.</p>
+<p>- fooladvand-hedayatfar، حوالی 21:112: تغییر -3.32 LU، امتیاز اطمینان 0.83؛ نیازمند بازبینی.</p>
+<p>- fooladvand-hedayatfar، حوالی 54:54: تغییر -2.77 LU، امتیاز اطمینان 0.63؛ نیازمند بازبینی.</p>
+<p>- fooladvand-hedayatfar، حوالی 78:1: تغییر +6.98 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- fooladvand-hedayatfar، حوالی 78:38: تغییر -6.45 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- fooladvand-hedayatfar، حوالی 83:6: تغییر +6.63 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- fooladvand-hedayatfar، حوالی 92:1: تغییر -5.75 LU، امتیاز اطمینان 0.88؛ نیازمند بازبینی.</p>
+<p>- fooladvand-hedayatfar، حوالی 93:9: تغییر +5.40 LU، امتیاز اطمینان 0.73؛ نیازمند بازبینی.</p>
 <h2>فایل‌های دریافت‌نشده یا نامعتبر</h2>
 <table>
-<tr><td>منبع</td><td>آیه</td><td>وضعیت</td><td>تشخیص</td></tr>
-<tr><td>ghamadi</td><td>4:94</td><td>invalid</td><td>partial_decode_error; diagnostic_metrics_not_valid_for_gain</td></tr>
-<tr><td>maleki</td><td>3:91</td><td>invalid</td><td>http_200_empty_file</td></tr>
-<tr><td>maleki</td><td>3:128</td><td>invalid</td><td>partial_decode_error; diagnostic_metrics_not_valid_for_gain</td></tr>
+<tr><td dir="auto">منبع</td><td dir="auto">آیه</td><td dir="auto">وضعیت</td><td dir="auto">تشخیص</td></tr>
+<tr><td dir="auto">abdulbasit</td><td dir="ltr">19:46</td><td dir="auto">invalid</td><td dir="auto">invalid</td></tr>
+<tr><td dir="auto">ghamadi</td><td dir="ltr">4:94</td><td dir="auto">invalid</td><td dir="auto">partial_decode_error; diagnostic_metrics_not_valid_for_gain</td></tr>
+<tr><td dir="auto">ghamadi</td><td dir="ltr">19:32</td><td dir="auto">invalid</td><td dir="auto">partial_decode_error; diagnostic_metrics_not_valid_for_gain</td></tr>
+<tr><td dir="auto">ghamadi</td><td dir="ltr">20:90</td><td dir="auto">invalid</td><td dir="auto">partial_decode_error; diagnostic_metrics_not_valid_for_gain</td></tr>
+<tr><td dir="auto">ghamadi</td><td dir="ltr">21:59</td><td dir="auto">invalid</td><td dir="auto">partial_decode_error; diagnostic_metrics_not_valid_for_gain</td></tr>
+<tr><td dir="auto">ghamadi</td><td dir="ltr">37:135</td><td dir="auto">invalid</td><td dir="auto">partial_decode_error; diagnostic_metrics_not_valid_for_gain</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">3:91</td><td dir="auto">invalid</td><td dir="auto">http_200_empty_file</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">3:128</td><td dir="auto">invalid</td><td dir="auto">partial_decode_error; diagnostic_metrics_not_valid_for_gain</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">23:33</td><td dir="auto">invalid</td><td dir="auto">partial_decode_error; diagnostic_metrics_not_valid_for_gain</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">35:8</td><td dir="auto">invalid</td><td dir="auto">partial_decode_error; diagnostic_metrics_not_valid_for_gain</td></tr>
 </table>
 <p>جزئیات HTTP و خطا در failures.jsonl آمده است. پاسخ ۲۰۰ با بایت صفر، فایل خالی است؛ 404 یا خطای موقت تلقی نمی‌شود.</p>
 <h2>مهم‌ترین موارد بازبینی</h2>
 <p>موارد زیر تشخیص خطای قطعی یا اجازهٔ اصلاح نیستند. پرچم metadata خراب MP3 ممکن است صرفاً مربوط به comment frame باشد و خرابی صوت را ثابت نمی‌کند.</p>
 <table>
-<tr><td>منبع</td><td>آیه</td><td>نوع</td><td>شدت</td><td>اطمینان</td></tr>
-<tr><td>ghamadi</td><td>2:229</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>almuiqly</td><td>1:1</td><td>local_loudness_outlier</td><td>high</td><td>0.90</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>4:105</td><td>local_loudness_outlier</td><td>high</td><td>0.78</td></tr>
-<tr><td>husary</td><td>4:163</td><td>local_loudness_outlier</td><td>high</td><td>0.85</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>4:105</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:22</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:30</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:33</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:2</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:23</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:55</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:6</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:9</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:25</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:26</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:46</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>4:2</td><td>local_loudness_outlier</td><td>high</td><td>0.77</td></tr>
-<tr><td>makarem-kabiri</td><td>2:3</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:7</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:16</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:28</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:39</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:41</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:42</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:44</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>minshawy-mujawwad</td><td>2:80</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>makarem-kabiri</td><td>2:253</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:1</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:8</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:14</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:17</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:27</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:40</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:51</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>makarem-kabiri</td><td>2:216</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>makarem-kabiri</td><td>2:221</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:11</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:13</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:15</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>2:19</td><td>high_true_peak</td><td>high</td><td>0.95</td></tr>
+<tr><td dir="auto">منبع</td><td dir="auto">آیه</td><td dir="auto">نوع</td><td dir="auto">شدت</td><td dir="auto">اطمینان</td></tr>
+<tr><td dir="auto">ghamadi</td><td dir="ltr">2:229</td><td dir="auto">high_true_peak</td><td dir="auto">high</td><td dir="ltr">0.95</td></tr>
+<tr><td dir="auto">ghamadi</td><td dir="ltr">28:63</td><td dir="auto">high_true_peak</td><td dir="auto">high</td><td dir="ltr">0.95</td></tr>
+<tr><td dir="auto">abdulbasit</td><td dir="ltr">44:21</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.81</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="ltr">16:42</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.90</td></tr>
+<tr><td dir="auto">almuiqly</td><td dir="ltr">1:1</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.81</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="ltr">16:28</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.90</td></tr>
+<tr><td dir="auto">minshawy-mujawwad</td><td dir="ltr">19:89</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.90</td></tr>
+<tr><td dir="auto">abdulbasit</td><td dir="ltr">18:20</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.83</td></tr>
+<tr><td dir="auto">almuiqly</td><td dir="ltr">84:13</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.90</td></tr>
+<tr><td dir="auto">ansarian</td><td dir="ltr">23:78</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.90</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">38:61</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.77</td></tr>
+<tr><td dir="auto">abdulbasit</td><td dir="ltr">12:57</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.80</td></tr>
+<tr><td dir="auto">abdulbasit</td><td dir="ltr">17:38</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.79</td></tr>
+<tr><td dir="auto">abdulbasit</td><td dir="ltr">21:21</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.82</td></tr>
+<tr><td dir="auto">husary</td><td dir="ltr">11:6</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.86</td></tr>
+<tr><td dir="auto">abdulbasit</td><td dir="ltr">53:46</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.79</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="ltr">4:105</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.86</td></tr>
+<tr><td dir="auto">abdulbasit</td><td dir="ltr">21:93</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.86</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="ltr">16:28</td><td dir="auto">high_true_peak</td><td dir="auto">high</td><td dir="ltr">0.95</td></tr>
+<tr><td dir="auto">abdulbasit</td><td dir="ltr">35:13</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.86</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">38:60</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.77</td></tr>
+<tr><td dir="auto">husary</td><td dir="ltr">4:163</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.85</td></tr>
+<tr><td dir="auto">makarem-kabiri</td><td dir="ltr">57:14</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.84</td></tr>
+<tr><td dir="auto">makarem-kabiri</td><td dir="ltr">50:22</td><td dir="auto">high_true_peak</td><td dir="auto">high</td><td dir="ltr">0.95</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="ltr">16:42</td><td dir="auto">high_true_peak</td><td dir="auto">high</td><td dir="ltr">0.95</td></tr>
+<tr><td dir="auto">abdulbasit</td><td dir="ltr">67:6</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.84</td></tr>
+<tr><td dir="auto">ansarian</td><td dir="ltr">23:59</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.83</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="ltr">83:1</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.77</td></tr>
+<tr><td dir="auto">makarem-kabiri</td><td dir="ltr">52:38</td><td dir="auto">high_true_peak</td><td dir="auto">high</td><td dir="ltr">0.95</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="ltr">4:105</td><td dir="auto">high_true_peak</td><td dir="auto">high</td><td dir="ltr">0.95</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="ltr">87:7</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.82</td></tr>
+<tr><td dir="auto">abdulbasit</td><td dir="ltr">19:14</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.80</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="ltr">89:3</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.57</td></tr>
+<tr><td dir="auto">ansarian</td><td dir="ltr">23:62</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.81</td></tr>
+<tr><td dir="auto">makarem-kabiri</td><td dir="ltr">17:93</td><td dir="auto">high_true_peak</td><td dir="auto">high</td><td dir="ltr">0.95</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="ltr">2:22</td><td dir="auto">high_true_peak</td><td dir="auto">high</td><td dir="ltr">0.95</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="ltr">2:30</td><td dir="auto">high_true_peak</td><td dir="auto">high</td><td dir="ltr">0.95</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="ltr">2:33</td><td dir="auto">high_true_peak</td><td dir="auto">high</td><td dir="ltr">0.95</td></tr>
+<tr><td dir="auto">parhizgar</td><td dir="ltr">13:32</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.81</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">37:182</td><td dir="auto">local_loudness_outlier</td><td dir="auto">high</td><td dir="ltr">0.71</td></tr>
 </table>
-<p>تعداد کل پرچم‌های استنباطی: 10,011. یک فایل ممکن است چند پرچم داشته باشد. جزئیات شواهد در anomalies و تکرارهای بین منابع در cross-source-duplicates.json است.</p>
+<h2>بازبینی مستقل مدت فایل</h2>
+<p>مدت هر آیه با میانهٔ همان آیه در منابع هم‌نوع مقایسه و سرعت معمول هر منبع جبران شده است. کاندیدا باید هم بیش از چهار برابر کوتاه‌تر/بلندتر از انتظار و هم فراتر از چهار مقیاس MAD لگاریتمی باشد. حداقل پنج قاری همتا یا دو مترجم همتا لازم است. تکرار و بیان طبیعی مجوّد می‌تواند چنین اختلافی بسازد؛ این آزمون صحت متن آیه را ثابت نمی‌کند و هیچ اصلاحی از آن اعمال نمی‌شود.</p>
+<p>تعداد کاندیداهای بازبینی مدت: 105. جزئیات در duration-review.json و anomalies/cross-source-duration.jsonl است.</p>
+<table>
+<tr><td dir="auto">منبع</td><td dir="auto">آیه</td><td dir="auto">مدت ثانیه</td><td dir="auto">نسبت به انتظار</td></tr>
+<tr><td dir="auto">parhizgar</td><td dir="ltr">39:71</td><td dir="ltr">0.24</td><td dir="ltr">0.01</td></tr>
+<tr><td dir="auto">motaz</td><td dir="ltr">96:19</td><td dir="ltr">41.85</td><td dir="ltr">11.58</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">3:48</td><td dir="ltr">42.01</td><td dir="ltr">8.23</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">15:38</td><td dir="ltr">38.29</td><td dir="ltr">12.08</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">15:40</td><td dir="ltr">34.31</td><td dir="ltr">8.23</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">18:9</td><td dir="ltr">54.32</td><td dir="ltr">7.81</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">26:83</td><td dir="ltr">64.57</td><td dir="ltr">9.37</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">37:9</td><td dir="ltr">50.55</td><td dir="ltr">8.10</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">37:41</td><td dir="ltr">33.60</td><td dir="ltr">10.13</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">38:21</td><td dir="ltr">54.54</td><td dir="ltr">8.20</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">38:81</td><td dir="ltr">31.40</td><td dir="ltr">11.36</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">43:4</td><td dir="ltr">76.40</td><td dir="ltr">13.37</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">44:10</td><td dir="ltr">53.50</td><td dir="ltr">9.89</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">51:19</td><td dir="ltr">53.82</td><td dir="ltr">12.04</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">52:4</td><td dir="ltr">21.61</td><td dir="ltr">8.79</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">53:5</td><td dir="ltr">56.22</td><td dir="ltr">10.71</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">53:62</td><td dir="ltr">70.45</td><td dir="ltr">11.37</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">55:17</td><td dir="ltr">60.05</td><td dir="ltr">12.87</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">55:20</td><td dir="ltr">39.82</td><td dir="ltr">8.53</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">56:78</td><td dir="ltr">37.37</td><td dir="ltr">12.42</td></tr>
+</table>
+<p>تعداد کل پرچم‌های استنباطی: 77,120. یک فایل ممکن است چند پرچم داشته باشد. جزئیات شواهد در anomalies و تکرارهای بین منابع در cross-source-duplicates.json است.</p>
 <h2>ماتریس ۹ قاری × ۴ مترجم</h2>
 <img src="pairing-matrix.png" alt="نمودار تحلیل صوت">
 <p>عدد مثبت یعنی مترجم در آیات مشترک بلندتر است. این مقایسهٔ جفت‌شدهٔ آیه‌ای است؛ تغییرات طبیعی اجرای آیه را حذف نمی‌کند. تعداد آیات مشترک، توزیع اختلاف و سهم اختلاف بیش از ۶ LU در pairing-matrix.json آمده است.</p>
 <h2>سیاست‌های Gain</h2>
-<p>فرمول ضریب دامنه: `gainLinear = 10 ** (gainDb / 20)`. هیچ فشرده‌سازی، limiter یا بازکدگذاری انجام نشده است.</p>
+<p>فرمول ضریب دامنه: <code>gainLinear = 10 ** (gainDb / 20)</code>. هیچ فشرده‌سازی، limiter یا بازکدگذاری انجام نشده است.</p>
 <p>چهار هدف ‎−۲۳، ‎−۲۰، ‎−۱۸ و ‎−۱۶ LUFS در قرارداد پخش مقایسه شده‌اند. ‎−۲۳ مبنای محافظه‌کارانهٔ مناسب برای حفظ headroom است؛ ‎−۲۰ گزینهٔ میانی برای ارزیابی شنیداری و ‎−۱۸/−۱۶ گزینه‌های بلندتر با احتمال محدودشدن بیشتر توسط peak هستند. ‎−۲۳ مرجع پخش EBU است؛ سایر اعداد سیاست این پروژه‌اند و استاندارد اجباری برای اپ نیستند.</p>
 <p>پیشنهاد اولیه تا تکمیل پوشش و آزمون شنیداری: سیاست پایهٔ منبع با هدف ‎−۲۳ برای حفظ headroom؛ هدف ‎−۲۰ را نیز به عنوان گزینهٔ آزمایشی مقایسه کنید. هیچ هدف نهایی یا اصلاح آیه‌ای به‌صورت قطعی توصیه نمی‌شود.</p>
 <table>
-<tr><td>منبع</td><td>هدف</td><td>Gain پایه درخواستی dB</td><td>محدودشده به peak</td><td>محدودشده به سقف Gain</td><td>میانه پخش پیش‌بینی‌شده</td></tr>
-<tr><td>parhizgar</td><td>-23</td><td>-9.91</td><td>0/734</td><td>0</td><td>-23.04</td></tr>
-<tr><td>parhizgar</td><td>-20</td><td>-6.91</td><td>0/734</td><td>0</td><td>-20.04</td></tr>
-<tr><td>parhizgar</td><td>-18</td><td>-4.91</td><td>0/734</td><td>0</td><td>-18.04</td></tr>
-<tr><td>parhizgar</td><td>-16</td><td>-2.91</td><td>22/734</td><td>0</td><td>-16.04</td></tr>
-<tr><td>ghamadi</td><td>-23</td><td>-7.34</td><td>1/733</td><td>0</td><td>-23.10</td></tr>
-<tr><td>ghamadi</td><td>-20</td><td>-4.34</td><td>1/733</td><td>0</td><td>-20.10</td></tr>
-<tr><td>ghamadi</td><td>-18</td><td>-2.34</td><td>29/733</td><td>0</td><td>-18.10</td></tr>
-<tr><td>ghamadi</td><td>-16</td><td>-0.34</td><td>194/733</td><td>0</td><td>-16.15</td></tr>
-<tr><td>husary</td><td>-23</td><td>-7.31</td><td>0/734</td><td>0</td><td>-23.03</td></tr>
-<tr><td>husary</td><td>-20</td><td>-4.31</td><td>0/734</td><td>0</td><td>-20.03</td></tr>
-<tr><td>husary</td><td>-18</td><td>-2.31</td><td>0/734</td><td>0</td><td>-18.03</td></tr>
-<tr><td>husary</td><td>-16</td><td>-0.31</td><td>108/734</td><td>0</td><td>-16.15</td></tr>
-<tr><td>minshawy-murattal</td><td>-23</td><td>-8.99</td><td>0/734</td><td>0</td><td>-23.00</td></tr>
-<tr><td>minshawy-murattal</td><td>-20</td><td>-5.99</td><td>0/734</td><td>0</td><td>-20.00</td></tr>
-<tr><td>minshawy-murattal</td><td>-18</td><td>-3.99</td><td>0/734</td><td>0</td><td>-18.00</td></tr>
-<tr><td>minshawy-murattal</td><td>-16</td><td>-1.99</td><td>0/734</td><td>0</td><td>-16.00</td></tr>
-<tr><td>minshawy-mujawwad</td><td>-23</td><td>-10.22</td><td>0/734</td><td>0</td><td>-23.00</td></tr>
-<tr><td>minshawy-mujawwad</td><td>-20</td><td>-7.22</td><td>0/734</td><td>0</td><td>-20.00</td></tr>
-<tr><td>minshawy-mujawwad</td><td>-18</td><td>-5.22</td><td>0/734</td><td>0</td><td>-18.00</td></tr>
-<tr><td>minshawy-mujawwad</td><td>-16</td><td>-3.22</td><td>2/734</td><td>0</td><td>-16.00</td></tr>
-<tr><td>motaz</td><td>-23</td><td>-0.83</td><td>0/734</td><td>0</td><td>-23.08</td></tr>
-<tr><td>motaz</td><td>-20</td><td>2.17</td><td>32/734</td><td>0</td><td>-20.08</td></tr>
-<tr><td>motaz</td><td>-18</td><td>4.17</td><td>165/734</td><td>0</td><td>-18.20</td></tr>
-<tr><td>motaz</td><td>-16</td><td>6.17</td><td>360/734</td><td>0</td><td>-16.86</td></tr>
-<tr><td>abdulbasit</td><td>-23</td><td>-9.72</td><td>0/734</td><td>0</td><td>-23.02</td></tr>
-<tr><td>abdulbasit</td><td>-20</td><td>-6.72</td><td>0/734</td><td>0</td><td>-20.02</td></tr>
-<tr><td>abdulbasit</td><td>-18</td><td>-4.72</td><td>0/734</td><td>0</td><td>-18.02</td></tr>
-<tr><td>abdulbasit</td><td>-16</td><td>-2.72</td><td>0/734</td><td>0</td><td>-16.02</td></tr>
-<tr><td>almuiqly</td><td>-23</td><td>-10.19</td><td>0/734</td><td>0</td><td>-23.07</td></tr>
-<tr><td>almuiqly</td><td>-20</td><td>-7.19</td><td>0/734</td><td>0</td><td>-20.07</td></tr>
-<tr><td>almuiqly</td><td>-18</td><td>-5.19</td><td>0/734</td><td>0</td><td>-18.07</td></tr>
-<tr><td>almuiqly</td><td>-16</td><td>-3.19</td><td>0/734</td><td>0</td><td>-16.07</td></tr>
-<tr><td>jafarpour</td><td>-23</td><td>-7.84</td><td>0/733</td><td>0</td><td>-23.09</td></tr>
-<tr><td>jafarpour</td><td>-20</td><td>-4.84</td><td>0/733</td><td>0</td><td>-20.09</td></tr>
-<tr><td>jafarpour</td><td>-18</td><td>-2.84</td><td>35/733</td><td>0</td><td>-18.10</td></tr>
-<tr><td>jafarpour</td><td>-16</td><td>-0.84</td><td>332/733</td><td>0</td><td>-16.55</td></tr>
-<tr><td>ansarian</td><td>-23</td><td>-5.63</td><td>0/733</td><td>0</td><td>-23.04</td></tr>
-<tr><td>ansarian</td><td>-20</td><td>-2.63</td><td>115/733</td><td>0</td><td>-20.10</td></tr>
-<tr><td>ansarian</td><td>-18</td><td>-0.63</td><td>597/733</td><td>0</td><td>-19.29</td></tr>
-<tr><td>ansarian</td><td>-16</td><td>1.37</td><td>724/733</td><td>0</td><td>-19.12</td></tr>
-<tr><td>maleki</td><td>-23</td><td>-2.86</td><td>0/731</td><td>0</td><td>-23.06</td></tr>
-<tr><td>maleki</td><td>-20</td><td>0.14</td><td>80/731</td><td>0</td><td>-20.14</td></tr>
-<tr><td>maleki</td><td>-18</td><td>2.14</td><td>362/731</td><td>0</td><td>-18.60</td></tr>
-<tr><td>maleki</td><td>-16</td><td>4.14</td><td>646/731</td><td>0</td><td>-18.02</td></tr>
-<tr><td>makarem-kabiri</td><td>-23</td><td>-8.89</td><td>0/733</td><td>0</td><td>-22.95</td></tr>
-<tr><td>makarem-kabiri</td><td>-20</td><td>-5.89</td><td>0/733</td><td>0</td><td>-19.95</td></tr>
-<tr><td>makarem-kabiri</td><td>-18</td><td>-3.89</td><td>6/733</td><td>0</td><td>-17.95</td></tr>
-<tr><td>makarem-kabiri</td><td>-16</td><td>-1.89</td><td>599/733</td><td>0</td><td>-16.65</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>-23</td><td>-10.36</td><td>0/733</td><td>0</td><td>-22.99</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>-20</td><td>-7.36</td><td>0/733</td><td>0</td><td>-19.99</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>-18</td><td>-5.36</td><td>0/733</td><td>0</td><td>-17.99</td></tr>
-<tr><td>fooladvand-hedayatfar</td><td>-16</td><td>-3.36</td><td>76/733</td><td>0</td><td>-16.00</td></tr>
+<tr><td dir="auto">منبع</td><td dir="auto">هدف</td><td dir="auto">Gain پایه درخواستی dB</td><td dir="auto">محدودشده به peak</td><td dir="auto">محدودشده به سقف Gain</td><td dir="auto">میانه پخش پیش‌بینی‌شده</td></tr>
+<tr><td dir="auto">parhizgar</td><td dir="ltr">-23</td><td dir="ltr">-10.53</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-23.02</td></tr>
+<tr><td dir="auto">parhizgar</td><td dir="ltr">-20</td><td dir="ltr">-7.53</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-20.02</td></tr>
+<tr><td dir="auto">parhizgar</td><td dir="ltr">-18</td><td dir="ltr">-5.53</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-18.02</td></tr>
+<tr><td dir="auto">parhizgar</td><td dir="ltr">-16</td><td dir="ltr">-3.53</td><td dir="ltr">34/6236</td><td dir="ltr">0</td><td dir="ltr">-16.02</td></tr>
+<tr><td dir="auto">ghamadi</td><td dir="ltr">-23</td><td dir="ltr">-7.21</td><td dir="ltr">2/6231</td><td dir="ltr">0</td><td dir="ltr">-23.02</td></tr>
+<tr><td dir="auto">ghamadi</td><td dir="ltr">-20</td><td dir="ltr">-4.21</td><td dir="ltr">2/6231</td><td dir="ltr">0</td><td dir="ltr">-20.03</td></tr>
+<tr><td dir="auto">ghamadi</td><td dir="ltr">-18</td><td dir="ltr">-2.21</td><td dir="ltr">47/6231</td><td dir="ltr">0</td><td dir="ltr">-18.03</td></tr>
+<tr><td dir="auto">ghamadi</td><td dir="ltr">-16</td><td dir="ltr">-0.21</td><td dir="ltr">423/6231</td><td dir="ltr">0</td><td dir="ltr">-16.03</td></tr>
+<tr><td dir="auto">husary</td><td dir="ltr">-23</td><td dir="ltr">-6.98</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-23.03</td></tr>
+<tr><td dir="auto">husary</td><td dir="ltr">-20</td><td dir="ltr">-3.98</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-20.03</td></tr>
+<tr><td dir="auto">husary</td><td dir="ltr">-18</td><td dir="ltr">-1.98</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-18.03</td></tr>
+<tr><td dir="auto">husary</td><td dir="ltr">-16</td><td dir="ltr">0.02</td><td dir="ltr">1589/6236</td><td dir="ltr">0</td><td dir="ltr">-16.15</td></tr>
+<tr><td dir="auto">minshawy-murattal</td><td dir="ltr">-23</td><td dir="ltr">-8.86</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-22.96</td></tr>
+<tr><td dir="auto">minshawy-murattal</td><td dir="ltr">-20</td><td dir="ltr">-5.86</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-19.96</td></tr>
+<tr><td dir="auto">minshawy-murattal</td><td dir="ltr">-18</td><td dir="ltr">-3.86</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-17.96</td></tr>
+<tr><td dir="auto">minshawy-murattal</td><td dir="ltr">-16</td><td dir="ltr">-1.86</td><td dir="ltr">19/6236</td><td dir="ltr">0</td><td dir="ltr">-15.96</td></tr>
+<tr><td dir="auto">minshawy-mujawwad</td><td dir="ltr">-23</td><td dir="ltr">-9.66</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-23.07</td></tr>
+<tr><td dir="auto">minshawy-mujawwad</td><td dir="ltr">-20</td><td dir="ltr">-6.66</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-20.07</td></tr>
+<tr><td dir="auto">minshawy-mujawwad</td><td dir="ltr">-18</td><td dir="ltr">-4.66</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-18.07</td></tr>
+<tr><td dir="auto">minshawy-mujawwad</td><td dir="ltr">-16</td><td dir="ltr">-2.66</td><td dir="ltr">5/6236</td><td dir="ltr">0</td><td dir="ltr">-16.07</td></tr>
+<tr><td dir="auto">motaz</td><td dir="ltr">-23</td><td dir="ltr">-0.34</td><td dir="ltr">1/6236</td><td dir="ltr">0</td><td dir="ltr">-23.30</td></tr>
+<tr><td dir="auto">motaz</td><td dir="ltr">-20</td><td dir="ltr">2.66</td><td dir="ltr">64/6236</td><td dir="ltr">0</td><td dir="ltr">-20.30</td></tr>
+<tr><td dir="auto">motaz</td><td dir="ltr">-18</td><td dir="ltr">4.66</td><td dir="ltr">393/6236</td><td dir="ltr">0</td><td dir="ltr">-18.32</td></tr>
+<tr><td dir="auto">motaz</td><td dir="ltr">-16</td><td dir="ltr">6.66</td><td dir="ltr">1560/6236</td><td dir="ltr">0</td><td dir="ltr">-16.55</td></tr>
+<tr><td dir="auto">abdulbasit</td><td dir="ltr">-23</td><td dir="ltr">-8.85</td><td dir="ltr">0/6235</td><td dir="ltr">0</td><td dir="ltr">-23.09</td></tr>
+<tr><td dir="auto">abdulbasit</td><td dir="ltr">-20</td><td dir="ltr">-5.85</td><td dir="ltr">0/6235</td><td dir="ltr">0</td><td dir="ltr">-20.09</td></tr>
+<tr><td dir="auto">abdulbasit</td><td dir="ltr">-18</td><td dir="ltr">-3.85</td><td dir="ltr">0/6235</td><td dir="ltr">0</td><td dir="ltr">-18.09</td></tr>
+<tr><td dir="auto">abdulbasit</td><td dir="ltr">-16</td><td dir="ltr">-1.85</td><td dir="ltr">64/6235</td><td dir="ltr">0</td><td dir="ltr">-16.10</td></tr>
+<tr><td dir="auto">almuiqly</td><td dir="ltr">-23</td><td dir="ltr">-7.18</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-22.89</td></tr>
+<tr><td dir="auto">almuiqly</td><td dir="ltr">-20</td><td dir="ltr">-4.18</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-19.89</td></tr>
+<tr><td dir="auto">almuiqly</td><td dir="ltr">-18</td><td dir="ltr">-2.18</td><td dir="ltr">12/6236</td><td dir="ltr">0</td><td dir="ltr">-17.89</td></tr>
+<tr><td dir="auto">almuiqly</td><td dir="ltr">-16</td><td dir="ltr">-0.18</td><td dir="ltr">788/6236</td><td dir="ltr">0</td><td dir="ltr">-15.95</td></tr>
+<tr><td dir="auto">jafarpour</td><td dir="ltr">-23</td><td dir="ltr">-8.20</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-23.03</td></tr>
+<tr><td dir="auto">jafarpour</td><td dir="ltr">-20</td><td dir="ltr">-5.20</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-20.03</td></tr>
+<tr><td dir="auto">jafarpour</td><td dir="ltr">-18</td><td dir="ltr">-3.20</td><td dir="ltr">44/6236</td><td dir="ltr">0</td><td dir="ltr">-18.03</td></tr>
+<tr><td dir="auto">jafarpour</td><td dir="ltr">-16</td><td dir="ltr">-1.20</td><td dir="ltr">1846/6236</td><td dir="ltr">0</td><td dir="ltr">-16.26</td></tr>
+<tr><td dir="auto">ansarian</td><td dir="ltr">-23</td><td dir="ltr">-6.29</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-22.99</td></tr>
+<tr><td dir="auto">ansarian</td><td dir="ltr">-20</td><td dir="ltr">-3.29</td><td dir="ltr">16/6236</td><td dir="ltr">0</td><td dir="ltr">-19.99</td></tr>
+<tr><td dir="auto">ansarian</td><td dir="ltr">-18</td><td dir="ltr">-1.29</td><td dir="ltr">3294/6236</td><td dir="ltr">0</td><td dir="ltr">-18.33</td></tr>
+<tr><td dir="auto">ansarian</td><td dir="ltr">-16</td><td dir="ltr">0.71</td><td dir="ltr">5942/6236</td><td dir="ltr">0</td><td dir="ltr">-17.93</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">-23</td><td dir="ltr">-2.89</td><td dir="ltr">1/6232</td><td dir="ltr">0</td><td dir="ltr">-23.13</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">-20</td><td dir="ltr">0.11</td><td dir="ltr">484/6232</td><td dir="ltr">0</td><td dir="ltr">-20.17</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">-18</td><td dir="ltr">2.11</td><td dir="ltr">2231/6232</td><td dir="ltr">0</td><td dir="ltr">-18.57</td></tr>
+<tr><td dir="auto">maleki</td><td dir="ltr">-16</td><td dir="ltr">4.11</td><td dir="ltr">4674/6232</td><td dir="ltr">0</td><td dir="ltr">-17.68</td></tr>
+<tr><td dir="auto">makarem-kabiri</td><td dir="ltr">-23</td><td dir="ltr">-8.14</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-22.86</td></tr>
+<tr><td dir="auto">makarem-kabiri</td><td dir="ltr">-20</td><td dir="ltr">-5.14</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-19.86</td></tr>
+<tr><td dir="auto">makarem-kabiri</td><td dir="ltr">-18</td><td dir="ltr">-3.14</td><td dir="ltr">572/6236</td><td dir="ltr">0</td><td dir="ltr">-17.86</td></tr>
+<tr><td dir="auto">makarem-kabiri</td><td dir="ltr">-16</td><td dir="ltr">-1.14</td><td dir="ltr">4856/6236</td><td dir="ltr">0</td><td dir="ltr">-16.68</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="ltr">-23</td><td dir="ltr">-8.47</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-23.25</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="ltr">-20</td><td dir="ltr">-5.47</td><td dir="ltr">0/6236</td><td dir="ltr">0</td><td dir="ltr">-20.25</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="ltr">-18</td><td dir="ltr">-3.47</td><td dir="ltr">259/6236</td><td dir="ltr">0</td><td dir="ltr">-18.25</td></tr>
+<tr><td dir="auto">fooladvand-hedayatfar</td><td dir="ltr">-16</td><td dir="ltr">-1.47</td><td dir="ltr">2761/6236</td><td dir="ltr">0</td><td dir="ltr">-16.45</td></tr>
 </table>
 <p>ارزیابی اثر سیاست روی جفت قاری/مترجم (میانهٔ اختلاف مطلق آیه‌ای، سپس میانه روی ۳۶ جفت):</p>
 <table>
-<tr><td>هدف LUFS</td><td>سهم محدودیت peak</td><td>سهم محدودیت Gain</td><td>اختلاف مطلق میانهٔ جفت‌ها LU</td></tr>
-<tr><td>-23</td><td>0.01٪</td><td>0.00٪</td><td>1.83</td></tr>
-<tr><td>-20</td><td>2.39٪</td><td>0.00٪</td><td>1.83</td></tr>
-<tr><td>-18</td><td>12.52٪</td><td>0.00٪</td><td>1.78</td></tr>
-<tr><td>-16</td><td>32.13٪</td><td>0.00٪</td><td>2.09</td></tr>
+<tr><td dir="auto">هدف LUFS</td><td dir="auto">سهم محدودیت peak</td><td dir="auto">سهم محدودیت Gain</td><td dir="auto">اختلاف مطلق میانهٔ جفت‌ها LU</td></tr>
+<tr><td dir="ltr">-23</td><td dir="ltr">0.00٪</td><td dir="ltr">0.00٪</td><td dir="ltr">1.98</td></tr>
+<tr><td dir="ltr">-20</td><td dir="ltr">0.70٪</td><td dir="ltr">0.00٪</td><td dir="ltr">1.98</td></tr>
+<tr><td dir="ltr">-18</td><td dir="ltr">8.45٪</td><td dir="ltr">0.00٪</td><td dir="ltr">1.99</td></tr>
+<tr><td dir="ltr">-16</td><td dir="ltr">30.30٪</td><td dir="ltr">0.00٪</td><td dir="ltr">2.13</td></tr>
 </table>
 <p>پیشنهاد محاسباتی موقت برای آزمون شنیداری: -20 LUFS؛ بلندترین سطح آزموده‌شده که سهم peak-limited آن از 5٪ بیشتر نیست و اختلاف میانهٔ جفت‌ها حداکثر 0.25 LU از بهترین سناریو فاصله دارد. این معیار سیاست قابل تغییر است و برتری ادراکی را اثبات نمی‌کند؛ برای بیشترین headroom، ‎−۲۳ همچنان گزینهٔ محافظه‌کارانه است.</p>
-<p>اختلاف متناظر پیش از Gain: 2.98 LU. گروه آیات مشترکِ پس از سیاست ممکن است به علت Gain برابر null اندکی متفاوت باشد؛ نتایج شبیه‌سازی‌اند و جای آزمون شنیداری را نمی‌گیرند.</p>
+<p>اختلاف متناظر پیش از Gain: 2.69 LU. گروه آیات مشترکِ پس از سیاست ممکن است به علت Gain برابر null اندکی متفاوت باشد؛ نتایج شبیه‌سازی‌اند و جای آزمون شنیداری را نمی‌گیرند.</p>
 <p>Gain پایه برای هر منبع ثابت است و فراز و فرود آن را حفظ می‌کند. سقف True Peak برابر ‎−۱ dBTP با حاشیهٔ اضافی ۰٫۱۵ dB برای دقت اندازه‌گیری است. افزایش حداکثر ۸ و کاهش حداکثر ۱۸ dB است؛ این حدود در config تغییرپذیرند. اگر محدودیت کاهش نیز مانع رعایت سقف شود Gain برابر null خواهد بود.</p>
 <p>مدل سه‌سطحی: Gain پایه + اصلاح بخش با شدت ۰٫۵ و سقف ۲ dB + اصلاح ناهنجاری محلی با شدت ۰٫۲۵ و سقف ۱ dB. دو اصلاح آخر فقط پیشنهاد بازبینی هستند و پیش‌فرض اعمال نمی‌شوند؛ فایل approvals.json تصمیم انسانی را ثبت می‌کند. آمار preview سیاست سلسله‌مراتبی جدا از نتیجهٔ مجاز نگهداری می‌شود.</p>
 <p>اختلاف هر آیه با هدف، الزاماً خطا نیست: هدف برای baseline مجموعه است. محدودیت True Peak، سقف افزایش و تنوع طبیعی اجرا می‌توانند از رسیدن برخی فایل‌ها به آن جلوگیری کنند. policy-comparison.json نتایج همهٔ سناریوها را ثبت می‌کند.</p>
@@ -199,15 +427,18 @@
 <p>در وب، هر فایل از MediaElementAudioSourceNode به GainNode و سپس خروجی متصل شود. مقدار Gain از هش همان نسخهٔ فایل انتخاب و با رمپ کوتاه پیش از آغاز صوت تنظیم شود. تنظیم Gain در زمان سکوت بهتر از جهش وسط حرف است. حجم‌های معمولی HTMLMediaElement بالاتر از یک را پشتیبانی نمی‌کنند؛ برای boost از GainNode استفاده کنید. CORS میزبان باید اجازهٔ خواندن صوت در Web Audio را بدهد؛ در غیر این صورت مسیر گراف ممکن است بی‌صدا شود. ترکیب چند صدای هم‌زمان به headroom جداگانه نیاز دارد و تضمین peak تک‌فایلی برای crossfade جمع‌شده کافی نیست.</p>
 <p>در Android، Player.setVolume فقط برای attenuation در محدودهٔ صفر تا یک مناسب است. برای Gain مثبت، AudioProcessor در مسیر PCM یا GainProcessor متناسب با نسخهٔ Media3 به کار رود؛ bypass شدن پردازش در offload/passthrough باید بررسی شود. پردازش دامنهٔ نمونه‌ها با فرمت PCM و تبدیل عددی درست و بدون limiter پنهان انجام شود. تنظیمات صدا و حجم کاربر مستقل باقی بماند. این خروجی در اپ ادغام یا روی دستگاه شنیداری آزمایش نشده است.</p>
 <h2>آمار اجرا و محدودیت‌ها</h2>
-<p>- رویدادهای ثبت‌شدهٔ پردازش: 9,929؛ این تعداد شامل تلاش‌های تکراری/نسخه‌های روش هم می‌شود.</p>
-<p>- بایت‌های دانلود ثبت‌شده در تحلیل: 3,864,254,800 (3685.2 MiB). ترافیک آزمایش‌های اتصال و metadata در این عدد نیست.</p>
-<p>- محدودیت فعلی پوشش: زمان لازم برای درخواست‌ها و تحلیل ۸۱٬۰۶۸ مورد. checkpoint واقعی و کد ادامه همراه خروجی است؛ کامل بودن هیچ منبعی فرض نشده است.</p>
+<p>- رویدادهای ثبت‌شدهٔ پردازش: 81,476؛ این تعداد شامل تلاش‌های تکراری/نسخه‌های روش هم می‌شود.</p>
+<p>- بایت‌های دانلود ثبت‌شده در تحلیل: 22,451,235,793 (21411.2 MiB). ترافیک آزمایش‌های اتصال و metadata در این عدد نیست.</p>
+<p>- این حجم، بایت‌های بدنهٔ پاسخِ ثبت‌شده است؛ انتقال نیمه‌کاره‌ای که پیش از بازگشت payload شکست خورده باشد ممکن است شمرده نشود. سربار شبکه نیز داخل آن نیست؛ حجم موفقِ فایل‌های یکتا جدا ثبت شده است.</p>
+<p>- مجموع مدت صوت معتبر: 415.50 ساعت؛ حجم فایل‌های موفق یکتا: 20.765 GiB.</p>
+<p>- فاصلهٔ اولین تا آخرین event: 5.41 ساعت، شامل توقف‌ها. مجموع زمان دیواری کارهای فایل‌ها: 34.81 ساعت؛ به دلیل هم‌زمانی برابر زمان نشست یا زمان CPU نیست.</p>
+<p>- همهٔ ۸۱٬۰۶۸ شناسهٔ مورد انتظار بررسی شده‌اند. موفق، ناموجود، نامعتبر و خطاهای حل‌نشده در جدول پوشش جدا هستند؛ هیچ مجموعه‌ای از پیش کامل فرض نشده است.</p>
 <p>- هم‌زمانی میزبان، backoff، سقف حجم، timeout و پاک‌سازی فایل موقت فعال‌اند. تغییر URL ثابت با SHA-256 و ETag/Last-Modified در بازاعتبارسنجی قابل تشخیص است؛ در نبود بازاعتبارسنجی، تغییر دوردست خودبه‌خود معلوم نمی‌شود.</p>
 <p>- آزمون‌های مصنوعی sanity check هستند؛ گواهی کامل انطباق رسمی با مجموعهٔ آزمون EBU انجام نشده است. نسخه و پارامترهای FFmpeg ثبت شده‌اند.</p>
 <p>- تخمین فعالیت صوت، غیرقطعی است و سکوت سخت را از نفس، طنین یا حرف آرام به‌طور معنایی جدا نمی‌کند. خروجی مجوز trim خودکار نیست.</p>
 <h2>منابع و روش</h2>
-<p>- ساختار قرآن: [Tanzil](https://tanzil.net/docs/Quran_Metadata)، snapshot و SHA-256 در metadata؛ cross-check با [AlQuran Cloud](https://api.alquran.cloud/v1/meta). ناشران جدا ممکن است منشأ شمارش مشترک داشته باشند.</p>
-<p>- [ITU-R BS.1770](https://www.itu.int/rec/R-REC-BS.1770) و [FFmpeg ebur128](https://ffmpeg.org/ffmpeg-filters.html#ebur128-1): اندازه‌گیری LUFS با gate استاندارد؛ True Peak تخمینی از oversampling پیاده‌سازی FFmpeg.</p>
-<p>- [EBU Tech 3342](https://tech.ebu.ch/docs/tech/tech3342.pdf): LRA برای گفتارهای بسیار کوتاه می‌تواند گمراه‌کننده باشد. شرط حداقل ۳۰ ثانیه و ۱۰۰ پنجرهٔ کوتاه‌مدت معتبر، سیاست محافظه‌کارانهٔ این دیتاست است، نه حداقل اجباری استاندارد.</p>
-<p>- [Web Audio GainNode](https://www.w3.org/TR/webaudio/#GainNode)، [Media3 AudioProcessor](https://developer.android.com/reference/androidx/media3/common/audio/AudioProcessor)، [Media3 Player](https://developer.android.com/reference/androidx/media3/common/Player).</p>
+<p>- ساختار قرآن: <a href="https://tanzil.net/docs/Quran_Metadata">Tanzil</a>، snapshot و SHA-256 در metadata؛ cross-check با <a href="https://api.alquran.cloud/v1/meta">AlQuran Cloud</a>. ناشران جدا ممکن است منشأ شمارش مشترک داشته باشند.</p>
+<p>- <a href="https://www.itu.int/rec/R-REC-BS.1770">ITU-R BS.1770</a> و <a href="https://ffmpeg.org/ffmpeg-filters.html#ebur128-1">FFmpeg ebur128</a>: اندازه‌گیری LUFS با gate استاندارد؛ True Peak تخمینی از oversampling پیاده‌سازی FFmpeg.</p>
+<p>- <a href="https://tech.ebu.ch/docs/tech/tech3342.pdf">EBU Tech 3342</a>: LRA برای گفتارهای بسیار کوتاه می‌تواند گمراه‌کننده باشد. شرط حداقل ۳۰ ثانیه و ۱۰۰ پنجرهٔ کوتاه‌مدت معتبر، سیاست محافظه‌کارانهٔ این دیتاست است، نه حداقل اجباری استاندارد.</p>
+<p>- <a href="https://www.w3.org/TR/2021/REC-webaudio-20210617/#GainNode">Web Audio GainNode</a>، <a href="https://developer.android.com/reference/androidx/media3/common/audio/AudioProcessor">Media3 AudioProcessor</a>، <a href="https://developer.android.com/reference/androidx/media3/common/Player">Media3 Player</a>.</p>
 <p>آزمون تک‌سیگنال مرجع رسمی EBU: مقدار -22.972 LUFS در برابر انتظار ‎−۲۳ LUFS، داخل تلورانس ±۰٫۲ LU. این آزمون تک‌سیگنال جای گواهی مجموعهٔ کامل را نمی‌گیرد.</p></body></html>

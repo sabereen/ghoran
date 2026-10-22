@@ -20,7 +20,10 @@ def package(root, destination):
     destination = destination.resolve(); destination.parent.mkdir(parents=True, exist_ok=True)
     # Only immutable inputs / source code are copied. All generated views are
     # rebuilt against a single transactional SQLite backup, never mixed live reads.
-    with tempfile.TemporaryDirectory(prefix="quran-snapshot-", dir=destination.parent) as tmp:
+    # Build the transactional database in private local temp storage. A workspace
+    # file synchronizer can otherwise observe a live WAL database mid-update.
+    # Only the closed, verified archive is installed in the deliverable folder.
+    with tempfile.TemporaryDirectory(prefix="quran-snapshot-") as tmp:
         snapshot = Path(tmp) / "quran-audio-analysis"; snapshot.mkdir()
         for name in ("scripts", "tests", "schemas", "metadata", "measurement-runs"):
             shutil.copytree(root / name, snapshot / name, ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))

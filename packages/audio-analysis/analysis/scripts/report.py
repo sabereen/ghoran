@@ -117,7 +117,7 @@ def build_report(root, sources, records, profiles, anomalies, policies, pairs):
             n_changes += 1
             lines.append(f"- {source['id']}، حوالی {cp['at_verse_id']}: تغییر {cp['delta_lu']:+.2f} LU، امتیاز اطمینان {cp['confidence_score']:.2f}؛ نیازمند بازبینی.")
     if n_changes == 0:
-        lines.append("با داده‌های فعلی نقطهٔ تغییر پایداری که معیارهای محافظه‌کارانه را بگذراند اثبات آماری نشده است؛ پوشش ناقص و تعداد همسایه‌های متوالی این نتیجه را محدود می‌کند.")
+        lines.append("فرضیهٔ تغییر پایداری که معیارهای محافظه‌کارانه را بگذراند شناسایی نشد؛ نبود این پرچم، یکسان‌بودن شرایط تاریخی ضبط را ثابت نمی‌کند.")
     failures = [json.loads(line) for line in (folder / "failures.jsonl").read_text().splitlines() if line]
     if failures:
         lines += ["", "## فایل‌های دریافت‌نشده یا نامعتبر", "", "| منبع | آیه | وضعیت | تشخیص |", "|---|---|---|---|"]

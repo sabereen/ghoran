@@ -16,3 +16,4 @@ analysis/.venv/
 *.mp3
 *.wav
 analysis/reports/report.fa.standalone.html
+analysis/manifest.sha256.json
