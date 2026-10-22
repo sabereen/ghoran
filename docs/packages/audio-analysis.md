@@ -1,15 +1,25 @@
 # تحلیل صوت قرآن
 
-`@ghoran/audio-analysis` اندازه‌گیری‌های صوتی، استنباط‌های آماری و پیشنهادهای Gain را به شکل سه لایهٔ جدا نگه می‌دارد. این داده برای وب، اندروید یا هر پلیر دیگر قابل استفاده است؛ هیچ صوتی خودکار trim یا normalize نمی‌شود.
+`@ghoran/audio-analysis` پروفایل‌های مستقل و Tree-shakable برای هماهنگی بلندی تلاوت و ترجمه دارد. اپ فقط Gain نهایی آماده را دریافت می‌کند؛ هیچ تحلیل صوتی یا دریافت فایل توسط کتابخانه انجام نمی‌شود.
 
 ```ts
 import {
-  sources,
-  datasetCoverage,
-  createGainLookup,
+  parhizgar,
+  ansarian,
+  createAudioNormalizer,
 } from '@ghoran/audio-analysis'
+
+const audio = createAudioNormalizer({ sources: [parhizgar, ansarian] })
+const gain = audio.getGain('parhizgar', '2:255') // ضریب خطی یا null
+const url = audio.getUrl('parhizgar', '2:255')
 ```
 
-پوشش واقعی را از `datasetCoverage` بخوانید. دادهٔ ناقص به عنوان کل قرآن معرفی نمی‌شود. مقایسهٔ ثبات بلندی باید پراکندگی بین آیات، تغییرات همسایه‌ها و دینامیک داخل هر آیه را جدا کند؛ مجوّدِ پرنوسان ضرورتاً ضبط نامنظم نیست.
+برای پروژه با منابع ثابت، named import بالا یا ورودی مستقل `/sources/parhizgar` استفاده شود. متادیتای قاریان دیگر، سیاست‌های دیگر و manifest هش وارد باندل انتخاب ثابت نمی‌شوند؛ این رفتار با نصب tarball واقعی و بیلد Vite کنترل می‌شود.
 
-نمونه‌های مصرف، روش اندازه‌گیری، فایل‌های JSONL/gzip، قرارداد ordinal یک‌مبنا و محدودیت‌های LUFS در [README پکیج](https://github.com/sabereen/ghoran/tree/main/packages/audio-analysis) مستند شده‌اند.
+پیش‌فرض ‎−۲۰ LUFS در سطح baseline مجموعه، همراه با حفاظت Peak هر فایل است؛ بیان طبیعی آیات حفظ می‌شود. سیاست دیگر از `/targets/-23/parhizgar` وارد می‌شود. `/load` برای انتخاب پویا و `/catalog` برای فهرست انتخاب منبع اختیاری‌اند. loader پویا ممکن است chunkهای تمام گزینه‌ها را تولید کند؛ واردکردن ثابت برای حذف کامل منابع دیگر مناسب است.
+
+آدرس آیه می‌تواند `'2:255'`، `{ surah: 2, ayah: 255 }` یا ordinal **یک‌مبنا** باشد. برای اندیس صفرمبنای متن `index + 1` یا `Ayah.key` را به کار ببرید. فایل نامعتبر یا فاقد loudness معتبر `null` می‌دهد؛ جایگزین خودکار با Gain پایه وجود ندارد.
+
+`getGain` به صوت مرجع مربوط است و بایت‌های در حال پخش را تأیید نمی‌کند. برای تطبیق سخت‌گیرانه، manifest فقط همان منبع را از `/hashes/parhizgar` و `getVerifiedAudioGain` را از `/verify` وارد کنید و هش واقعی فایل اصلی را بدهید.
+
+داده‌های پژوهشی در مخزن Git و آرشیو مستقل هستند و داخل بستهٔ اجرایی npm قرار نمی‌گیرند. شرح کامل API، محدودیت‌های قرارداد مونو، اندازه‌گیری‌ها و بازتولید در [README پکیج](https://github.com/sabereen/ghoran/tree/main/packages/audio-analysis) آمده است.

@@ -1,0 +1,4 @@
+// Generated; source baseline + peak guard only.
+import type { AudioSourcePolicyData } from '../../../types'
+const policy: AudioSourcePolicyData = {"targetLufs":-18,"base":-320,"overrides":[[40,-345,true],[293,-325,true],[382,-325,true],[394,-325,true],[645,-335,true],[658,-375,true],[943,-325,true],[1612,-355,true],[1787,-325,true],[1899,-325,true],[1934,-325,true],[1976,-355,true],[1982,-325,true],[2046,-345,true],[2063,-335,true],[2168,-335,true],[2242,-335,true],[2272,-355,true],[2570,-325,true],[2844,-325,true],[2914,-325,true],[2995,-335,true],[3166,-325,true],[3169,-335,true],[3175,-325,true],[3219,-325,true],[3265,-325,true],[3286,-335,true],[3407,-355,true],[3539,-325,true],[3700,-355,true],[3703,-325,true],[4316,-335,true],[4519,-325,true],[4594,-345,true],[4916,-325,true],[4973,-325,true],[4978,-325,true],[5069,-335,true],[5407,-325,true],[5549,-325,true],[5576,-335,true],[6116,-375,true],[6232,-325,true]],"unavailable":[]}
+export default policy

@@ -1,0 +1,378 @@
+{
+  "schemaVersion": "1.0.0",
+  "compilerVersion": "1.0.0",
+  "inputManifestSha256": "f32fb1e7a4bbcde199c13db66249b333b0bce16d0b14279726e9a58b6ff390b8",
+  "settings": {
+    "truePeakCeilingDbtp": -1,
+    "truePeakMarginDb": 0.15,
+    "maximumBoostDb": 8,
+    "maximumCutDb": 18
+  },
+  "sources": [
+    {
+      "sourceId": "parhizgar",
+      "contentRevision": "8ff42d97bcf3f3dadb606815f4ed2b45caa1d3febb2b98b2c40249460e2b0632",
+      "targets": {
+        "-23": {
+          "ready": 6235,
+          "peakLimited": 0,
+          "unavailable": 1
+        },
+        "-20": {
+          "ready": 6235,
+          "peakLimited": 0,
+          "unavailable": 1
+        },
+        "-18": {
+          "ready": 6235,
+          "peakLimited": 0,
+          "unavailable": 1
+        },
+        "-16": {
+          "ready": 6235,
+          "peakLimited": 34,
+          "unavailable": 1
+        }
+      }
+    },
+    {
+      "sourceId": "ghamadi",
+      "contentRevision": "215bdc0c42b32adc35240772e4d9264a71a2a51bdc4f2b08520a044d65317f9b",
+      "targets": {
+        "-23": {
+          "ready": 6231,
+          "peakLimited": 2,
+          "unavailable": 5
+        },
+        "-20": {
+          "ready": 6231,
+          "peakLimited": 2,
+          "unavailable": 5
+        },
+        "-18": {
+          "ready": 6231,
+          "peakLimited": 47,
+          "unavailable": 5
+        },
+        "-16": {
+          "ready": 6231,
+          "peakLimited": 423,
+          "unavailable": 5
+        }
+      }
+    },
+    {
+      "sourceId": "husary",
+      "contentRevision": "d782a104bd4cd7264957b55f24e7e2b1c35e12fc212eba3f19cf1b9962af5530",
+      "targets": {
+        "-23": {
+          "ready": 6236,
+          "peakLimited": 0,
+          "unavailable": 0
+        },
+        "-20": {
+          "ready": 6236,
+          "peakLimited": 0,
+          "unavailable": 0
+        },
+        "-18": {
+          "ready": 6236,
+          "peakLimited": 0,
+          "unavailable": 0
+        },
+        "-16": {
+          "ready": 6236,
+          "peakLimited": 1589,
+          "unavailable": 0
+        }
+      }
+    },
+    {
+      "sourceId": "minshawy-murattal",
+      "contentRevision": "0ca284385846810c26b7a809eba2d752e1c084b15bb4e5feabd5ca7c9ecfe51d",
+      "targets": {
+        "-23": {
+          "ready": 6236,
+          "peakLimited": 0,
+          "unavailable": 0
+        },
+        "-20": {
+          "ready": 6236,
+          "peakLimited": 0,
+          "unavailable": 0
+        },
+        "-18": {
+          "ready": 6236,
+          "peakLimited": 0,
+          "unavailable": 0
+        },
+        "-16": {
+          "ready": 6236,
+          "peakLimited": 19,
+          "unavailable": 0
+        }
+      }
+    },
+    {
+      "sourceId": "minshawy-mujawwad",
+      "contentRevision": "8718ac18ce99035eae7ddcab993a73a85715916a5314015385a484defb5aa864",
+      "targets": {
+        "-23": {
+          "ready": 6236,
+          "peakLimited": 0,
+          "unavailable": 0
+        },
+        "-20": {
+          "ready": 6236,
+          "peakLimited": 0,
+          "unavailable": 0
+        },
+        "-18": {
+          "ready": 6236,
+          "peakLimited": 0,
+          "unavailable": 0
+        },
+        "-16": {
+          "ready": 6236,
+          "peakLimited": 5,
+          "unavailable": 0
+        }
+      }
+    },
+    {
+      "sourceId": "motaz",
+      "contentRevision": "0b3d0aafb6241fad137e1047ada1b6edf509b48440b1a510f8dec2ea9a95c2c5",
+      "targets": {
+        "-23": {
+          "ready": 6236,
+          "peakLimited": 1,
+          "unavailable": 0
+        },
+        "-20": {
+          "ready": 6236,
+          "peakLimited": 64,
+          "unavailable": 0
+        },
+        "-18": {
+          "ready": 6236,
+          "peakLimited": 393,
+          "unavailable": 0
+        },
+        "-16": {
+          "ready": 6236,
+          "peakLimited": 1560,
+          "unavailable": 0
+        }
+      }
+    },
+    {
+      "sourceId": "abdulbasit",
+      "contentRevision": "3ccf71f3644b404a3682b0b96e7cf62b780dac9ecc4f7665770a37ac3453c1d4",
+      "targets": {
+        "-23": {
+          "ready": 6235,
+          "peakLimited": 0,
+          "unavailable": 1
+        },
+        "-20": {
+          "ready": 6235,
+          "peakLimited": 0,
+          "unavailable": 1
+        },
+        "-18": {
+          "ready": 6235,
+          "peakLimited": 0,
+          "unavailable": 1
+        },
+        "-16": {
+          "ready": 6235,
+          "peakLimited": 64,
+          "unavailable": 1
+        }
+      }
+    },
+    {
+      "sourceId": "almuiqly",
+      "contentRevision": "52c91d15c80762e8e003f9e1bfd4dbd51046240649d3ea1dea6332bfdd71a80b",
+      "targets": {
+        "-23": {
+          "ready": 6236,
+          "peakLimited": 0,
+          "unavailable": 0
+        },
+        "-20": {
+          "ready": 6236,
+          "peakLimited": 0,
+          "unavailable": 0
+        },
+        "-18": {
+          "ready": 6236,
+          "peakLimited": 12,
+          "unavailable": 0
+        },
+        "-16": {
+          "ready": 6236,
+          "peakLimited": 788,
+          "unavailable": 0
+        }
+      }
+    },
+    {
+      "sourceId": "jafarpour",
+      "contentRevision": "15255e78bf45782c687262e3f2f6204ca566845b806149ca8477892ceecf3353",
+      "targets": {
+        "-23": {
+          "ready": 6236,
+          "peakLimited": 0,
+          "unavailable": 0
+        },
+        "-20": {
+          "ready": 6236,
+          "peakLimited": 0,
+          "unavailable": 0
+        },
+        "-18": {
+          "ready": 6236,
+          "peakLimited": 44,
+          "unavailable": 0
+        },
+        "-16": {
+          "ready": 6236,
+          "peakLimited": 1846,
+          "unavailable": 0
+        }
+      }
+    },
+    {
+      "sourceId": "ansarian",
+      "contentRevision": "68e07be1581e9ecb5781f1f2ba11e2796d3051588c4fa868b75401cf0d0179d8",
+      "targets": {
+        "-23": {
+          "ready": 6236,
+          "peakLimited": 0,
+          "unavailable": 0
+        },
+        "-20": {
+          "ready": 6236,
+          "peakLimited": 16,
+          "unavailable": 0
+        },
+        "-18": {
+          "ready": 6236,
+          "peakLimited": 3294,
+          "unavailable": 0
+        },
+        "-16": {
+          "ready": 6236,
+          "peakLimited": 5942,
+          "unavailable": 0
+        }
+      }
+    },
+    {
+      "sourceId": "maleki",
+      "contentRevision": "6a7785b078eb02e13462ac57f8d4dc81690862234b55f12769f48711a964d297",
+      "targets": {
+        "-23": {
+          "ready": 6232,
+          "peakLimited": 1,
+          "unavailable": 4
+        },
+        "-20": {
+          "ready": 6232,
+          "peakLimited": 484,
+          "unavailable": 4
+        },
+        "-18": {
+          "ready": 6232,
+          "peakLimited": 2231,
+          "unavailable": 4
+        },
+        "-16": {
+          "ready": 6232,
+          "peakLimited": 4674,
+          "unavailable": 4
+        }
+      }
+    },
+    {
+      "sourceId": "makarem-kabiri",
+      "contentRevision": "e3bba246cfd4ada455451cc11c2209c18ec96e72149adf8f7fc7c467a7876a67",
+      "targets": {
+        "-23": {
+          "ready": 6236,
+          "peakLimited": 0,
+          "unavailable": 0
+        },
+        "-20": {
+          "ready": 6236,
+          "peakLimited": 0,
+          "unavailable": 0
+        },
+        "-18": {
+          "ready": 6236,
+          "peakLimited": 572,
+          "unavailable": 0
+        },
+        "-16": {
+          "ready": 6236,
+          "peakLimited": 4856,
+          "unavailable": 0
+        }
+      }
+    },
+    {
+      "sourceId": "fooladvand-hedayatfar",
+      "contentRevision": "46f5911b18a2b85829e1ebb8b686e229e3c6c2abaa46ed369c53dba1d9912e56",
+      "targets": {
+        "-23": {
+          "ready": 6236,
+          "peakLimited": 0,
+          "unavailable": 0
+        },
+        "-20": {
+          "ready": 6236,
+          "peakLimited": 0,
+          "unavailable": 0
+        },
+        "-18": {
+          "ready": 6236,
+          "peakLimited": 259,
+          "unavailable": 0
+        },
+        "-16": {
+          "ready": 6236,
+          "peakLimited": 2761,
+          "unavailable": 0
+        }
+      }
+    }
+  ],
+  "targets": {
+    "-23": {
+      "jsonBytes": 1112,
+      "gzipBytes": 379,
+      "ready": 81057,
+      "peakLimited": 4
+    },
+    "-20": {
+      "jsonBytes": 9872,
+      "gzipBytes": 2393,
+      "ready": 81057,
+      "peakLimited": 566
+    },
+    "-18": {
+      "jsonBytes": 112527,
+      "gzipBytes": 23315,
+      "ready": 81057,
+      "peakLimited": 6852
+    },
+    "-16": {
+      "jsonBytes": 401345,
+      "gzipBytes": 82326,
+      "ready": 81057,
+      "peakLimited": 24561
+    }
+  },
+  "snapshotId": "47967dd7c0f577b20c63998e0fef2387c3d8e35af146fe0ee06464e5a75d3bd9"
+}

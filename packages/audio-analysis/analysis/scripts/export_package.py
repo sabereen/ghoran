@@ -3,44 +3,85 @@ import argparse
 import gzip
 import hashlib
 import json
+import os
 from pathlib import Path
-import shutil
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = ROOT.parent
 
 
-def main(output=None):
-    package_file=PACKAGE/'package.json'
-    in_ghoran=package_file.exists() and json.loads(package_file.read_text()).get('name')=='@ghoran/audio-analysis'
-    data = output.resolve() if output else PACKAGE/'data' if in_ghoran else ROOT/'consumer-data'
+def atomic_bytes(path, content):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as f:
+        temporary = Path(f.name)
+        f.write(content)
+    try:
+        os.replace(temporary, path)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
+def atomic_gzip(path, content):
+    compressed = gzip.compress(content, mtime=0)
+    assert gzip.decompress(compressed) == content
+    atomic_bytes(path, compressed)
+
+
+def build_export(data):
     for relative, name in [('sources.json', 'sources.json'), ('profiles.json', 'profiles.json'), ('reports/progress.json', 'coverage.json')]:
         data.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(ROOT / relative, data / name)
-    with gzip.GzipFile(filename=str(data/'verses.json.gz'),mode='wb',mtime=0) as f:
-        f.write((ROOT/'metadata/verses.json').read_bytes())
+        atomic_bytes(data / name, (ROOT / relative).read_bytes())
+    atomic_gzip(data/'verses.json.gz', (ROOT/'metadata/verses.json').read_bytes())
+    coverage = {r['source_id']: r for r in json.loads((ROOT/'reports/progress.json').read_text())['coverage']}
     for source in (ROOT / 'measurements').glob('*.jsonl'):
         target = data / 'measurements' / (source.name + '.gz')
         target.parent.mkdir(parents=True, exist_ok=True)
-        with gzip.GzipFile(filename=str(target), mode='wb', mtime=0) as f:
-            f.write(source.read_bytes())
+        content = source.read_bytes()
+        expected = coverage[source.stem]['expected'] - coverage[source.stem]['unprocessed']
+        assert len(content.splitlines()) == expected, 'Incomplete measurement export: ' + source.stem
+        atomic_gzip(target, content)
     for source in (ROOT / 'recommendations').glob('*/*.compact.json.gz'):
         target = data / 'recommendations' / source.parent.name / source.name.replace('.compact', '')
         target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(source, target)
-        with gzip.open(source, 'rt') as f:
-            target.with_suffix('').write_text(f.read())
+        compressed = source.read_bytes()
+        content = gzip.decompress(compressed)
+        json.loads(content)
+        atomic_bytes(target, compressed)
+        atomic_bytes(target.with_suffix(''), content)
     for source in (ROOT / 'segments').glob('*.json'):
         target=data/'segments'/source.name;target.parent.mkdir(parents=True,exist_ok=True)
-        shutil.copy2(source,target)
+        atomic_bytes(target, source.read_bytes())
     for source in (ROOT / 'anomalies').glob('*.jsonl'):
         target=data/'anomalies'/(source.name+'.gz');target.parent.mkdir(parents=True,exist_ok=True)
-        with gzip.GzipFile(filename=str(target),mode='wb',mtime=0) as f:
-            f.write(source.read_bytes())
+        atomic_gzip(target, source.read_bytes())
     manifest={'schema_version':'1.0.0','files':{str(p.relative_to(data)):hashlib.sha256(p.read_bytes()).hexdigest()
               for p in sorted(data.rglob('*')) if p.is_file() and p.name!='manifest.sha256.json'}}
-    (data/'manifest.sha256.json').write_text(json.dumps(manifest,indent=2)+'\n')
-    print(json.dumps({'data': str(data), 'measured_sources': len(list((data / 'measurements').glob('*.gz')))}))
+    # Publish the manifest last, after checking closed bytes on disk. A partially
+    # written gzip or empty source stream must never become a valid release.
+    for path in data.rglob('*.gz'):
+        gzip.decompress(path.read_bytes())
+    atomic_bytes(data/'manifest.sha256.json', (json.dumps(manifest,indent=2)+'\n').encode())
+    return manifest
+
+
+def main(output=None):
+    package_file = PACKAGE/'package.json'
+    in_ghoran = package_file.exists() and json.loads(package_file.read_text()).get('name') == '@ghoran/audio-analysis'
+    destination = output.resolve() if output else PACKAGE/'data' if in_ghoran else ROOT/'consumer-data'
+    # Build and validate in private storage, then install closed bytes. Keep the
+    # staged hashes rather than blessing whatever happens to be at destination.
+    with tempfile.TemporaryDirectory(prefix='quran-consumer-export-') as folder:
+        staging = Path(folder)
+        manifest = build_export(staging)
+        for name, expected in manifest['files'].items():
+            content = (staging/name).read_bytes()
+            assert hashlib.sha256(content).hexdigest() == expected
+            atomic_bytes(destination/name, content)
+        for name, expected in manifest['files'].items():
+            assert hashlib.sha256((destination/name).read_bytes()).hexdigest() == expected, 'Export changed while installing: ' + name
+        atomic_bytes(destination/'manifest.sha256.json', (staging/'manifest.sha256.json').read_bytes())
+    print(json.dumps({'data': str(destination), 'measured_sources': len(list((destination/'measurements').glob('*.gz')))}))
 
 
 if __name__ == '__main__':

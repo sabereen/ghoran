@@ -1,0 +1,16 @@
+// Generated; optional catalog metadata for source selectors.
+import type { AudioSource } from './types'
+import source0 from './generated/metadata/parhizgar'
+import source1 from './generated/metadata/ghamadi'
+import source2 from './generated/metadata/husary'
+import source3 from './generated/metadata/minshawy-murattal'
+import source4 from './generated/metadata/minshawy-mujawwad'
+import source5 from './generated/metadata/motaz'
+import source6 from './generated/metadata/abdulbasit'
+import source7 from './generated/metadata/almuiqly'
+import source8 from './generated/metadata/jafarpour'
+import source9 from './generated/metadata/ansarian'
+import source10 from './generated/metadata/maleki'
+import source11 from './generated/metadata/makarem-kabiri'
+import source12 from './generated/metadata/fooladvand-hedayatfar'
+export const audioSources: readonly AudioSource[] = /* @__PURE__ */ Object.freeze([/* @__PURE__ */ Object.freeze(source0),/* @__PURE__ */ Object.freeze(source1),/* @__PURE__ */ Object.freeze(source2),/* @__PURE__ */ Object.freeze(source3),/* @__PURE__ */ Object.freeze(source4),/* @__PURE__ */ Object.freeze(source5),/* @__PURE__ */ Object.freeze(source6),/* @__PURE__ */ Object.freeze(source7),/* @__PURE__ */ Object.freeze(source8),/* @__PURE__ */ Object.freeze(source9),/* @__PURE__ */ Object.freeze(source10),/* @__PURE__ */ Object.freeze(source11),/* @__PURE__ */ Object.freeze(source12)])

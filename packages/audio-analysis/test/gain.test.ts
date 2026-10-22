@@ -3,7 +3,7 @@ import {
   createGainLookup,
   dbToLinearGain,
   type CompactGainDataset,
-} from '../src/index'
+} from '../src/legacy'
 
 const hash = 'a'.repeat(64)
 const data: CompactGainDataset = {
