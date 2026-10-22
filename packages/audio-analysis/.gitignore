@@ -15,3 +15,4 @@ analysis/.venv/
 *.zip
 *.mp3
 *.wav
+analysis/reports/report.fa.standalone.html

@@ -188,6 +188,10 @@ def find_anomalies(records, prof, segments, source, config):
                             "review_priority_score": review_priority,
                             "review_required": True, "review_status": "pending", "automatic_correction_authorized": False})
         m = r["measured"]; active = m["activity"]
+        if m['media']['codec']!='mp3' and r['url'].lower().endswith('.mp3'):
+            add('codec_does_not_match_mp3_extension','medium',.95,
+                {'codec':m['media']['codec'],'url':r['url'],'decode_succeeded':True,
+                 'not_audio_corruption_by_itself':True,'player_format_and_mime_compatibility_requires_review':True})
         for flag in m["quality_flags"]:
             if flag in ("near_silent", "possible_clipping_requires_review", "container_decoded_duration_mismatch", "decoder_warning"):
                 metadata_only = flag == "decoder_warning" and m["decoder_warnings"] and all(
@@ -431,6 +435,8 @@ def analyze(root):
     for source in sources:
         rs = all_records[source["id"]]
         quality.append({"source_id": source["id"], "n_success": len(rs),
+                        'codec_counts':{codec:sum(r['measured']['media']['codec']==codec for r in rs) for codec in sorted({r['measured']['media']['codec'] for r in rs})},
+                        'codec_extension_mismatch':sum(r['measured']['media']['codec']!='mp3' and r['url'].lower().endswith('.mp3') for r in rs),
                         "true_peak_above_0_dbtp": sum(r["measured"]["loudness"]["true_peak_dbtp"] is not None and r["measured"]["loudness"]["true_peak_dbtp"] > 0 for r in rs),
                         "possible_clipping": sum("possible_clipping_requires_review" in r["measured"]["quality_flags"] for r in rs),
                         "near_silent": sum(r["measured"]["activity"]["near_silent"] for r in rs),

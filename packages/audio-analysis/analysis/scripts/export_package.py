@@ -17,6 +17,8 @@ def main(output=None):
     for relative, name in [('sources.json', 'sources.json'), ('profiles.json', 'profiles.json'), ('reports/progress.json', 'coverage.json')]:
         data.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT / relative, data / name)
+    with gzip.GzipFile(filename=str(data/'verses.json.gz'),mode='wb',mtime=0) as f:
+        f.write((ROOT/'metadata/verses.json').read_bytes())
     for source in (ROOT / 'measurements').glob('*.jsonl'):
         target = data / 'measurements' / (source.name + '.gz')
         target.parent.mkdir(parents=True, exist_ok=True)

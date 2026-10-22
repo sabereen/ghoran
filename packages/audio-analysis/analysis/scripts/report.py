@@ -87,6 +87,12 @@ def build_report(root, sources, records, profiles, anomalies, policies, pairs):
              "## پوشش واقعی", "", "| منبع | موفق | ناموجود | نامعتبر | موقت | HTTP دیگر | بررسی‌نشده |", "|---|---:|---:|---:|---:|---:|---:|"]
     for c in coverage:
         lines.append(f"| {c['source_id']} | {c['success']} | {c['missing']} | {c['invalid']} | {c['temporary_error']} | {c['http_error']} | {c['unprocessed']} |")
+    quality_summary=json.loads((folder/'quality-summary.json').read_text())
+    lines += ['', '## نوع واقعی دادهٔ صوتی', '',
+              'پسوند URL مبنای تشخیص Codec نبوده است. فایل غیر MP3 که با پسوند mp3 ارائه شده باشد، در صورت Decode معتبر در اندازه‌گیری‌ها باقی می‌ماند و برای سازگاری Container/MIME پلیر پرچم می‌گیرد؛ هیچ تبدیل فرمت انجام نشده است.', '',
+              '| منبع | تعداد به تفکیک Codec واقعی | ناسازگار با پسوند MP3 |', '|---|---|---:|']
+    for entry in quality_summary['sources']:
+        lines.append(f"| {entry['source_id']} | {', '.join(codec+': '+str(n) for codec,n in entry['codec_counts'].items())} | {entry['codec_extension_mismatch']} |")
     lines += ["", "## توزیع‌ها و مقایسهٔ سطح بلندی", "", "![توزیع اندازه‌گیری‌ها](distributions.png)", "", "![توزیع و پیوستگی](histogram-continuity.png)", "",
               "برای مقایسهٔ منصفانهٔ منابع، نمودارهای زیر فقط آیات مشترکِ معتبر هر ۱۳ منبع با مدت حداقل سه ثانیه و فعالیت حداقل یک ثانیه را نشان می‌دهند. اعداد هر نمودار تعداد واقعی cohort را مشخص می‌کند. این نمودارها از پهنای کلی توزیع، جهش همسایه‌ها و سطح معمول صدا تفکیک می‌سازند.", '',
               '![سطح و پراکندگی مشترک](distributions/level-and-spread.png)', '',
