@@ -46,7 +46,7 @@ def package(root, destination):
                     shutil.copy2(current, src / filename)
                 elif not (src / filename).exists() or hashlib.sha256((src / filename).read_bytes()).hexdigest() != digest:
                     raise ValueError("Missing exact historical analyzer source: " + filename + ":" + run["measurement_config_sha256"])
-        for script in ("analyze.py", "verify.py", "distribution_report.py", "standalone_report.py"):
+        for script in ("analyze.py", "verify.py", "distribution_report.py", "standalone_report.py", "execution_summary.py"):
             subprocess.run([sys.executable, str(snapshot / "scripts" / script), "--root", str(snapshot)], check=True)
         hashes = {str(p.relative_to(snapshot)): hashlib.sha256(p.read_bytes()).hexdigest()
                   for p in sorted(snapshot.rglob("*")) if p.is_file() and p.suffix not in (".pyc",)

@@ -87,6 +87,7 @@ python3 scripts/pipeline.py run --phase full --sources ansarian --revalidate --m
 | `recommendations/<target>/<source>.jsonl` | Gain درخواستی، محدودیت peak، نتیجه و اصلاح‌های هنوز تأییدنشده |
 | `recommendations/<target>/*.compact.json.gz` | آرایهٔ سبک `[ordinal,gainDb,contentSha256]` برای پلیر |
 | `reports/report.fa.html` | گزارش فارسی همراه نمودارهای محلی؛ فایل HTML را پس از unzip باز کنید |
+| `reports/report.fa.standalone.html` | گزارش فارسی با نمودارهای جاسازی‌شده؛ قابل بازکردن مستقل و آفلاین |
 | `reports/report.fa.md` | نسخهٔ Markdown گزارش |
 | `reports/measurement-summary.csv` | جدول سادهٔ قابل مصرف در ابزارهای داده |
 | `reports/pilot-validation.json` | نتیجهٔ پذیرش پایلوت؛ شامل محدودیت نبود آزمون شنیداری |

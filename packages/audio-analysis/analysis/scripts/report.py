@@ -60,7 +60,7 @@ def build_report(root, sources, records, profiles, anomalies, policies, pairs):
             if np.isfinite(matrix[y, x]):
                 ax.text(x, y, f"{matrix[y,x]:+.1f}", ha="center", va="center")
     fig.colorbar(im, ax=ax, label="Median translator minus reciter (LU), matched verses")
-    ax.set_title("Observed pairs; mono duplicated playback convention; provisional")
+    ax.set_title("Observed pairs; mono duplicated playback convention" + ("; provisional" if not progress['complete_inventory'] else ""))
     fig.savefig(folder / "pairing-matrix.png", dpi=150); plt.close(fig)
     with (folder / "coverage.csv").open("w") as f:
         writer = csv.DictWriter(f, fieldnames=list(coverage[0])); writer.writeheader(); writer.writerows(coverage)
