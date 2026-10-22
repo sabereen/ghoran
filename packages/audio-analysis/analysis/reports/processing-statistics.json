@@ -1,0 +1,16 @@
+{
+  "completed_at": "2026-10-22T10:40:09.541164+00:00",
+  "events": 9929,
+  "downloaded_bytes_all_attempts": 3864254800,
+  "sum_file_processing_wall_s": 16325.23108684301,
+  "note": "sum of per-file wall time includes concurrent work; not elapsed session time",
+  "first_event_at": "2026-10-22T09:47:47.055847+00:00",
+  "last_event_at": "2026-10-22T10:38:53.202846+00:00",
+  "event_span_elapsed_s": 3066.146999,
+  "unique_successful_file_bytes": 3711455431,
+  "unique_decoded_audio_duration_s": 292580.2663663549,
+  "status_counts": {
+    "invalid": 3,
+    "success": 9534
+  }
+}

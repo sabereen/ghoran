@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "retrieved_at": "2026-10-22T09:49:13.532969+00:00",
+  "primary_url": "https://tanzil.net/res/text/metadata/quran-data.xml",
+  "primary_sha256": "8867c1d88191472adec9db694b3cd9f135b1a2ef580574d32cf888dcb22c5c7a",
+  "attribution": "Quran structure metadata: Tanzil Project, CC-BY, https://tanzil.net/docs/Quran_Metadata",
+  "total_verses": 6236,
+  "surahs": 114,
+  "juzs": 30,
+  "internal_checks_passed": true,
+  "independent_crosscheck_passed": true,
+  "crosscheck_url": "https://api.alquran.cloud/v1/meta",
+  "crosscheck_error": null,
+  "crosscheck_independence_caveat": "separate publisher; may share the same underlying enumeration",
+  "crosscheck_sha256": "9444749ea0b261054d4f744d4aec38286e666b25f1cf8aa78ce0a24f789caa5c"
+}

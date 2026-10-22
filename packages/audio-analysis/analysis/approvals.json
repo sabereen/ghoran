@@ -1,0 +1,6 @@
+{
+  "schema_version": "1.0.0",
+  "segments": [],
+  "files": [],
+  "note_fa": "هیچ اصلاح استنباطی تأیید نشده است. تأیید هر بخش باید source_id و segment_id و content_set_sha256، و تأیید هر فایل باید source_id و verse_id و content_sha256 همان نسخه را داشته باشد."
+}

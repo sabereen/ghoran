@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0.0",
+  "sources": [
+    {
+      "id": "parhizgar",
+      "name_fa": "پرهیزگار",
+      "kind": "recitation",
+      "expected_files": 6236,
+      "url_template": "https://asset.nasimrezvan.com/data/Parhizgar/{file_stem}.mp3",
+      "content_rights": "not_verified; original media excluded from deliverables"
+    },
+    {
+      "id": "ghamadi",
+      "name_fa": "غامدی",
+      "kind": "recitation",
+      "expected_files": 6236,
+      "url_template": "https://asset.nasimrezvan.com/data/Ghamadi/{file_stem}.mp3",
+      "content_rights": "not_verified; original media excluded from deliverables"
+    },
+    {
+      "id": "husary",
+      "name_fa": "حصری",
+      "kind": "recitation",
+      "expected_files": 6236,
+      "url_template": "https://asset.nasimrezvan.com/data/Husary/{file_stem}.mp3",
+      "content_rights": "not_verified; original media excluded from deliverables"
+    },
+    {
+      "id": "minshawy-murattal",
+      "name_fa": "منشاوی ترتیل",
+      "kind": "recitation",
+      "expected_files": 6236,
+      "url_template": "https://asset.nasimrezvan.com/data/Minshawy_Murattal/{file_stem}.mp3",
+      "content_rights": "not_verified; original media excluded from deliverables"
+    },
+    {
+      "id": "minshawy-mujawwad",
+      "name_fa": "منشاوی مجوّد",
+      "kind": "mujawwad",
+      "expected_files": 6236,
+      "url_template": "https://asset.nasimrezvan.com/data/Minshawy_Mujawwad/{file_stem}.mp3",
+      "content_rights": "not_verified; original media excluded from deliverables"
+    },
+    {
+      "id": "motaz",
+      "name_fa": "معتز آقایی",
+      "kind": "recitation",
+      "expected_files": 6236,
+      "url_template": "https://asset.nasimrezvan.com/data/Motaz/{file_stem}.mp3",
+      "content_rights": "not_verified; original media excluded from deliverables"
+    },
+    {
+      "id": "abdulbasit",
+      "name_fa": "عبدالباسط",
+      "kind": "recitation",
+      "expected_files": 6236,
+      "url_template": "https://asset.nasimrezvan.com/data/Abdulbasit/{file_stem}.mp3",
+      "content_rights": "not_verified; original media excluded from deliverables"
+    },
+    {
+      "id": "almuiqly",
+      "name_fa": "معیقلی",
+      "kind": "recitation",
+      "expected_files": 6236,
+      "url_template": "https://asset.nasimrezvan.com/data/AlMuiqly/{file_stem}.mp3",
+      "content_rights": "not_verified; original media excluded from deliverables"
+    },
+    {
+      "id": "jafarpour",
+      "name_fa": "جعفرپور",
+      "kind": "recitation",
+      "expected_files": 6236,
+      "url_template": "https://qmad.s3.ir-central1.arvanstorage.ir/jafarpour/{file_stem}.mp3",
+      "content_rights": "not_verified; original media excluded from deliverables"
+    },
+    {
+      "id": "ansarian",
+      "name_fa": "انصاریان",
+      "kind": "translation",
+      "expected_files": 6236,
+      "url_template": "https://qmad.s3.ir-central1.arvanstorage.ir/translation/ansarian-iranseda/{file_stem}.mp3",
+      "content_rights": "not_verified; original media excluded from deliverables"
+    },
+    {
+      "id": "maleki",
+      "name_fa": "ملکی",
+      "kind": "translation",
+      "expected_files": 6236,
+      "url_template": "https://asset.nasimrezvan.com/data/maleki/{file_stem}.mp3",
+      "content_rights": "not_verified; original media excluded from deliverables"
+    },
+    {
+      "id": "makarem-kabiri",
+      "name_fa": "مکارم شیرازی",
+      "kind": "translation",
+      "expected_files": 6236,
+      "url_template": "https://asset.nasimrezvan.com/data/Makarem_Kabiri/{file_stem}.mp3",
+      "content_rights": "not_verified; original media excluded from deliverables"
+    },
+    {
+      "id": "fooladvand-hedayatfar",
+      "name_fa": "فولادوند",
+      "kind": "translation",
+      "expected_files": 6236,
+      "url_template": "https://asset.nasimrezvan.com/data/Fooladvand_Hedayatfar/{file_stem}.mp3",
+      "content_rights": "not_verified; original media excluded from deliverables"
+    }
+  ]
+}

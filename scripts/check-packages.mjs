@@ -96,6 +96,16 @@ import { searchBinaryForAyah } from '@ghoran/utils'
 import '@ghoran/font-page'
 import '@ghoran/translation'
 import { createQuranSearch, normalizeArabic, getHighlightSegments } from '@ghoran/search'
+import { sources as audioSources, datasetCoverage, dbToLinearGain, createGainLookup } from '@ghoran/audio-analysis'
+assert.equal(audioSources.length, 13)
+assert.equal(datasetCoverage.expected_total, 81068)
+assert.equal(dbToLinearGain(0), 1)
+const gainData = JSON.parse(await readFile(new URL(import.meta.resolve('@ghoran/audio-analysis/data/recommendations/-20/parhizgar.json')), 'utf8'))
+const audioLookup = createGainLookup(gainData)
+const [audioOrdinal, audioGain, audioHash] = gainData.values[0]
+assert.equal(audioLookup.get(audioOrdinal, audioHash).gainDb, audioGain)
+assert.equal(audioLookup.get(audioOrdinal, '0'.repeat(64)), null)
+await access(new URL(import.meta.resolve('@ghoran/audio-analysis/data/measurements/parhizgar.jsonl.gz')))
 import { createBrowserQuranSearch } from '@ghoran/search/browser'
 assert.equal(normalizeArabic('ٱلرَّحِيمِ'), 'الرحيم')
 const search = await createQuranSearch()

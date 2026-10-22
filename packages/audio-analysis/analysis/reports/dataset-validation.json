@@ -1,0 +1,81 @@
+{
+  "checked_at": "2026-10-22T10:40:19.122547+00:00",
+  "pilot_required": false,
+  "rows_checked": 9537,
+  "counts": {
+    "husary": {
+      "observed": 734,
+      "success": 734
+    },
+    "motaz": {
+      "observed": 734,
+      "success": 734
+    },
+    "jafarpour": {
+      "observed": 733,
+      "success": 733
+    },
+    "ansarian": {
+      "observed": 733,
+      "success": 733
+    },
+    "maleki": {
+      "observed": 733,
+      "success": 731
+    },
+    "ghamadi": {
+      "observed": 734,
+      "success": 733
+    },
+    "almuiqly": {
+      "observed": 734,
+      "success": 734
+    },
+    "abdulbasit": {
+      "observed": 734,
+      "success": 734
+    },
+    "minshawy-murattal": {
+      "observed": 734,
+      "success": 734
+    },
+    "parhizgar": {
+      "observed": 734,
+      "success": 734
+    },
+    "minshawy-mujawwad": {
+      "observed": 734,
+      "success": 734
+    },
+    "makarem-kabiri": {
+      "observed": 733,
+      "success": 733
+    },
+    "fooladvand-hedayatfar": {
+      "observed": 733,
+      "success": 733
+    }
+  },
+  "pilot_success_counts": {
+    "husary": 30,
+    "motaz": 30,
+    "jafarpour": 30,
+    "ansarian": 30,
+    "maleki": 30,
+    "ghamadi": 30,
+    "almuiqly": 30,
+    "abdulbasit": 30,
+    "minshawy-murattal": 30,
+    "parhizgar": 30,
+    "minshawy-mujawwad": 30,
+    "makarem-kabiri": 30,
+    "fooladvand-hedayatfar": 30
+  },
+  "errors": [],
+  "warnings": [],
+  "passed": true,
+  "json_schema_validation_performed": true,
+  "recommendations_checked": 38136,
+  "not_a_listening_review": true,
+  "not_ebu_conformance_certification": true
+}

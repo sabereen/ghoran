@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0.0",
+  "sources": [
+    {
+      "source_id": "parhizgar",
+      "n_success": 734,
+      "true_peak_above_0_dbtp": 175,
+      "possible_clipping": 178,
+      "near_silent": 0,
+      "decoder_warning": 734
+    },
+    {
+      "source_id": "ghamadi",
+      "n_success": 733,
+      "true_peak_above_0_dbtp": 103,
+      "possible_clipping": 100,
+      "near_silent": 0,
+      "decoder_warning": 0
+    },
+    {
+      "source_id": "husary",
+      "n_success": 734,
+      "true_peak_above_0_dbtp": 3,
+      "possible_clipping": 4,
+      "near_silent": 0,
+      "decoder_warning": 0
+    },
+    {
+      "source_id": "minshawy-murattal",
+      "n_success": 734,
+      "true_peak_above_0_dbtp": 66,
+      "possible_clipping": 86,
+      "near_silent": 0,
+      "decoder_warning": 0
+    },
+    {
+      "source_id": "minshawy-mujawwad",
+      "n_success": 734,
+      "true_peak_above_0_dbtp": 83,
+      "possible_clipping": 87,
+      "near_silent": 0,
+      "decoder_warning": 0
+    },
+    {
+      "source_id": "motaz",
+      "n_success": 734,
+      "true_peak_above_0_dbtp": 0,
+      "possible_clipping": 0,
+      "near_silent": 0,
+      "decoder_warning": 734
+    },
+    {
+      "source_id": "abdulbasit",
+      "n_success": 734,
+      "true_peak_above_0_dbtp": 91,
+      "possible_clipping": 97,
+      "near_silent": 0,
+      "decoder_warning": 36
+    },
+    {
+      "source_id": "almuiqly",
+      "n_success": 734,
+      "true_peak_above_0_dbtp": 41,
+      "possible_clipping": 35,
+      "near_silent": 0,
+      "decoder_warning": 0
+    },
+    {
+      "source_id": "jafarpour",
+      "n_success": 733,
+      "true_peak_above_0_dbtp": 246,
+      "possible_clipping": 253,
+      "near_silent": 0,
+      "decoder_warning": 0
+    },
+    {
+      "source_id": "ansarian",
+      "n_success": 733,
+      "true_peak_above_0_dbtp": 509,
+      "possible_clipping": 516,
+      "near_silent": 0,
+      "decoder_warning": 0
+    },
+    {
+      "source_id": "maleki",
+      "n_success": 731,
+      "true_peak_above_0_dbtp": 8,
+      "possible_clipping": 9,
+      "near_silent": 0,
+      "decoder_warning": 0
+    },
+    {
+      "source_id": "makarem-kabiri",
+      "n_success": 733,
+      "true_peak_above_0_dbtp": 658,
+      "possible_clipping": 653,
+      "near_silent": 0,
+      "decoder_warning": 733
+    },
+    {
+      "source_id": "fooladvand-hedayatfar",
+      "n_success": 733,
+      "true_peak_above_0_dbtp": 715,
+      "possible_clipping": 717,
+      "near_silent": 0,
+      "decoder_warning": 733
+    }
+  ]
+}

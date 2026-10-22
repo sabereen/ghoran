@@ -1,0 +1,112 @@
+{
+  "checked_at": "2026-10-22T10:25:40.083681+00:00",
+  "source_url": "https://tech.ebu.ch/files/live/sites/tech/files/shared/testmaterial/EBU-reference_listening_signal_pinknoise_500Hz_2kHz_R128.wav",
+  "publisher": "EBU Technology & Innovation",
+  "expected_native_lufs": -23,
+  "tolerance_lu": 0.2,
+  "measured_native_lufs": -22.972,
+  "passed": true,
+  "not_full_ebu_conformance_certification": true,
+  "measured": {
+    "null_reasons": {
+      "media.channel_layout": "not_reported_by_demuxer"
+    },
+    "loudness": {
+      "integrated_lufs": -22.972,
+      "true_peak_dbtp": -9.3,
+      "lra_lu": 0.18,
+      "momentary_above_absolute_gate_lufs": {
+        "n": 1197,
+        "min": -23.563,
+        "p05": -23.265,
+        "median": -22.969,
+        "p95": -22.682,
+        "max": -22.437,
+        "mad": 0.11299999999999955
+      },
+      "shortterm_above_absolute_gate_lufs": {
+        "n": 1171,
+        "min": -23.294,
+        "p05": -23.070500000000003,
+        "median": -22.962,
+        "p95": -22.8525,
+        "max": -22.761,
+        "mad": 0.03900000000000148
+      },
+      "null_reasons": {}
+    },
+    "duration_s": 120.0,
+    "container_duration_s": 120.0,
+    "sample_peak_dbfs": -9.319211260523229,
+    "sample_peak_linear": 0.342010498046875,
+    "rms_dbfs": -23.423398370188302,
+    "channel_rms_dbfs": [
+      -23.423398370188302
+    ],
+    "decoded_samples_per_channel": 5760000,
+    "samples_at_or_above_full_scale": 0,
+    "samples_near_full_scale": 0,
+    "sample_count_all_channels": 5760000,
+    "activity": {
+      "method": "adaptive-energy-hysteresis-v1",
+      "frame_ms": 20,
+      "noise_floor_proxy_dbfs": -24.212620819592473,
+      "energy_separation_db": 0.9440363316834279,
+      "threshold_on_dbfs": -52.588275819578115,
+      "threshold_off_dbfs": -58.588275819578115,
+      "boundary_confidence": "low",
+      "not_a_speech_vad": true,
+      "near_silent": false,
+      "active_duration_s": 120.0,
+      "active_rms_dbfs": -23.423398370188302,
+      "audible_start_estimate_s": 0.0,
+      "audible_end_estimate_s": 120.0,
+      "leading_low_energy_s": 0.0,
+      "trailing_low_energy_s": 0.0,
+      "active_intervals_s": [
+        [
+          0.0,
+          120.0
+        ]
+      ],
+      "whole_file_low_energy_s": null,
+      "automatic_trim_authorized": false,
+      "active_momentary_lufs": {
+        "n": 1197,
+        "min": -23.563,
+        "p05": -23.265,
+        "median": -22.969,
+        "p95": -22.682,
+        "max": -22.437,
+        "mad": 0.11299999999999955
+      },
+      "active_loudness_definition": "400ms K-weighted windows with >=75% activity overlap; not integrated loudness",
+      "null_reasons": {}
+    },
+    "spectral": {
+      "centroid_hz": 1078.206073455179,
+      "high_band_fraction_above_4khz": 5.066248875315413e-08,
+      "low_band_fraction_below_200hz": 2.709512414717515e-05,
+      "channel_used": 0,
+      "method": "welch-hann-native-rate"
+    },
+    "media": {
+      "codec": "pcm_s16le",
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "channel_layout": null,
+      "file_size_bytes": 11520044,
+      "reported_bitrate_bps": 768002,
+      "effective_bitrate_bps": 768002.9333333333,
+      "audio_stream_count": 1
+    },
+    "channel_convention": "native BS.1770; mono counted once; no dualmono compensation",
+    "dualmono_playback_lufs": -19.96170004336019,
+    "sha256": "d1ab57fd10a3f6381c1c7937aaaf9cf36b13f7ded956266259b2a7d5044d2351",
+    "decoded_pcm_sha256": "6bd3d87107e7d4ae58f5e42655b780beaedc7d17375e9fc42997efea92bed21c",
+    "quality_flags": [
+      "uncertain_activity_boundaries"
+    ],
+    "decoder_warnings": []
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "checked_at": "2026-10-22T10:21:50.337076+00:00",
+  "sample_only": true,
+  "origin": "https://example.org",
+  "results": [
+    {
+      "label": "asset-sample",
+      "url": "https://asset.nasimrezvan.com/data/Parhizgar/001001.mp3",
+      "method": "HEAD",
+      "status": 200,
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": null,
+        "Accept-Ranges": "bytes",
+        "Content-Length": "67712",
+        "Content-Type": "audio/mpeg",
+        "ETag": "\"4c651ef0-10880\"",
+        "Last-Modified": "Fri, 13 Aug 2010 10:31:12 GMT"
+      }
+    },
+    {
+      "label": "arvan-recitation-sample",
+      "url": "https://qmad.s3.ir-central1.arvanstorage.ir/jafarpour/001001.mp3",
+      "method": "HEAD",
+      "status": 200,
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "HEAD",
+        "Accept-Ranges": "bytes",
+        "Content-Length": "99117",
+        "Content-Type": "audio/mpeg",
+        "ETag": "\"1ef8e4457466b49900286b56460dd985\"",
+        "Last-Modified": "Tue, 20 Oct 2026 13:31:52 GMT"
+      }
+    },
+    {
+      "label": "arvan-translation-sample",
+      "url": "https://qmad.s3.ir-central1.arvanstorage.ir/translation/ansarian-iranseda/001001.mp3",
+      "method": "HEAD",
+      "status": 200,
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "HEAD",
+        "Accept-Ranges": "bytes",
+        "Content-Length": "64427",
+        "Content-Type": "audio/mpeg",
+        "ETag": "\"3d24575d8fbd85df526b5a91ba992b8b\"",
+        "Last-Modified": "Wed, 21 Oct 2026 04:00:26 GMT"
+      }
+    }
+  ]
+}

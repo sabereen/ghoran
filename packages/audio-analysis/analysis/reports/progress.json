@@ -1,0 +1,139 @@
+{
+  "updated_at": "2026-10-22T11:26:26.724203+00:00",
+  "schema_version": "1.0.0",
+  "expected_total": 81068,
+  "attempted_unique": 14802,
+  "complete_inventory": false,
+  "coverage": [
+    {
+      "source_id": "parhizgar",
+      "expected": 6236,
+      "success": 1139,
+      "missing": 0,
+      "invalid": 0,
+      "temporary_error": 0,
+      "http_error": 0,
+      "unprocessed": 5097
+    },
+    {
+      "source_id": "ghamadi",
+      "expected": 6236,
+      "success": 1138,
+      "missing": 0,
+      "invalid": 1,
+      "temporary_error": 0,
+      "http_error": 0,
+      "unprocessed": 5097
+    },
+    {
+      "source_id": "husary",
+      "expected": 6236,
+      "success": 1139,
+      "missing": 0,
+      "invalid": 0,
+      "temporary_error": 0,
+      "http_error": 0,
+      "unprocessed": 5097
+    },
+    {
+      "source_id": "minshawy-murattal",
+      "expected": 6236,
+      "success": 1139,
+      "missing": 0,
+      "invalid": 0,
+      "temporary_error": 0,
+      "http_error": 0,
+      "unprocessed": 5097
+    },
+    {
+      "source_id": "minshawy-mujawwad",
+      "expected": 6236,
+      "success": 1137,
+      "missing": 0,
+      "invalid": 0,
+      "temporary_error": 0,
+      "http_error": 0,
+      "unprocessed": 5099
+    },
+    {
+      "source_id": "motaz",
+      "expected": 6236,
+      "success": 1139,
+      "missing": 0,
+      "invalid": 0,
+      "temporary_error": 0,
+      "http_error": 0,
+      "unprocessed": 5097
+    },
+    {
+      "source_id": "abdulbasit",
+      "expected": 6236,
+      "success": 1138,
+      "missing": 0,
+      "invalid": 0,
+      "temporary_error": 0,
+      "http_error": 0,
+      "unprocessed": 5098
+    },
+    {
+      "source_id": "almuiqly",
+      "expected": 6236,
+      "success": 1139,
+      "missing": 0,
+      "invalid": 0,
+      "temporary_error": 0,
+      "http_error": 0,
+      "unprocessed": 5097
+    },
+    {
+      "source_id": "jafarpour",
+      "expected": 6236,
+      "success": 1138,
+      "missing": 0,
+      "invalid": 0,
+      "temporary_error": 0,
+      "http_error": 0,
+      "unprocessed": 5098
+    },
+    {
+      "source_id": "ansarian",
+      "expected": 6236,
+      "success": 1138,
+      "missing": 0,
+      "invalid": 0,
+      "temporary_error": 0,
+      "http_error": 0,
+      "unprocessed": 5098
+    },
+    {
+      "source_id": "maleki",
+      "expected": 6236,
+      "success": 1137,
+      "missing": 0,
+      "invalid": 2,
+      "temporary_error": 0,
+      "http_error": 0,
+      "unprocessed": 5097
+    },
+    {
+      "source_id": "makarem-kabiri",
+      "expected": 6236,
+      "success": 1139,
+      "missing": 0,
+      "invalid": 0,
+      "temporary_error": 0,
+      "http_error": 0,
+      "unprocessed": 5097
+    },
+    {
+      "source_id": "fooladvand-hedayatfar",
+      "expected": 6236,
+      "success": 1139,
+      "missing": 0,
+      "invalid": 0,
+      "temporary_error": 0,
+      "http_error": 0,
+      "unprocessed": 5097
+    }
+  ]
+}
