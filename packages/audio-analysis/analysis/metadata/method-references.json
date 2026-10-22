@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "checked_on": "2026-10-22",
+  "references": [
+    {
+      "url": "https://www.w3.org/TR/2021/REC-webaudio-20210617/#GainNode",
+      "kind": "W3C Recommendation",
+      "supports": "linear GainNode gain and PCM routing; CORS-cross-origin MediaElementAudioSourceNode silence rule"
+    },
+    {
+      "url": "https://developer.android.com/reference/androidx/media3/common/Player",
+      "supports": "setVolume accepts 0..1 linear gain; positive dB boost requires another processing path"
+    },
+    {
+      "url": "https://developer.android.com/reference/androidx/media3/common/audio/AudioProcessor",
+      "supports": "PCM processing interface"
+    },
+    {
+      "url": "https://developer.android.com/reference/androidx/media3/common/audio/GainProcessor",
+      "supports": "sample-level gain automation; API marked UnstableApi; check the integration version"
+    },
+    {
+      "local_reference": "ffmpeg-ebur128-help.txt",
+      "supports": "options of the exact installed FFmpeg ebur128 implementation; complete FFmpeg build version retained in measurement-runs"
+    }
+  ]
+}

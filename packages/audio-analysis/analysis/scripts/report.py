@@ -1,6 +1,7 @@
 """Portable Persian report and numerical charts; no network required."""
 import csv
 import html
+import re
 import json
 from pathlib import Path
 
@@ -87,6 +88,11 @@ def build_report(root, sources, records, profiles, anomalies, policies, pairs):
     for c in coverage:
         lines.append(f"| {c['source_id']} | {c['success']} | {c['missing']} | {c['invalid']} | {c['temporary_error']} | {c['http_error']} | {c['unprocessed']} |")
     lines += ["", "## توزیع‌ها و مقایسهٔ سطح بلندی", "", "![توزیع اندازه‌گیری‌ها](distributions.png)", "", "![توزیع و پیوستگی](histogram-continuity.png)", "",
+              "برای مقایسهٔ منصفانهٔ منابع، نمودارهای زیر فقط آیات مشترکِ معتبر هر ۱۳ منبع با مدت حداقل سه ثانیه و فعالیت حداقل یک ثانیه را نشان می‌دهند. اعداد هر نمودار تعداد واقعی cohort را مشخص می‌کند. این نمودارها از پهنای کلی توزیع، جهش همسایه‌ها و سطح معمول صدا تفکیک می‌سازند.", '',
+              '![سطح و پراکندگی مشترک](distributions/level-and-spread.png)', '',
+              '![شکل توزیع قاریان](distributions/recitation-histograms.png)', '',
+              '![شکل توزیع ترجمه‌ها](distributions/translation-histograms.png)', '',
+              '![پیوستگی آیات مجاور](distributions/neighbor-continuity.png)', '',
               "هر آیه یک مشاهده است. baseline، میانهٔ وزنی با وزن مدت فعالیتِ محدودشده به ۲۰ ثانیه است؛ LUFS آلبوم یا اندازه‌گیری یک اجرای پیوسته محسوب نمی‌شود. فایل‌های کوتاه و دارای فعالیت زیر یک ثانیه از baseline کنار گذاشته می‌شوند.", "",
               "LUFS اصلی با کانال‌های واقعی فایل و dualmono=false ثبت شده است. برای مقایسهٔ پخش متعارف، به فایل مونو ۳٫۰۱۰۳ LU افزوده می‌شود؛ این فقط برای پخشی معتبر است که مونو را با همان دامنه به هر دو کانال کپی کند. در صورت pan-law متفاوت باید این فرض تغییر کند.", "",
               "| منبع | میانه LUFS اصلی | baseline پخش | MAD پخش | p95 True Peak |", "|---|---:|---:|---:|---:|"]
@@ -95,6 +101,9 @@ def build_report(root, sources, records, profiles, anomalies, policies, pairs):
         lines.append(f"| {source['id']} | {fmt(p['native_integrated_lufs']['median'])} | {fmt(p['baseline_playback_lufs'])} | {fmt(p['dualmono_playback_lufs']['mad'])} | {fmt(p['true_peak_dbtp']['p95'])} |")
     lines += ["", "## فرضیه‌های تغییر شرایط ضبط", "",
               "آزمون پنجره‌های دوطرفهٔ ۲۰ آیه‌ای، بررسی پایداری در نیم‌پنجره‌ها، حذف قله‌های نزدیک و شواهد طیف/نویز به کار رفته است. تحلیل از روی شکاف‌های بررسی‌نشده نمی‌پرد. مرز سوره و جزء فقط شاهد کمکی است. حذف یک پنجره به علت کمبود داده به معنای نبود تغییر نیست.", ""]
+    lines += ['هماهنگی proxy نویز با LUFS شاهد مستقلی نیست، چون هر دو از همان دامنهٔ صوت مشتق می‌شوند؛ centroid طیفی نیز به واج‌های خوانده‌شده حساس است. حتی چند شاهد هم‌سو، جلسهٔ تاریخی ضبط یا خطای میکس را ثابت نمی‌کند.', '',
+              'حساسیت تغییر پایدار نیز قابل تنظیم است: ضریب حداقل جهش برای ترتیل ۱، مجوّد ۱٫۵ و ترجمه ۰٫۸۵ است؛ نسبت به حد پایهٔ ۳ LU. مجوّد محافظه‌کارانه‌تر و ترجمه حساس‌تر بررسی می‌شود.', '',
+              '![روند در ترتیب قرآن](distributions/quran-order-traces.png)', '']
     n_changes = 0
     for source in sources:
         data = json.loads((root / "segments" / (source["id"] + ".json")).read_text())
@@ -150,7 +159,10 @@ def build_report(root, sources, records, profiles, anomalies, policies, pairs):
               "## آمار اجرا و محدودیت‌ها", "",
               f"- رویدادهای ثبت‌شدهٔ پردازش: {processing['events']:,}؛ این تعداد شامل تلاش‌های تکراری/نسخه‌های روش هم می‌شود.",
               f"- بایت‌های دانلود ثبت‌شده در تحلیل: {processing['downloaded_bytes_all_attempts']:,} ({processing['downloaded_bytes_all_attempts']/1024**2:.1f} MiB). ترافیک آزمایش‌های اتصال و metadata در این عدد نیست.",
-              "- محدودیت فعلی پوشش: زمان لازم برای درخواست‌ها و تحلیل ۸۱٬۰۶۸ مورد. checkpoint واقعی و کد ادامه همراه خروجی است؛ کامل بودن هیچ منبعی فرض نشده است.",
+              '- این حجم، بایت‌های بدنهٔ پاسخِ ثبت‌شده است؛ انتقال نیمه‌کاره‌ای که پیش از بازگشت payload شکست خورده باشد ممکن است شمرده نشود. سربار شبکه نیز داخل آن نیست؛ حجم موفقِ فایل‌های یکتا جدا ثبت شده است.',
+              f"- مجموع مدت صوت معتبر: {processing['unique_decoded_audio_duration_s']/3600:.2f} ساعت؛ حجم فایل‌های موفق یکتا: {processing['unique_successful_file_bytes']/1024**3:.3f} GiB.",
+              f"- فاصلهٔ اولین تا آخرین event: {fmt(processing['event_span_elapsed_s']/3600 if processing['event_span_elapsed_s'] is not None else None)} ساعت، شامل توقف‌ها. مجموع زمان دیواری کارهای فایل‌ها: {processing['sum_file_processing_wall_s']/3600:.2f} ساعت؛ به دلیل هم‌زمانی برابر زمان نشست یا زمان CPU نیست.",
+              ('- همهٔ ۸۱٬۰۶۸ شناسهٔ مورد انتظار بررسی شده‌اند. موفق، ناموجود، نامعتبر و خطاهای حل‌نشده در جدول پوشش جدا هستند؛ هیچ مجموعه‌ای از پیش کامل فرض نشده است.' if progress['complete_inventory'] else '- پوشش هنوز ناقص است. checkpoint واقعی و کد ادامه همراه خروجی است؛ کامل بودن هیچ منبعی فرض نشده است.'),
               "- هم‌زمانی میزبان، backoff، سقف حجم، timeout و پاک‌سازی فایل موقت فعال‌اند. تغییر URL ثابت با SHA-256 و ETag/Last-Modified در بازاعتبارسنجی قابل تشخیص است؛ در نبود بازاعتبارسنجی، تغییر دوردست خودبه‌خود معلوم نمی‌شود.",
               "- آزمون‌های مصنوعی sanity check هستند؛ گواهی کامل انطباق رسمی با مجموعهٔ آزمون EBU انجام نشده است. نسخه و پارامترهای FFmpeg ثبت شده‌اند.",
               "- تخمین فعالیت صوت، غیرقطعی است و سکوت سخت را از نفس، طنین یا حرف آرام به‌طور معنایی جدا نمی‌کند. خروجی مجوز trim خودکار نیست.", "",
@@ -158,7 +170,7 @@ def build_report(root, sources, records, profiles, anomalies, policies, pairs):
               "- ساختار قرآن: [Tanzil](https://tanzil.net/docs/Quran_Metadata)، snapshot و SHA-256 در metadata؛ cross-check با [AlQuran Cloud](https://api.alquran.cloud/v1/meta). ناشران جدا ممکن است منشأ شمارش مشترک داشته باشند.",
               "- [ITU-R BS.1770](https://www.itu.int/rec/R-REC-BS.1770) و [FFmpeg ebur128](https://ffmpeg.org/ffmpeg-filters.html#ebur128-1): اندازه‌گیری LUFS با gate استاندارد؛ True Peak تخمینی از oversampling پیاده‌سازی FFmpeg.",
               "- [EBU Tech 3342](https://tech.ebu.ch/docs/tech/tech3342.pdf): LRA برای گفتارهای بسیار کوتاه می‌تواند گمراه‌کننده باشد. شرط حداقل ۳۰ ثانیه و ۱۰۰ پنجرهٔ کوتاه‌مدت معتبر، سیاست محافظه‌کارانهٔ این دیتاست است، نه حداقل اجباری استاندارد.",
-              "- [Web Audio GainNode](https://www.w3.org/TR/webaudio/#GainNode)، [Media3 AudioProcessor](https://developer.android.com/reference/androidx/media3/common/audio/AudioProcessor)، [Media3 Player](https://developer.android.com/reference/androidx/media3/common/Player).", ""]
+              "- [Web Audio GainNode](https://www.w3.org/TR/2021/REC-webaudio-20210617/#GainNode)، [Media3 AudioProcessor](https://developer.android.com/reference/androidx/media3/common/audio/AudioProcessor)، [Media3 Player](https://developer.android.com/reference/androidx/media3/common/Player).", ""]
     calibration = folder / "calibration-reference.json"
     if calibration.exists():
         c = json.loads(calibration.read_text())
@@ -170,14 +182,19 @@ def build_report(root, sources, records, profiles, anomalies, policies, pairs):
     (folder / "report.fa.md").write_text(text)
     # Minimal standalone HTML, same content and locally linked static charts.
     body = []; table = False; listing = False
+    def inline(value):
+        value=html.escape(value)
+        value=re.sub(r'\[([^\]]+)\]\((https?://[^\s)]+)\)',r'<a href="\2">\1</a>',value)
+        value=re.sub(r'`([^`]+)`',r'<code>\1</code>',value)
+        return re.sub(r'\*\*([^*]+)\*\*',r'<strong>\1</strong>',value)
     for line in lines:
         if line.startswith("|"):
             if line.startswith("|---"):
                 continue
             if not table:
                 body.append("<table>"); table = True
-            cells = [html.escape(v.strip()) for v in line.strip("|").split("|")]
-            body.append("<tr>" + "".join("<td>" + c + "</td>" for c in cells) + "</tr>")
+            cells = [v.strip() for v in line.strip("|").split("|")]
+            body.append('<tr>'+''.join('<td dir="'+('ltr' if re.fullmatch(r'[+\-−\d.٪%/:—\s]+',c) else 'auto')+'">'+inline(c)+'</td>' for c in cells)+'</tr>')
             continue
         if table:
             body.append("</table>"); table = False
@@ -188,7 +205,7 @@ def build_report(root, sources, records, profiles, anomalies, policies, pairs):
             n = len(line) - len(line.lstrip("#"))
             body.append(f"<h{n}>" + html.escape(line[n:].strip()) + f"</h{n}>")
         elif line:
-            body.append("<p>" + html.escape(line) + "</p>")
+            body.append("<p>" + inline(line) + "</p>")
     if table:
         body.append("</table>")
     style = "body{max-width:1250px;margin:40px auto;padding:0 24px;font:17px/1.9 Tahoma,Arial;color:#17312d;background:#f6faf8}h1,h2{color:#09685b}table{width:100%;border-collapse:collapse;font-size:14px;background:white;direction:rtl}td{border:1px solid #cbdcd6;padding:8px}tr:first-child{font-weight:bold;background:#e3f0e9}img{max-width:100%;background:white;border:1px solid #dae4df;border-radius:10px}p{overflow-wrap:anywhere}"

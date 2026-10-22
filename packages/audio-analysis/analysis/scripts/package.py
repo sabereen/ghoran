@@ -4,6 +4,7 @@ import argparse
 from contextlib import closing
 import hashlib
 import json
+import os
 from pathlib import Path
 import shutil
 import sqlite3
@@ -51,11 +52,13 @@ def package(root, destination):
                   for p in sorted(snapshot.rglob("*")) if p.is_file() and p.suffix not in (".pyc",)
                   and "__pycache__" not in p.parts and p.name not in ("run.lock", "state.sqlite3-wal", "state.sqlite3-shm")}
         atomic_json(snapshot / "manifest.sha256.json", {"schema_version": "1.0.0", "created_at": now(), "files": hashes})
-        with zipfile.ZipFile(destination, "w", zipfile.ZIP_DEFLATED, compresslevel=6) as z:
+        temporary_archive=destination.with_suffix(destination.suffix+'.tmp')
+        with zipfile.ZipFile(temporary_archive, "w", zipfile.ZIP_DEFLATED, compresslevel=6) as z:
             for relative in hashes:
                 p = snapshot / relative
                 z.write(p, "quran-audio-analysis/" + relative)
             z.write(snapshot / "manifest.sha256.json", "quran-audio-analysis/manifest.sha256.json")
+        os.replace(temporary_archive,destination)
         # A directly downloadable report is available beside the archive.
         report_dir = destination.parent / (destination.stem + "-report")
         report_dir.mkdir(exist_ok=True)
@@ -63,7 +66,7 @@ def package(root, destination):
             if p.is_dir():
                 shutil.copytree(p, report_dir / p.name, dirs_exist_ok=True)
                 continue
-            if p.suffix in (".html", ".md", ".png", ".csv", ".json"):
+            if p.suffix in (".html", ".md", ".png", ".csv", ".json", ".jsonl"):
                 shutil.copy2(p, report_dir / p.name)
         print(json.dumps({"archive": str(destination), "bytes": destination.stat().st_size,
                           "report": str(report_dir / "report.fa.md"), "coverage": json.loads((snapshot / "reports/progress.json").read_text())}), flush=True)

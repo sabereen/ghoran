@@ -3,16 +3,20 @@ test_inferred_corrections_require_exact_reviewed_content (test_analysis.Analysis
 test_isolated_jump_is_not_recording_session (test_analysis.AnalysisTests.test_isolated_jump_is_not_recording_session) ... ok
 test_sparse_sampling_never_bridges_unobserved_verses (test_analysis.AnalysisTests.test_sparse_sampling_never_bridges_unobserved_verses) ... ok
 test_sustained_jump_is_detected_near_boundary (test_analysis.AnalysisTests.test_sustained_jump_is_detected_near_boundary) ... ok
+test_insufficient_peer_coverage_does_not_infer_normality (test_duration_review.DurationReviewTests.test_insufficient_peer_coverage_does_not_infer_normality) ... ok
+test_isolated_short_file_is_review_only_and_preserves_measurement (test_duration_review.DurationReviewTests.test_isolated_short_file_is_review_only_and_preserves_measurement) ... ok
+test_natural_source_tempo_is_not_a_duration_error (test_duration_review.DurationReviewTests.test_natural_source_tempo_is_not_a_duration_error) ... ok
 test_activity_keeps_quiet_onsets_and_antiphase_channels (test_measure.MeasurementTests.test_activity_keeps_quiet_onsets_and_antiphase_channels) ... ok
 test_calibrated_sine_and_dual_mono_convention (test_measure.MeasurementTests.test_calibrated_sine_and_dual_mono_convention) ... ok
 test_short_utterance_never_uses_warmup_as_measurement (test_measure.MeasurementTests.test_short_utterance_never_uses_warmup_as_measurement) ... ok
 test_silence_has_null_loudness_not_zero (test_measure.MeasurementTests.test_silence_has_null_loudness_not_zero) ... ok
 test_true_peak_can_exceed_sample_peak_and_decode_errors_fail (test_measure.MeasurementTests.test_true_peak_can_exceed_sample_peak_and_decode_errors_fail) ... ok
+test_spawn_worker_preserves_all_measurements_bit_for_bit (test_parallel.ParallelMeasurementTests.test_spawn_worker_preserves_all_measurements_bit_for_bit) ... ok
 test_metadata_errors_are_not_partial_audio_decodes (test_quality_audit.QualityAuditTests.test_metadata_errors_are_not_partial_audio_decodes) ... ok
 test_quarantine_is_idempotent_and_preserves_original_event (test_quality_audit.QualityAuditTests.test_quarantine_is_idempotent_and_preserves_original_event) ... ok
 test_resume_conditional_get_and_changed_url_bytes (test_resume.ResumeTests.test_resume_conditional_get_and_changed_url_bytes) ... ok
 
 ----------------------------------------------------------------------
-Ran 13 tests in 6.018s
+Ran 17 tests in 10.887s
 
 OK

@@ -101,7 +101,7 @@ def changes(records, prof, config):
             if min(len(lv), len(rv)) < math.ceil(window * .8):
                 continue
             delta = median(rv) - median(lv)
-            sensitivity = 1.5 if run[i].get("_kind") == "mujawwad" else 1
+            sensitivity = cfg.get('recording_change_multiplier_by_kind',{'mujawwad':1.5}).get(run[i].get('_kind','recitation'),1)
             if abs(delta) < cfg["minimum_change_lu"] * sensitivity:
                 continue
             # A stable shift must survive splitting both windows into halves.
@@ -140,6 +140,7 @@ def changes(records, prof, config):
                                "status": "hypothesis", "evidence": {"left_n": len(lv), "right_n": len(rv),
                                    "noise_proxy_delta_db": noise_delta, "spectral_centroid_ratio": spec_ratio,
                                    "corroborated": corroborated, "at_surah_boundary": run[i]["surah"] != run[i-1]["surah"],
+                                   "auxiliary_features_are_not_independent_evidence": True,
                                    "at_juz_boundary": run[i]["juz"] != run[i-1]["juz"]}})
         selected = []
         # Nonmaximum suppression prevents a broad change being counted many times.
@@ -413,6 +414,9 @@ def analyze(root):
     totals["event_span_elapsed_s"] = (datetime.fromisoformat(last) - datetime.fromisoformat(first)).total_seconds() if first and last else None
     totals["unique_successful_file_bytes"] = sum(r["measured"]["media"]["file_size_bytes"] for rs in all_records.values() for r in rs)
     totals["unique_decoded_audio_duration_s"] = sum(r["measured"]["duration_s"] for rs in all_records.values() for r in rs)
+    totals['download_byte_accounting']='registered response-body bytes; partial transfers that fail before returning the payload may be uncounted; excludes protocol overhead'
+    totals['registered_response_body_bytes']=totals['downloaded_bytes_all_attempts']
+    totals['network_bytes_are_a_lower_bound']=True
     totals["status_counts"] = dict(conn.execute("SELECT status,count(*) FROM records GROUP BY status"))
     failures = [json.loads(p) for p, in conn.execute("SELECT payload FROM records WHERE status!='success' ORDER BY source,verse")]
     for r in failures:

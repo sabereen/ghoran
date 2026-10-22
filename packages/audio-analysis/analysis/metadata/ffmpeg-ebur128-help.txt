@@ -1,0 +1,38 @@
+Filter ebur128
+  EBU R128 scanner.
+    Inputs:
+       #0: default (audio)
+    Outputs:
+        dynamic (depending on the options)
+ebur128 AVOptions:
+   video             <boolean>    ..FV....... set video output (default false)
+   size              <image_size> ..FV....... set video size (default "640x480")
+   meter             <int>        ..FV....... set scale meter (+9 to +18) (from 9 to 18) (default 9)
+   framelog          <int>        ..FVA...... force frame logging level (from INT_MIN to INT_MAX) (default -1)
+     quiet           -8           ..FVA...... logging disabled
+     info            32           ..FVA...... information logging level
+     verbose         40           ..FVA...... verbose logging level
+   metadata          <boolean>    ..FVA...... inject metadata in the filtergraph (default false)
+   peak              <flags>      ..F.A...... set peak mode (default 0)
+     none                         ..F.A...... disable any peak mode
+     sample                       ..F.A...... enable peak-sample mode
+     true                         ..F.A...... enable true-peak mode
+   dualmono          <boolean>    ..F.A...... treat mono input files as dual-mono (default false)
+   panlaw            <double>     ..F.A...... set a specific pan law for dual-mono files (from -10 to 0) (default -3.0103)
+   target            <int>        ..FV....... set a specific target level in LUFS (-23 to 0) (from -23 to 0) (default -23)
+   gauge             <int>        ..FV....... set gauge display type (from 0 to 1) (default momentary)
+     momentary       0            ..FV....... display momentary value
+     m               0            ..FV....... display momentary value
+     shortterm       1            ..FV....... display short-term value
+     s               1            ..FV....... display short-term value
+   scale             <int>        ..FV....... sets display method for the stats (from 0 to 1) (default absolute)
+     absolute        0            ..FV....... display absolute values (LUFS)
+     LUFS            0            ..FV....... display absolute values (LUFS)
+     relative        1            ..FV....... display values relative to target (LU)
+     LU              1            ..FV....... display values relative to target (LU)
+   integrated        <double>     ..F.A.XR... integrated loudness (LUFS) (from -DBL_MAX to DBL_MAX) (default 0)
+   range             <double>     ..F.A.XR... loudness range (LU) (from -DBL_MAX to DBL_MAX) (default 0)
+   lra_low           <double>     ..F.A.XR... LRA low (LUFS) (from -DBL_MAX to DBL_MAX) (default 0)
+   lra_high          <double>     ..F.A.XR... LRA high (LUFS) (from -DBL_MAX to DBL_MAX) (default 0)
+   sample_peak       <double>     ..F.A.XR... sample peak (dBFS) (from -DBL_MAX to DBL_MAX) (default 0)
+   true_peak         <double>     ..F.A.XR... true peak (dBFS) (from -DBL_MAX to DBL_MAX) (default 0)

@@ -46,7 +46,12 @@
     "duration_minimum_recitation_peers": 5,
     "duration_log_mad_floor": 0.25,
     "duration_outlier_z": 4,
-    "duration_minimum_outlier_factor": 4
+    "duration_minimum_outlier_factor": 4,
+    "recording_change_multiplier_by_kind": {
+      "recitation": 1,
+      "mujawwad": 1.5,
+      "translation": 0.85
+    }
   },
   "recommendation": {
     "targets_lufs": [

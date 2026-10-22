@@ -1,4 +1,5 @@
 """Export separately loadable consumer data from a completed analysis snapshot."""
+import argparse
 import gzip
 import hashlib
 import json
@@ -9,8 +10,10 @@ ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = ROOT.parent
 
 
-def main():
-    data = PACKAGE / 'data'
+def main(output=None):
+    package_file=PACKAGE/'package.json'
+    in_ghoran=package_file.exists() and json.loads(package_file.read_text()).get('name')=='@ghoran/audio-analysis'
+    data = output.resolve() if output else PACKAGE/'data' if in_ghoran else ROOT/'consumer-data'
     for relative, name in [('sources.json', 'sources.json'), ('profiles.json', 'profiles.json'), ('reports/progress.json', 'coverage.json')]:
         data.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT / relative, data / name)
@@ -39,4 +42,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output',type=Path)
+    main(parser.parse_args().output)
