@@ -1,6 +1,6 @@
 {
   "name": "@ghoran/audio",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Tree-shakable Quran audio gain profiles, per-file peak protection and optional content verification",
   "type": "module",
   "main": "dist/index.mjs",
@@ -38,6 +38,14 @@
     "./url": {
       "types": "./dist/url.d.ts",
       "import": "./dist/url.mjs"
+    },
+    "./pair": {
+      "types": "./dist/pair.d.ts",
+      "import": "./dist/pair.mjs"
+    },
+    "./paired/*": {
+      "types": "./dist/paired/*.d.ts",
+      "import": "./dist/paired/*.mjs"
     }
   },
   "sideEffects": false,

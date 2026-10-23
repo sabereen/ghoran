@@ -1,5 +1,10 @@
 /// <reference lib="dom" />
-import { loadAudioContentManifest, loadAudioSource } from '@ghoran/audio/load'
+import {
+  loadAudioContentManifest,
+  loadAudioSource,
+  loadAudioPairSource,
+} from '@ghoran/audio/load'
+import { createAudioPair } from '@ghoran/audio/pair'
 import { getVerifiedAudioGain } from '@ghoran/audio/verify'
 import { getAudioUrl } from '@ghoran/audio/url'
 import type { AudioSourceId } from '@ghoran/audio'
@@ -8,6 +13,7 @@ export interface DemoTrack {
   sourceId: AudioSourceId
   ayahIndex: number
   label: string
+  partnerSourceId?: AudioSourceId
 }
 export interface DemoState {
   phase: 'idle' | 'loading' | 'playing' | 'error'
@@ -27,10 +33,7 @@ export class AudioDemoPlayer {
   private enabled = true
   private volume = 0.35
   private coefficient = 1
-  private cache = new Map<
-    string,
-    { buffer: AudioBuffer; gain: number; gainDb: number }
-  >()
+  private cache = new Map<string, { buffer: AudioBuffer; hash: string }>()
   private finish?: () => void
 
   constructor(
@@ -92,6 +95,21 @@ export class AudioDemoPlayer {
         ])
         if (generation !== this.generation) return
         const url = getAudioUrl(source, track.ayahIndex)
+        let gainDb = source.getGainDb(track.ayahIndex)!
+        if (track.partnerSourceId) {
+          const [current, partner] = await Promise.all([
+            loadAudioPairSource(track.sourceId),
+            loadAudioPairSource(track.partnerSourceId),
+          ])
+          const isTranslation = source.metadata.kind === 'translation'
+          const result = createAudioPair({
+            recitation: isTranslation ? partner : current,
+            translation: isTranslation ? current : partner,
+          }).getRecommendation(track.ayahIndex)
+          if (result.status !== 'ready') throw Error('UNMEASURABLE_PAIR')
+          gainDb = (isTranslation ? result.translation : result.recitation)
+            .gainDb
+        }
         let audio = this.cache.get(url)
         if (!audio) {
           const response = await this.request(url, {
@@ -116,8 +134,7 @@ export class AudioDemoPlayer {
           if (generation !== this.generation) return
           audio = {
             buffer,
-            gain: coefficient,
-            gainDb: source.getGainDb(track.ayahIndex)!,
+            hash,
           }
           this.cache.set(url, audio)
           // Bounded by eight clips; changing source never keeps the whole Quran in memory.
@@ -125,7 +142,13 @@ export class AudioDemoPlayer {
             this.cache.delete(this.cache.keys().next().value!)
         }
         if (generation !== this.generation) return
-        this.coefficient = audio.gain
+        // Verify cached bytes too; the gain is pair-dependent and must not be cached by URL.
+        if (
+          getVerifiedAudioGain(source, hashes, track.ayahIndex, audio.hash) ===
+          null
+        )
+          throw Error('CONTENT_MISMATCH')
+        this.coefficient = 10 ** (gainDb / 20)
         // Set the next clip's gain before starting it, without a loud leading transient.
         this.gain!.gain.cancelScheduledValues(this.context.currentTime)
         this.gain!.gain.setValueAtTime(
@@ -138,7 +161,7 @@ export class AudioDemoPlayer {
         this.update({
           phase: 'playing',
           track,
-          gainDb: audio.gainDb,
+          gainDb,
           message: '',
         })
         await new Promise<void>((resolve) => {

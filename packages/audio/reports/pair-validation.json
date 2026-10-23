@@ -1,0 +1,1779 @@
+{
+  "schemaVersion": "1.0.0",
+  "algorithm": "quieter-clip-anchor-v1",
+  "snapshotId": "26fdd191dd507edac8e17341834070225f9fa9ff88ed2d2a8512854a5d1072df",
+  "classification": "recommended-policy-validated-against-measured-reference",
+  "toleranceLu": 1,
+  "levelQuantizationLu": 0.1,
+  "maximumPredictionErrorLu": 0.1,
+  "matrix": [
+    {
+      "recitation": "parhizgar",
+      "translation": "ansarian",
+      "before": {
+        "count": 6236,
+        "p50": 2.4097000433601883,
+        "p95": 8.791299956639811,
+        "max": 16.95829995663981,
+        "over3": 2470
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9857000433601879,
+        "p95": 1.0652999566398114,
+        "max": 2.258299956639811,
+        "over3": 0
+      },
+      "cutLimited": 6,
+      "unavailable": 0
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "maleki",
+      "before": {
+        "count": 6236,
+        "p50": 2.454999999999999,
+        "p95": 8.276999999999997,
+        "max": 17.421,
+        "over3": 2512
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9850000000000003,
+        "p95": 1.0639999999999992,
+        "max": 1.0980000000000016,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "before": {
+        "count": 6236,
+        "p50": 2.6192999566398134,
+        "p95": 10.992299956639812,
+        "max": 18.444299956639814,
+        "over3": 2787
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9872999566398137,
+        "p95": 1.0682999566398097,
+        "max": 5.5842999566398115,
+        "over3": 27
+      },
+      "cutLimited": 75,
+      "unavailable": 0
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "fooladvand-hedayatfar",
+      "before": {
+        "count": 6236,
+        "p50": 2.588,
+        "p95": 7.3389999999999995,
+        "max": 15.082999999999998,
+        "over3": 2721
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.985999999999998,
+        "p95": 1.0639999999999974,
+        "max": 2.5630000000000033,
+        "over3": 0
+      },
+      "cutLimited": 7,
+      "unavailable": 0
+    },
+    {
+      "recitation": "ghamadi",
+      "translation": "ansarian",
+      "before": {
+        "count": 6236,
+        "p50": 1.6949999999999994,
+        "p95": 4.977999999999999,
+        "max": 10.183999999999997,
+        "over3": 1436
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9749999999999996,
+        "p95": 1.0620000000000038,
+        "max": 1.0990000000000029,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "ghamadi",
+      "translation": "maleki",
+      "before": {
+        "count": 6236,
+        "p50": 1.6802999566398116,
+        "p95": 5.038700043360186,
+        "max": 11.04370004336019,
+        "over3": 1471
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9757000433601872,
+        "p95": 1.0617000433601893,
+        "max": 1.0982999566398135,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "ghamadi",
+      "translation": "makarem-kabiri",
+      "before": {
+        "count": 6236,
+        "p50": 1.9419999999999993,
+        "p95": 5.725000000000002,
+        "max": 10.896,
+        "over3": 1895
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9800000000000013,
+        "p95": 1.0619999999999967,
+        "max": 1.0980000000000008,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "ghamadi",
+      "translation": "fooladvand-hedayatfar",
+      "before": {
+        "count": 6236,
+        "p50": 1.7822999566398119,
+        "p95": 5.2857000433601895,
+        "max": 14.065700043360188,
+        "over3": 1597
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9777000433601897,
+        "p95": 1.0632999566398134,
+        "max": 1.5457000433601875,
+        "over3": 0
+      },
+      "cutLimited": 1,
+      "unavailable": 0
+    },
+    {
+      "recitation": "husary",
+      "translation": "ansarian",
+      "before": {
+        "count": 6236,
+        "p50": 2.1167000433601864,
+        "p95": 6.477299956639813,
+        "max": 12.906299956639815,
+        "over3": 2123
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9822999566398121,
+        "p95": 1.0632999566398116,
+        "max": 1.097299956639814,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "husary",
+      "translation": "maleki",
+      "before": {
+        "count": 6236,
+        "p50": 1.988999999999999,
+        "p95": 6.741999999999999,
+        "max": 15.101,
+        "over3": 2040
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9800000000000022,
+        "p95": 1.0620000000000012,
+        "max": 1.0980000000000025,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "husary",
+      "translation": "makarem-kabiri",
+      "before": {
+        "count": 6236,
+        "p50": 2.4072999566398092,
+        "p95": 7.923299956639815,
+        "max": 14.037299956639812,
+        "over3": 2524
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9847000433601867,
+        "p95": 1.0637000433601882,
+        "max": 1.1772999566398124,
+        "over3": 0
+      },
+      "cutLimited": 3,
+      "unavailable": 0
+    },
+    {
+      "recitation": "husary",
+      "translation": "fooladvand-hedayatfar",
+      "before": {
+        "count": 6236,
+        "p50": 2.4350000000000005,
+        "p95": 7.784000000000001,
+        "max": 13.482,
+        "over3": 2540
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.984,
+        "p95": 1.0630000000000006,
+        "max": 1.0969999999999995,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "minshawy-murattal",
+      "translation": "ansarian",
+      "before": {
+        "count": 6236,
+        "p50": 1.7172999566398124,
+        "p95": 5.304299956639812,
+        "max": 13.179299956639813,
+        "over3": 1511
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9762999566398127,
+        "p95": 1.0617000433601866,
+        "max": 1.097700043360188,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "minshawy-murattal",
+      "translation": "maleki",
+      "before": {
+        "count": 6236,
+        "p50": 1.6370000000000013,
+        "p95": 5.172,
+        "max": 10.39,
+        "over3": 1428
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9750000000000005,
+        "p95": 1.060999999999999,
+        "max": 1.099000000000001,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "minshawy-murattal",
+      "translation": "makarem-kabiri",
+      "before": {
+        "count": 6236,
+        "p50": 2.035700043360186,
+        "p95": 6.309299956639813,
+        "max": 13.239299956639812,
+        "over3": 2006
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9827000433601878,
+        "p95": 1.0652999566398114,
+        "max": 1.0977000433601862,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "minshawy-murattal",
+      "translation": "fooladvand-hedayatfar",
+      "before": {
+        "count": 6236,
+        "p50": 1.8479999999999999,
+        "p95": 5.436000000000001,
+        "max": 11.731000000000002,
+        "over3": 1745
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9779999999999989,
+        "p95": 1.0649999999999968,
+        "max": 1.0969999999999995,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "ansarian",
+      "before": {
+        "count": 6236,
+        "p50": 1.9897000433601875,
+        "p95": 6.203299956639814,
+        "max": 15.08729995663981,
+        "over3": 2009
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9802999566398132,
+        "p95": 1.064299956639811,
+        "max": 1.099299956639813,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "maleki",
+      "before": {
+        "count": 6236,
+        "p50": 1.9629999999999992,
+        "p95": 6.093,
+        "max": 16.447,
+        "over3": 1946
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.979000000000001,
+        "p95": 1.0620000000000012,
+        "max": 1.0979999999999999,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "makarem-kabiri",
+      "before": {
+        "count": 6236,
+        "p50": 2.289700043360188,
+        "p95": 7.34529995663981,
+        "max": 20.10229995663981,
+        "over3": 2390
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9847000433601902,
+        "p95": 1.0652999566398123,
+        "max": 7.242299956639812,
+        "over3": 6
+      },
+      "cutLimited": 11,
+      "unavailable": 0
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "fooladvand-hedayatfar",
+      "before": {
+        "count": 6236,
+        "p50": 2.3139999999999983,
+        "p95": 6.459,
+        "max": 16.733,
+        "over3": 2388
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9849999999999994,
+        "p95": 1.0640000000000027,
+        "max": 4.213000000000001,
+        "over3": 1
+      },
+      "cutLimited": 5,
+      "unavailable": 0
+    },
+    {
+      "recitation": "motaz",
+      "translation": "ansarian",
+      "before": {
+        "count": 6236,
+        "p50": 1.8659999999999997,
+        "p95": 5.295999999999999,
+        "max": 10.109000000000002,
+        "over3": 1670
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9770000000000018,
+        "p95": 1.0630000000000002,
+        "max": 1.0980000000000003,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "motaz",
+      "translation": "maleki",
+      "before": {
+        "count": 6236,
+        "p50": 1.7022999566398127,
+        "p95": 5.246299956639813,
+        "max": 11.499700043360193,
+        "over3": 1522
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9747000433601869,
+        "p95": 1.0607000433601854,
+        "max": 1.0982999566398113,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "motaz",
+      "translation": "makarem-kabiri",
+      "before": {
+        "count": 6236,
+        "p50": 1.9669999999999987,
+        "p95": 6.7109999999999985,
+        "max": 13.442999999999998,
+        "over3": 2028
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9800000000000004,
+        "p95": 1.0649999999999977,
+        "max": 1.0989999999999966,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "motaz",
+      "translation": "fooladvand-hedayatfar",
+      "before": {
+        "count": 6236,
+        "p50": 1.6612999566398123,
+        "p95": 6.072700043360186,
+        "max": 16.710700043360188,
+        "over3": 1467
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.972700043360188,
+        "p95": 1.0602999566398115,
+        "max": 4.190700043360188,
+        "over3": 1
+      },
+      "cutLimited": 2,
+      "unavailable": 0
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "ansarian",
+      "before": {
+        "count": 6236,
+        "p50": 2.0532999566398145,
+        "p95": 6.502299956639814,
+        "max": 15.49929995663981,
+        "over3": 2076
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.982700043360186,
+        "p95": 1.0647000433601868,
+        "max": 1.0982999566398144,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "maleki",
+      "before": {
+        "count": 6236,
+        "p50": 1.9210000000000003,
+        "p95": 6.512999999999999,
+        "max": 17.001,
+        "over3": 1903
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.979000000000001,
+        "p95": 1.062999999999998,
+        "max": 1.0990000000000029,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "makarem-kabiri",
+      "before": {
+        "count": 6236,
+        "p50": 2.313700043360188,
+        "p95": 7.892299956639811,
+        "max": 16.49729995663981,
+        "over3": 2434
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9847000433601867,
+        "p95": 1.0647000433601885,
+        "max": 3.6372999566398123,
+        "over3": 2
+      },
+      "cutLimited": 14,
+      "unavailable": 0
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "fooladvand-hedayatfar",
+      "before": {
+        "count": 6236,
+        "p50": 2.1179999999999994,
+        "p95": 6.718000000000001,
+        "max": 16.305,
+        "over3": 2180
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9820000000000002,
+        "p95": 1.0629999999999988,
+        "max": 3.785000000000001,
+        "over3": 2
+      },
+      "cutLimited": 6,
+      "unavailable": 0
+    },
+    {
+      "recitation": "almuiqly",
+      "translation": "ansarian",
+      "before": {
+        "count": 6236,
+        "p50": 1.9852999566398104,
+        "p95": 6.230999999999998,
+        "max": 12.248299956639812,
+        "over3": 1993
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9782999566398125,
+        "p95": 1.0627000433601879,
+        "max": 1.0982999566398135,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "almuiqly",
+      "translation": "maleki",
+      "before": {
+        "count": 6236,
+        "p50": 2.0169999999999995,
+        "p95": 5.5809999999999995,
+        "max": 13.027999999999999,
+        "over3": 1936
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9807000433601871,
+        "p95": 1.063700043360189,
+        "max": 1.0970000000000013,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "almuiqly",
+      "translation": "makarem-kabiri",
+      "before": {
+        "count": 6236,
+        "p50": 2.227299956639815,
+        "p95": 7.351700043360188,
+        "max": 13.611299956639812,
+        "over3": 2321
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9837000433601863,
+        "p95": 1.0627000433601879,
+        "max": 1.0967000433601894,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "almuiqly",
+      "translation": "fooladvand-hedayatfar",
+      "before": {
+        "count": 6236,
+        "p50": 1.8269999999999982,
+        "p95": 5.350999999999999,
+        "max": 13.318,
+        "over3": 1738
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9770000000000003,
+        "p95": 1.062000000000003,
+        "max": 1.0970000000000022,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "jafarpour",
+      "translation": "ansarian",
+      "before": {
+        "count": 6236,
+        "p50": 1.8800000000000017,
+        "p95": 4.9689999999999985,
+        "max": 9.187999999999999,
+        "over3": 1619
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9790000000000036,
+        "p95": 1.062000000000002,
+        "max": 1.099000000000001,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "jafarpour",
+      "translation": "maleki",
+      "before": {
+        "count": 6236,
+        "p50": 1.6742999566398131,
+        "p95": 5.009299956639814,
+        "max": 10.910700043360187,
+        "over3": 1430
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9742999566398147,
+        "p95": 1.0617000433601875,
+        "max": 1.0987000433601866,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "jafarpour",
+      "translation": "makarem-kabiri",
+      "before": {
+        "count": 6236,
+        "p50": 1.9829999999999997,
+        "p95": 5.953,
+        "max": 13.355,
+        "over3": 1969
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9810000000000025,
+        "p95": 1.0609999999999973,
+        "max": 1.0979999999999999,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    },
+    {
+      "recitation": "jafarpour",
+      "translation": "fooladvand-hedayatfar",
+      "before": {
+        "count": 6236,
+        "p50": 1.9027000433601886,
+        "p95": 5.715700043360191,
+        "max": 11.036700043360188,
+        "over3": 1794
+      },
+      "after": {
+        "count": 6236,
+        "p50": 0.9812999566398144,
+        "p95": 1.062299956639813,
+        "max": 1.0962999566398128,
+        "over3": 0
+      },
+      "cutLimited": 0,
+      "unavailable": 0
+    }
+  ],
+  "limitedPairs": [
+    {
+      "recitation": "parhizgar",
+      "translation": "ansarian",
+      "ayahIndex": 3811,
+      "differenceLu": 2.258299956639811
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "ansarian",
+      "ayahIndex": 4087,
+      "differenceLu": 1.6112999566398125
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "ansarian",
+      "ayahIndex": 5501,
+      "differenceLu": 2.255299956639818
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "ansarian",
+      "ayahIndex": 5515,
+      "differenceLu": 1.332299956639809
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "ansarian",
+      "ayahIndex": 5546,
+      "differenceLu": 1.9562999566398185
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "ansarian",
+      "ayahIndex": 5562,
+      "differenceLu": 1.8402999566398153
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 3811,
+      "differenceLu": 2.123299956639813
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 3815,
+      "differenceLu": 2.3722999566398117
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 3816,
+      "differenceLu": 1.1952999566398121
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 3817,
+      "differenceLu": 1.628299956639812
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 3824,
+      "differenceLu": 2.126299956639813
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 3852,
+      "differenceLu": 2.5682999566398133
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 3859,
+      "differenceLu": 1.2282999566398134
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 3871,
+      "differenceLu": 4.726299956639811
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 3881,
+      "differenceLu": 1.4212999566398112
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 3939,
+      "differenceLu": 1.5782999566398113
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 3943,
+      "differenceLu": 3.724299956639812
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 3956,
+      "differenceLu": 1.5532999566398127
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 3959,
+      "differenceLu": 1.5802999566398137
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 3960,
+      "differenceLu": 1.251299956639813
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4052,
+      "differenceLu": 0.9482999566398123
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4087,
+      "differenceLu": 3.29229995663981
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4158,
+      "differenceLu": 1.2082999566398138
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4179,
+      "differenceLu": 1.5522999566398115
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4181,
+      "differenceLu": 1.6742999566398113
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4192,
+      "differenceLu": 1.001299956639813
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4208,
+      "differenceLu": 1.6852999566398141
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4244,
+      "differenceLu": 1.3922999566398149
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4249,
+      "differenceLu": 1.506299956639812
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5496,
+      "differenceLu": 2.89129995663981
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5497,
+      "differenceLu": 1.3082999566398117
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5499,
+      "differenceLu": 3.614299956639816
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5500,
+      "differenceLu": 1.4452999566398157
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5501,
+      "differenceLu": 4.993299956639814
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5502,
+      "differenceLu": 2.4412999566398144
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5503,
+      "differenceLu": 3.0232999566398115
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5504,
+      "differenceLu": 4.841299956639813
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5505,
+      "differenceLu": 1.3342999566398115
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5506,
+      "differenceLu": 1.3252999566398111
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5507,
+      "differenceLu": 2.2152999566398117
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5508,
+      "differenceLu": 3.5362999566398132
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5510,
+      "differenceLu": 5.3932999566398125
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5511,
+      "differenceLu": 3.3212999566398134
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5512,
+      "differenceLu": 2.839299956639814
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5513,
+      "differenceLu": 4.270299956639811
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5514,
+      "differenceLu": 5.19929995663981
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5515,
+      "differenceLu": 4.626299956639813
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5516,
+      "differenceLu": 5.5842999566398115
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5520,
+      "differenceLu": 3.858299956639816
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5522,
+      "differenceLu": 3.8762999566398095
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5524,
+      "differenceLu": 2.967299956639814
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5526,
+      "differenceLu": 2.437299956639813
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5528,
+      "differenceLu": 3.0182999566398125
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5530,
+      "differenceLu": 3.3992999566398128
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5531,
+      "differenceLu": 1.3402999566398117
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5532,
+      "differenceLu": 2.277299956639813
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5535,
+      "differenceLu": 3.3922999566398113
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5538,
+      "differenceLu": 2.0412999566398122
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5539,
+      "differenceLu": 1.7402999566398103
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5540,
+      "differenceLu": 3.084299956639815
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5541,
+      "differenceLu": 1.6692999566398123
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5544,
+      "differenceLu": 3.6432999566398125
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5545,
+      "differenceLu": 2.939299956639812
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5546,
+      "differenceLu": 5.342299956639814
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5556,
+      "differenceLu": 2.198299956639816
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5558,
+      "differenceLu": 2.4652999566398117
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5559,
+      "differenceLu": 3.464299956639814
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5560,
+      "differenceLu": 3.6842999566398094
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5562,
+      "differenceLu": 1.5062999566398156
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5583,
+      "differenceLu": 1.3282999566398113
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5610,
+      "differenceLu": 1.1782999566398127
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5626,
+      "differenceLu": 3.1332999566398145
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5627,
+      "differenceLu": 2.7252999566398133
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5632,
+      "differenceLu": 2.6562999566398107
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5654,
+      "differenceLu": 1.876299956639813
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5660,
+      "differenceLu": 1.9862999566398125
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5665,
+      "differenceLu": 3.3142999566398155
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5667,
+      "differenceLu": 2.9902999566398103
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5668,
+      "differenceLu": 2.026299956639815
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5670,
+      "differenceLu": 1.0292999566398118
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5671,
+      "differenceLu": 3.839299956639814
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 5501,
+      "differenceLu": 2.5630000000000033
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 5515,
+      "differenceLu": 1.836999999999997
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 5544,
+      "differenceLu": 0.9460000000000024
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 5546,
+      "differenceLu": 1.8320000000000016
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 5559,
+      "differenceLu": 1.991000000000004
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 5562,
+      "differenceLu": 1.1330000000000036
+    },
+    {
+      "recitation": "parhizgar",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 5665,
+      "differenceLu": 1.2340000000000027
+    },
+    {
+      "recitation": "ghamadi",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 34,
+      "differenceLu": 1.5457000433601875
+    },
+    {
+      "recitation": "husary",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4394,
+      "differenceLu": 1.1772999566398124
+    },
+    {
+      "recitation": "husary",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4517,
+      "differenceLu": 1.1272999566398116
+    },
+    {
+      "recitation": "husary",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4708,
+      "differenceLu": 1.0982999566398117
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 1218,
+      "differenceLu": 1.0052999566398135
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 3109,
+      "differenceLu": 2.578299956639814
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4426,
+      "differenceLu": 2.9512999566398115
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4427,
+      "differenceLu": 3.3552999566398114
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4758,
+      "differenceLu": 5.448299956639815
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4760,
+      "differenceLu": 3.4572999566398153
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4772,
+      "differenceLu": 2.051299956639813
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4843,
+      "differenceLu": 6.976299956639814
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4844,
+      "differenceLu": 7.242299956639812
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4848,
+      "differenceLu": 4.521299956639815
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4904,
+      "differenceLu": -1.68370004336019
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 1218,
+      "differenceLu": 1.593
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 1928,
+      "differenceLu": 1.6769999999999996
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 3109,
+      "differenceLu": 4.213000000000001
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 3338,
+      "differenceLu": 1.311
+    },
+    {
+      "recitation": "minshawy-mujawwad",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 4426,
+      "differenceLu": 1.2809999999999988
+    },
+    {
+      "recitation": "motaz",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 7,
+      "differenceLu": 1.7357000433601861
+    },
+    {
+      "recitation": "motaz",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 24,
+      "differenceLu": 4.190700043360188
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4195,
+      "differenceLu": 1.3912999566398137
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4211,
+      "differenceLu": 2.120299956639813
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4434,
+      "differenceLu": 2.5132999566398135
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4730,
+      "differenceLu": 2.7782999566398106
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4731,
+      "differenceLu": 1.1972999566398146
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4732,
+      "differenceLu": 1.9802999566398123
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 4733,
+      "differenceLu": 1.8772999566398143
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5496,
+      "differenceLu": 2.101299956639811
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5497,
+      "differenceLu": 1.817299956639812
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5540,
+      "differenceLu": 3.435299956639814
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5541,
+      "differenceLu": 1.2232999566398108
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5571,
+      "differenceLu": 1.48429995663981
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5572,
+      "differenceLu": 3.6372999566398123
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "makarem-kabiri",
+      "ayahIndex": 5574,
+      "differenceLu": 1.0452999566398136
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 29,
+      "differenceLu": 2.823999999999999
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 1013,
+      "differenceLu": 1.2780000000000031
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 5572,
+      "differenceLu": 3.785000000000001
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 5992,
+      "differenceLu": 3.352999999999999
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 6006,
+      "differenceLu": 2.3709999999999996
+    },
+    {
+      "recitation": "abdulbasit",
+      "translation": "fooladvand-hedayatfar",
+      "ayahIndex": 6012,
+      "differenceLu": 2.0859999999999994
+    }
+  ],
+  "renderPlan": [
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 0,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/001001.mp3",
+      "sha256": "d8a0042636d8af610da7c723cf48d75aa89b054a03153b8352117b3618dd412e",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -30.090700043360187,
+      "predictedLufs": -27.430700043360186
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 0,
+      "url": "https://asset.nasimrezvan.com/data/maleki/001001.mp3",
+      "sha256": "a46270cc56b5ae6d2a0aeae225d7f8c84b73ad681e59c2ddb1388a605449ea66",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": -10.24,
+      "measuredPlaybackLufs": -16.212,
+      "predictedLufs": -26.451999999999998
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 1,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/001002.mp3",
+      "sha256": "acb211fe23bc2dbfde163ca51b52f88b2d4754a67dcd80aa723e9e18e09a589f",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -28.375700043360187,
+      "predictedLufs": -25.715700043360187
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 1,
+      "url": "https://asset.nasimrezvan.com/data/maleki/001002.mp3",
+      "sha256": "6acfa06174a6ecad1d872a7c80202f7484de63ffa70bdb4a73c21006fcd14461",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": -7.64,
+      "measuredPlaybackLufs": -17.133,
+      "predictedLufs": -24.773
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 2,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/001003.mp3",
+      "sha256": "1076a2484996edfd9dc323cef68b3705814de2d2f4f35fb1f909d452305b77a7",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -29.554700043360185,
+      "predictedLufs": -26.894700043360185
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 2,
+      "url": "https://asset.nasimrezvan.com/data/maleki/001003.mp3",
+      "sha256": "918a123420c60150893cc986e1fcc9de74bb08b375101214fcf7a967d3d61299",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": -8.24,
+      "measuredPlaybackLufs": -17.672,
+      "predictedLufs": -25.912
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 40,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/002034.mp3",
+      "sha256": "d26bff8f8ef795b500cf8127fc699d0a911cf3c7204ec64a0988705118f1942a",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -22.803700043360188,
+      "predictedLufs": -20.143700043360187
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 40,
+      "url": "https://asset.nasimrezvan.com/data/maleki/002034.mp3",
+      "sha256": "8ed201f45caf3051b095d92993d28bafcb150395590e057f6d303e2078eb73b5",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": 0.06,
+      "measuredPlaybackLufs": -19.229,
+      "predictedLufs": -19.169
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 261,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/002255.mp3",
+      "sha256": "41703b0f76f52665f90de84750847714e0ec6edbea0bab496d4c4418fca06817",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 0.81,
+      "measuredPlaybackLufs": -22.505700043360186,
+      "predictedLufs": -21.695700043360187
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 261,
+      "url": "https://asset.nasimrezvan.com/data/maleki/002255.mp3",
+      "sha256": "cf88eae5eb1227c149d10b0cba120627b64de24e2b3788077078361433df9c0a",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": 0.11,
+      "measuredPlaybackLufs": -22.814,
+      "predictedLufs": -22.704
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 777,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/005109.mp3",
+      "sha256": "7ac565ffdbad09d3e21bc6b89bd1986407076640797f779a216bb5850b75ba04",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -21.215700043360187,
+      "predictedLufs": -18.555700043360186
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 777,
+      "url": "https://asset.nasimrezvan.com/data/maleki/005109.mp3",
+      "sha256": "b03fabadb3f631228d870e49b1adad4928f963878cedffca9a02b753b5891abe",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": 0.11,
+      "measuredPlaybackLufs": -18.468,
+      "predictedLufs": -18.358
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 1800,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/014051.mp3",
+      "sha256": "6a0e234d05a0d1b690faff62fdcebee23efc62e3601dbfb4b7132fe3119fd81f",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -25.687700043360188,
+      "predictedLufs": -23.027700043360188
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 1800,
+      "url": "https://asset.nasimrezvan.com/data/maleki/014051.mp3",
+      "sha256": "60672546358e193134678a09b1cefee587b1299c4d81953e77840c9437b165af",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": -1.24,
+      "measuredPlaybackLufs": -20.789,
+      "predictedLufs": -22.029
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 3500,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/031032.mp3",
+      "sha256": "bbe4d7751157f4c85f564f376bde4afc43ee2ce3ade2acdc82833ff50bbb7821",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -22.343700043360187,
+      "predictedLufs": -19.683700043360187
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 3500,
+      "url": "https://asset.nasimrezvan.com/data/maleki/031032.mp3",
+      "sha256": "b8945a391f7befeb51d73532de7618152788efc36894d2a22913521c0b37e48e",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": 0.11,
+      "measuredPlaybackLufs": -19.587,
+      "predictedLufs": -19.477
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 5100,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/057026.mp3",
+      "sha256": "cc0f1d0dbde36f656e0e98dcba44b521e59369e5049f2a0cf9525f6e28fe5b80",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -24.09870004336019,
+      "predictedLufs": -21.43870004336019
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 5100,
+      "url": "https://asset.nasimrezvan.com/data/maleki/057026.mp3",
+      "sha256": "c20dc106a32eb58e2cd33f153257d9b47926846f1ebb2ffc821dbc2781e69c80",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": -0.54,
+      "measuredPlaybackLufs": -19.874,
+      "predictedLufs": -20.413999999999998
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 6221,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/112001.mp3",
+      "sha256": "3f6fe2c559bcea09894f8af64d2e633b016c76b1e4eba3791483122c2bf75ad4",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -25.13870004336019,
+      "predictedLufs": -22.47870004336019
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 6221,
+      "url": "https://asset.nasimrezvan.com/data/maleki/112001.mp3",
+      "sha256": "670a509723644b12abac651c8c6392f54e8b815a8d3e8149bfe76cfa98d4b72e",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": -1.04,
+      "measuredPlaybackLufs": -20.442,
+      "predictedLufs": -21.482
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 6222,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/112002.mp3",
+      "sha256": "9b17868f984c6cf984d9ea56442c21e6e39b9c7a61d1a623c0260609ebee7e4f",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -24.680700043360186,
+      "predictedLufs": -22.020700043360186
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 6222,
+      "url": "https://asset.nasimrezvan.com/data/maleki/112002.mp3",
+      "sha256": "a073db433eb99defbc453154eb97169ed7008972430453d75a53e247467cbe46",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": -3.74,
+      "measuredPlaybackLufs": -17.3,
+      "predictedLufs": -21.04
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 6235,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/114006.mp3",
+      "sha256": "6f1203e7a4964d3941bc1066390ff17e59e071318ac0ddfdb5406c410da3a305",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -28.38870004336019,
+      "predictedLufs": -25.72870004336019
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 6235,
+      "url": "https://asset.nasimrezvan.com/data/maleki/114006.mp3",
+      "sha256": "d927fd51f5f125790a1f2e97d679480766fdb8f7cd2cdccd8f8a9a938713200d",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": -2.84,
+      "measuredPlaybackLufs": -21.949,
+      "predictedLufs": -24.789
+    }
+  ]
+}

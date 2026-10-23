@@ -3,4 +3,5 @@ src/generated/
 src/sources/
 src/targets/
 src/hashes/
+src/paired/
 src/catalog.ts

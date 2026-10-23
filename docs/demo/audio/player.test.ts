@@ -2,15 +2,23 @@ import { describe, expect, it, vi } from 'vitest'
 import { AudioDemoPlayer, type DemoState } from './player'
 
 vi.mock('@ghoran/audio/load', async () => {
-  const { parhizgar } = await import('@ghoran/audio')
+  const actual =
+    await vi.importActual<typeof import('@ghoran/audio/load')>(
+      '@ghoran/audio/load',
+    )
   return {
-    loadAudioSource: async () => parhizgar,
-    loadAudioContentManifest: async () => ({
-      sourceId: parhizgar.id,
-      contentRevision: parhizgar.metadata.contentRevision,
-      getHash: () =>
-        'ebdcfb0ef813f6ca1ee0ba9df9d55dbe9d2093aadf2a936206c95e1e2536bc95',
-    }),
+    ...actual,
+    loadAudioContentManifest: async (
+      id: Parameters<typeof actual.loadAudioSource>[0],
+    ) => {
+      const source = await actual.loadAudioSource(id)
+      return {
+        sourceId: source.id,
+        contentRevision: source.metadata.contentRevision,
+        getHash: () =>
+          'ebdcfb0ef813f6ca1ee0ba9df9d55dbe9d2093aadf2a936206c95e1e2536bc95',
+      }
+    },
   }
 })
 
@@ -72,6 +80,29 @@ function fixture(
 const track = { sourceId: 'parhizgar', ayahIndex: 0, label: 'fixture' } as const
 
 describe('listening comparison', () => {
+  it('applies pair gains and recomputes them when cached audio is reused without a partner', async () => {
+    const { player, nodes, states, gains } = fixture()
+    const translation = {
+      sourceId: 'maleki',
+      partnerSourceId: 'motaz',
+      ayahIndex: 0,
+      label: 'translation',
+    } as const
+    const playing = player.play([translation])
+    await vi.waitFor(() => expect(states.at(-1)?.phase).toBe('playing'))
+    expect(states.at(-1)?.gainDb).toBe(-10.24)
+    expect(gains[0].setValueAtTime).toHaveBeenLastCalledWith(
+      10 ** (-10.24 / 20),
+      1,
+    )
+    nodes[0].onended!()
+    await playing
+    const again = player.play([{ ...translation, partnerSourceId: undefined }])
+    await vi.waitFor(() => expect(states.at(-1)?.phase).toBe('playing'))
+    expect(states.at(-1)?.gainDb).toBe(0.11)
+    nodes[1].onended!()
+    await again
+  })
   it('toggles gain on the same playing node while leaving monitor volume unchanged', async () => {
     const { player, nodes, gains, states } = fixture()
     const playing = player.play([track])

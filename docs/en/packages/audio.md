@@ -4,6 +4,33 @@ The current reference snapshot has 81,068 measurable files and no unavailable ga
 
 `@ghoran/audio` provides independently importable, tree-shakable source profiles. It applies no player effects and never fetches, decodes, or analyzes audio at runtime.
 
+
+## Match each recitation/translation pair (0.3)
+
+A source baseline does not match individual pairs: the previous policy left Maleki about **11.3 LU louder than Motaz at 1:1**. For sequential playback use the optional pair API:
+
+```ts
+import motaz from '@ghoran/audio/paired/motaz'
+import maleki from '@ghoran/audio/paired/maleki'
+import { createAudioPair } from '@ghoran/audio/pair'
+const audio = createAudioPair({ recitation: motaz, translation: maleki })
+const result = audio.getRecommendation(ayahIndex)
+if (result.status === 'ready') {
+  recitationGainNode.gain.value = result.recitation.gainLinear
+  translationGainNode.gain.value = result.translation.gainLinear
+}
+```
+
+The policy starts with peak-protected source gains, then attenuates only the louder clip toward a 1-LU difference. The quieter clip sets the achievable level; quiet pairs can remain quiet. It adds no boost, limiter, compressor or live audio analysis. Constant gain preserves dynamics **within** a file; dynamics **between** files change. This is an explicit playback policy, not an automatic repair of statistical anomalies.
+
+`toleranceLu` defaults to 1; `maximumAdditionalCutDb` defaults to 18 and also respects the profile's absolute cut limit. `matched: false` and `cutLimited: true` report an unattainable match. Unmeasurable references return `status: 'unavailable'` with null tracks, without neighbor imputation.
+
+`/sources/*` remains a baseline plus sparse peak exceptions. Only `/paired/*` adds 6,236 measured playback levels at 0.1-LU resolution: 12,472 binary bytes per source, approximately 8 KB gzip in its published module. These are measurements, not per-file gains. Static imports exclude all other sources, hashes and address tables. Quantization adds at most 0.1 LU of pair prediction error. Similar integrated LUFS does not guarantee identical perceived loudness or timbre.
+
+All **224,496 reference pairs** were checked. 130 cannot fully match within the cut budget. For Motaz–Maleki the 95th-percentile absolute difference falls from 5.25 to 1.06 LU; the maximum falls from 11.50 to 1.10 LU. These are predictions from reference measurements, not listening-test results. See the [reproducibility guide](https://github.com/sabereen/ghoran/blob/main/packages/audio/RESEARCH.md).
+
+`contentVerified` remains false: verify both original files against their optional hash manifests when strict byte binding is needed. Whole-ayah levels do not necessarily describe cropped excerpts.
+
 ```ts
 import { parhizgar, ansarian, createAudioNormalizer } from '@ghoran/audio'
 

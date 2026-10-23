@@ -1,0 +1,598 @@
+{
+  "classification": "measured-decoded-pcm-after-static-gain",
+  "ffmpegVersion": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+  "downloadedFiles": 24,
+  "downloadBytes": 2324414,
+  "pairs": [
+    {
+      "ayahIndex": 0,
+      "baseline": 11.299999999999997,
+      "paired": 0.8999999999999986
+    },
+    {
+      "ayahIndex": 1,
+      "baseline": 8.7,
+      "paired": 0.8999999999999986
+    },
+    {
+      "ayahIndex": 2,
+      "baseline": 9.299999999999997,
+      "paired": 1.0
+    },
+    {
+      "ayahIndex": 40,
+      "baseline": 1.0,
+      "paired": 0.9000000000000021
+    },
+    {
+      "ayahIndex": 261,
+      "baseline": -2.8999999999999986,
+      "paired": -1.0
+    },
+    {
+      "ayahIndex": 777,
+      "baseline": 0.20000000000000284,
+      "paired": 0.20000000000000284
+    },
+    {
+      "ayahIndex": 1800,
+      "baseline": 2.3000000000000007,
+      "paired": 1.0
+    },
+    {
+      "ayahIndex": 3500,
+      "baseline": 0.1999999999999993,
+      "paired": 0.1999999999999993
+    },
+    {
+      "ayahIndex": 5100,
+      "baseline": 1.5999999999999979,
+      "paired": 1.0
+    },
+    {
+      "ayahIndex": 6221,
+      "baseline": 2.1999999999999993,
+      "paired": 1.0
+    },
+    {
+      "ayahIndex": 6222,
+      "baseline": 4.800000000000001,
+      "paired": 1.0
+    },
+    {
+      "ayahIndex": 6235,
+      "baseline": 3.8999999999999986,
+      "paired": 0.8999999999999986
+    }
+  ],
+  "files": [
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 0,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/001001.mp3",
+      "sha256": "d8a0042636d8af610da7c723cf48d75aa89b054a03153b8352117b3618dd412e",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -30.090700043360187,
+      "predictedLufs": -27.430700043360186,
+      "downloadBytes": 30720,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -27.4,
+          "truePeakDbtp": -14.3
+        },
+        "paired": {
+          "integratedLufs": -27.4,
+          "truePeakDbtp": -14.3
+        }
+      }
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 0,
+      "url": "https://asset.nasimrezvan.com/data/maleki/001001.mp3",
+      "sha256": "a46270cc56b5ae6d2a0aeae225d7f8c84b73ad681e59c2ddb1388a605449ea66",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": -10.24,
+      "measuredPlaybackLufs": -16.212,
+      "predictedLufs": -26.451999999999998,
+      "downloadBytes": 29631,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -16.1,
+          "truePeakDbtp": -2.8
+        },
+        "paired": {
+          "integratedLufs": -26.5,
+          "truePeakDbtp": -13.2
+        }
+      }
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 1,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/001002.mp3",
+      "sha256": "acb211fe23bc2dbfde163ca51b52f88b2d4754a67dcd80aa723e9e18e09a589f",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -28.375700043360187,
+      "predictedLufs": -25.715700043360187,
+      "downloadBytes": 30720,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -25.7,
+          "truePeakDbtp": -12.9
+        },
+        "paired": {
+          "integratedLufs": -25.7,
+          "truePeakDbtp": -12.9
+        }
+      }
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 1,
+      "url": "https://asset.nasimrezvan.com/data/maleki/001002.mp3",
+      "sha256": "6acfa06174a6ecad1d872a7c80202f7484de63ffa70bdb4a73c21006fcd14461",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": -7.64,
+      "measuredPlaybackLufs": -17.133,
+      "predictedLufs": -24.773,
+      "downloadBytes": 44731,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -17.0,
+          "truePeakDbtp": -2.8
+        },
+        "paired": {
+          "integratedLufs": -24.8,
+          "truePeakDbtp": -10.5
+        }
+      }
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 2,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/001003.mp3",
+      "sha256": "1076a2484996edfd9dc323cef68b3705814de2d2f4f35fb1f909d452305b77a7",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -29.554700043360185,
+      "predictedLufs": -26.894700043360185,
+      "downloadBytes": 30720,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -26.9,
+          "truePeakDbtp": -13.4
+        },
+        "paired": {
+          "integratedLufs": -26.9,
+          "truePeakDbtp": -13.4
+        }
+      }
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 2,
+      "url": "https://asset.nasimrezvan.com/data/maleki/001003.mp3",
+      "sha256": "918a123420c60150893cc986e1fcc9de74bb08b375101214fcf7a967d3d61299",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": -8.24,
+      "measuredPlaybackLufs": -17.672,
+      "predictedLufs": -25.912,
+      "downloadBytes": 20924,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -17.6,
+          "truePeakDbtp": -4.0
+        },
+        "paired": {
+          "integratedLufs": -25.9,
+          "truePeakDbtp": -12.3
+        }
+      }
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 40,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/002034.mp3",
+      "sha256": "d26bff8f8ef795b500cf8127fc699d0a911cf3c7204ec64a0988705118f1942a",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -22.803700043360188,
+      "predictedLufs": -20.143700043360187,
+      "downloadBytes": 47104,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -20.1,
+          "truePeakDbtp": -7.9
+        },
+        "paired": {
+          "integratedLufs": -20.1,
+          "truePeakDbtp": -7.9
+        }
+      }
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 40,
+      "url": "https://asset.nasimrezvan.com/data/maleki/002034.mp3",
+      "sha256": "8ed201f45caf3051b095d92993d28bafcb150395590e057f6d303e2078eb73b5",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": 0.06,
+      "measuredPlaybackLufs": -19.229,
+      "predictedLufs": -19.169,
+      "downloadBytes": 174607,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -19.1,
+          "truePeakDbtp": -1.7
+        },
+        "paired": {
+          "integratedLufs": -19.2,
+          "truePeakDbtp": -1.7
+        }
+      }
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 261,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/002255.mp3",
+      "sha256": "41703b0f76f52665f90de84750847714e0ec6edbea0bab496d4c4418fca06817",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 0.81,
+      "measuredPlaybackLufs": -22.505700043360186,
+      "predictedLufs": -21.695700043360187,
+      "downloadBytes": 94208,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -19.8,
+          "truePeakDbtp": -4.1
+        },
+        "paired": {
+          "integratedLufs": -21.7,
+          "truePeakDbtp": -5.9
+        }
+      }
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 261,
+      "url": "https://asset.nasimrezvan.com/data/maleki/002255.mp3",
+      "sha256": "cf88eae5eb1227c149d10b0cba120627b64de24e2b3788077078361433df9c0a",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": 0.11,
+      "measuredPlaybackLufs": -22.814,
+      "predictedLufs": -22.704,
+      "downloadBytes": 421534,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -22.7,
+          "truePeakDbtp": -4.8
+        },
+        "paired": {
+          "integratedLufs": -22.7,
+          "truePeakDbtp": -4.8
+        }
+      }
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 777,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/005109.mp3",
+      "sha256": "7ac565ffdbad09d3e21bc6b89bd1986407076640797f779a216bb5850b75ba04",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -21.215700043360187,
+      "predictedLufs": -18.555700043360186,
+      "downloadBytes": 45056,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -18.6,
+          "truePeakDbtp": -3.9
+        },
+        "paired": {
+          "integratedLufs": -18.6,
+          "truePeakDbtp": -3.9
+        }
+      }
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 777,
+      "url": "https://asset.nasimrezvan.com/data/maleki/005109.mp3",
+      "sha256": "b03fabadb3f631228d870e49b1adad4928f963878cedffca9a02b753b5891abe",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": 0.11,
+      "measuredPlaybackLufs": -18.468,
+      "predictedLufs": -18.358,
+      "downloadBytes": 182817,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -18.4,
+          "truePeakDbtp": -1.8
+        },
+        "paired": {
+          "integratedLufs": -18.4,
+          "truePeakDbtp": -1.8
+        }
+      }
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 1800,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/014051.mp3",
+      "sha256": "6a0e234d05a0d1b690faff62fdcebee23efc62e3601dbfb4b7132fe3119fd81f",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -25.687700043360188,
+      "predictedLufs": -23.027700043360188,
+      "downloadBytes": 38912,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -23.0,
+          "truePeakDbtp": -10.6
+        },
+        "paired": {
+          "integratedLufs": -23.0,
+          "truePeakDbtp": -10.6
+        }
+      }
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 1800,
+      "url": "https://asset.nasimrezvan.com/data/maleki/014051.mp3",
+      "sha256": "60672546358e193134678a09b1cefee587b1299c4d81953e77840c9437b165af",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": -1.24,
+      "measuredPlaybackLufs": -20.789,
+      "predictedLufs": -22.029,
+      "downloadBytes": 135711,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -20.7,
+          "truePeakDbtp": -4.1
+        },
+        "paired": {
+          "integratedLufs": -22.0,
+          "truePeakDbtp": -5.5
+        }
+      }
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 3500,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/031032.mp3",
+      "sha256": "bbe4d7751157f4c85f564f376bde4afc43ee2ce3ade2acdc82833ff50bbb7821",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -22.343700043360187,
+      "predictedLufs": -19.683700043360187,
+      "downloadBytes": 59392,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -19.7,
+          "truePeakDbtp": -5.7
+        },
+        "paired": {
+          "integratedLufs": -19.7,
+          "truePeakDbtp": -5.7
+        }
+      }
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 3500,
+      "url": "https://asset.nasimrezvan.com/data/maleki/031032.mp3",
+      "sha256": "b8945a391f7befeb51d73532de7618152788efc36894d2a22913521c0b37e48e",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": 0.11,
+      "measuredPlaybackLufs": -19.587,
+      "predictedLufs": -19.477,
+      "downloadBytes": 311649,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -19.5,
+          "truePeakDbtp": -1.9
+        },
+        "paired": {
+          "integratedLufs": -19.5,
+          "truePeakDbtp": -1.9
+        }
+      }
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 5100,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/057026.mp3",
+      "sha256": "cc0f1d0dbde36f656e0e98dcba44b521e59369e5049f2a0cf9525f6e28fe5b80",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -24.09870004336019,
+      "predictedLufs": -21.43870004336019,
+      "downloadBytes": 53248,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -21.4,
+          "truePeakDbtp": -6.4
+        },
+        "paired": {
+          "integratedLufs": -21.4,
+          "truePeakDbtp": -6.4
+        }
+      }
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 5100,
+      "url": "https://asset.nasimrezvan.com/data/maleki/057026.mp3",
+      "sha256": "c20dc106a32eb58e2cd33f153257d9b47926846f1ebb2ffc821dbc2781e69c80",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": -0.54,
+      "measuredPlaybackLufs": -19.874,
+      "predictedLufs": -20.413999999999998,
+      "downloadBytes": 225778,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -19.8,
+          "truePeakDbtp": -3.1
+        },
+        "paired": {
+          "integratedLufs": -20.4,
+          "truePeakDbtp": -3.8
+        }
+      }
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 6221,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/112001.mp3",
+      "sha256": "3f6fe2c559bcea09894f8af64d2e633b016c76b1e4eba3791483122c2bf75ad4",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -25.13870004336019,
+      "predictedLufs": -22.47870004336019,
+      "downloadBytes": 28672,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -22.5,
+          "truePeakDbtp": -10.6
+        },
+        "paired": {
+          "integratedLufs": -22.5,
+          "truePeakDbtp": -10.6
+        }
+      }
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 6221,
+      "url": "https://asset.nasimrezvan.com/data/maleki/112001.mp3",
+      "sha256": "670a509723644b12abac651c8c6392f54e8b815a8d3e8149bfe76cfa98d4b72e",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": -1.04,
+      "measuredPlaybackLufs": -20.442,
+      "predictedLufs": -21.482,
+      "downloadBytes": 129818,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -20.3,
+          "truePeakDbtp": -2.0
+        },
+        "paired": {
+          "integratedLufs": -21.5,
+          "truePeakDbtp": -3.2
+        }
+      }
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 6222,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/112002.mp3",
+      "sha256": "9b17868f984c6cf984d9ea56442c21e6e39b9c7a61d1a623c0260609ebee7e4f",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -24.680700043360186,
+      "predictedLufs": -22.020700043360186,
+      "downloadBytes": 28672,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -22.0,
+          "truePeakDbtp": -9.3
+        },
+        "paired": {
+          "integratedLufs": -22.0,
+          "truePeakDbtp": -9.3
+        }
+      }
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 6222,
+      "url": "https://asset.nasimrezvan.com/data/maleki/112002.mp3",
+      "sha256": "a073db433eb99defbc453154eb97169ed7008972430453d75a53e247467cbe46",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": -3.74,
+      "measuredPlaybackLufs": -17.3,
+      "predictedLufs": -21.04,
+      "downloadBytes": 32836,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -17.2,
+          "truePeakDbtp": -1.9
+        },
+        "paired": {
+          "integratedLufs": -21.0,
+          "truePeakDbtp": -5.8
+        }
+      }
+    },
+    {
+      "sourceId": "motaz",
+      "ayahIndex": 6235,
+      "url": "https://asset.nasimrezvan.com/data/Motaz/114006.mp3",
+      "sha256": "6f1203e7a4964d3941bc1066390ff17e59e071318ac0ddfdb5406c410da3a305",
+      "channels": 1,
+      "baseGainDb": 2.66,
+      "gainDb": 2.66,
+      "measuredPlaybackLufs": -28.38870004336019,
+      "predictedLufs": -25.72870004336019,
+      "downloadBytes": 32768,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -25.7,
+          "truePeakDbtp": -16.0
+        },
+        "paired": {
+          "integratedLufs": -25.7,
+          "truePeakDbtp": -16.0
+        }
+      }
+    },
+    {
+      "sourceId": "maleki",
+      "ayahIndex": 6235,
+      "url": "https://asset.nasimrezvan.com/data/maleki/114006.mp3",
+      "sha256": "d927fd51f5f125790a1f2e97d679480766fdb8f7cd2cdccd8f8a9a938713200d",
+      "channels": 2,
+      "baseGainDb": 0.11,
+      "gainDb": -2.84,
+      "measuredPlaybackLufs": -21.949,
+      "predictedLufs": -24.789,
+      "downloadBytes": 94186,
+      "measuredOutputs": {
+        "baseline": {
+          "integratedLufs": -21.8,
+          "truePeakDbtp": -4.1
+        },
+        "paired": {
+          "integratedLufs": -24.8,
+          "truePeakDbtp": -7.1
+        }
+      }
+    }
+  ]
+}

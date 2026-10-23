@@ -1,5 +1,6 @@
 /** Optional dynamic registry. Static source imports need none of these loaders. */
-import { sourceLoaders, hashLoaders } from './generated/loaders'
+import { sourceLoaders, hashLoaders, pairLoaders } from './generated/loaders'
+import type { AudioPairSource } from './pair'
 import type {
   AudioContentManifest,
   AudioLoudnessTarget,
@@ -22,4 +23,13 @@ export async function loadAudioContentManifest(
   if (!Object.prototype.hasOwnProperty.call(hashLoaders, id))
     throw new RangeError('Unknown audio source')
   return (await hashLoaders[id]()).default
+}
+
+/** Optional measured levels + default profile for sequential recitation/translation. */
+export async function loadAudioPairSource(
+  id: AudioSourceId,
+): Promise<AudioPairSource> {
+  if (!Object.prototype.hasOwnProperty.call(pairLoaders, id))
+    throw new RangeError('Unknown audio source')
+  return (await pairLoaders[id]()).default
 }

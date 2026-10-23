@@ -115,6 +115,12 @@ for (const sid of snapshot.sourceIds) {
     `hashes/${sid}.ts`,
     `import hashes from '../generated/hashes/${sid}'\nimport metadata from '../generated/metadata/${sid}'\nimport { createAudioContentManifest } from '../verify'\nconst manifest = /* @__PURE__ */ createAudioContentManifest(metadata.id, metadata.contentRevision, hashes)\nexport default manifest\n`,
   )
+  const levels = await input(`levels/${sid}.bin`)
+  assert.equal(levels.length, 6236 * 2)
+  put(
+    `paired/${sid}.ts`,
+    `import profile from '../sources/${sid}'\nimport { createAudioPairSource } from '../pair'\nconst source = /* @__PURE__ */ createAudioPairSource(profile, '${levels.toString('base64')}')\nexport default source\n`,
+  )
 }
 put(
   'generated/source-exports.ts',
@@ -153,6 +159,10 @@ put(
     '\n}\nexport const hashLoaders = {\n' +
     snapshot.sourceIds
       .map((id) => `${JSON.stringify(id)}: () => import('../hashes/${id}'),`)
+      .join('\n') +
+    '\n}\nexport const pairLoaders = {\n' +
+    snapshot.sourceIds
+      .map((id) => `${JSON.stringify(id)}: () => import('../paired/${id}'),`)
       .join('\n') +
     '\n}\n',
 )

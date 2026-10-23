@@ -3,12 +3,12 @@ import { defineConfig } from 'tsdown'
 import { libraryConfig } from '../../tsdown.shared.ts'
 
 const entry: Record<string, string> = Object.fromEntries(
-  ['index', 'catalog', 'load', 'verify', 'url'].map((name) => [
+  ['index', 'catalog', 'load', 'verify', 'url', 'pair'].map((name) => [
     name,
     `src/${name}.ts`,
   ]),
 )
-for (const directory of ['sources', 'hashes']) {
+for (const directory of ['sources', 'hashes', 'paired']) {
   for (const file of readdirSync(`src/${directory}`).filter((file) =>
     file.endsWith('.ts'),
   ))

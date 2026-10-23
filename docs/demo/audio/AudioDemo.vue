@@ -11,8 +11,9 @@ const reciters = audioSources.filter((source) => source.kind !== 'translation')
 const translations = audioSources.filter(
   (source) => source.kind === 'translation',
 )
-const reciter = ref<AudioSourceId>('parhizgar')
-const translation = ref<AudioSourceId>('ansarian')
+const reciter = ref<AudioSourceId>('motaz')
+const translation = ref<AudioSourceId>('maleki')
+const mode = ref<'pair' | 'source'>('pair')
 const sampleIndex = ref(0)
 const enabled = ref(true)
 const volume = ref(35)
@@ -67,6 +68,12 @@ function tracks(index: number): DemoTrack[] {
   const sample = samples[index]
   return [reciter.value, translation.value].map((sourceId) => ({
     sourceId,
+    partnerSourceId:
+      mode.value === 'pair'
+        ? sourceId === reciter.value
+          ? translation.value
+          : reciter.value
+        : undefined,
     ayahIndex: sample.index,
     label: `${audioSources.find((source) => source.id === sourceId)!.nameFa} · ${sample.key}`,
   }))
@@ -85,7 +92,7 @@ function play(all = false) {
 }
 watch(enabled, (value) => player?.setEnabled(value))
 watch(volume, (value) => player?.setVolume(value / 100))
-watch([reciter, translation, sampleIndex], () => player?.stop())
+watch([reciter, translation, sampleIndex, mode], () => player?.stop())
 onBeforeUnmount(() => player?.dispose())
 </script>
 
@@ -106,6 +113,28 @@ onBeforeUnmount(() => player?.dispose())
         }}
       </p>
     </div>
+    <label class="sample-select">
+      {{ t('روش تنظیم بلندی', 'Matching policy') }}
+      <select v-model="mode">
+        <option value="pair">
+          {{ t('توازن آیه و ترجمه (پیشنهادی)', 'Pair matching (recommended)') }}
+        </option>
+        <option value="source">
+          {{
+            t(
+              'فقط Gain پایهٔ مجموعه (روش قبلی)',
+              'Source baseline only (previous policy)',
+            )
+          }}
+        </option>
+      </select>
+      <small>{{
+        t(
+          'در حالت توازن، فایل بلندتر کم می‌شود؛ بلندیِ همهٔ آیات یکسان نمی‌شود.',
+          'Pair matching attenuates the louder clip; it does not make all ayahs equally loud.',
+        )
+      }}</small>
+    </label>
     <div class="source-grid">
       <label
         >{{ t('قاری', 'Reciter') }}
@@ -159,7 +188,9 @@ onBeforeUnmount(() => player?.dispose())
       <button type="button" :aria-pressed="enabled" @click="enabled = true">
         {{ t('با کتابخانه', 'With library')
         }}<small>{{
-          t('Gain پایه + حفاظت Peak', 'Source gain + peak protection')
+          mode === 'pair'
+            ? t('توازن همین آیه و ترجمه', 'Match this ayah and translation')
+            : t('Gain پایه + حفاظت Peak', 'Source gain + peak protection')
         }}</small>
       </button>
     </div>
@@ -209,8 +240,8 @@ onBeforeUnmount(() => player?.dispose())
     <p class="demo-note">
       {{
         t(
-          'در هر دو حالت، بلندی شنیدن یکسان است. این تنظیم فقط اختلاف سطح مجموعه‌ها را کاهش می‌دهد؛ فراز و فرود طبیعی آیه حفظ می‌شود.',
-          'Listening volume is identical in both modes. Source matching reduces collection-level differences while preserving expression within each ayah.',
+          'ولوم شنیدن ثابت است. توازن، فقط فایل بلندتر هر جفت را کم می‌کند؛ فایل آرام‌تر ممکن است همچنان آرام بماند. فراز و فرود داخل هر فایل حفظ می‌شود؛ اختلاف بلندی بین فایل‌ها تغییر می‌کند. نزدیکی LUFS تضمین برابری ادراک شنیداری نیست.',
+          'Listening volume stays fixed. Pair matching only attenuates the louder clip; a quiet pair can remain quiet. Within-file dynamics are preserved; between-file dynamics change. Similar LUFS does not guarantee identical perceived loudness.',
         )
       }}
     </p>

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "algorithm": "quieter-clip-anchor-v1",
+  "inputManifestSha256": "b8dcd0eefe9cdbc478ddd2adaa21fff913aeb755192026dc188b4ccb8f54640d",
+  "quantizationLu": 0.1,
+  "monoPlaybackConvention": "equal-amplitude-duplicate-to-two-channels",
+  "digests": {
+    "parhizgar": "3bee1306e3ee02525ef5dc29d394127d4c9584bcfd306dc0cc8c92182eed3859",
+    "ghamadi": "d9449e73808c7ff020305e729df8ab0b1ecd4e92c389df224d631ea40bd1fc1d",
+    "husary": "e822e32bc1263e0c19dfdb29d314b41f1ad044d40d1c6cb3436b973540ab41ec",
+    "minshawy-murattal": "73e37ba2ebd3e04603467d527ce026b4ec7fe4ff3fd6c748999ff2a7db587009",
+    "minshawy-mujawwad": "4337902404aeb8ffadf729fea0928fac9e973d7aca39f3cee973ad847bf86c65",
+    "motaz": "c35654b1150a60dc0cc430a871f435305764a24bcf407404312cad44a1de3bf2",
+    "abdulbasit": "c24b75ab997b110b9011abce4b5bcfcace066827f04f0cff71eb2d086fe5f103",
+    "almuiqly": "7e4c5b9cc5f65c63925b2ecf3b996434740bd12c43a6c71fd5fed527d3ffe132",
+    "jafarpour": "9c245ad18fc46dd1a8eb39fd0f3ba46dd9f968acb16d986fdbd3d3d9acdec180",
+    "ansarian": "7f912af3044b072f4c97699949203efdab3e63cf814d149b175e2ff97e08aa10",
+    "maleki": "1dd17d05ccf794f2f956f7d727c5e06419121e44639a5e0502ec80ae0fcd16af",
+    "makarem-kabiri": "80e02cf075afb3b64a47494e32105894b64e98bd1949dba4491f897e45ca086a",
+    "fooladvand-hedayatfar": "c4aa0e20ef93b2abd35cf335ff0d355fcc4ea6ad7a3341ea4465b9da2cfc72d9"
+  }
+}

@@ -27,6 +27,20 @@
     "hashes/makarem-kabiri.bin": "0e47065f4019849c4140836f0c41382dae7e3e5a9132e2a6cb90a7918ecc29d1",
     "sources/fooladvand-hedayatfar.json": "6d653367cf2ce76a4f705b41cdf463dfef4a1496ffd25ad968cf21abbb51849c",
     "hashes/fooladvand-hedayatfar.bin": "de75e24632fa7be422a8c03abd0a0fd653bc82c3e1b2bc6c6ae1fd932a68bfd3",
-    "snapshot.json": "86c7ea9eb01531f51e7a03f8f8a15dff0cabccbff8b389cff7157f32c9548c65"
+    "snapshot.json": "86c7ea9eb01531f51e7a03f8f8a15dff0cabccbff8b389cff7157f32c9548c65",
+    "levels/parhizgar.bin": "3bee1306e3ee02525ef5dc29d394127d4c9584bcfd306dc0cc8c92182eed3859",
+    "levels/ghamadi.bin": "d9449e73808c7ff020305e729df8ab0b1ecd4e92c389df224d631ea40bd1fc1d",
+    "levels/husary.bin": "e822e32bc1263e0c19dfdb29d314b41f1ad044d40d1c6cb3436b973540ab41ec",
+    "levels/minshawy-murattal.bin": "73e37ba2ebd3e04603467d527ce026b4ec7fe4ff3fd6c748999ff2a7db587009",
+    "levels/minshawy-mujawwad.bin": "4337902404aeb8ffadf729fea0928fac9e973d7aca39f3cee973ad847bf86c65",
+    "levels/motaz.bin": "c35654b1150a60dc0cc430a871f435305764a24bcf407404312cad44a1de3bf2",
+    "levels/abdulbasit.bin": "c24b75ab997b110b9011abce4b5bcfcace066827f04f0cff71eb2d086fe5f103",
+    "levels/almuiqly.bin": "7e4c5b9cc5f65c63925b2ecf3b996434740bd12c43a6c71fd5fed527d3ffe132",
+    "levels/jafarpour.bin": "9c245ad18fc46dd1a8eb39fd0f3ba46dd9f968acb16d986fdbd3d3d9acdec180",
+    "levels/ansarian.bin": "7f912af3044b072f4c97699949203efdab3e63cf814d149b175e2ff97e08aa10",
+    "levels/maleki.bin": "1dd17d05ccf794f2f956f7d727c5e06419121e44639a5e0502ec80ae0fcd16af",
+    "levels/makarem-kabiri.bin": "80e02cf075afb3b64a47494e32105894b64e98bd1949dba4491f897e45ca086a",
+    "levels/fooladvand-hedayatfar.bin": "c4aa0e20ef93b2abd35cf335ff0d355fcc4ea6ad7a3341ea4465b9da2cfc72d9",
+    "pair-evidence.json": "2e052f9f5fce0e470f70fcc9b654bf5752bfe45a8fe463da786cfc6efb9ac4f5"
   }
 }

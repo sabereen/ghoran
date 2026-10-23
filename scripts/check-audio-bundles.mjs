@@ -35,6 +35,14 @@ export async function verifyAudioBundles(consumer) {
       `export { default as profile } from '@ghoran/audio/targets/-23/parhizgar';`,
       ['parhizgar'],
     ],
+    [
+      'paired-two-sources',
+      `import motaz from '@ghoran/audio/paired/motaz';
+      import maleki from '@ghoran/audio/paired/maleki';
+      import { createAudioPair } from '@ghoran/audio/pair';
+      export const audio = createAudioPair({recitation:motaz,translation:maleki});`,
+      ['motaz', 'maleki'],
+    ],
   ]
   const allSources = [
     'parhizgar',
@@ -82,7 +90,12 @@ export async function verifyAudioBundles(consumer) {
       `${name}: research/hash/loader data leaked`,
     )
     assert(
-      combined.length < (name === 'math-only' ? 1000 : 15000),
+      combined.length <
+        (name === 'math-only'
+          ? 1000
+          : name === 'paired-two-sources'
+            ? 60000
+            : 15000),
       `${name}: runtime size budget exceeded`,
     )
     // Assert actual emitted code, not source imports: object methods may otherwise
