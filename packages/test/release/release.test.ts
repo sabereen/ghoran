@@ -18,7 +18,7 @@ mkdirSync(bin)
 writeFileSync(join(bin, 'package.json'), JSON.stringify({ type: 'commonjs' }))
 const log = join(temporary, 'calls.jsonl')
 const manifest = [
-  'audio-analysis',
+  'audio',
   'font-page',
   'metadata',
   'text',

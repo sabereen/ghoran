@@ -9,25 +9,30 @@ export async function verifyAudioBundles(consumer) {
   const cases = [
     [
       'named-two-sources',
-      `import { parhizgar, ansarian, createAudioNormalizer } from '@ghoran/audio-analysis';
+      `import { parhizgar, ansarian, createAudioNormalizer } from '@ghoran/audio';
       export const audio = createAudioNormalizer({ sources: [parhizgar, ansarian] });`,
       ['parhizgar', 'ansarian'],
     ],
     [
       'subpath-two-sources',
-      `import parhizgar from '@ghoran/audio-analysis/sources/parhizgar';
-      import ansarian from '@ghoran/audio-analysis/sources/ansarian';
+      `import parhizgar from '@ghoran/audio/sources/parhizgar';
+      import ansarian from '@ghoran/audio/sources/ansarian';
       export const profiles = [parhizgar, ansarian];`,
       ['parhizgar', 'ansarian'],
     ],
     [
-      'math-only',
-      `export { dbToLinearGain } from '@ghoran/audio-analysis';`,
-      [],
+      'single-source-with-url',
+      `import parhizgar from '@ghoran/audio/sources/parhizgar';
+      import { getAudioUrl } from '@ghoran/audio/url';
+      export const profile = parhizgar;
+      export const url = index => getAudioUrl(parhizgar, index);`,
+      ['parhizgar'],
+      true,
     ],
+    ['math-only', `export { dbToLinearGain } from '@ghoran/audio';`, []],
     [
       'single-alternative-target',
-      `export { default as profile } from '@ghoran/audio-analysis/targets/-23/parhizgar';`,
+      `export { default as profile } from '@ghoran/audio/targets/-23/parhizgar';`,
       ['parhizgar'],
     ],
   ]
@@ -47,7 +52,7 @@ export async function verifyAudioBundles(consumer) {
     'fooladvand-hedayatfar',
   ]
   const sizes = {}
-  for (const [name, code, included] of cases) {
+  for (const [name, code, included, includesUrl = false] of cases) {
     const entry = join(consumer, `audio-${name}.mjs`)
     await writeFile(entry, code)
     const result = await build({
@@ -79,6 +84,22 @@ export async function verifyAudioBundles(consumer) {
     assert(
       combined.length < (name === 'math-only' ? 1000 : 15000),
       `${name}: runtime size budget exceeded`,
+    )
+    // Assert actual emitted code, not source imports: object methods may otherwise
+    // retain address parsing even when the application never calls them.
+    assert.equal(
+      /\[\s*7,\s*286,\s*200,\s*176,/.test(combined),
+      includesUrl,
+      `${name}: optional surah table leaked or URL addressing was lost`,
+    )
+    assert.equal(
+      combined.includes('padStart'),
+      includesUrl,
+      `${name}: optional file-name conversion leaked or was lost`,
+    )
+    assert(
+      !/surah:ayah|Audio verse ordinal|toAudioVerseOrdinal/.test(combined),
+      `${name}: removed address overloads leaked`,
     )
     sizes[name] = {
       bytes: Buffer.byteLength(combined),

@@ -258,7 +258,7 @@ importers:
         specifier: ^3.5.43
         version: 3.5.43(typescript@6.0.3)
 
-  packages/audio-analysis: {}
+  packages/audio: {}
 
   packages/entity:
     dependencies:

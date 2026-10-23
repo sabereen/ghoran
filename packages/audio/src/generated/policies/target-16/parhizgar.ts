@@ -1,0 +1,4 @@
+// Generated; source baseline + peak guard only.
+import type { AudioSourcePolicyData } from '../../../types'
+const policy: AudioSourcePolicyData = {"targetLufs":-16,"base":-354,"overrides":[[517,-355,true],[536,-355,true],[537,-355,true],[538,-405,true],[1280,-355,true],[1329,-365,true],[2877,-375,true],[2881,-355,true],[2886,-375,true],[2887,-375,true],[2892,-355,true],[2916,-385,true],[3271,-375,true],[3273,-385,true],[3274,-405,true],[3310,-405,true],[3351,-365,true],[3393,-375,true],[3397,-385,true],[3399,-365,true],[3401,-355,true],[3412,-355,true],[3415,-365,true],[3425,-355,true],[3431,-355,true],[3432,-385,true],[3446,-365,true],[3474,-365,true],[3649,-435,true],[4505,-385,true],[5423,-355,true],[5439,-355,true],[5472,-355,true],[5833,-355,true]],"unavailable":[]}
+export default policy

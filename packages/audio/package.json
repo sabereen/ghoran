@@ -1,0 +1,71 @@
+{
+  "name": "@ghoran/audio",
+  "version": "0.1.0",
+  "description": "Tree-shakable Quran audio gain profiles, per-file peak protection and optional content verification",
+  "type": "module",
+  "main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    },
+    "./catalog": {
+      "types": "./dist/catalog.d.ts",
+      "import": "./dist/catalog.mjs"
+    },
+    "./load": {
+      "types": "./dist/load.d.ts",
+      "import": "./dist/load.mjs"
+    },
+    "./verify": {
+      "types": "./dist/verify.d.ts",
+      "import": "./dist/verify.mjs"
+    },
+    "./profiles": {
+      "types": "./dist/profiles.d.ts",
+      "import": "./dist/profiles.mjs"
+    },
+    "./sources/*": {
+      "types": "./dist/sources/*.d.ts",
+      "import": "./dist/sources/*.mjs"
+    },
+    "./targets/*": {
+      "types": "./dist/targets/*.d.ts",
+      "import": "./dist/targets/*.mjs"
+    },
+    "./hashes/*": {
+      "types": "./dist/hashes/*.d.ts",
+      "import": "./dist/hashes/*.mjs"
+    },
+    "./url": {
+      "types": "./dist/url.d.ts",
+      "import": "./dist/url.mjs"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist/**/*",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node scripts/generate-runtime.mjs && tsdown",
+    "analyze": "python3 analysis/scripts/analyze.py",
+    "extract": "python3 analysis/scripts/parallel_run.py run --phase full",
+    "test:analysis": "python3 -m unittest discover -s analysis/tests -v",
+    "export:data": "python3 analysis/scripts/export_package.py",
+    "generate:runtime": "node scripts/generate-runtime.mjs",
+    "check:runtime": "node scripts/generate-runtime.mjs --check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabereen/ghoran.git",
+    "directory": "packages/audio"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

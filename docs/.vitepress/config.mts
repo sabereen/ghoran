@@ -30,8 +30,8 @@ const persianSidebar = [
     items: [
       { text: 'جستجوی قرآن (search)', link: '/packages/search' },
       {
-        text: 'تحلیل صوت قرآن (audio-analysis)',
-        link: '/packages/audio-analysis',
+        text: 'تحلیل صوت قرآن (audio)',
+        link: '/packages/audio',
       },
       {
         text: 'متن و فونت قرآن (text)',
@@ -102,7 +102,7 @@ const englishSidebar = [
     text: 'Packages',
     items: [
       { text: 'Quran search (search)', link: '/en/packages/search' },
-      { text: 'Quran audio analysis', link: '/en/packages/audio-analysis' },
+      { text: 'Quran audio analysis', link: '/en/packages/audio' },
       {
         text: 'Quran text and fonts (text)',
         link: '/en/packages/text',
