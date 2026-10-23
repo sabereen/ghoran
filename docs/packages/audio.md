@@ -28,4 +28,6 @@ const url = getAudioUrl(parhizgar, 261) // .../002255.mp3
 
 `getGain` به صوت مرجع مربوط است و بایت‌های در حال پخش را تأیید نمی‌کند. برای تطبیق سخت‌گیرانه، manifest فقط همان منبع را از `/hashes/parhizgar` و `getVerifiedAudioGain` را از `/verify` وارد کنید و هش واقعی فایل اصلی را بدهید.
 
-داده‌های پژوهشی در مخزن Git و آرشیو مستقل هستند و داخل بستهٔ اجرایی npm قرار نمی‌گیرند. شرح کامل API، محدودیت‌های قرارداد مونو، اندازه‌گیری‌ها و بازتولید در [README پکیج](https://github.com/sabereen/ghoran/tree/main/packages/audio) آمده است.
+[دموی شنیداری را امتحان کنید](/demo/audio/): از میان هر ۹ قاری و ۴ ترجمه انتخاب کنید، آیه و ترجمه را پشت‌سرهم بشنوید و در حین پخش، Gain را روشن و خاموش کنید.
+
+فقط ورودی کم‌حجم پخش و هش‌های اختیاری در main هستند. اندازه‌گیری‌ها، گزارش‌ها و روش‌های کامل در [نسخهٔ پژوهشی ثابت](https://github.com/sabereen/ghoran/tree/fbd55d0fe9c3cf5559a0af9e0b6ca1e9da37d365/packages/audio) حفظ شده‌اند. [راهنمای بازتولید](https://github.com/sabereen/ghoran/blob/main/packages/audio/RESEARCH.md) ساخت snapshot از نتایج علمی را توضیح می‌دهد؛ بیلد روزمره فقط Node می‌خواهد.

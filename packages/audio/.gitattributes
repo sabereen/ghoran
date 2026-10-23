@@ -1,3 +1,1 @@
-# Preserve upstream bytes and their SHA-256, including CRLF.
-analysis/metadata/quran-data.xml -text whitespace=cr-at-eol
-*.csv whitespace=cr-at-eol
+data/hashes/*.bin binary

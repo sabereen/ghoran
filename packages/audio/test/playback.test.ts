@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { readFileSync } from 'node:fs'
-import { gunzipSync } from 'node:zlib'
+import { createHash } from 'node:crypto'
 import { fileURLToPath } from 'node:url'
 import { join } from 'node:path'
 import {
@@ -19,8 +19,11 @@ import { getVerifiedAudioGain, verifyAudioContent } from '../src/verify'
 
 const data = fileURLToPath(new URL('../data/', import.meta.url))
 const sources: { id: AudioSourceId }[] = JSON.parse(
-  readFileSync(join(data, 'sources.json'), 'utf8'),
-).sources
+  readFileSync(join(data, 'snapshot.json'), 'utf8'),
+).sourceIds.map((id: AudioSourceId) => ({ id }))
+const reference = JSON.parse(
+  readFileSync(new URL('./fixtures/reference.json', import.meta.url), 'utf8'),
+)
 
 describe('player-facing gain profiles', () => {
   it('shares zero-based indices with text and preserves all canonical URL addresses', () => {
@@ -29,15 +32,16 @@ describe('player-facing gain profiles', () => {
       'https://asset.nasimrezvan.com/data/Parhizgar/002255.mp3',
     )
     expect(getAudioUrl(ansarian.metadata, 6235)).toContain('/114006.mp3')
-    const verses = JSON.parse(
-      gunzipSync(readFileSync(join(data, 'verses.json.gz'))).toString(),
-    )
-    for (const [index, verse] of verses.entries()) {
-      expect(getAudioUrl(parhizgar, index)).toBe(
-        parhizgar.metadata.urlTemplate.replace('{file_stem}', verse.file_stem),
-      )
+    const filenames = createHash('sha256')
+    for (let index = 0; index < 6236; index++) {
+      const name = getAudioUrl(parhizgar, index)
+        .split('/')
+        .at(-1)!
+        .replace('.mp3', '')
+      filenames.update(`${index}:${name}\n`)
       expect(parhizgar.getRecommendation(index).ayahIndex).toBe(index)
     }
+    expect(filenames.digest('hex')).toBe(reference.fileStemsSha256)
     expect(parhizgar).not.toHaveProperty('getUrl')
     expect(parhizgar.getRecommendation(0)).not.toHaveProperty('verseId')
     expect(parhizgar.getRecommendation(0)).not.toHaveProperty('ordinal')
@@ -152,74 +156,45 @@ describe('player-facing gain profiles', () => {
     ).toBeNull()
     expect(() => verifyAudioContent(hashes, 0, 'bad')).toThrow(TypeError)
   })
-  it('preserves peak safety and nulls for every reference file at all four targets', async () => {
-    const counts: Record<
-      string,
-      { ready: number; peak: number; unavailable: number }
-    > = {}
-    for (const target of [-23, -20, -18, -16] as const)
-      counts[target] = { ready: 0, peak: 0, unavailable: 0 }
+  it('preserves every reference gain, peak flag and hash at all four targets', async () => {
+    const peakCounts: Record<number, number> = {
+      [-23]: 0,
+      [-20]: 0,
+      [-18]: 0,
+      [-16]: 0,
+    }
     for (const { id } of sources) {
-      const lines = gunzipSync(
-        readFileSync(join(data, 'measurements', id + '.jsonl.gz')),
-      )
-        .toString()
-        .trim()
-        .split('\n')
-      expect(lines).toHaveLength(6236)
       const manifest = await loadAudioContentManifest(id)
-      for (const [index, line] of lines.entries()) {
-        expect(manifest.getHash(index)).toBe(JSON.parse(line).measured.sha256)
-      }
       for (const target of [-23, -20, -18, -16] as const) {
         const profile = await loadAudioSource(id, { targetLufs: target })
-        const reference = JSON.parse(
-          readFileSync(
-            join(data, 'recommendations', String(target), id + '.json'),
-            'utf8',
-          ),
-        )
-        const gains = new Map<number, number | null>(
-          reference.values.map(([ordinal, gain]: [number, number | null]) => [
-            ordinal,
-            gain,
-          ]),
-        )
-        for (const line of lines) {
-          const record = JSON.parse(line)
-          const result = profile.getRecommendation(record.ordinal - 1)
-          const original = gains.get(record.ordinal)
-          if (original === null || original === undefined) {
-            if (result.gainLinear !== null)
-              throw Error(
-                'Missing gain gained a fallback: ' + id + '/' + record.ordinal,
-              )
-            counts[target].unavailable++
-          } else {
-            const db = result.gainDb!
-            if (Math.abs(db - original) > 0.010501)
-              throw Error('Gain differs from reference')
-            if (record.measured.loudness.true_peak_dbtp + db > -1.15 + 1e-8)
-              throw Error('Peak ceiling exceeded')
-            if (
-              db < -18 ||
-              db > 8 ||
-              Math.abs(result.gainLinear! - 10 ** (db / 20)) > 1e-12
-            )
-              throw Error('Invalid gain')
-            counts[target].ready++
-            counts[target].peak += Number(result.peakLimited)
-          }
+        const digest = createHash('sha256')
+        for (let index = 0; index < 6236; index++) {
+          const result = profile.getRecommendation(index)
+          expect(result.status).toBe('ready')
+          if (result.status !== 'ready') throw Error('Reference gain lost')
+          expect(result.gainDb).toBeGreaterThanOrEqual(-18)
+          expect(result.gainDb).toBeLessThanOrEqual(8)
+          expect(result.gainLinear).toBeCloseTo(10 ** (result.gainDb / 20), 12)
+          digest.update(
+            JSON.stringify([
+              index,
+              Math.round(result.gainDb * 100),
+              result.peakLimited,
+              manifest.getHash(index),
+            ]) + '\n',
+          )
+          peakCounts[target] += Number(result.peakLimited)
         }
+        // Golden digests were calculated from the archived scientific records,
+        // independently of the compact snapshot or generated TS modules.
+        expect(digest.digest('hex')).toBe(reference.digests[id][target])
       }
     }
-    for (const target of [-23, -20, -18, -16]) {
-      expect(counts[target].ready).toBe(81068)
-      expect(counts[target].unavailable).toBe(0)
-    }
-    expect(counts[-23].peak).toBe(4)
-    expect(counts[-20].peak).toBe(566)
-    expect(counts[-18].peak).toBe(6854)
-    expect(counts[-16].peak).toBe(24566)
+    expect(peakCounts).toEqual({
+      [-23]: 4,
+      [-20]: 566,
+      [-18]: 6854,
+      [-16]: 24566,
+    })
   }, 60000)
 })

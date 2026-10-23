@@ -3,7 +3,7 @@ import { defineConfig } from 'tsdown'
 import { libraryConfig } from '../../tsdown.shared.ts'
 
 const entry: Record<string, string> = Object.fromEntries(
-  ['index', 'catalog', 'load', 'verify', 'url', 'profiles'].map((name) => [
+  ['index', 'catalog', 'load', 'verify', 'url'].map((name) => [
     name,
     `src/${name}.ts`,
   ]),

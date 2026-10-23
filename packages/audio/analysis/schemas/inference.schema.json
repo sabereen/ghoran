@@ -1,8 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:quran-audio-analysis:inference:1.0.0",
-  "type": "object", "required": ["schema_version", "data_class"],
-  "properties": {"schema_version": {"const": "1.0.0"}, "data_class": {"const": "inferred"},
-    "confidence_score": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
-    "review_required": {"type": "boolean"}, "automatic_correction_authorized": {"const": false}}
-}

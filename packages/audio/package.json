@@ -1,6 +1,6 @@
 {
   "name": "@ghoran/audio",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Tree-shakable Quran audio gain profiles, per-file peak protection and optional content verification",
   "type": "module",
   "main": "dist/index.mjs",
@@ -22,10 +22,6 @@
     "./verify": {
       "types": "./dist/verify.d.ts",
       "import": "./dist/verify.mjs"
-    },
-    "./profiles": {
-      "types": "./dist/profiles.d.ts",
-      "import": "./dist/profiles.mjs"
     },
     "./sources/*": {
       "types": "./dist/sources/*.d.ts",
@@ -51,12 +47,9 @@
   ],
   "scripts": {
     "build": "node scripts/generate-runtime.mjs && tsdown",
-    "analyze": "python3 analysis/scripts/analyze.py",
-    "extract": "python3 analysis/scripts/parallel_run.py run --phase full",
-    "test:analysis": "python3 -m unittest discover -s analysis/tests -v",
-    "export:data": "python3 analysis/scripts/export_package.py",
     "generate:runtime": "node scripts/generate-runtime.mjs",
-    "check:runtime": "node scripts/generate-runtime.mjs --check"
+    "check:runtime": "node scripts/generate-runtime.mjs --check",
+    "import:analysis": "node scripts/import-analysis.mjs"
   },
   "repository": {
     "type": "git",

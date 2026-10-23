@@ -1,9 +1,0 @@
-__pycache__/
-.venv/
-checkpoints/*.sqlite3*
-checkpoints/run.lock
-checkpoints/STOP
-*.tmp
-*.zip
-*.mp3
-*.wav

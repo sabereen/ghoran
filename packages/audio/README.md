@@ -135,16 +135,17 @@ exportهای نام‌دار دوکلمه‌ای camelCase هستند: `minshawy
 
 ## توسعه و بازتولید
 
-دادهٔ Measured، Inferred و Recommended کامل در پوشه‌های `analysis/` و `data/` **مخزن Git** و آرشیو مستقل نگهداری می‌شود؛ فایل‌های حجیم پژوهشی در بستهٔ npm نیستند. `/profiles` ورود اختیاری پروفایل‌های استنباطی است. دادهٔ خام `/data/*` از بستهٔ نصب‌شدنی صادر نمی‌شود.
+پکیج پخش، snapshot کم‌حجم و کنترل‌شدهٔ Gain پایه + استثناها را نگه می‌دارد. اندازه‌گیری‌های کامل و ابزار پژوهشی در [نسخهٔ آرشیوی](https://github.com/sabereen/ghoran/tree/fbd55d0fe9c3cf5559a0af9e0b6ca1e9da37d365/packages/audio) حفظ شده‌اند؛ گزارش‌های حجیم، نمودارها و تاریخچه‌های اجرایی داخل این پکیج نیستند.
 
 ```sh
-pnpm --filter @ghoran/audio generate:runtime
-pnpm --filter @ghoran/audio check:runtime
 pnpm --filter @ghoran/audio build
+pnpm --filter @ghoran/audio check:runtime
 pnpm test
 pnpm check:packages
 ```
 
-کامپایلر Node از snapshot متعهدشدهٔ داده، بدون Python، FFmpeg یا شبکه، ورودی‌های مستقل هر منبع و سیاست را بازتولید می‌کند. هش ورودی‌ها، شمار رکوردها، تطابق توصیه‌ها، حدود Gain و سقف Peak را برای تمام ۳۲۴٬۲۷۲ ترکیب منبع/آیه/هدف بررسی می‌کند. اختلاف با سیاست baseline-only باعث شکست بیلد می‌شود؛ اصلاح‌های استنباطی تأییدشدهٔ احتمالی آینده بدون تغییر صریح این قرارداد وارد runtime نمی‌شوند.
+ماژول‌های مستقل هر منبع و سیاست در بیلد با Node تولید می‌شوند و خروجی تولیدشده در Git تکرار نمی‌شود. Python، FFmpeg و شبکه برای بیلد روزمره لازم نیستند. [RESEARCH.md](https://github.com/sabereen/ghoran/blob/main/packages/audio/RESEARCH.md) ورودی‌ها، مرجع ثابت و دستور بازتولید علمی را توضیح می‌دهد.
 
-کد تحت MIT؛ ساختار سوره و آیه از [Tanzil Project](https://tanzil.net/docs/Quran_Metadata) است؛ snapshot و attribution کامل آن نیز در مخزن حفظ شده‌اند. صوت‌های اصلی داخل npm یا آرشیو تحلیل توزیع نمی‌شوند.
+[دموی مقایسهٔ شنیداری](https://sabereen.github.io/ghoran/demo/audio/) امکان انتخاب هر ۹ قاری و ۴ ترجمه و مقایسهٔ همان صوت با Gain و بدون آن را دارد.
+
+کد تحت MIT؛ ساختار سوره و آیه از [Tanzil Project](https://tanzil.net/docs/Quran_Metadata) است؛ منبع و روش اعتبارسنجی در آرشیو پژوهش حفظ شده‌اند. صوت‌های اصلی داخل پکیج npm توزیع نمی‌شوند.

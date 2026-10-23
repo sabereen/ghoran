@@ -28,4 +28,6 @@ Runtime metadata stays sparse: one source baseline plus indexed exceptions, not 
 
 Reference lookup does not validate the currently playing bytes. For strict content binding, explicitly import `/hashes/parhizgar` and `getVerifiedAudioGain` from `/verify`, then provide the SHA-256 of the original downloaded file. Changed bytes, source revisions, and unavailable gains return `null`.
 
-Measured, inferred and recommended research datasets remain in Git and the independent archive, outside the npm runtime payload. See the [package README](https://github.com/sabereen/ghoran/tree/main/packages/audio) for all entry points, generation, and limitations.
+[Try the listening demo](/en/demo/audio/): select any of the nine reciters and four spoken translations, play an ayah followed by its translation, and toggle gain matching during the same playback.
+
+Only compact playback inputs and optional hashes are kept in main. Full measured/inferred/recommended datasets and scientific methods are preserved in the [fixed research archive](https://github.com/sabereen/ghoran/tree/fbd55d0fe9c3cf5559a0af9e0b6ca1e9da37d365/packages/audio). The [reproducibility guide](https://github.com/sabereen/ghoran/blob/main/packages/audio/RESEARCH.md) explains how to regenerate the compact snapshot. Daily builds use offline Node only.

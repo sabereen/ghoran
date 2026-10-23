@@ -221,6 +221,9 @@ importers:
 
   docs:
     devDependencies:
+      '@ghoran/audio':
+        specifier: workspace:*
+        version: link:../packages/audio
       '@ghoran/entity':
         specifier: workspace:*
         version: link:../packages/entity

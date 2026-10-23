@@ -3,12 +3,19 @@ name: Publish to npm
 on:
   push:
     tags: ['npm-*']
+    branches: [main]
+    paths: ['packages/audio/package.json']
   workflow_dispatch:
     inputs:
       dry_run:
         description: Validate publishing without uploading to npm
         type: boolean
         default: false
+
+# Main-branch audio version changes publish only this package. Tag/manual releases
+# retain the existing monorepo behavior.
+env:
+  RELEASE_PACKAGE: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && '@ghoran/audio' || '' }}
 
 permissions:
   contents: read
