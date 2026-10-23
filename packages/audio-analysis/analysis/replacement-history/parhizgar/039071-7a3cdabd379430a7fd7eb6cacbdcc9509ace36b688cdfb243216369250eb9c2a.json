@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "parhizgar",
+  "ordinal": 4129,
+  "surah": 39,
+  "ayah": 71,
+  "verse_id": "39:71",
+  "file_stem": "039071",
+  "juz": 24,
+  "url": "https://asset.nasimrezvan.com/data/Parhizgar/039071.mp3",
+  "analyzer_version": "0.1.0",
+  "measurement_config_sha256": "452ca37448bb830536250253431240e5899cadb2b3415d99c48acd22a8e83212",
+  "measured_at": "2026-10-22T12:13:39.519725+00:00",
+  "http": {
+    "status": "downloaded",
+    "http_status": 200,
+    "attempts": 1,
+    "downloaded_bytes": 10368,
+    "response_bytes": 10368,
+    "etag": "\"4c652052-2880\"",
+    "last_modified": "Fri, 13 Aug 2010 10:37:06 GMT",
+    "content_type": "audio/mpeg",
+    "errors": []
+  },
+  "measured": {
+    "null_reasons": {},
+    "loudness": {
+      "integrated_lufs": null,
+      "true_peak_dbtp": 2.9,
+      "lra_lu": null,
+      "momentary_above_absolute_gate_lufs": {
+        "n": 0,
+        "min": null,
+        "p05": null,
+        "median": null,
+        "p95": null,
+        "max": null,
+        "mad": null
+      },
+      "shortterm_above_absolute_gate_lufs": {
+        "n": 0,
+        "min": null,
+        "p05": null,
+        "median": null,
+        "p95": null,
+        "max": null,
+        "mad": null
+      },
+      "null_reasons": {
+        "integrated_lufs": "less_than_400ms",
+        "lra_lu": "insufficient_duration_or_valid_3s_windows_project_policy",
+        "momentary": "no_complete_400ms_windows_above_minus70",
+        "shortterm": "no_complete_3s_windows_above_minus70",
+        "active_momentary_lufs": "no_valid_active_400ms_windows"
+      }
+    },
+    "duration_s": 0.23510204081632652,
+    "container_duration_s": 0.2565,
+    "sample_peak_dbfs": 2.7753837134312564,
+    "sample_peak_linear": 1.3764777183532715,
+    "rms_dbfs": -17.373614989904734,
+    "channel_rms_dbfs": [
+      -18.05201667792431,
+      -16.7870072159658
+    ],
+    "decoded_samples_per_channel": 5184,
+    "samples_at_or_above_full_scale": 46,
+    "samples_near_full_scale": 46,
+    "sample_count_all_channels": 10368,
+    "activity": {
+      "method": "adaptive-energy-hysteresis-v1",
+      "frame_ms": 20,
+      "noise_floor_proxy_dbfs": -160.0,
+      "energy_separation_db": 114.0761995281718,
+      "threshold_on_dbfs": -75,
+      "threshold_off_dbfs": -81,
+      "boundary_confidence": "moderate",
+      "not_a_speech_vad": true,
+      "near_silent": false,
+      "active_duration_s": 0.23510204081632652,
+      "active_rms_dbfs": -17.373614989904734,
+      "audible_start_estimate_s": 0.0,
+      "audible_end_estimate_s": 0.235102,
+      "leading_low_energy_s": 0.0,
+      "trailing_low_energy_s": 4.0816326513093415e-08,
+      "active_intervals_s": [
+        [
+          0.0,
+          0.235102
+        ]
+      ],
+      "whole_file_low_energy_s": null,
+      "automatic_trim_authorized": false,
+      "active_momentary_lufs": {
+        "n": 0,
+        "min": null,
+        "p05": null,
+        "median": null,
+        "p95": null,
+        "max": null,
+        "mad": null
+      },
+      "active_loudness_definition": "400ms K-weighted windows with >=75% activity overlap; not integrated loudness",
+      "null_reasons": {
+        "active_momentary_lufs": "no_valid_active_400ms_windows"
+      }
+    },
+    "spectral": {
+      "centroid_hz": 2399.6007013367976,
+      "high_band_fraction_above_4khz": 0.18553345835070031,
+      "low_band_fraction_below_200hz": 0.08359836990026628,
+      "channel_used": 1,
+      "method": "welch-hann-native-rate"
+    },
+    "media": {
+      "codec": "mp3",
+      "sample_rate_hz": 22050,
+      "channels": 2,
+      "channel_layout": "stereo",
+      "file_size_bytes": 10368,
+      "reported_bitrate_bps": 323368,
+      "effective_bitrate_bps": 352800.0,
+      "audio_stream_count": 1
+    },
+    "channel_convention": "native BS.1770; mono counted once; no dualmono compensation",
+    "dualmono_playback_lufs": null,
+    "sha256": "7a3cdabd379430a7fd7eb6cacbdcc9509ace36b688cdfb243216369250eb9c2a",
+    "decoded_pcm_sha256": "d8232543743a023b686dc3a10250694f61a515b9f6a196b6674631d5e0352262",
+    "quality_flags": [
+      "short_utterance_loudness_less_representative",
+      "true_peak_above_minus1_dbtp",
+      "possible_clipping_requires_review",
+      "decoder_warning"
+    ],
+    "decoder_warnings": [
+      "Error reading comment frame, skipped"
+    ]
+  },
+  "status": "success",
+  "processing_wall_s": 0.8370669409996481
+}

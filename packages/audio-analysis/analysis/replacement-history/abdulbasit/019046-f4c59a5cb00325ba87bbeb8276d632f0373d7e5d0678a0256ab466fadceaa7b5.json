@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "abdulbasit",
+  "ordinal": 2296,
+  "surah": 19,
+  "ayah": 46,
+  "verse_id": "19:46",
+  "file_stem": "019046",
+  "juz": 16,
+  "url": "https://asset.nasimrezvan.com/data/Abdulbasit/019046.mp3",
+  "analyzer_version": "0.1.0",
+  "measurement_config_sha256": "452ca37448bb830536250253431240e5899cadb2b3415d99c48acd22a8e83212",
+  "measured_at": "2026-10-22T11:50:54.354721+00:00",
+  "http": {
+    "status": "downloaded",
+    "http_status": 200,
+    "attempts": 1,
+    "downloaded_bytes": 478613,
+    "response_bytes": 478613,
+    "etag": "\"6202a397-74d95\"",
+    "last_modified": "Tue, 08 Feb 2022 17:08:39 GMT",
+    "content_type": "audio/mpeg",
+    "errors": []
+  },
+  "status": "invalid",
+  "error": {
+    "type": "CalledProcessError",
+    "message": "Command '['ffprobe', '-v', 'error', '-show_format', '-show_streams', '-of', 'json', '/tmp/quran-audio-vfdhui82/input.mp3']' returned non-zero exit status 1."
+  },
+  "download_sha256": "f4c59a5cb00325ba87bbeb8276d632f0373d7e5d0678a0256ab466fadceaa7b5",
+  "processing_wall_s": 6.8723312300001,
+  "last_validation_http": {
+    "status": "downloaded",
+    "http_status": 200,
+    "attempts": 1,
+    "downloaded_bytes": 478613,
+    "response_bytes": 478613,
+    "etag": "\"6202a397-74d95\"",
+    "last_modified": "Tue, 08 Feb 2022 17:08:39 GMT",
+    "content_type": "audio/mpeg",
+    "errors": []
+  },
+  "revalidated_at": "2026-10-22T15:12:10.497214+00:00",
+  "invalid_recheck": {
+    "previous_status": "invalid",
+    "previous_sha256": "f4c59a5cb00325ba87bbeb8276d632f0373d7e5d0678a0256ab466fadceaa7b5",
+    "response_sha256": "f4c59a5cb00325ba87bbeb8276d632f0373d7e5d0678a0256ab466fadceaa7b5",
+    "same_content": true,
+    "purpose": "confirm invalid content after the full extraction, with no success refetch",
+    "probe_returncode": 1,
+    "probe_stderr": "[NULL @ 0x5610c28c7880] Chroma scaling is not supported, expect wrong picture\n[NULL @ 0x5610c28c7880] Luma scaling is not supported, expect wrong picture\n[vc1 @ 0x5610c28c7880] Incomplete extradata\n[NULL @ 0x5610c28c7880] Unsupported sprite feature\n[NULL @ 0x5610c28c7880] Reserved LEVEL 6\n[NULL @ 0x5610c28c7880] Only 4:2:0 chroma format supported\n[NULL @ 0x5610c28c7880] Old interlaced mode is not supported\n[NULL @ 0x5610c28c7880] Luma scaling is not supported, expect wrong picture\n[NULL @ 0x5610c28c7880] Chroma scaling is not supported, expect wrong picture\n[NULL @ 0x5610c28c7880] Old interlaced mode is not supported\n[vc1 @ 0x5610c28cca80] Incomplete extradata\n",
+    "analysis_reused_identical_invalid_sha256": true
+  }
+}

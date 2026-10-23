@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { join } from 'node:path'
 import {
   createAudioNormalizer,
+  audioDataset,
   getAudioVerse,
   toAudioVerseOrdinal,
   parhizgar,
@@ -13,6 +14,7 @@ import {
   maleki,
   type AudioSourceId,
 } from '../src/index'
+import { createAudioSource } from '../src/playback'
 import { loadAudioSource, loadAudioContentManifest } from '../src/load'
 import { getVerifiedAudioGain, verifyAudioContent } from '../src/verify'
 
@@ -52,23 +54,36 @@ describe('player-facing gain profiles', () => {
       expect(() => parhizgar.getGain(verse)).toThrow(RangeError)
     expect(() => parhizgar.getGain(null as never)).toThrow(TypeError)
   })
-  it('handles real peak exceptions and unavailable content without fallback gains', () => {
+  it('keeps peak protection and strict null semantics while adopted replacements become ready', () => {
     expect(ghamadi.getRecommendation(236)).toMatchObject({
       gainDb: -12.75,
       peakLimited: true,
     })
     expect(ansarian.getGainDb(166)).toBe(-3.55)
     expect(maleki.getRecommendation('3:91')).toMatchObject({
-      status: 'unavailable',
-      reason: 'invalid-audio',
-      gainDb: null,
-      gainLinear: null,
+      status: 'ready',
+      reason: null,
+      contentVerified: false,
     })
     expect(parhizgar.getRecommendation('39:71')).toMatchObject({
-      status: 'unavailable',
-      reason: 'unmeasurable',
-      gainLinear: null,
+      status: 'ready',
       contentVerified: false,
+    })
+    expect(parhizgar.getGain('39:71')).toBeGreaterThan(0)
+    expect(audioDataset.pendingPublicationFiles).toBe(11)
+    expect(parhizgar.metadata.pendingPublicationFiles).toBe(1)
+    expect(maleki.metadata.pendingPublicationFiles).toBe(4)
+    const unavailable = createAudioSource(parhizgar.metadata, {
+      targetLufs: -20,
+      base: -754,
+      overrides: [],
+      unavailable: [[1, 'invalid-audio']],
+    })
+    expect(unavailable.getGain('1:1')).toBeNull()
+    expect(unavailable.getRecommendation('1:1')).toMatchObject({
+      status: 'unavailable',
+      reason: 'invalid-audio',
+      gainLinear: null,
     })
     expect(Object.isFrozen(parhizgar.metadata)).toBe(true)
     expect(Object.isFrozen(parhizgar)).toBe(true)
@@ -121,6 +136,15 @@ describe('player-facing gain profiles', () => {
         hashes,
         '39:71',
         hashes.getHash('39:71')!,
+      ),
+    ).toBe(parhizgar.getGain('39:71'))
+    // The old, truncated CDN bytes must not acquire the replacement's gain.
+    expect(
+      getVerifiedAudioGain(
+        parhizgar,
+        hashes,
+        '39:71',
+        '7a3cdabd379430a7fd7eb6cacbdcc9509ace36b688cdfb243216369250eb9c2a',
       ),
     ).toBeNull()
     expect(() => verifyAudioContent(hashes, '1:1', 'bad')).toThrow(TypeError)
@@ -183,12 +207,12 @@ describe('player-facing gain profiles', () => {
       }
     }
     for (const target of [-23, -20, -18, -16]) {
-      expect(counts[target].ready).toBe(81057)
-      expect(counts[target].unavailable).toBe(11)
+      expect(counts[target].ready).toBe(81068)
+      expect(counts[target].unavailable).toBe(0)
     }
     expect(counts[-23].peak).toBe(4)
     expect(counts[-20].peak).toBe(566)
-    expect(counts[-18].peak).toBe(6852)
-    expect(counts[-16].peak).toBe(24561)
+    expect(counts[-18].peak).toBe(6854)
+    expect(counts[-16].peak).toBe(24566)
   }, 60000)
 })

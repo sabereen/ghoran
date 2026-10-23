@@ -25,6 +25,9 @@ def build(root):
     for c in coverage:
         lines.append('| ' + ' | '.join(str(c[k]) for k in
                      ('source_id','success','missing','invalid','temporary_error','http_error','unprocessed')) + ' |')
+    publication = progress.get('replacement_publication', {})
+    if publication.get('accepted_replacement_count'):
+        lines += ['', f"این snapshot شامل {publication['accepted_replacement_count']} نسخهٔ جایگزین پذیرفته‌شده است؛ انتشار {publication['pending_publication_count']} مورد در URL اصلی هنوز تأیید نشده است. شمارش فایل معتبر مربوط به بایت‌های مرجع است، نه ادعای آزمون مجدد بایت‌های فعلی CDN.", '']
     lines += ['', 'Measured، Inferred و Recommended جدا هستند. فرضیه‌های ضبط و ناهنجاری‌ها مجوز اصلاح خودکار نیستند. '
               'هیچ فایل اصلی تغییر، trim، نرمال‌سازی یا دوباره Encode نشده است.', '',
               'گزارش فارسی و نمودارها: report.fa.html و report.fa.standalone.html؛ '

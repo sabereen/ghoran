@@ -4,31 +4,31 @@
   "aggregate": [
     {
       "target_lufs": -23,
-      "n_usable": 81057,
-      "peak_limited_fraction": 4.934798968627016e-05,
+      "n_usable": 81068,
+      "peak_limited_fraction": 4.934129372872157e-05,
       "gain_limited_fraction": 0.0,
       "median_pairwise_absolute_mismatch_lu": 1.9834250108400457
     },
     {
       "target_lufs": -20,
-      "n_usable": 81057,
-      "peak_limited_fraction": 0.006982740540607227,
+      "n_usable": 81068,
+      "peak_limited_fraction": 0.006981793062614101,
       "gain_limited_fraction": 0.0,
       "median_pairwise_absolute_mismatch_lu": 1.9834999999999994
     },
     {
       "target_lufs": -18,
-      "n_usable": 81057,
-      "peak_limited_fraction": 0.08453310633258078,
+      "n_usable": 81068,
+      "peak_limited_fraction": 0.0845463068041644,
       "gain_limited_fraction": 0.0,
-      "median_pairwise_absolute_mismatch_lu": 1.9906000216800956
+      "median_pairwise_absolute_mismatch_lu": 1.9908500216800942
     },
     {
       "target_lufs": -16,
-      "n_usable": 81057,
-      "peak_limited_fraction": 0.30300899367112033,
+      "n_usable": 81068,
+      "peak_limited_fraction": 0.30302955543494353,
       "gain_limited_fraction": 0.0,
-      "median_pairwise_absolute_mismatch_lu": 2.1257500000000005
+      "median_pairwise_absolute_mismatch_lu": 2.1260000000000003
     }
   ],
   "pairs": [
@@ -36,73 +36,73 @@
       "target_lufs": -23,
       "reciter": "parhizgar",
       "translator": "ansarian",
-      "n_matched_verses": 6235,
-      "median_difference_lu": 0.1319999999999979,
-      "median_absolute_mismatch_lu": 2.4110000000000014,
-      "fraction_above_6lu": 0.12044907778668805
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.13649999999999807,
+      "median_absolute_mismatch_lu": 2.4115,
+      "fraction_above_6lu": 0.1205901218729955
     },
     {
       "target_lufs": -23,
       "reciter": "parhizgar",
       "translator": "maleki",
-      "n_matched_verses": 6231,
-      "median_difference_lu": -0.023999999999997357,
-      "median_absolute_mismatch_lu": 2.4599999999999973,
-      "fraction_above_6lu": 0.11298346974803403
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.021500000000001407,
+      "median_absolute_mismatch_lu": 2.4589999999999996,
+      "fraction_above_6lu": 0.11321359846055164
     },
     {
       "target_lufs": -23,
       "reciter": "parhizgar",
       "translator": "makarem-kabiri",
-      "n_matched_verses": 6235,
-      "median_difference_lu": 0.35900000000000176,
-      "median_absolute_mismatch_lu": 2.622,
-      "fraction_above_6lu": 0.17914995990376906
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.35999999999999943,
+      "median_absolute_mismatch_lu": 2.6224999999999987,
+      "fraction_above_6lu": 0.17928159076330982
     },
     {
       "target_lufs": -23,
       "reciter": "parhizgar",
       "translator": "fooladvand-hedayatfar",
-      "n_matched_verses": 6235,
-      "median_difference_lu": 0.01799999999999713,
-      "median_absolute_mismatch_lu": 2.5870000000000033,
-      "fraction_above_6lu": 0.1111467522052927
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.017999999999998906,
+      "median_absolute_mismatch_lu": 2.587500000000002,
+      "fraction_above_6lu": 0.11112892880051314
     },
     {
       "target_lufs": -23,
       "reciter": "ghamadi",
       "translator": "ansarian",
-      "n_matched_verses": 6231,
+      "n_matched_verses": 6236,
       "median_difference_lu": 0.16000000000000014,
-      "median_absolute_mismatch_lu": 1.6950000000000003,
-      "fraction_above_6lu": 0.019419033862943347
+      "median_absolute_mismatch_lu": 1.6945000000000014,
+      "fraction_above_6lu": 0.019403463758819756
     },
     {
       "target_lufs": -23,
       "reciter": "ghamadi",
       "translator": "maleki",
-      "n_matched_verses": 6227,
-      "median_difference_lu": -0.10999999999999588,
-      "median_absolute_mismatch_lu": 1.6899999999999942,
-      "fraction_above_6lu": 0.022000963545848722
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.10899999999999821,
+      "median_absolute_mismatch_lu": 1.689499999999999,
+      "fraction_above_6lu": 0.02196921103271328
     },
     {
       "target_lufs": -23,
       "reciter": "ghamadi",
       "translator": "makarem-kabiri",
-      "n_matched_verses": 6231,
+      "n_matched_verses": 6236,
       "median_difference_lu": 0.4220000000000006,
-      "median_absolute_mismatch_lu": 1.9410000000000025,
-      "fraction_above_6lu": 0.039159043492216335
+      "median_absolute_mismatch_lu": 1.9415000000000013,
+      "fraction_above_6lu": 0.0391276459268762
     },
     {
       "target_lufs": -23,
       "reciter": "ghamadi",
       "translator": "fooladvand-hedayatfar",
-      "n_matched_verses": 6231,
-      "median_difference_lu": -0.36699999999999733,
-      "median_absolute_mismatch_lu": 1.783999999999999,
-      "fraction_above_6lu": 0.028085379553843683
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.3639999999999972,
+      "median_absolute_mismatch_lu": 1.7834999999999983,
+      "fraction_above_6lu": 0.028062860808210393
     },
     {
       "target_lufs": -23,
@@ -117,10 +117,10 @@
       "target_lufs": -23,
       "reciter": "husary",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": 0.14750000000000263,
-      "median_absolute_mismatch_lu": 2.0014999999999983,
-      "fraction_above_6lu": 0.07782413350449294
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.14749999999999908,
+      "median_absolute_mismatch_lu": 2.0015,
+      "fraction_above_6lu": 0.07793457344451571
     },
     {
       "target_lufs": -23,
@@ -153,10 +153,10 @@
       "target_lufs": -23,
       "reciter": "minshawy-murattal",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": -0.11199999999999832,
-      "median_absolute_mismatch_lu": 1.660499999999999,
-      "fraction_above_6lu": 0.025353016688061617
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.11100000000000065,
+      "median_absolute_mismatch_lu": 1.6614999999999966,
+      "fraction_above_6lu": 0.02549711353431687
     },
     {
       "target_lufs": -23,
@@ -189,10 +189,10 @@
       "target_lufs": -23,
       "reciter": "minshawy-mujawwad",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": -0.06899999999999729,
-      "median_absolute_mismatch_lu": 1.9659999999999993,
-      "fraction_above_6lu": 0.054717586649550704
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.06949999999999967,
+      "median_absolute_mismatch_lu": 1.9649999999999999,
+      "fraction_above_6lu": 0.054682488774855674
     },
     {
       "target_lufs": -23,
@@ -225,10 +225,10 @@
       "target_lufs": -23,
       "reciter": "motaz",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": 0.1750000000000007,
-      "median_absolute_mismatch_lu": 1.7139999999999969,
-      "fraction_above_6lu": 0.028241335044929396
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.1714999999999982,
+      "median_absolute_mismatch_lu": 1.714500000000001,
+      "fraction_above_6lu": 0.028223220012828735
     },
     {
       "target_lufs": -23,
@@ -252,37 +252,37 @@
       "target_lufs": -23,
       "reciter": "abdulbasit",
       "translator": "ansarian",
-      "n_matched_verses": 6235,
-      "median_difference_lu": 0.36999999999999744,
-      "median_absolute_mismatch_lu": 2.052000000000003,
-      "fraction_above_6lu": 0.06431435445068164
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.36949999999999683,
+      "median_absolute_mismatch_lu": 2.0520000000000014,
+      "fraction_above_6lu": 0.06430404105195638
     },
     {
       "target_lufs": -23,
       "reciter": "abdulbasit",
       "translator": "maleki",
-      "n_matched_verses": 6231,
-      "median_difference_lu": 0.1410000000000018,
-      "median_absolute_mismatch_lu": 1.9209999999999958,
-      "fraction_above_6lu": 0.06660247151340074
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.1404999999999994,
+      "median_absolute_mismatch_lu": 1.9205000000000005,
+      "fraction_above_6lu": 0.06670942912123155
     },
     {
       "target_lufs": -23,
       "reciter": "abdulbasit",
       "translator": "makarem-kabiri",
-      "n_matched_verses": 6235,
-      "median_difference_lu": 0.4219999999999935,
-      "median_absolute_mismatch_lu": 2.3150000000000013,
-      "fraction_above_6lu": 0.11355252606255012
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.4209999999999958,
+      "median_absolute_mismatch_lu": 2.3145000000000024,
+      "fraction_above_6lu": 0.11353431686978832
     },
     {
       "target_lufs": -23,
       "reciter": "abdulbasit",
       "translator": "fooladvand-hedayatfar",
-      "n_matched_verses": 6235,
+      "n_matched_verses": 6236,
       "median_difference_lu": 0.08300000000000196,
-      "median_absolute_mismatch_lu": 2.1179999999999986,
-      "fraction_above_6lu": 0.07489975942261427
+      "median_absolute_mismatch_lu": 2.1174999999999997,
+      "fraction_above_6lu": 0.07488774855676716
     },
     {
       "target_lufs": -23,
@@ -297,10 +297,10 @@
       "target_lufs": -23,
       "reciter": "almuiqly",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": -0.1444999999999954,
-      "median_absolute_mismatch_lu": 2.0205,
-      "fraction_above_6lu": 0.03385750962772786
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.14349999999999774,
+      "median_absolute_mismatch_lu": 2.0209999999999972,
+      "fraction_above_6lu": 0.033835792174470816
     },
     {
       "target_lufs": -23,
@@ -333,10 +333,10 @@
       "target_lufs": -23,
       "reciter": "jafarpour",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": -0.1379999999999999,
-      "median_absolute_mismatch_lu": 1.6799999999999997,
-      "fraction_above_6lu": 0.02086007702182285
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.13800000000000345,
+      "median_absolute_mismatch_lu": 1.6795000000000009,
+      "fraction_above_6lu": 0.02084669660038486
     },
     {
       "target_lufs": -23,
@@ -360,73 +360,73 @@
       "target_lufs": -20,
       "reciter": "parhizgar",
       "translator": "ansarian",
-      "n_matched_verses": 6235,
-      "median_difference_lu": 0.12999999999999545,
-      "median_absolute_mismatch_lu": 2.410999999999998,
-      "fraction_above_6lu": 0.12044907778668805
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.13099999999999667,
+      "median_absolute_mismatch_lu": 2.4109999999999996,
+      "fraction_above_6lu": 0.1205901218729955
     },
     {
       "target_lufs": -20,
       "reciter": "parhizgar",
       "translator": "maleki",
-      "n_matched_verses": 6231,
-      "median_difference_lu": -0.0799999999999983,
-      "median_absolute_mismatch_lu": 2.4529999999999994,
-      "fraction_above_6lu": 0.11105761515005617
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.07899999999999885,
+      "median_absolute_mismatch_lu": 2.453999999999999,
+      "fraction_above_6lu": 0.11128928800513149
     },
     {
       "target_lufs": -20,
       "reciter": "parhizgar",
       "translator": "makarem-kabiri",
-      "n_matched_verses": 6235,
-      "median_difference_lu": 0.35900000000000176,
-      "median_absolute_mismatch_lu": 2.622,
-      "fraction_above_6lu": 0.17914995990376906
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.35999999999999943,
+      "median_absolute_mismatch_lu": 2.6224999999999987,
+      "fraction_above_6lu": 0.17928159076330982
     },
     {
       "target_lufs": -20,
       "reciter": "parhizgar",
       "translator": "fooladvand-hedayatfar",
-      "n_matched_verses": 6235,
-      "median_difference_lu": 0.01799999999999713,
-      "median_absolute_mismatch_lu": 2.5870000000000033,
-      "fraction_above_6lu": 0.1111467522052927
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.017999999999998906,
+      "median_absolute_mismatch_lu": 2.587500000000002,
+      "fraction_above_6lu": 0.11112892880051314
     },
     {
       "target_lufs": -20,
       "reciter": "ghamadi",
       "translator": "ansarian",
-      "n_matched_verses": 6231,
+      "n_matched_verses": 6236,
       "median_difference_lu": 0.16000000000000014,
-      "median_absolute_mismatch_lu": 1.6960000000000015,
-      "fraction_above_6lu": 0.019419033862943347
+      "median_absolute_mismatch_lu": 1.695500000000001,
+      "fraction_above_6lu": 0.019403463758819756
     },
     {
       "target_lufs": -20,
       "reciter": "ghamadi",
       "translator": "maleki",
-      "n_matched_verses": 6227,
-      "median_difference_lu": -0.16099999999999426,
-      "median_absolute_mismatch_lu": 1.681999999999995,
-      "fraction_above_6lu": 0.019431507949253253
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.15999999999999837,
+      "median_absolute_mismatch_lu": 1.6799999999999997,
+      "fraction_above_6lu": 0.019403463758819756
     },
     {
       "target_lufs": -20,
       "reciter": "ghamadi",
       "translator": "makarem-kabiri",
-      "n_matched_verses": 6231,
-      "median_difference_lu": 0.4220000000000006,
-      "median_absolute_mismatch_lu": 1.9410000000000025,
-      "fraction_above_6lu": 0.03931953137538116
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.42350000000000065,
+      "median_absolute_mismatch_lu": 1.9415000000000013,
+      "fraction_above_6lu": 0.039288005131494545
     },
     {
       "target_lufs": -20,
       "reciter": "ghamadi",
       "translator": "fooladvand-hedayatfar",
-      "n_matched_verses": 6231,
-      "median_difference_lu": -0.36699999999999733,
-      "median_absolute_mismatch_lu": 1.7840000000000025,
-      "fraction_above_6lu": 0.028245867437008507
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.36299999999999777,
+      "median_absolute_mismatch_lu": 1.783999999999999,
+      "fraction_above_6lu": 0.028223220012828735
     },
     {
       "target_lufs": -20,
@@ -441,10 +441,10 @@
       "target_lufs": -20,
       "reciter": "husary",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": 0.09050000000000047,
-      "median_absolute_mismatch_lu": 1.990499999999999,
-      "fraction_above_6lu": 0.07589858793324776
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.09049999999999869,
+      "median_absolute_mismatch_lu": 1.9909999999999979,
+      "fraction_above_6lu": 0.07601026298909558
     },
     {
       "target_lufs": -20,
@@ -477,10 +477,10 @@
       "target_lufs": -20,
       "reciter": "minshawy-murattal",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": -0.1490000000000009,
-      "median_absolute_mismatch_lu": 1.6380000000000035,
-      "fraction_above_6lu": 0.024229781771501927
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.14800000000000324,
+      "median_absolute_mismatch_lu": 1.6390000000000011,
+      "fraction_above_6lu": 0.024374599101988453
     },
     {
       "target_lufs": -20,
@@ -513,10 +513,10 @@
       "target_lufs": -20,
       "reciter": "minshawy-mujawwad",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": -0.11449999999999783,
-      "median_absolute_mismatch_lu": 1.9660000000000029,
-      "fraction_above_6lu": 0.053594351732991014
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.11400000000000077,
+      "median_absolute_mismatch_lu": 1.9649999999999999,
+      "fraction_above_6lu": 0.05355997434252726
     },
     {
       "target_lufs": -20,
@@ -549,10 +549,10 @@
       "target_lufs": -20,
       "reciter": "motaz",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": 0.12950000000000195,
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.12899999999999956,
       "median_absolute_mismatch_lu": 1.700000000000001,
-      "fraction_above_6lu": 0.02615532734274711
+      "fraction_above_6lu": 0.026138550352790252
     },
     {
       "target_lufs": -20,
@@ -576,37 +576,37 @@
       "target_lufs": -20,
       "reciter": "abdulbasit",
       "translator": "ansarian",
-      "n_matched_verses": 6235,
-      "median_difference_lu": 0.36999999999999744,
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.36949999999999683,
       "median_absolute_mismatch_lu": 2.0519999999999996,
-      "fraction_above_6lu": 0.06431435445068164
+      "fraction_above_6lu": 0.06430404105195638
     },
     {
       "target_lufs": -20,
       "reciter": "abdulbasit",
       "translator": "maleki",
-      "n_matched_verses": 6231,
-      "median_difference_lu": 0.05100000000000193,
-      "median_absolute_mismatch_lu": 1.9220000000000006,
-      "fraction_above_6lu": 0.06515808056491734
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.05000000000000071,
+      "median_absolute_mismatch_lu": 1.9224999999999994,
+      "fraction_above_6lu": 0.0651058370750481
     },
     {
       "target_lufs": -20,
       "reciter": "abdulbasit",
       "translator": "makarem-kabiri",
-      "n_matched_verses": 6235,
-      "median_difference_lu": 0.4219999999999935,
-      "median_absolute_mismatch_lu": 2.3150000000000013,
-      "fraction_above_6lu": 0.11355252606255012
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.4209999999999958,
+      "median_absolute_mismatch_lu": 2.3145000000000024,
+      "fraction_above_6lu": 0.11353431686978832
     },
     {
       "target_lufs": -20,
       "reciter": "abdulbasit",
       "translator": "fooladvand-hedayatfar",
-      "n_matched_verses": 6235,
+      "n_matched_verses": 6236,
       "median_difference_lu": 0.08300000000000196,
-      "median_absolute_mismatch_lu": 2.1179999999999986,
-      "fraction_above_6lu": 0.07489975942261427
+      "median_absolute_mismatch_lu": 2.1174999999999997,
+      "fraction_above_6lu": 0.07488774855676716
     },
     {
       "target_lufs": -20,
@@ -621,10 +621,10 @@
       "target_lufs": -20,
       "reciter": "almuiqly",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": -0.1976499783199035,
-      "median_absolute_mismatch_lu": 2.016649978319906,
-      "fraction_above_6lu": 0.032573812580231065
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.19664997831990583,
+      "median_absolute_mismatch_lu": 2.0180000000000007,
+      "fraction_above_6lu": 0.03255291853752405
     },
     {
       "target_lufs": -20,
@@ -657,10 +657,10 @@
       "target_lufs": -20,
       "reciter": "jafarpour",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": -0.19549999999999912,
-      "median_absolute_mismatch_lu": 1.6765000000000008,
-      "fraction_above_6lu": 0.02086007702182285
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.19500000000000028,
+      "median_absolute_mismatch_lu": 1.6755000000000013,
+      "fraction_above_6lu": 0.02084669660038486
     },
     {
       "target_lufs": -20,
@@ -684,73 +684,73 @@
       "target_lufs": -18,
       "reciter": "parhizgar",
       "translator": "ansarian",
-      "n_matched_verses": 6235,
-      "median_difference_lu": -0.23270004336018602,
-      "median_absolute_mismatch_lu": 2.331999999999997,
-      "fraction_above_6lu": 0.12012830793905373
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.2302000433601883,
+      "median_absolute_mismatch_lu": 2.331999999999999,
+      "fraction_above_6lu": 0.12026940346375882
     },
     {
       "target_lufs": -18,
       "reciter": "parhizgar",
       "translator": "maleki",
-      "n_matched_verses": 6231,
-      "median_difference_lu": -0.46699999999999875,
-      "median_absolute_mismatch_lu": 2.4639999999999986,
-      "fraction_above_6lu": 0.10993419996790242
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.46550000000000047,
+      "median_absolute_mismatch_lu": 2.4640000000000013,
+      "fraction_above_6lu": 0.11000641436818473
     },
     {
       "target_lufs": -18,
       "reciter": "parhizgar",
       "translator": "makarem-kabiri",
-      "n_matched_verses": 6235,
-      "median_difference_lu": 0.3260000000000005,
-      "median_absolute_mismatch_lu": 2.6020000000000003,
-      "fraction_above_6lu": 0.17738572574178027
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.3280000000000012,
+      "median_absolute_mismatch_lu": 2.602499999999999,
+      "fraction_above_6lu": 0.177517639512508
     },
     {
       "target_lufs": -18,
       "reciter": "parhizgar",
       "translator": "fooladvand-hedayatfar",
-      "n_matched_verses": 6235,
-      "median_difference_lu": 0.0030000000000001137,
-      "median_absolute_mismatch_lu": 2.583000000000002,
-      "fraction_above_6lu": 0.10890136327185244
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.0035000000000007248,
+      "median_absolute_mismatch_lu": 2.583500000000001,
+      "fraction_above_6lu": 0.10888389993585632
     },
     {
       "target_lufs": -18,
       "reciter": "ghamadi",
       "translator": "ansarian",
-      "n_matched_verses": 6231,
-      "median_difference_lu": -0.11499999999999844,
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.1138500216800935,
       "median_absolute_mismatch_lu": 1.6419999999999995,
-      "fraction_above_6lu": 0.018937570213448884
+      "fraction_above_6lu": 0.01892238614496472
     },
     {
       "target_lufs": -18,
       "reciter": "ghamadi",
       "translator": "maleki",
-      "n_matched_verses": 6227,
-      "median_difference_lu": -0.5560000000000009,
-      "median_absolute_mismatch_lu": 1.6919999999999966,
-      "fraction_above_6lu": 0.019431507949253253
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.5589999999999975,
+      "median_absolute_mismatch_lu": 1.690999999999998,
+      "fraction_above_6lu": 0.019403463758819756
     },
     {
       "target_lufs": -18,
       "reciter": "ghamadi",
       "translator": "makarem-kabiri",
-      "n_matched_verses": 6231,
-      "median_difference_lu": 0.4180000000000028,
-      "median_absolute_mismatch_lu": 1.9279999999999973,
-      "fraction_above_6lu": 0.034023431230942064
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.41900000000000226,
+      "median_absolute_mismatch_lu": 1.928,
+      "fraction_above_6lu": 0.03399615137908916
     },
     {
       "target_lufs": -18,
       "reciter": "ghamadi",
       "translator": "fooladvand-hedayatfar",
-      "n_matched_verses": 6231,
-      "median_difference_lu": -0.362999999999996,
-      "median_absolute_mismatch_lu": 1.783999999999999,
-      "fraction_above_6lu": 0.026961964371689937
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.36100000000000065,
+      "median_absolute_mismatch_lu": 1.7834999999999983,
+      "fraction_above_6lu": 0.026940346375881975
     },
     {
       "target_lufs": -18,
@@ -765,10 +765,10 @@
       "target_lufs": -18,
       "reciter": "husary",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": -0.30500000000000327,
-      "median_absolute_mismatch_lu": 2.0305,
-      "fraction_above_6lu": 0.0701219512195122
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.30849999999999866,
+      "median_absolute_mismatch_lu": 2.0314999999999994,
+      "fraction_above_6lu": 0.07023733162283514
     },
     {
       "target_lufs": -18,
@@ -801,10 +801,10 @@
       "target_lufs": -18,
       "reciter": "minshawy-murattal",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": -0.5584999999999987,
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.557500000000001,
       "median_absolute_mismatch_lu": 1.6829999999999972,
-      "fraction_above_6lu": 0.022785622593068038
+      "fraction_above_6lu": 0.022771007055805002
     },
     {
       "target_lufs": -18,
@@ -837,10 +837,10 @@
       "target_lufs": -18,
       "reciter": "minshawy-mujawwad",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": -0.5260000000000007,
-      "median_absolute_mismatch_lu": 2.0020000000000024,
-      "fraction_above_6lu": 0.051829268292682924
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.5275000000000016,
+      "median_absolute_mismatch_lu": 2.0009999999999994,
+      "fraction_above_6lu": 0.051796023091725464
     },
     {
       "target_lufs": -18,
@@ -873,10 +873,10 @@
       "target_lufs": -18,
       "reciter": "motaz",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": -0.21749999999999936,
-      "median_absolute_mismatch_lu": 1.6575000000000006,
-      "fraction_above_6lu": 0.020378690629011553
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.2195000000000018,
+      "median_absolute_mismatch_lu": 1.658000000000003,
+      "fraction_above_6lu": 0.020365618986529825
     },
     {
       "target_lufs": -18,
@@ -900,37 +900,37 @@
       "target_lufs": -18,
       "reciter": "abdulbasit",
       "translator": "ansarian",
-      "n_matched_verses": 6235,
-      "median_difference_lu": -0.006700043360186925,
-      "median_absolute_mismatch_lu": 2.0567000433601876,
-      "fraction_above_6lu": 0.056295108259823576
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.006850021680094187,
+      "median_absolute_mismatch_lu": 2.056200043360187,
+      "fraction_above_6lu": 0.05628608082103913
     },
     {
       "target_lufs": -18,
       "reciter": "abdulbasit",
       "translator": "maleki",
-      "n_matched_verses": 6231,
+      "n_matched_verses": 6236,
       "median_difference_lu": -0.35900000000000176,
-      "median_absolute_mismatch_lu": 1.988000000000003,
-      "fraction_above_6lu": 0.05954100465414861
+      "median_absolute_mismatch_lu": 1.9885000000000002,
+      "fraction_above_6lu": 0.05949326491340603
     },
     {
       "target_lufs": -18,
       "reciter": "abdulbasit",
       "translator": "makarem-kabiri",
-      "n_matched_verses": 6235,
-      "median_difference_lu": 0.4049999999999976,
-      "median_absolute_mismatch_lu": 2.3039999999999967,
-      "fraction_above_6lu": 0.11162790697674418
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.40399999999999814,
+      "median_absolute_mismatch_lu": 2.3034999999999988,
+      "fraction_above_6lu": 0.11161000641436819
     },
     {
       "target_lufs": -18,
       "reciter": "abdulbasit",
       "translator": "fooladvand-hedayatfar",
-      "n_matched_verses": 6235,
-      "median_difference_lu": 0.08300000000000018,
-      "median_absolute_mismatch_lu": 2.116999999999999,
-      "fraction_above_6lu": 0.07217321571772253
+      "n_matched_verses": 6236,
+      "median_difference_lu": 0.08300000000000107,
+      "median_absolute_mismatch_lu": 2.116500000000001,
+      "fraction_above_6lu": 0.07216164207825529
     },
     {
       "target_lufs": -18,
@@ -945,10 +945,10 @@
       "target_lufs": -18,
       "reciter": "almuiqly",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": -0.5800000000000001,
-      "median_absolute_mismatch_lu": 2.0269999999999992,
-      "fraction_above_6lu": 0.03385750962772786
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.5800000000000018,
+      "median_absolute_mismatch_lu": 2.0280000000000005,
+      "fraction_above_6lu": 0.033835792174470816
     },
     {
       "target_lufs": -18,
@@ -981,10 +981,10 @@
       "target_lufs": -18,
       "reciter": "jafarpour",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": -0.6069999999999993,
-      "median_absolute_mismatch_lu": 1.718,
-      "fraction_above_6lu": 0.019736842105263157
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.6065000000000005,
+      "median_absolute_mismatch_lu": 1.7169999999999987,
+      "fraction_above_6lu": 0.019724182168056447
     },
     {
       "target_lufs": -18,
@@ -1008,73 +1008,73 @@
       "target_lufs": -16,
       "reciter": "parhizgar",
       "translator": "ansarian",
-      "n_matched_verses": 6235,
-      "median_difference_lu": -1.8927000433601897,
-      "median_absolute_mismatch_lu": 2.971299956639811,
-      "fraction_above_6lu": 0.1449879711307137
+      "n_matched_verses": 6236,
+      "median_difference_lu": -1.8927000433601888,
+      "median_absolute_mismatch_lu": 2.9717999566398134,
+      "fraction_above_6lu": 0.14496472097498397
     },
     {
       "target_lufs": -16,
       "reciter": "parhizgar",
       "translator": "maleki",
-      "n_matched_verses": 6231,
-      "median_difference_lu": -1.6420000000000012,
-      "median_absolute_mismatch_lu": 2.8759999999999977,
-      "fraction_above_6lu": 0.14074787353554807
+      "n_matched_verses": 6236,
+      "median_difference_lu": -1.6415000000000006,
+      "median_absolute_mismatch_lu": 2.8760000000000012,
+      "fraction_above_6lu": 0.14063502245028864
     },
     {
       "target_lufs": -16,
       "reciter": "parhizgar",
       "translator": "makarem-kabiri",
-      "n_matched_verses": 6235,
-      "median_difference_lu": -0.5307000433601878,
-      "median_absolute_mismatch_lu": 2.5359999999999943,
-      "fraction_above_6lu": 0.16134723336006415
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.5303500216800945,
+      "median_absolute_mismatch_lu": 2.536350021680091,
+      "fraction_above_6lu": 0.16148171905067352
     },
     {
       "target_lufs": -16,
       "reciter": "parhizgar",
       "translator": "fooladvand-hedayatfar",
-      "n_matched_verses": 6235,
-      "median_difference_lu": -0.4049999999999976,
-      "median_absolute_mismatch_lu": 2.459000000000003,
-      "fraction_above_6lu": 0.09125902165196471
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.40449999999999875,
+      "median_absolute_mismatch_lu": 2.459500000000001,
+      "fraction_above_6lu": 0.09124438742783836
     },
     {
       "target_lufs": -16,
       "reciter": "ghamadi",
       "translator": "ansarian",
-      "n_matched_verses": 6231,
-      "median_difference_lu": -1.7487000433601878,
-      "median_absolute_mismatch_lu": 2.028700043360189,
-      "fraction_above_6lu": 0.033702455464612424
+      "n_matched_verses": 6236,
+      "median_difference_lu": -1.748700043360186,
+      "median_absolute_mismatch_lu": 2.0282000433601866,
+      "fraction_above_6lu": 0.033835792174470816
     },
     {
       "target_lufs": -16,
       "reciter": "ghamadi",
       "translator": "maleki",
-      "n_matched_verses": 6227,
-      "median_difference_lu": -1.641999999999996,
+      "n_matched_verses": 6236,
+      "median_difference_lu": -1.6406499783199067,
       "median_absolute_mismatch_lu": 2.032,
-      "fraction_above_6lu": 0.03003051228520957
+      "fraction_above_6lu": 0.029987171263630534
     },
     {
       "target_lufs": -16,
       "reciter": "ghamadi",
       "translator": "makarem-kabiri",
-      "n_matched_verses": 6231,
+      "n_matched_verses": 6236,
       "median_difference_lu": -0.375,
-      "median_absolute_mismatch_lu": 1.6527000433601877,
-      "fraction_above_6lu": 0.015567324666987643
+      "median_absolute_mismatch_lu": 1.6538500216800927,
+      "fraction_above_6lu": 0.015554842847979474
     },
     {
       "target_lufs": -16,
       "reciter": "ghamadi",
       "translator": "fooladvand-hedayatfar",
-      "n_matched_verses": 6231,
-      "median_difference_lu": -0.4909999999999961,
-      "median_absolute_mismatch_lu": 1.5820000000000043,
-      "fraction_above_6lu": 0.015888300433317286
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.4894999999999978,
+      "median_absolute_mismatch_lu": 1.5820000000000025,
+      "fraction_above_6lu": 0.015875561257216165
     },
     {
       "target_lufs": -16,
@@ -1089,10 +1089,10 @@
       "target_lufs": -16,
       "reciter": "husary",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": -1.2880000000000011,
-      "median_absolute_mismatch_lu": 2.254500000000001,
-      "fraction_above_6lu": 0.06386392811296535
+      "n_matched_verses": 6236,
+      "median_difference_lu": -1.2894999999999994,
+      "median_absolute_mismatch_lu": 2.254999999999999,
+      "fraction_above_6lu": 0.06398332264271969
     },
     {
       "target_lufs": -16,
@@ -1125,10 +1125,10 @@
       "target_lufs": -16,
       "reciter": "minshawy-murattal",
       "translator": "maleki",
-      "n_matched_verses": 6232,
+      "n_matched_verses": 6236,
       "median_difference_lu": -1.6954999999999982,
-      "median_absolute_mismatch_lu": 2.113999999999999,
-      "fraction_above_6lu": 0.03931322207958922
+      "median_absolute_mismatch_lu": 2.1144999999999987,
+      "fraction_above_6lu": 0.039288005131494545
     },
     {
       "target_lufs": -16,
@@ -1161,10 +1161,10 @@
       "target_lufs": -16,
       "reciter": "minshawy-mujawwad",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": -1.6049999999999969,
-      "median_absolute_mismatch_lu": 2.420499999999997,
-      "fraction_above_6lu": 0.0696405648267009
+      "n_matched_verses": 6236,
+      "median_difference_lu": -1.6034999999999986,
+      "median_absolute_mismatch_lu": 2.4189999999999996,
+      "fraction_above_6lu": 0.06959589480436178
     },
     {
       "target_lufs": -16,
@@ -1197,10 +1197,10 @@
       "target_lufs": -16,
       "reciter": "motaz",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": -1.0914999999999981,
-      "median_absolute_mismatch_lu": 1.7706499783199057,
-      "fraction_above_6lu": 0.017329910141206675
+      "n_matched_verses": 6236,
+      "median_difference_lu": -1.0924999999999994,
+      "median_absolute_mismatch_lu": 1.7696499783199062,
+      "fraction_above_6lu": 0.01731879409878127
     },
     {
       "target_lufs": -16,
@@ -1224,37 +1224,37 @@
       "target_lufs": -16,
       "reciter": "abdulbasit",
       "translator": "ansarian",
-      "n_matched_verses": 6235,
-      "median_difference_lu": -1.6727000433601873,
-      "median_absolute_mismatch_lu": 2.524700043360191,
-      "fraction_above_6lu": 0.06992782678428228
+      "n_matched_verses": 6236,
+      "median_difference_lu": -1.673850021680094,
+      "median_absolute_mismatch_lu": 2.525000000000002,
+      "fraction_above_6lu": 0.06991661321359846
     },
     {
       "target_lufs": -16,
       "reciter": "abdulbasit",
       "translator": "maleki",
-      "n_matched_verses": 6231,
-      "median_difference_lu": -1.4940000000000033,
-      "median_absolute_mismatch_lu": 2.400000000000002,
-      "fraction_above_6lu": 0.06307173808377467
+      "n_matched_verses": 6236,
+      "median_difference_lu": -1.4949999999999983,
+      "median_absolute_mismatch_lu": 2.400499999999999,
+      "fraction_above_6lu": 0.06302116741500963
     },
     {
       "target_lufs": -16,
       "reciter": "abdulbasit",
       "translator": "makarem-kabiri",
-      "n_matched_verses": 6235,
-      "median_difference_lu": -0.41870004336018773,
-      "median_absolute_mismatch_lu": 2.24,
-      "fraction_above_6lu": 0.07137129109863673
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.4202000433601869,
+      "median_absolute_mismatch_lu": 2.239649978319906,
+      "fraction_above_6lu": 0.07135984605516357
     },
     {
       "target_lufs": -16,
       "reciter": "abdulbasit",
       "translator": "fooladvand-hedayatfar",
-      "n_matched_verses": 6235,
-      "median_difference_lu": -0.28500000000000014,
-      "median_absolute_mismatch_lu": 1.9519999999999982,
-      "fraction_above_6lu": 0.05533279871692061
+      "n_matched_verses": 6236,
+      "median_difference_lu": -0.28449999999999953,
+      "median_absolute_mismatch_lu": 1.9514999999999993,
+      "fraction_above_6lu": 0.055323925593329056
     },
     {
       "target_lufs": -16,
@@ -1269,10 +1269,10 @@
       "target_lufs": -16,
       "reciter": "almuiqly",
       "translator": "maleki",
-      "n_matched_verses": 6232,
-      "median_difference_lu": -1.5999999999999979,
-      "median_absolute_mismatch_lu": 2.2669999999999995,
-      "fraction_above_6lu": 0.06370346598202824
+      "n_matched_verses": 6236,
+      "median_difference_lu": -1.6004999999999994,
+      "median_absolute_mismatch_lu": 2.2673500216800946,
+      "fraction_above_6lu": 0.06366260423348301
     },
     {
       "target_lufs": -16,
@@ -1305,10 +1305,10 @@
       "target_lufs": -16,
       "reciter": "jafarpour",
       "translator": "maleki",
-      "n_matched_verses": 6232,
+      "n_matched_verses": 6236,
       "median_difference_lu": -1.4572999566398135,
-      "median_absolute_mismatch_lu": 1.935500000000001,
-      "fraction_above_6lu": 0.027599486521181
+      "median_absolute_mismatch_lu": 1.9350000000000023,
+      "fraction_above_6lu": 0.027581783194355357
     },
     {
       "target_lufs": -16,

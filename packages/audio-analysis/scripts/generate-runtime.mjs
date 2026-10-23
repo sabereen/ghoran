@@ -114,6 +114,8 @@ for (const source of sources) {
     contentRevision,
     measuredFiles: profiles[sid].n_success,
     inventoryComplete: profiles[sid].inventory_complete,
+    pendingPublicationFiles:
+      coverage.replacement_publication?.pending_by_source?.[sid] ?? 0,
   })
   generated.set(
     `hashes/${sid}.ts`,
@@ -235,6 +237,8 @@ const snapshotInfo = {
   expectedFiles: 81068,
   attemptedFiles: coverage.attempted_unique,
   completeInventory: coverage.complete_inventory,
+  pendingPublicationFiles:
+    coverage.replacement_publication?.pending_publication_count ?? 0,
   monoPlaybackConvention: 'equal-amplitude-duplicate-to-two-channels',
   ...settings,
 }

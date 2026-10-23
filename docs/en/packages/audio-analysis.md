@@ -1,5 +1,7 @@
 # Quran audio analysis
 
+The current reference snapshot has 81,068 measurable files and no unavailable gains after adopting 11 user-accepted replacements. Their publication at the canonical URLs is still unverified: `audioDataset.pendingPublicationFiles` is 11, and each profile exposes its own `metadata.pendingPublicationFiles`. Old cached audio is not covered by the new reference hash; strict `/verify` lookup rejects it. Statistical quality flags remain separate from decode validity.
+
 `@ghoran/audio-analysis` provides independently importable, tree-shakable source profiles. It applies no player effects and never fetches, decodes, or analyzes audio at runtime.
 
 ```ts

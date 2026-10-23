@@ -27,6 +27,8 @@ def package(root, destination):
         snapshot = Path(tmp) / "quran-audio-analysis"; snapshot.mkdir()
         for name in ("scripts", "tests", "schemas", "metadata", "measurement-runs"):
             shutil.copytree(root / name, snapshot / name, ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
+        if (root/'replacement-history').exists():
+            shutil.copytree(root/'replacement-history', snapshot/'replacement-history')
         if (root/'execution-runs').exists():
             shutil.copytree(root/'execution-runs',snapshot/'execution-runs')
         for name in ("README.md", "requirements.txt", "sources.json", "config.json", "approvals.json", "DATA_DICTIONARY.fa.md"):

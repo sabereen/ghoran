@@ -1,19 +1,18 @@
 {
-  "completed_at": "2026-10-22T15:13:14.509902+00:00",
-  "events": 81476,
+  "completed_at": "2026-10-23T02:17:36.629890+00:00",
+  "events": 81487,
   "downloaded_bytes_all_attempts": 22451235793,
-  "sum_file_processing_wall_s": 125307.04054351946,
+  "sum_file_processing_wall_s": 125310.87776766544,
   "note": "sum of per-file wall time includes concurrent work; not elapsed session time",
   "first_event_at": "2026-10-22T09:47:47.055847+00:00",
-  "last_event_at": "2026-10-22T15:12:13.529324+00:00",
-  "event_span_elapsed_s": 19466.473477,
-  "unique_successful_file_bytes": 22295720665,
-  "unique_decoded_audio_duration_s": 1495804.8091187642,
+  "last_event_at": "2026-10-23T02:15:09.457209+00:00",
+  "event_span_elapsed_s": 59242.401362,
+  "unique_successful_file_bytes": 22299204192,
+  "unique_decoded_audio_duration_s": 1496056.6763523242,
   "download_byte_accounting": "registered response-body bytes; partial transfers that fail before returning the payload may be uncounted; excludes protocol overhead",
   "registered_response_body_bytes": 22451235793,
   "network_bytes_are_a_lower_bound": true,
   "status_counts": {
-    "invalid": 10,
-    "success": 81058
+    "success": 81068
   }
 }

@@ -71,28 +71,28 @@ python3 scripts/pipeline.py run --phase full --sources ansarian --revalidate --m
 
 ## ساختار داده
 
-| مسیر | معنی |
-|---|---|
-| `sources.json` | ۱۳ شناسهٔ پایدار، نوع اجرا، نام فارسی و URL template؛ هیچ فرضی دربارهٔ کامل بودن ندارد |
-| `metadata/verses.json` | ترتیب معتبر؛ `ordinal` از ۱ تا ۶۲۳۶ و `verse_id` به شکل `surah:ayah` |
-| `metadata/provenance.json` | ناشر، checksum، attribution و نتیجهٔ cross-check |
-| `config.json` | پارامترهای اندازه‌گیری، فعالیت، inference و سیاست Gain در قسمت‌های جدا |
-| `measurement-runs/<fingerprint>.json` | پارامترها، SHA کد و نسخهٔ کامل ابزار؛ مستقل از هدف LUFS |
-| `measurements/<source>.jsonl` | آخرین وضعیت هر مورد بررسی‌شده، URL، HTTP، هش و اندازه‌گیری |
-| `checkpoints/state.sqlite3` | checkpoint عملیاتی تراکنشی و تاریخچهٔ immutable رویدادها |
-| `checkpoints/portable.sqlite3` | backup سازگار قابل انتقال؛ در Git ثبت نمی‌شود |
-| `profiles.json` | baseline و توزیع‌های مقاوم؛ دادهٔ Inferred |
-| `segments/<source>.json` | runهای متوالی مشاهده‌شده و فرضیه‌های شرایط ضبط؛ gapهای ناشناخته به هم وصل نمی‌شوند |
-| `anomalies/<source>.jsonl` | شواهد، شدت و وضعیت بازبینی؛ تشخیص، اجازهٔ اصلاح نیست |
-| `recommendations/<target>/<source>.jsonl` | Gain درخواستی، محدودیت peak، نتیجه و اصلاح‌های هنوز تأییدنشده |
-| `recommendations/<target>/*.compact.json.gz` | آرایهٔ سبک `[ordinal,gainDb,contentSha256]` برای پلیر |
-| `reports/report.fa.html` | گزارش فارسی همراه نمودارهای محلی؛ فایل HTML را پس از unzip باز کنید |
-| `reports/report.fa.standalone.html` | گزارش فارسی با نمودارهای جاسازی‌شده؛ قابل بازکردن مستقل و آفلاین |
-| `reports/report.fa.md` | نسخهٔ Markdown گزارش |
-| `reports/measurement-summary.csv` | جدول سادهٔ قابل مصرف در ابزارهای داده |
-| `reports/pilot-validation.json` | نتیجهٔ پذیرش پایلوت؛ شامل محدودیت نبود آزمون شنیداری |
-| `schemas` | قراردادهای JSON Schema و نسخه‌بندی |
-| `scripts`, `tests` | کد مستقل و آزمون‌های سیگنال، inference و ادامهٔ اجرا |
+| مسیر                                         | معنی                                                                                   |
+| -------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `sources.json`                               | ۱۳ شناسهٔ پایدار، نوع اجرا، نام فارسی و URL template؛ هیچ فرضی دربارهٔ کامل بودن ندارد |
+| `metadata/verses.json`                       | ترتیب معتبر؛ `ordinal` از ۱ تا ۶۲۳۶ و `verse_id` به شکل `surah:ayah`                   |
+| `metadata/provenance.json`                   | ناشر، checksum، attribution و نتیجهٔ cross-check                                       |
+| `config.json`                                | پارامترهای اندازه‌گیری، فعالیت، inference و سیاست Gain در قسمت‌های جدا                 |
+| `measurement-runs/<fingerprint>.json`        | پارامترها، SHA کد و نسخهٔ کامل ابزار؛ مستقل از هدف LUFS                                |
+| `measurements/<source>.jsonl`                | آخرین وضعیت هر مورد بررسی‌شده، URL، HTTP، هش و اندازه‌گیری                             |
+| `checkpoints/state.sqlite3`                  | checkpoint عملیاتی تراکنشی و تاریخچهٔ immutable رویدادها                               |
+| `checkpoints/portable.sqlite3`               | backup سازگار قابل انتقال؛ در Git ثبت نمی‌شود                                          |
+| `profiles.json`                              | baseline و توزیع‌های مقاوم؛ دادهٔ Inferred                                             |
+| `segments/<source>.json`                     | runهای متوالی مشاهده‌شده و فرضیه‌های شرایط ضبط؛ gapهای ناشناخته به هم وصل نمی‌شوند     |
+| `anomalies/<source>.jsonl`                   | شواهد، شدت و وضعیت بازبینی؛ تشخیص، اجازهٔ اصلاح نیست                                   |
+| `recommendations/<target>/<source>.jsonl`    | Gain درخواستی، محدودیت peak، نتیجه و اصلاح‌های هنوز تأییدنشده                          |
+| `recommendations/<target>/*.compact.json.gz` | آرایهٔ سبک `[ordinal,gainDb,contentSha256]` برای پلیر                                  |
+| `reports/report.fa.html`                     | گزارش فارسی همراه نمودارهای محلی؛ فایل HTML را پس از unzip باز کنید                    |
+| `reports/report.fa.standalone.html`          | گزارش فارسی با نمودارهای جاسازی‌شده؛ قابل بازکردن مستقل و آفلاین                       |
+| `reports/report.fa.md`                       | نسخهٔ Markdown گزارش                                                                   |
+| `reports/measurement-summary.csv`            | جدول سادهٔ قابل مصرف در ابزارهای داده                                                  |
+| `reports/pilot-validation.json`              | نتیجهٔ پذیرش پایلوت؛ شامل محدودیت نبود آزمون شنیداری                                   |
+| `schemas`                                    | قراردادهای JSON Schema و نسخه‌بندی                                                     |
+| `scripts`, `tests`                           | کد مستقل و آزمون‌های سیگنال، inference و ادامهٔ اجرا                                   |
 
 هر رکورد JSONL مستقل است؛ برای مقدار نامعتبر `null` ثبت می‌شود. `0` صرفاً برای صفر واقعی مثل زمان سکوت صفر یا تعداد نمونهٔ clipped صفر است. توضیح null در `null_reasons` یا reason شاخص مربوط ثبت می‌شود. نبود کل measured در رکورد خطا، به معنای اندازه‌گیری‌نشدن است. خالی بودن فایل JSONL یعنی آن منبع هنوز رکوردی ندارد.
 
@@ -130,8 +130,20 @@ Change point به دو پنجرهٔ متوالی ۲۰ آیه‌ای با دست�
 
 ```json
 {
-  "segments": [{"source_id": "ansarian", "segment_id": "segment-0001-0100", "content_set_sha256": "COPY_EXACT_REVIEWED_SET_HASH"}],
-  "files": [{"source_id": "ansarian", "verse_id": "1:1", "content_sha256": "COPY_EXACT_REVIEWED_FILE_HASH"}]
+  "segments": [
+    {
+      "source_id": "ansarian",
+      "segment_id": "segment-0001-0100",
+      "content_set_sha256": "COPY_EXACT_REVIEWED_SET_HASH"
+    }
+  ],
+  "files": [
+    {
+      "source_id": "ansarian",
+      "verse_id": "1:1",
+      "content_sha256": "COPY_EXACT_REVIEWED_FILE_HASH"
+    }
+  ]
 }
 ```
 
@@ -158,3 +170,9 @@ gainDb = clamp(requestedGain, −maxCut, upperGain)
 گزارش فارسی، ماتریس ۹×۴ آیات مشترک و سیاست‌های Gain از دادهٔ تکمیل‌شده تولید می‌شوند؛ همهٔ آمارهای با پوشش زیر ۸۰٪ با `provisional=true` همراه‌اند. هیچ خروجی با فرض پوشش کامل پر نمی‌شود. برای تمام بودن واقعی، `success + missing + invalid + temporary_error + http_error + unprocessed = 6236` باید در تک‌تک منابع برقرار باشد؛ صفر شدن unprocessed فقط پایان بررسی فهرست است و خطاهای موقت هنوز باید retry شوند.
 
 حقوق صوت متعلق به صاحبان منابع است و در این مأموریت بررسی نشده؛ بسته فقط متادیتا و کد را توزیع می‌کند. ساختار قرآن از Tanzil با attribution فوق است. برای تغییر ابزار، پیشنهاد commit: `feat(audio): add resumable Quran loudness analysis pipeline`.
+
+## پذیرش نسخه‌های جایگزین
+
+در ۲۰۲۶-۱۰-۲۳، کاربر ۱۱ فایل بستهٔ `quran-audio-replacements.zip` را مبنای snapshot پذیرفت. کد `scripts/apply_replacements.py --manifest /path/to/manifest.json --acceptance "explicit acceptance note"` بایت‌ها را با SHA-256 کنترل و دوباره اندازه‌گیری می‌کند، فایل قبلی و علت خطا را در `replacement-history/` و checkpoint نگه می‌دارد و رویداد پایدار ثبت می‌کند. اجرای دوباره همان فایل رویداد تکراری نمی‌سازد. هیچ درخواست HTTP به URL اصلی جعل نمی‌شود؛ `measurement_input=accepted_local_replacement` و `content_replacement.canonical_url_publication.verified=false` منشأ را روشن می‌کنند.
+
+پس از این پذیرش، خطای Decode یا Gain ناموجود در snapshot مرجع نداریم. این آمار وضعیت بایت‌های فعلی CDN نیست: ۱۱ مورد تا آپلود و تطبیق SHA-256 در URL اصلی، pending می‌مانند. متادیتای runtime این تعداد را بدون آوردن دادهٔ سایر منابع نشان می‌دهد. جزئیات و تفاوت تدوین ملکی در `replacement-history/accepted-package-manifest.json` محفوظ است. پروفایل‌ها و هش‌ها پس از `analyze.py` و `export_package.py` و `generate-runtime.mjs` بازتولید می‌شوند.

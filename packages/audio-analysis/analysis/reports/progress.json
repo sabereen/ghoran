@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T15:12:21.433816+00:00",
+  "updated_at": "2026-10-23T02:16:37.882249+00:00",
   "schema_version": "1.0.0",
   "expected_total": 81068,
   "attempted_unique": 81068,
@@ -18,9 +18,9 @@
     {
       "source_id": "ghamadi",
       "expected": 6236,
-      "success": 6231,
+      "success": 6236,
       "missing": 0,
-      "invalid": 5,
+      "invalid": 0,
       "temporary_error": 0,
       "http_error": 0,
       "unprocessed": 0
@@ -68,9 +68,9 @@
     {
       "source_id": "abdulbasit",
       "expected": 6236,
-      "success": 6235,
+      "success": 6236,
       "missing": 0,
-      "invalid": 1,
+      "invalid": 0,
       "temporary_error": 0,
       "http_error": 0,
       "unprocessed": 0
@@ -108,9 +108,9 @@
     {
       "source_id": "maleki",
       "expected": 6236,
-      "success": 6232,
+      "success": 6236,
       "missing": 0,
-      "invalid": 4,
+      "invalid": 0,
       "temporary_error": 0,
       "http_error": 0,
       "unprocessed": 0
@@ -135,5 +135,19 @@
       "http_error": 0,
       "unprocessed": 0
     }
-  ]
+  ],
+  "replacement_publication": {
+    "schema_version": "1.0.0",
+    "data_class": "provenance",
+    "accepted_replacement_count": 11,
+    "pending_publication_count": 11,
+    "all_accepted_replacements_published_and_verified": false,
+    "pending_by_source": {
+      "abdulbasit": 1,
+      "ghamadi": 5,
+      "maleki": 4,
+      "parhizgar": 1
+    },
+    "coverage_basis": "latest accepted audio content; local revisions do not imply that canonical URLs already serve these bytes"
+  }
 }

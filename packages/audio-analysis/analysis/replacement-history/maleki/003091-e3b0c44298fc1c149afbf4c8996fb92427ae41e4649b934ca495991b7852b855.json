@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "maleki",
+  "ordinal": 384,
+  "surah": 3,
+  "ayah": 91,
+  "verse_id": "3:91",
+  "file_stem": "003091",
+  "juz": 3,
+  "url": "https://asset.nasimrezvan.com/data/maleki/003091.mp3",
+  "analyzer_version": "0.1.0",
+  "measurement_config_sha256": "452ca37448bb830536250253431240e5899cadb2b3415d99c48acd22a8e83212",
+  "measured_at": "2026-10-22T10:19:41.199815+00:00",
+  "http": {
+    "status": "downloaded",
+    "http_status": 200,
+    "attempts": 1,
+    "downloaded_bytes": 0,
+    "response_bytes": 0,
+    "etag": "\"61793afc-0\"",
+    "last_modified": "Wed, 27 Oct 2021 11:41:48 GMT",
+    "content_type": "audio/mpeg",
+    "errors": []
+  },
+  "status": "invalid",
+  "error": {
+    "type": "CalledProcessError",
+    "message": "Command '['ffprobe', '-v', 'error', '-show_format', '-show_streams', '-of', 'json', '/tmp/quran-audio-y0b29du1/input.mp3']' returned non-zero exit status 1."
+  },
+  "download_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "processing_wall_s": 0.33196651200000815,
+  "last_validation_http": {
+    "status": "downloaded",
+    "http_status": 200,
+    "attempts": 1,
+    "downloaded_bytes": 0,
+    "response_bytes": 0,
+    "etag": "\"61793afc-0\"",
+    "last_modified": "Wed, 27 Oct 2021 11:41:48 GMT",
+    "content_type": "audio/mpeg",
+    "errors": []
+  },
+  "revalidated_at": "2026-10-22T15:12:12.448448+00:00",
+  "invalid_recheck": {
+    "previous_status": "invalid",
+    "previous_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "same_content": true,
+    "purpose": "confirm invalid content after the full extraction, with no success refetch",
+    "probe_returncode": 1,
+    "probe_stderr": "[mp3 @ 0x5616d8693400] Failed to read frame size: Could not seek to 1026.\n/tmp/quran-recheck-g8zjhvby/input.mp3: Invalid argument\n",
+    "analysis_reused_identical_invalid_sha256": true
+  }
+}

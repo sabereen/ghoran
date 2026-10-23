@@ -315,6 +315,8 @@ def analyze(root):
     from quality_audit import audit
     audit(root)
     export(root)
+    from publication import write_publication
+    write_publication(root)
     cfg = json.loads((root / "config.json").read_text())
     sources = json.loads((root / "sources.json").read_text())["sources"]
     approvals_path = root / "approvals.json"

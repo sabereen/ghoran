@@ -8,16 +8,16 @@
         "mp3": 6236
       },
       "codec_extension_mismatch": 0,
-      "true_peak_above_0_dbtp": 2663,
-      "possible_clipping": 2705,
+      "true_peak_above_0_dbtp": 2662,
+      "possible_clipping": 2704,
       "near_silent": 0,
-      "decoder_warning": 6236
+      "decoder_warning": 6235
     },
     {
       "source_id": "ghamadi",
-      "n_success": 6231,
+      "n_success": 6236,
       "codec_counts": {
-        "mp3": 6231
+        "mp3": 6236
       },
       "codec_extension_mismatch": 0,
       "true_peak_above_0_dbtp": 182,
@@ -75,9 +75,9 @@
     },
     {
       "source_id": "abdulbasit",
-      "n_success": 6235,
+      "n_success": 6236,
       "codec_counts": {
-        "mp3": 6235
+        "mp3": 6236
       },
       "codec_extension_mismatch": 0,
       "true_peak_above_0_dbtp": 405,
@@ -124,9 +124,9 @@
     },
     {
       "source_id": "maleki",
-      "n_success": 6232,
+      "n_success": 6236,
       "codec_counts": {
-        "mp3": 6232
+        "mp3": 6236
       },
       "codec_extension_mismatch": 0,
       "true_peak_above_0_dbtp": 58,

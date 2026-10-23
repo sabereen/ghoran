@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "ghamadi",
+  "ordinal": 2542,
+  "surah": 21,
+  "ayah": 59,
+  "verse_id": "21:59",
+  "file_stem": "021059",
+  "juz": 17,
+  "url": "https://asset.nasimrezvan.com/data/Ghamadi/021059.mp3",
+  "analyzer_version": "0.1.0",
+  "measurement_config_sha256": "452ca37448bb830536250253431240e5899cadb2b3415d99c48acd22a8e83212",
+  "measured_at": "2026-10-22T11:53:32.324586+00:00",
+  "http": {
+    "status": "downloaded",
+    "http_status": 200,
+    "attempts": 1,
+    "downloaded_bytes": 53376,
+    "response_bytes": 53376,
+    "etag": "\"6202a35b-d080\"",
+    "last_modified": "Tue, 08 Feb 2022 17:07:39 GMT",
+    "content_type": "audio/mpeg",
+    "errors": []
+  },
+  "measured": {
+    "null_reasons": {},
+    "loudness": {
+      "integrated_lufs": -18.085,
+      "true_peak_dbtp": -2.3,
+      "lra_lu": null,
+      "momentary_above_absolute_gate_lufs": {
+        "n": 99,
+        "min": -22.863,
+        "p05": -21.2058,
+        "median": -18.601,
+        "p95": -15.983000000000002,
+        "max": -13.953,
+        "mad": 1.4529999999999994
+      },
+      "shortterm_above_absolute_gate_lufs": {
+        "n": 73,
+        "min": -19.857,
+        "p05": -19.7044,
+        "median": -18.386,
+        "p95": -16.788400000000003,
+        "max": -16.502,
+        "mad": 0.4469999999999992
+      },
+      "null_reasons": {
+        "lra_lu": "insufficient_duration_or_valid_3s_windows_project_policy"
+      }
+    },
+    "duration_s": 10.292244897959185,
+    "container_duration_s": 10.2968,
+    "sample_peak_dbfs": -2.601930577343914,
+    "sample_peak_linear": 0.7411454916000366,
+    "rms_dbfs": -18.1411368520273,
+    "channel_rms_dbfs": [
+      -18.1411368520273
+    ],
+    "decoded_samples_per_channel": 226944,
+    "samples_at_or_above_full_scale": 0,
+    "samples_near_full_scale": 0,
+    "sample_count_all_channels": 226944,
+    "activity": {
+      "method": "adaptive-energy-hysteresis-v1",
+      "frame_ms": 20,
+      "noise_floor_proxy_dbfs": -23.19387991611416,
+      "energy_separation_db": 3.868870365227558,
+      "threshold_on_dbfs": -45.459922652447304,
+      "threshold_off_dbfs": -51.459922652447304,
+      "boundary_confidence": "low",
+      "not_a_speech_vad": true,
+      "near_silent": false,
+      "active_duration_s": 10.292244897959185,
+      "active_rms_dbfs": -18.1411368520273,
+      "audible_start_estimate_s": 0.0,
+      "audible_end_estimate_s": 10.292245,
+      "leading_low_energy_s": 0.0,
+      "trailing_low_energy_s": 0.0,
+      "active_intervals_s": [
+        [
+          0.0,
+          10.292245
+        ]
+      ],
+      "whole_file_low_energy_s": null,
+      "automatic_trim_authorized": false,
+      "active_momentary_lufs": {
+        "n": 99,
+        "min": -22.863,
+        "p05": -21.2058,
+        "median": -18.601,
+        "p95": -15.983000000000002,
+        "max": -13.953,
+        "mad": 1.4529999999999994
+      },
+      "active_loudness_definition": "400ms K-weighted windows with >=75% activity overlap; not integrated loudness",
+      "null_reasons": {}
+    },
+    "spectral": {
+      "centroid_hz": 768.9792162668258,
+      "high_band_fraction_above_4khz": 0.022078077041728802,
+      "low_band_fraction_below_200hz": 0.057478847273293075,
+      "channel_used": 0,
+      "method": "welch-hann-native-rate"
+    },
+    "media": {
+      "codec": "mp3",
+      "sample_rate_hz": 22050,
+      "channels": 1,
+      "channel_layout": "mono",
+      "file_size_bytes": 53376,
+      "reported_bitrate_bps": 41469,
+      "effective_bitrate_bps": 41488.32487309644,
+      "audio_stream_count": 1
+    },
+    "channel_convention": "native BS.1770; mono counted once; no dualmono compensation",
+    "dualmono_playback_lufs": -15.074700043360188,
+    "sha256": "4a5b98d338083cdb1044f79087e833cfc2d89a2b7067711c4595561b26edf798",
+    "decoded_pcm_sha256": "f014a62964aa74ceffc7064c258aa35c957bda080103c56c4d1048dbdb01b606",
+    "quality_flags": [
+      "uncertain_activity_boundaries",
+      "decoder_warning"
+    ],
+    "decoder_warnings": [
+      "[aist#0:0/mp3 @ 0x56062c49f1c0] Error submitting packet to decoder: Invalid data found when processing input"
+    ]
+  },
+  "status": "invalid",
+  "processing_wall_s": 0.3247395610001149,
+  "quality_audit": {
+    "version": "1.0.0",
+    "audited_at": "2026-10-22T12:24:45.904088+00:00",
+    "previous_status": "success",
+    "classification": "partial_decode_error",
+    "diagnostic_measurements_only": true,
+    "error_evidence": [
+      "[aist#0:0/mp3 @ 0x56062c49f1c0] Error submitting packet to decoder: Invalid data found when processing input"
+    ],
+    "exclude_from_inference_and_recommendations": true
+  },
+  "error": {
+    "type": "PartialDecodeError",
+    "message": "FFmpeg returned PCM but reported corrupt/undecodable frames"
+  },
+  "last_validation_http": {
+    "status": "downloaded",
+    "http_status": 200,
+    "attempts": 1,
+    "downloaded_bytes": 53376,
+    "response_bytes": 53376,
+    "etag": "\"6202a35b-d080\"",
+    "last_modified": "Tue, 08 Feb 2022 17:07:39 GMT",
+    "content_type": "audio/mpeg",
+    "errors": []
+  },
+  "revalidated_at": "2026-10-22T15:12:11.782676+00:00",
+  "invalid_recheck": {
+    "previous_status": "invalid",
+    "previous_sha256": "4a5b98d338083cdb1044f79087e833cfc2d89a2b7067711c4595561b26edf798",
+    "response_sha256": "4a5b98d338083cdb1044f79087e833cfc2d89a2b7067711c4595561b26edf798",
+    "same_content": true,
+    "purpose": "confirm invalid content after the full extraction, with no success refetch",
+    "probe_returncode": 0,
+    "probe_stderr": "",
+    "analysis_reused_identical_invalid_sha256": true
+  }
+}

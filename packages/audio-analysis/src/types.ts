@@ -33,6 +33,8 @@ export interface AudioSource {
   readonly contentRevision: string
   readonly measuredFiles: number
   readonly inventoryComplete: boolean
+  /** Accepted reference revisions awaiting verification at their canonical URLs. */
+  readonly pendingPublicationFiles?: number
 }
 export interface AudioGainPolicyInfo {
   readonly targetLufs: AudioLoudnessTarget

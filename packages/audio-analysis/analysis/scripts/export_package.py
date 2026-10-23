@@ -2,6 +2,7 @@
 import argparse
 import gzip
 import hashlib
+import io
 import json
 import os
 from pathlib import Path
@@ -23,7 +24,12 @@ def atomic_bytes(path, content):
 
 
 def atomic_gzip(path, content):
-    compressed = gzip.compress(content, mtime=0)
+    # Keep a stable logical filename and header across Python versions. This
+    # also preserves existing, unchanged consumer streams byte-for-byte.
+    buffer = io.BytesIO()
+    with gzip.GzipFile(filename=path.name.removesuffix('.gz'), mode='wb', fileobj=buffer, mtime=0) as output:
+        output.write(content)
+    compressed = buffer.getvalue()
     assert gzip.decompress(compressed) == content
     atomic_bytes(path, compressed)
 
@@ -34,6 +40,9 @@ def build_export(data):
         atomic_bytes(data / name, (ROOT / relative).read_bytes())
     atomic_gzip(data/'verses.json.gz', (ROOT/'metadata/verses.json').read_bytes())
     coverage = {r['source_id']: r for r in json.loads((ROOT/'reports/progress.json').read_text())['coverage']}
+    publication = ROOT / 'reports/replacement-publication.json'
+    if publication.exists():
+        atomic_bytes(data / 'replacement-publication.json', publication.read_bytes())
     for source in (ROOT / 'measurements').glob('*.jsonl'):
         target = data / 'measurements' / (source.name + '.gz')
         target.parent.mkdir(parents=True, exist_ok=True)
