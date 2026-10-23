@@ -1,0 +1,6 @@
+dist/
+src/generated/
+src/sources/
+src/targets/
+src/hashes/
+src/catalog.ts

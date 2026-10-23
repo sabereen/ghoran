@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict'
 import { verifySearchBrowser } from './check-search-browser.mjs'
+import { verifyAudioBundles } from './check-audio-bundles.mjs'
 import { execFileSync } from 'node:child_process'
+import { tmpdir } from 'node:os'
 import {
   mkdir,
   mkdtemp,
@@ -13,9 +15,9 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
-const work = join(root, 'work')
-await mkdir(work, { recursive: true })
-const temporary = await mkdtemp(join(work, 'check-packages-'))
+// Keep live tarballs/install fixtures away from workspace synchronizers. Only
+// closed package contents should be consumed by the real offline installation.
+const temporary = await mkdtemp(join(tmpdir(), 'ghoran-check-packages-'))
 
 function run(command, args, cwd = root) {
   try {
@@ -96,6 +98,40 @@ import { searchBinaryForAyah } from '@ghoran/utils'
 import '@ghoran/font-page'
 import '@ghoran/translation'
 import { createQuranSearch, normalizeArabic, getHighlightSegments } from '@ghoran/search'
+import { parhizgar, ansarian, createAudioNormalizer, dbToLinearGain } from '@ghoran/audio'
+import directParhizgar from '@ghoran/audio/sources/parhizgar'
+import broadcastParhizgar from '@ghoran/audio/targets/-23/parhizgar'
+import { audioSources } from '@ghoran/audio/catalog'
+import { loadAudioSource, loadAudioContentManifest } from '@ghoran/audio/load'
+import { getVerifiedAudioGain } from '@ghoran/audio/verify'
+import { getAudioUrl } from '@ghoran/audio/url'
+assert.equal(audioSources.length, 13)
+assert.equal(dbToLinearGain(0), 1)
+assert.equal(directParhizgar, parhizgar)
+assert.equal(broadcastParhizgar.targetLufs, -23)
+assert.equal(await loadAudioSource('parhizgar'), parhizgar)
+assert.equal(getAudioUrl(parhizgar, Ayah.get(261).index), 'https://asset.nasimrezvan.com/data/Parhizgar/002255.mp3')
+const normalizer = createAudioNormalizer({ sources: [parhizgar, ansarian] })
+assert.equal(normalizer.getGain('parhizgar', 0), parhizgar.getGain(Ayah.get(0).index))
+assert(parhizgar.getGain(4128) > 0)
+assert.equal(parhizgar.metadata.pendingPublicationFiles, 1)
+assert.equal(ansarian.getGainDb(165), -3.55)
+const audioHashes = await loadAudioContentManifest('parhizgar')
+const audioHash = audioHashes.getHash(0)
+assert.equal(getVerifiedAudioGain(parhizgar, audioHashes, 4128, '7a3cdabd379430a7fd7eb6cacbdcc9509ace36b688cdfb243216369250eb9c2a'), null)
+assert.equal(getVerifiedAudioGain(parhizgar, audioHashes, 0, audioHash), parhizgar.getGain(0))
+assert.equal(getVerifiedAudioGain(parhizgar, audioHashes, 0, '0'.repeat(64)), null)
+for (const source of audioSources) {
+  const hashes = await loadAudioContentManifest(source.id)
+  assert.equal(hashes.getHash(0).length, 64)
+  for (const targetLufs of [-23, -20, -18, -16]) {
+    const profile = await loadAudioSource(source.id, { targetLufs })
+    assert.equal(profile.id, source.id)
+    assert.equal(profile.targetLufs, targetLufs)
+    assert(profile.getGain(0) > 0)
+  }
+}
+await assert.rejects(access(new URL('../data', import.meta.resolve('@ghoran/audio'))))
 import { createBrowserQuranSearch } from '@ghoran/search/browser'
 assert.equal(normalizeArabic('ٱلرَّحِيمِ'), 'الرحيم')
 const search = await createQuranSearch()
@@ -171,6 +207,19 @@ await import('@ghoran/search/worker')
   await writeFile(
     join(consumer, 'check.ts'),
     `
+import { parhizgar, ansarian, createAudioNormalizer, type AudioSourceProfile } from '@ghoran/audio'
+import { getVerifiedAudioGain } from '@ghoran/audio/verify'
+const audio = createAudioNormalizer({ sources: [parhizgar, ansarian] })
+const profile: AudioSourceProfile<'parhizgar'> = parhizgar
+const gain: number | null = audio.getGain('parhizgar', 261)
+// @ts-expect-error String addresses are not ayah indices.
+parhizgar.getGain('2:255')
+// @ts-expect-error Object addresses are not ayah indices.
+parhizgar.getGain({ surah: 2, ayah: 255 })
+// @ts-expect-error URL addressing is an explicit optional subpath.
+parhizgar.getUrl(261)
+// @ts-expect-error Unregistered sources must not type-check.
+audio.getGain('husary', 1)
 import { Ayah } from '@ghoran/entity'
 import { surahList, type SurahTuple } from '@ghoran/metadata'
 import { COUNT_OF_AYAHS } from '@ghoran/metadata/constants'
@@ -220,6 +269,10 @@ const translator: Translators<'fa'> = 'tanzil-fooladvand'
   await writeFile(
     join(consumer, 'check-node.ts'),
     `
+import { parhizgar, type AudioRecommendation } from '@ghoran/audio'
+import { loadAudioSource } from '@ghoran/audio/load'
+const gain: number | null = parhizgar.getGain(0)
+const recommendation: AudioRecommendation = (await loadAudioSource('ansarian')).getRecommendation(1)
 import { createQuranSearch, normalizeArabic, getHighlightSegments } from '@ghoran/search'
 const search = await createQuranSearch()
 const result = await search.search(normalizeArabic('ٱللَّهُ'))
@@ -247,6 +300,7 @@ search.dispose()
     '-p',
     join(consumer, 'tsconfig.node.json'),
   ])
+  await verifyAudioBundles(consumer)
   await verifySearchBrowser(consumer, process.argv.includes('--browser'))
   console.log(
     `All ${Object.keys(dependencies).length} packed packages passed ESM, declarations, lazy text, search, worker, translation, and font checks.`,

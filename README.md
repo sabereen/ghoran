@@ -15,7 +15,7 @@ pnpm check:packages
 pnpm docs:build
 ```
 
-بیلد هر هفت کتابخانه با `tsdown` انجام می‌شود. تنظیمات مشترک در
+بیلد هر هشت کتابخانه با `tsdown` انجام می‌شود. تنظیمات مشترک در
 `tsdown.shared.ts` و ورودی هر پکیج در `tsdown.config.ts` همان پکیج قرار دارد.
 مسیر خروجی جاوااسکریپت `dist/*.mjs` و مسیر تایپ‌ها `dist/*.d.ts` است؛
 فونت‌های TTF/WOFF2 و JSON متن‌ها نیز همراه پکیج منتشر می‌شوند.
@@ -63,7 +63,7 @@ pnpm --filter @ghoran/docs docs:preview
 
 ## انتشار روی npm
 
-روال انتشار هفت پکیج، اتصال یک‌بارهٔ Trusted Publisher و روش افزایش نسخه‌ها در
+روال انتشار پکیج‌ها، اتصال یک‌بارهٔ Trusted Publisher و روش افزایش نسخه‌ها در
 [راهنمای انتشار npm](docs/npm-release.md) توضیح داده شده است.
 با پوش tagهایی که با `npm-` شروع می‌شوند، بیلد و تست اجرا و خروجی تأییدشده
 به‌صورت خودکار روی npm منتشر می‌شود.
@@ -80,3 +80,9 @@ const results = await search.search('الرحمن الرحيم')
 ```
 
 [راهنمای جستجو و نمونهٔ تعاملی](https://sabereen.github.io/ghoran/packages/search)
+
+## پخش هماهنگ صوت قرآن
+
+`@ghoran/audio` پروفایل‌های کم‌حجم و Tree-shakable برای تنظیم بلندی تلاوت و ترجمه دارد؛ APIها همان اندیس صفرمبنای آیهٔ سایر پکیج‌ها را می‌گیرند. پکیج هیچ صوتی را دریافت، تحلیل یا بازنویسی نمی‌کند.
+
+[راهنمای پکیج صوت](packages/audio/README.md) · [دموی شنیداری](https://sabereen.github.io/ghoran/demo/audio/)

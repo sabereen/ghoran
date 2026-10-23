@@ -11,6 +11,7 @@ assert(
   'Use pack, dry-run, or publish',
 )
 const directory = resolve(root, output)
+const selectedPackage = process.env.RELEASE_PACKAGE || ''
 const registry = 'https://registry.npmjs.org/'
 
 // Publish dependencies before their consumers. A retry skips versions already live.
@@ -25,6 +26,11 @@ for (const name of await readdir(join(root, 'packages'))) {
     if (error.code !== 'ENOENT') throw error
   }
 }
+if (selectedPackage)
+  assert(
+    packages.some((pkg) => pkg.name === selectedPackage),
+    'Unknown release package',
+  )
 const pending = new Map(packages.map((pkg) => [pkg.name, pkg]))
 const ordered = []
 while (pending.size) {
@@ -37,7 +43,10 @@ while (pending.size) {
     pending.delete(pkg.name)
   }
 }
-const expected = ordered.map((pkg) => ({
+const releasePackages = selectedPackage
+  ? ordered.filter((pkg) => pkg.name === selectedPackage)
+  : ordered
+const expected = releasePackages.map((pkg) => ({
   name: pkg.name,
   version: pkg.version,
   file: `${pkg.name.replace(/^@/, '').replace('/', '-')}-${pkg.version}.tgz`,
@@ -52,7 +61,13 @@ if (mode === 'pack') {
   await mkdir(directory, { recursive: true })
   execFileSync(
     'pnpm',
-    ['-r', '--filter=./packages/*', 'pack', '--pack-destination', directory],
+    [
+      '-r',
+      `--filter=${selectedPackage || './packages/*'}`,
+      'pack',
+      '--pack-destination',
+      directory,
+    ],
     {
       cwd: root,
       stdio: 'pipe',

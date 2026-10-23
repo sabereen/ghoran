@@ -46,7 +46,18 @@
 برنچ `main` اجرا کنید. برای آزمایش بدون انتشار، `dry_run` را فعال کنید؛ پیش‌فرض
 این ورودی خاموش است و workflow واقعاً منتشر می‌کند.
 
-## انتشارهای بعدی
+## انتشار مستقل پکیج صوت
+
+افزایش نسخه در `packages/audio/package.json` و مرج روی `main`، پس از بررسی کامل، فقط `@ghoran/audio` را با همین workflow و Trusted Publisher منتشر می‌کند. برای این مسیر tag لازم نیست. بسته‌های دیگر تغییر نسخه یا انتشار ندارند. انتشار دوبارهٔ نسخهٔ موجود انجام نمی‌شود.
+
+برای آزمایش محلیِ همین بسته:
+
+```bash
+RELEASE_PACKAGE=@ghoran/audio pnpm release:pack
+RELEASE_PACKAGE=@ghoran/audio pnpm release:dry-run
+```
+
+## انتشارهای بعدیِ مجموعه
 
 ```bash
 pnpm release:version patch
@@ -63,7 +74,7 @@ git push origin npm-release-2
 آن خوانده می‌شود. به‌جای tag می‌توانید همیشه از **Run workflow** استفاده کنید.
 workflow تنها commitهایی را منتشر می‌کند که در تاریخچهٔ `main` باشند.
 
-روال CI روی push به `main` و pull requestها نیز اجرا می‌شود، ولی چیزی منتشر نمی‌کند.
+روال CI روی push به `main` و pull requestها نیز اجرا می‌شود و خودش چیزی منتشر نمی‌کند؛ انتشار مستقل صوت طبق بخش بالا با workflow انتشار انجام می‌شود.
 تغییر کد بدون افزایش نسخه، نسخهٔ موجود روی npm را جایگزین نمی‌کند.
 
 ## آزمایش محلی

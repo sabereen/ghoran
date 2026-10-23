@@ -30,6 +30,10 @@ const persianSidebar = [
     items: [
       { text: 'جستجوی قرآن (search)', link: '/packages/search' },
       {
+        text: 'صوت قرآن (audio)',
+        link: '/packages/audio',
+      },
+      {
         text: 'متن و فونت قرآن (text)',
         link: '/packages/text',
       },
@@ -55,6 +59,7 @@ const persianSidebar = [
     text: 'نمونه کد',
     items: [
       { text: 'جستجوی زندهٔ قرآن', link: '/demo/search/' },
+      { text: 'مقایسهٔ شنیداری صوت', link: '/demo/audio/' },
       { text: 'استفاده از فونت', link: '/demo/font/' },
       { text: 'استفاده از سوره‌ها', link: '/demo/surah/' },
     ],
@@ -98,6 +103,7 @@ const englishSidebar = [
     text: 'Packages',
     items: [
       { text: 'Quran search (search)', link: '/en/packages/search' },
+      { text: 'Quran audio (audio)', link: '/en/packages/audio' },
       {
         text: 'Quran text and fonts (text)',
         link: '/en/packages/text',
@@ -124,6 +130,7 @@ const englishSidebar = [
     text: 'Examples',
     items: [
       { text: 'Live Quran search', link: '/en/demo/search/' },
+      { text: 'Audio loudness comparison', link: '/en/demo/audio/' },
       { text: 'Using fonts', link: '/en/demo/font/' },
       { text: 'Using chapters', link: '/en/demo/surah/' },
     ],

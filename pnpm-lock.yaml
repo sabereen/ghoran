@@ -221,6 +221,9 @@ importers:
 
   docs:
     devDependencies:
+      '@ghoran/audio':
+        specifier: workspace:*
+        version: link:../packages/audio
       '@ghoran/entity':
         specifier: workspace:*
         version: link:../packages/entity
@@ -257,6 +260,8 @@ importers:
       vue:
         specifier: ^3.5.43
         version: 3.5.43(typescript@6.0.3)
+
+  packages/audio: {}
 
   packages/entity:
     dependencies:

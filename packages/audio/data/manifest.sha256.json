@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "2.0.0",
+  "files": {
+    "sources/parhizgar.json": "6b2abfd246b5645fc973028005d69e72fba5419593b4f8e293e671eff442f4a7",
+    "hashes/parhizgar.bin": "4722da7c3bf9a5d9e9937cc821ab029f522c5e6e9889c68f35c323db2fbe8286",
+    "sources/ghamadi.json": "2f7cda83c8211c26c70810a681fcb2fa0107039f0eeaff2659f091c8971ea6f9",
+    "hashes/ghamadi.bin": "ca2f7869c365af0082108dd9bc3d9d57b7fc9d462a0e79ec8a97f3093fd5f936",
+    "sources/husary.json": "d4f34e6de92b3fefa7a1ac5da7031313b8ce5923fac094fad80f793a3aad3b08",
+    "hashes/husary.bin": "9a4f894eabee9d70faffbbb2792280691e3424a8e5b8254441aa7c861d7b137b",
+    "sources/minshawy-murattal.json": "a18b0fbeb6cda378dcc7630123a40826efc9c42b7dbfcd3ab1df14beba52c402",
+    "hashes/minshawy-murattal.bin": "a14f2955dee9885895602c0bf3af77f80b78d46b738e8d897362bd88ea9995a5",
+    "sources/minshawy-mujawwad.json": "85a777a62c6744368bfa6497066853d492b53953a9cc668443f4a54d25f32b88",
+    "hashes/minshawy-mujawwad.bin": "dea7a75222dd9ad443eef7ec2617a48a63828d1db633944786b3884788a968f0",
+    "sources/motaz.json": "efe375e4fa101e5fb55ff8e4ee6e24a2c41e65b7d153673ad821eec939137889",
+    "hashes/motaz.bin": "d7b6a91f4d2b84f09b940213ae188701ec2f444ab12ad25627903b517b0340fb",
+    "sources/abdulbasit.json": "658f97619f13308c3cebaaaa71e2f783b66a76e4d15622e715e3d06b2a054322",
+    "hashes/abdulbasit.bin": "51eaa629bbc729064018afdee63835c955a75c4b28a2b3460fcde9f5b96e71af",
+    "sources/almuiqly.json": "bd2f736fced9a5366c16d9cbccce0fd1784caa15dcade075d910bbf52261dac4",
+    "hashes/almuiqly.bin": "2a117d1457ed578a56b1ac7f73c948e9ecdcfce07bd4e560c156f22a5af68308",
+    "sources/jafarpour.json": "fd77b55ec2688f0fded5c279b88c31ecdb643b5e49d3c58614c62a8d29b83794",
+    "hashes/jafarpour.bin": "79ff29a8e454f7e0f9a7116de148231699d9038dc8fa1096b99b6709e04bd92d",
+    "sources/ansarian.json": "a7925417ab16b48bbdb6870207104a517bb9cdef87edf724f15dc6b85f6b6020",
+    "hashes/ansarian.bin": "43e5fdf75cb4aebb3a379eb0a88be3c1952561648bd3c915b80f120f561f537c",
+    "sources/maleki.json": "2b0f8468deebab6034f6d572f4532eaced4b23fda1efe5b24ba535d14413a8fc",
+    "hashes/maleki.bin": "38e7fa65558679b4d4a52e45a8386d21164000e9c2c4ca230bd1b0ba20c844c8",
+    "sources/makarem-kabiri.json": "40b643862cc42438322287de19730e78c571b650b0d8e594316495d5dca90a86",
+    "hashes/makarem-kabiri.bin": "0e47065f4019849c4140836f0c41382dae7e3e5a9132e2a6cb90a7918ecc29d1",
+    "sources/fooladvand-hedayatfar.json": "6d653367cf2ce76a4f705b41cdf463dfef4a1496ffd25ad968cf21abbb51849c",
+    "hashes/fooladvand-hedayatfar.bin": "de75e24632fa7be422a8c03abd0a0fd653bc82c3e1b2bc6c6ae1fd932a68bfd3",
+    "snapshot.json": "86c7ea9eb01531f51e7a03f8f8a15dff0cabccbff8b389cff7157f32c9548c65"
+  }
+}

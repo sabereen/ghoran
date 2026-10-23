@@ -1,2 +1,8 @@
 pnpm-lock.yaml
 quran-text-*.json
+packages/audio-analysis/src/generated/
+packages/audio-analysis/src/sources/
+packages/audio-analysis/src/targets/
+packages/audio-analysis/src/hashes/
+packages/audio-analysis/src/catalog.ts
+packages/audio-analysis/data/

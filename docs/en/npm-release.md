@@ -63,3 +63,12 @@ Tarballs and the manifest are written to `work/npm-release/`. Direct local publi
 Before automatic publication, the owner must create `@ghoran/search` on npm for its first release and configure Trusted Publisher. The release script publishes `metadata` and `text` before `search`.
 
 Run `pnpm check:search-browser` to test the real worker in an installed Chromium browser. Set `CHROME_BIN` to select the browser executable.
+
+## Independent audio releases
+
+Bumping `packages/audio/package.json` and merging to `main` triggers this same trusted-publishing workflow for **only `@ghoran/audio`**, after full verification. No tag is needed for that route. Existing tag/manual monorepo releases keep their behavior. Other package versions are unchanged.
+
+```sh
+RELEASE_PACKAGE=@ghoran/audio pnpm release:pack
+RELEASE_PACKAGE=@ghoran/audio pnpm release:dry-run
+```

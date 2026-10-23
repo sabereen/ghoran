@@ -18,6 +18,7 @@ mkdirSync(bin)
 writeFileSync(join(bin, 'package.json'), JSON.stringify({ type: 'commonjs' }))
 const log = join(temporary, 'calls.jsonl')
 const manifest = [
+  'audio',
   'font-page',
   'metadata',
   'text',
@@ -61,7 +62,7 @@ console.log('{}')
 chmodSync(npm, 0o755)
 afterAll(() => rmSync(temporary, { recursive: true, force: true }))
 
-function run(mode: string, scenario = '') {
+function run(mode: string, scenario = '', selectedPackage = '') {
   writeFileSync(log, '')
   const result = spawnSync(
     process.execPath,
@@ -74,6 +75,7 @@ function run(mode: string, scenario = '') {
         GITHUB_ACTIONS: 'true',
         RELEASE_TEST_LOG: log,
         RELEASE_TEST_MODE: scenario,
+        RELEASE_PACKAGE: selectedPackage,
       },
     },
   )
@@ -89,7 +91,9 @@ describe.skipIf(process.platform === 'win32')('npm release', () => {
   test('dry-run skips published versions and validates unpublished packages', () => {
     const { result, calls } = run('dry-run')
     expect(result.status, result.stderr).toBe(0)
-    expect(calls.filter((args) => args[0] === 'view')).toHaveLength(manifest.length)
+    expect(calls.filter((args) => args[0] === 'view')).toHaveLength(
+      manifest.length,
+    )
     const validated = calls.filter((args) => args[0] === 'publish')
     expect(validated).toHaveLength(manifest.length - 1)
     expect(validated.some((args) => args[1].includes('font-page'))).toBe(false)
@@ -119,6 +123,21 @@ describe.skipIf(process.platform === 'win32')('npm release', () => {
         (args) => args.includes('--provenance') && !args.includes('--dry-run'),
       ),
     ).toBe(true)
+  })
+
+  test('an audio-only artifact cannot publish another package', () => {
+    const selected = manifest.filter((pkg) => pkg.name === '@ghoran/audio')
+    writeFileSync(join(temporary, 'manifest.json'), JSON.stringify(selected))
+    try {
+      const { result, calls } = run('publish', '', '@ghoran/audio')
+      expect(result.status, result.stderr).toBe(0)
+      expect(calls.filter((args) => args[0] === 'view')).toHaveLength(1)
+      const published = calls.filter((args) => args[0] === 'publish')
+      expect(published).toHaveLength(1)
+      expect(published[0][1]).toContain('ghoran-audio-')
+    } finally {
+      writeFileSync(join(temporary, 'manifest.json'), JSON.stringify(manifest))
+    }
   })
 
   test('registry errors stop the release before publishing any package', () => {
